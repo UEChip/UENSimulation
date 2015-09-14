@@ -13,3 +13,4 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\UENSim
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\UENSimulation.pdb
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FNX_DisplaySimulationPlatform
+namespace UENSimulation
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

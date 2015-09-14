@@ -1,4 +1,4 @@
-﻿<Window x:Class="FNX_DisplaySimulationPlatform.MainWindow"
+﻿<Window x:Class="UENSimulation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0" >
