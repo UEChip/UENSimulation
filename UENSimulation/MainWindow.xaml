@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FNX_DisplaySimulationPlatform.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="模拟展示平台" Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
+        Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0" >
     <Grid>
         <Image Margin="0,0,100,20" Panel.ZIndex="0" >
             <Image.Source>
@@ -27,7 +27,7 @@
             </Image>
             <Label Content="泛能机" HorizontalAlignment="Center" FontSize="18"/>
         </StackPanel>
-        <StackPanel Margin="914,620,495,42" Panel.ZIndex="2">
+        <StackPanel Margin="914,596,495,66" Panel.ZIndex="2">
             <Label Content="用能设备" FontSize="18" HorizontalAlignment="Center"/>
             <Image Height="342">
                 <Image.Source>
@@ -35,7 +35,7 @@
                 </Image.Source>
             </Image>
         </StackPanel>
-        <StackPanel Margin="1176,10,495,845" Panel.ZIndex="2">
+        <StackPanel Margin="1176,10,495,845" Panel.ZIndex="2" Name="cloud" MouseDown="cloud_MouseDown">
             <Image Height="120">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/cloud.png"/>
@@ -72,40 +72,24 @@
             </Image>
             <Label Content="传感表计" FontSize="18" HorizontalAlignment="Center"/>
         </StackPanel>
-        <Button Content="家庭环境信息"  Margin="598,79,1166,926" FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Height="45"/>
-        <StackPanel  Height="102" Margin="185,79,1561,869"  Width="166" Panel.ZIndex="2">
+        <Button Content="家庭环境信息"  Margin="598,79,1166,918" FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red"/>
+        <StackPanel  Height="102" Margin="185,79,1555,869" Panel.ZIndex="2">
             <Button Content="设备参数"   FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Height="45"/>
             <Button Content="优化模拟数据"   FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Height="45"/>
         </StackPanel>
 
-        <StackPanel  Height="102" Margin="1012,50,734,898"  Width="166" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
+        <StackPanel Margin="1013,54,735,898" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
             <StackPanel.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-25.354"/>
-                    <TranslateTransform/>
+                    <ScaleTransform ScaleX="0.991"/>
+                    <SkewTransform AngleX="4.892" AngleY="-5.864"/>
+                    <RotateTransform Angle="-33.269"/>
+                    <TranslateTransform X="8.968" Y="4.793"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Button Content="手动控制"   FontSize="22" Background="#FFF16300" BorderBrush="Red" Height="45" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-11.874"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
+            <Button Content="手动控制"   FontSize="22" Background="#FFF16300" BorderBrush="Red" Height="45" >
             </Button>
-            <Button Content="场景选择"   FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-12.773"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
+            <Button Content="场景选择"   FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" >
             </Button>
 
         </StackPanel>

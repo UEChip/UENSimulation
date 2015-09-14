@@ -44,21 +44,7 @@ namespace FNX_DisplaySimulationPlatform
 
         private void cloud_MouseDown(object sender, MouseButtonEventArgs e)
         {
-           
-            UENSimulation.CloudService cloudService = new UENSimulation.CloudService();
-            cloudService.cloudDetail.Items.Clear();
-            TextBox tb;
-            foreach (string str in staticCloudDetail)
-            {
-                tb = new TextBox();
-                tb.Margin = new Thickness(0, 0, 0, 10);
-                tb.FontSize = 18;
-                tb.Width = 300;
-                tb.TextWrapping = System.Windows.TextWrapping.Wrap;
-                tb.Text = str;
-                cloudService.cloudDetail.Items.Add(tb);
-            }
-            cloudService.ShowDialog();
+
         }
     }
 }
