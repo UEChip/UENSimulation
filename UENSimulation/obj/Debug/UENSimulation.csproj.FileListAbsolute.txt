@@ -1,4 +1,3 @@
-E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe.config
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe.config
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\UENSimulation.pdb
@@ -12,3 +11,19 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSim
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csproj.GenerateResource.Cache
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe.config
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.pdb
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\TAlex.WPF.Controls.dll
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\MainWindow.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\MainWindow.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\App.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation_MarkupCompile.cache
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.g.resources
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.Properties.Resources.resources
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csproj.GenerateResource.Cache
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
