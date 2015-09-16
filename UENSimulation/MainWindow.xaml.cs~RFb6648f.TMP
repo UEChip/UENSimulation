@@ -22,7 +22,8 @@ namespace UENSimulation
     {
         private string[] staticDate = { "12:00:01.135：客户端指令下发到泛能网关", "12:00:01.136：泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据", "12:00:01.138：根据载入数据，网关内部能源优化模块计算合适的控制策略", "12:00:01.150：网关将各项优化指令下发到家庭各用能设备", "12:00:01.160：用能设备状态改变，状态信息传递到泛能网关", "12:00:01.167：泛能网关“负荷预测”模块启动，利用IES和优化算法，计算能源负荷", "12:00:01.170：泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据", "12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网", "12:00:01.200：泛能机输出多种能源供给用能设备", "12:00:01.210：用能设备获取能源，正常运行", "12:00:01.220：执行完毕" };
         private string[] staticCloudDetail = { "当前共有五个家庭参与调度与交易，其中：", "1.家庭A从家庭D买入热，并将余热卖给家庭B；", "2.家庭B从家庭A买入热，并将余热和余电分别卖给家庭C和家庭E；", "3.家庭C从家庭B买入热，从家庭D买入电；", "4.家庭D将余热卖给家庭A，将余电卖给家庭C和家庭E；", "5.家庭E从家庭B和家庭D买入电。" };
-        
+        private List<string> strListx = new List<string>() { "电", "热", "气", "水"};
+        private List<string> strListy = new List<string>() { "4", "2", "3", "5"};
         public void StateGet()
         {
             state.Items.Clear();
@@ -59,12 +60,87 @@ namespace UENSimulation
                 tb.Text = str;
                 cloudService.cloudDetail.Items.Add(tb);
             }
-           
+            cloudService.chartA.Children.Clear();
+            CreateChartColumn("耗能表", strListx, strListy);  
 
             cloudService.ShowDialog();
            
         }
+        #region 柱状图
+        public void CreateChartColumn(string name, List<string> valuex, List<string> valuey)
+        {
+            //创建一个图标
+            Chart chart = new Chart();
 
+            //设置图标的宽度和高度
+            chart.Width = 200;
+            chart.Height = 200;
+            chart.Margin = new Thickness(0, 0, 0,0);
+            //是否启用打印和保持图片
+            chart.ToolBarEnabled = false;
+
+            //设置图标的属性
+            chart.ScrollingEnabled = false;//是否启用或禁用滚动
+            chart.View3D = true;//3D效果显示
+
+            //创建一个标题的对象
+            Title title = new Title();
+
+            //设置标题的名称
+            title.Text = Name;
+            title.Padding = new Thickness(0, 10, 5, 0);
+
+            //向图标添加标题
+            chart.Titles.Add(title);
+
+            Axis yAxis = new Axis();
+            //设置图标中Y轴的最小值永远为0           
+            yAxis.AxisMinimum = 0;
+            //设置图表中Y轴的后缀          
+            yAxis.Suffix = "kW.h";
+            chart.AxesY.Add(yAxis);
+
+            // 创建一个新的数据线。               
+            DataSeries dataSeries = new DataSeries();
+
+            // 设置数据线的格式
+            dataSeries.RenderAs = RenderAs.StackedColumn;//柱状Stacked
+
+
+            // 设置数据点              
+            DataPoint dataPoint;
+            for (int i = 0; i < valuex.Count; i++)
+            {
+                // 创建一个数据点的实例。                   
+                dataPoint = new DataPoint();
+                // 设置X轴点                    
+                dataPoint.AxisXLabel = valuex[i];
+                //设置Y轴点                   
+                dataPoint.YValue = double.Parse(valuey[i]);
+                //添加一个点击事件        
+                dataPoint.MouseLeftButtonDown += new MouseButtonEventHandler(dataPoint_MouseLeftButtonDown);
+                //添加数据点                   
+                dataSeries.DataPoints.Add(dataPoint);
+            }
+
+            // 添加数据线到数据序列。                
+            chart.Series.Add(dataSeries);
+
+            //将生产的图表增加到Grid，然后通过Grid添加到上层Grid.           
+            Grid gr = new Grid();
+            gr.Children.Add(chart);
+            CloudService cloudService = new CloudService();
+            cloudService.chartA.Children.Add(gr);
+        }
+        #endregion
+        #region 点击事件
+        //点击事件
+        void dataPoint_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //DataPoint dp = sender as DataPoint;
+            //MessageBox.Show(dp.YValue.ToString());
+        }
+        #endregion
     }
 
 }
