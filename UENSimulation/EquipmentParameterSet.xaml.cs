@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UENSimulation.Model;
+using UENSimulation.Utility;
 
 namespace UENSimulation
 {
@@ -19,9 +21,16 @@ namespace UENSimulation
     /// </summary>
     public partial class EquipmentParameterSet : Window
     {
+        EquipmentParameter equipmentParameter = new EquipmentParameter();
+        Txt_Handle txt_Handle = new Txt_Handle();
+
+        string path = @"..\..\Local Storage\EquipmentParameter.txt";
+
         public EquipmentParameterSet()
         {
             InitializeComponent();
+
+            string[] s = txt_Handle.dataRead(path);
         }
     }
 }

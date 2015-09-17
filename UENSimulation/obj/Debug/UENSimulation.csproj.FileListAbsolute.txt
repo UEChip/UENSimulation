@@ -25,7 +25,6 @@ E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.Properties.
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csproj.GenerateResource.Cache
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\TAlex.WPF.Controls.dll
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.baml
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.g.cs
@@ -42,3 +41,15 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\ko\Mic
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\Microsoft.Expression.Drawing.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\CloudService.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\CloudService.g.cs
