@@ -18,14 +18,21 @@ namespace UENSimulation.Utility
             return dataReturn;
         }
 
-        public void dataWrite(string path, int[] dataInt)
+        public void dataWrite(string path, string[] dataWrite)
         {
             FileStream fs = new FileStream(path, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             //开始写入
-            for (int i = 0; i < dataInt.Length; i++)
+            for (int i = 0; i < dataWrite.Length; i++)
             {
-                sw.Write(dataInt[i].ToString());
+                if (i != dataWrite.Length - 1)
+                {
+                    sw.Write(dataWrite[i] + " ");
+                }
+                else
+                {
+                    sw.Write(dataWrite[i]);
+                }
             }
             //清空缓冲区
             sw.Flush();
