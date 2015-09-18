@@ -146,26 +146,31 @@ namespace UENSimulation.Model
             get { return priceE; }
             set { priceE = value; }
         }
+
         public double PriceH
         {
             get { return priceH; }
             set { priceH = value; }
         }
+
         public double PriceG
         {
             get { return priceG; }
             set { priceG = value; }
         }
+
         public double Electricity
         {
             get { return electricity; }
             set { electricity = value; }
         }
+
         public double Photoelectricity
         {
             get { return photoelectricity; }
             set { photoelectricity = value; }
         }
+
         public double Optothermal
         {
             get { return optothermal; }

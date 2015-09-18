@@ -9,7 +9,7 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="350" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
             <StackPanel.Background>
-                <ImageBrush ImageSource="Resources/Images/panelBack1.png" TileMode="Tile"/>
+                <ImageBrush ImageSource="Resources/Images/panelBack_Equipment.png" TileMode="Tile"/>
             </StackPanel.Background>
             <Label Content="设备参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,10"/>
             <Grid Width="1320" Height="240" >
@@ -85,6 +85,9 @@
             </Grid>
         </StackPanel>
         <StackPanel Width="1358" Margin="0,450,0,60">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="Resources/Images/panelBack_External.png" TileMode="Tile"/>
+            </StackPanel.Background>
             <Label Content="外部参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,10"/>
             <Grid Width="1320" Height="140">
                 <Grid.RowDefinitions>
@@ -100,22 +103,22 @@
                     <ColumnDefinition Width="220"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="能源价格" Grid.Row="0" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="电" Grid.Row="1" Grid.Column="0" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
-                <Label Content="热" Grid.Row="1" Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
-                <Label Content="气" Grid.Row="1" Grid.Column="2" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
+                <Label Content="电" Grid.Row="1" Grid.Column="0" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
+                <Label Content="热" Grid.Row="1" Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
+                <Label Content="气" Grid.Row="1" Grid.Column="2" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="priceE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="priceH" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="priceG" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="priceE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="priceH" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="priceG" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
 
                 <Label Content="能源价格" Grid.Row="0" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="市电" Grid.Row="1" Grid.Column="3" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
-                <Label Content="光电" Grid.Row="1" Grid.Column="4" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
-                <Label Content="光热" Grid.Row="1" Grid.Column="5" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,0"/>
+                <Label Content="市电" Grid.Row="1" Grid.Column="3" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
+                <Label Content="光电" Grid.Row="1" Grid.Column="4" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
+                <Label Content="光热" Grid.Row="1" Grid.Column="5" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="photoelectricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="optothermal" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="photoelectricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="optothermal" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
 
             </Grid>
         </StackPanel>

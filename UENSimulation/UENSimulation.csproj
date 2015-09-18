@@ -133,13 +133,16 @@
     <Resource Include="Resources\Images\panelBack.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\panelBack1.png" />
+    <Resource Include="Resources\Images\panelBack_Equipment.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\user0.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Local Storage\EquipmentParameter.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\panelBack_External.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
