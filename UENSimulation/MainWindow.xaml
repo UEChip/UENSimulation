@@ -52,7 +52,7 @@
 			</Image>
 			<Label Content="客户交互APP" FontSize="18" HorizontalAlignment="Center"/>
 		</StackPanel>
-		<StackPanel  Height="206" Margin="891,349,843,495"  Width="178" Panel.ZIndex="2">
+		<StackPanel  Height="206" Margin="891,349,843,495"  Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
 			<Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
 			<Image Height="128">
 				<Image.Source>

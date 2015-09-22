@@ -55,3 +55,7 @@ E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.baml
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.g.cs
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gateway.baml
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.baml
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gateway.g.cs
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.g.cs

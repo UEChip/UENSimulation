@@ -65,6 +65,12 @@ namespace UENSimulation
            
         }
 
+        private void gateway_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Gateway gateway = new Gateway();
+            gateway.ShowDialog();
+        }
+
     }
 
 }

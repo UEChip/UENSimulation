@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\
 UENSimulation
 none
 false
 DEBUG;TRACE
-E:\Work\Projects\UENSimulation\UENSimulation\App.xaml
-4649585877
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\App.xaml
+5-780611717
 
-15-1598904223
-15693361567
-CloudService.xaml;EquipmentParameterSet.xaml;MainWindow.xaml;SimulatedDataSet.xaml;
+161451694546
+151249305555
+CloudService.xaml;EquipmentParameterSet.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;
 
 False
 
