@@ -57,30 +57,30 @@
                 <Label Content="泛能机负荷" Grid.Row="1" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="maxH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" RenderTransformOrigin="-1,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="maxTH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="3" Grid.Column="0" Name="etaInH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="4" Grid.Column="0" Name="etaOutH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="charge_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" RenderTransformOrigin="-1,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="duration_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="3" Grid.Column="0" Name="savedH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="4" Grid.Column="0" Name="saveT_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="maxE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="maxInE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="3" Grid.Column="1" Name="maxOutE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="charge_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="duration_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="3" Grid.Column="1" Name="savedE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="powerH_gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="gas_gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="duration_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="power_Heat" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="3" Name="power_Heat1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="envrmtdata_lout_Heat" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="3" Name="duration_Heat" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="power_Electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="4" Name="power_Electricity1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="envrmtdata_lout_Electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="4" Name="duration_Electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="powerE_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="5" Name="powerH_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="gear_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="5" Name="duration_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
             </Grid>
         </StackPanel>
         <StackPanel Width="1358" Margin="0,450,0,0">
-            <Button Name="btn_OK" Content="确定" Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,50,0" FontSize="20"/>
+            <Button Name="btn_OK" Content="确定" Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,50,0" FontSize="20" Click="btn_OK_Click"/>
         </StackPanel>
     </Grid>
 </Window>
