@@ -11,7 +11,7 @@
                     <BitmapImage UriSource="/Resources/Images/cloud.png"/>
                 </Image.Source>
             </Image>
-            <Label Content="泛能云服务"/>
+            <Label Content="泛能云服务" FontSize="18"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,137,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="76">
@@ -80,7 +80,14 @@
                 <Label Content="燃气灶"/>
             </StackPanel>
         </DockPanel>
+        <Image Margin="82,80,0,0" Height="290" VerticalAlignment="Top" HorizontalAlignment="Left" Width="901">
+            <Image.Source>
+                <BitmapImage UriSource="/Resources/Images/gatewayBack2.png"/>
+            </Image.Source>
+        </Image>
         <Grid HorizontalAlignment="Left" Height="263" Margin="115,113,0,0" VerticalAlignment="Top" Width="723">
+            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.975,1.647" Margin="118,36,0,0"/>
+            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="17" RenderTransformOrigin="2.975,1.647" Margin="509,36,0,0"/>
             <Image HorizontalAlignment="Left" Height="243" Margin="354,10,-33,0" VerticalAlignment="Top" Width="402">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/gatewayBack1.png"/>
@@ -120,7 +127,7 @@
 
         </Grid>
 
-        <DockPanel Margin="364,76,330,347">
+        <DockPanel Margin="364,76,330,446">
             <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20"/>
             <Label Content="天气信息"/>
             <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="1.95,0.985"/>
@@ -130,16 +137,16 @@
         </DockPanel>
         <Path Data="M81.5,127 L438,26" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="102" Margin="81.5,26,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="357.5" StrokeThickness="3" StrokeDashArray="2 1"/>
         <Path Data="M108.5,245.5 L81,146" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="100.5" Margin="81,146,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="28.5" StrokeThickness="3" StrokeDashArray="2 1"/>
-        <ed:Callout AnchorPoint="-0.003,0.883" CalloutStyle="Oval" Content="Callout" FontSize="14.667" HorizontalAlignment="Left" Height="124" Margin="778,26,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="165" Foreground="{x:Null}"/>
+        <ed:Callout AnchorPoint="-0.29,1.02" CalloutStyle="Oval" Content="Callout" FontSize="16" HorizontalAlignment="Left" Height="144" Margin="786,10,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="164" Foreground="{x:Null}"/>
         <DockPanel Margin="0,376,868,140">
             <Label Content="用能负荷数据" Width="83" />
-            <ed:BlockArrow HorizontalAlignment="Left"  Orientation="Left" Width="47" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,7,0,0" Height="38" VerticalAlignment="Top">
+            <ed:BlockArrow HorizontalAlignment="Left"  Orientation="Left" Width="47" RenderTransformOrigin="0.274,0.335" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,9,0,0" Height="25" VerticalAlignment="Top">
                 <ed:BlockArrow.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="-50.063"/>
-                        <TranslateTransform/>
+                        <RotateTransform Angle="-76.633"/>
+                        <TranslateTransform X="0.639" Y="9.622"/>
                     </TransformGroup>
                 </ed:BlockArrow.RenderTransform>
             </ed:BlockArrow>

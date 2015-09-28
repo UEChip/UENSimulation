@@ -39,17 +39,14 @@ namespace UENSimulation
         #region 折线图
         public void CreateChartSpline(string name, List<DateTime> lsTime, List<string> a, List<string> b,List<string> c)
         {
-            //创建一个图标
+            
             Chart chart = new Chart();
-
-            //设置图标的宽度和高度
             chart.Width = 404;
             chart.Height = 178;
             chart.Margin = new Thickness(0, 0, 10, 0);
             //是否启用打印和保持图片
             chart.ToolBarEnabled = false;
 
-            //设置图标的属性
             chart.ScrollingEnabled = false;//是否启用或禁用滚动
             chart.View3D = false;//3D效果显示
 
@@ -59,8 +56,6 @@ namespace UENSimulation
             //设置标题的名称
             title.Text = name;
             title.Padding = new Thickness(0, 10, 5, 0);
-
-            //向图标添加标题
             chart.Titles.Add(title);
 
             //初始化一个新的Axis
