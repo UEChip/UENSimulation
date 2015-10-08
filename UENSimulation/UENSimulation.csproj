@@ -69,6 +69,9 @@
     <Compile Include="SimulatedDataSet.xaml.cs">
       <DependentUpon>SimulatedDataSet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UEMSystem.xaml.cs">
+      <DependentUpon>UEMSystem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\Txt_Handle.cs" />
     <Page Include="CloudService.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SimulatedDataSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UEMSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

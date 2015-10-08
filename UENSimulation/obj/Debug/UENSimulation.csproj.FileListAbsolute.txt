@@ -59,3 +59,8 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gatewa
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.baml
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gateway.g.cs
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\Gateway.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UEMSystem.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\Gateway.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UEMSystem.g.cs
