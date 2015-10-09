@@ -73,7 +73,7 @@
 			</Image>
 			<Label Content="传感表计" FontSize="18" HorizontalAlignment="Center"/>
 		</StackPanel>
-		<Button Content="家庭环境信息"  Margin="598,79,1166,918" FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red"/>
+		<Button Content="家庭环境信息"  Margin="598,79,1166,918" FontSize="22" Name="familyButton" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Click="familyButton_Click"/>
 		<StackPanel  Height="102" Margin="185,79,1555,869" Panel.ZIndex="2">
 			<Button Content="设备参数"   FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Height="45"/>
 			<Button Content="优化模拟数据"   FontSize="22" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" BorderBrush="Red" Height="45"/>
