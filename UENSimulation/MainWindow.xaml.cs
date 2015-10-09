@@ -71,6 +71,12 @@ namespace UENSimulation
             gateway.ShowDialog();
         }
 
+        private void familyButton_Click(object sender, RoutedEventArgs e)
+        {
+            FamilyInformation family = new FamilyInformation();
+            family.ShowDialog();
+        }
+
     }
 
 }
