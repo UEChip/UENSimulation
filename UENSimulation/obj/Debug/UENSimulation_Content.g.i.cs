@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/arrow_electricity.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/arrow_gas.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/arrow_heat.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/interface/mwarray.dll")]
 
 
