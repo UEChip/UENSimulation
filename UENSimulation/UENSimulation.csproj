@@ -53,6 +53,10 @@
     <Reference Include="TAlex.WPF.Controls">
       <HintPath>Resources\Extended\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="UECM, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\UECM.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -79,6 +83,7 @@
     <Compile Include="UEMSystem.xaml.cs">
       <DependentUpon>UEMSystem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\EnergyCalculation.cs" />
     <Compile Include="Utility\Txt_Handle.cs" />
     <Page Include="CloudService.xaml">
       <Generator>MSBuild:Compile</Generator>
