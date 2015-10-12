@@ -16,6 +16,7 @@ namespace UENSimulation.Utility
         EquipmentParameter equipmentParameter = new EquipmentParameter();
         SimulatedData simulatedData = new SimulatedData();
 
+        //读取设备数据
         public void dataReadFromEquipmentParameter(string dataFilePath)
         {
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
@@ -52,6 +53,7 @@ namespace UENSimulation.Utility
             equipmentParameter.Optothermal = Convert.ToDouble(dataRead[22]);
         }
 
+        //读取模拟输入数据
         public void dataReadFromSimulatedData(string dataFilePath)
         {
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
@@ -78,9 +80,10 @@ namespace UENSimulation.Utility
             simulatedData.Duration_UE = Convert.ToDouble(dataRead[14]);
         }
 
-        public void ueMachine(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        //泛能机
+        public double[] ueMachine(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
         {
-            //输入变量,结构数组
+            //输入变量，结构数组
             string[] variableIn = new string[2];
             variableIn[0] = "gear";
             variableIn[1] = "duration";
@@ -88,7 +91,7 @@ namespace UENSimulation.Utility
             variableInStruct.SetField(variableIn[0], simulatedData.Gear_Boiler);
             variableInStruct.SetField(variableIn[1], simulatedData.Duration_Boiler);
 
-            //输入变量，嵌套结构数组
+            //设备参数，嵌套结构数组
             //内层结构数组powerE定义
             string[] equipmentParameter_powerE = new string[1];
             equipmentParameter_powerE[0] = "gear";
@@ -107,7 +110,7 @@ namespace UENSimulation.Utility
             MWStructArray gas = new MWStructArray(1, 1, equipmentParameter_Gas);
             gas.SetField(equipmentParameter_Gas[0], equipmentParameter.Gas_gear_UE);
 
-            //输入变量，设备参数，结构数组
+            //设备参数，结构数组
             string[] equipmentParameterIn = new string[3];
             equipmentParameterIn[0] = "powerE";
             equipmentParameterIn[1] = "powerH";
@@ -122,16 +125,241 @@ namespace UENSimulation.Utility
             MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
             //consume数组
             MWStructArray consume = (MWStructArray)dataOutStruct.GetField("consume");
-            string[] f2CO = consume.FieldNames;
-            MWNumericArray consumeGas = (MWNumericArray)consume.GetField("G");
-            double[,]consumeG1 = (double[,])consumeGas.ToArray(MWArrayComponent.Real);
+            string[] fieldName_Consume = consume.FieldNames;
+            MWNumericArray consumeG = (MWNumericArray)consume.GetField("G");
+            double[,] consumeG_Output = (double[,])consumeG.ToArray(MWArrayComponent.Real);
             //prdct数组
             MWStructArray prdct = (MWStructArray)dataOutStruct.GetField("prdct");
-            string[] f1PR = prdct.FieldNames;
-            MWNumericArray prdctE11 = (MWNumericArray)prdct.GetField("E");
-            MWNumericArray prdctH11 = (MWNumericArray)prdct.GetField("H");
-            double[,] prdctE1 = (double[,])prdctE11.ToArray(MWArrayComponent.Real);
-            double[,] prdctH1 = (double[,])prdctH11.ToArray(MWArrayComponent.Real);
+            string[] fieldName_prdct = prdct.FieldNames;
+            MWNumericArray prdctE = (MWNumericArray)prdct.GetField("E");
+            MWNumericArray prdctH = (MWNumericArray)prdct.GetField("H");
+            double[,] prdctE_Output = (double[,])prdctE.ToArray(MWArrayComponent.Real);
+            double[,] prdctH_Output = (double[,])prdctH.ToArray(MWArrayComponent.Real);
+
+            //返回数据
+            double[] ueMachine_Output = new double[3];
+            ueMachine_Output[0] = consumeG_Output[0, 0];
+            ueMachine_Output[1] = prdctE_Output[0, 0];
+            ueMachine_Output[2] = prdctH_Output[0, 0];
+
+            return ueMachine_Output;
+        }
+
+        //储热
+        public double[] saveH(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        {
+            //输入变量，结构数组
+            string[] variableIn = new string[4];
+            variableIn[0] = "charge";
+            variableIn[1] = "duration";
+            variableIn[2] = "savedH";
+            variableIn[3] = "saveT";
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
+            variableInStruct.SetField(variableIn[0], simulatedData.Charge_HA);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_HA);
+            variableInStruct.SetField(variableIn[2], simulatedData.SavedH_HA);
+            variableInStruct.SetField(variableIn[3], simulatedData.SaveT_HA);
+
+            //设备参数，结构数组
+            string[] equipmentParameterIn = new string[4];
+            equipmentParameterIn[0] = "maxH";
+            equipmentParameterIn[1] = "maxTH";
+            equipmentParameterIn[2] = "etaIn";
+            equipmentParameterIn[3] = "etaOut";
+            MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, equipmentParameterIn);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[0], equipmentParameter.MaxH_HA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[1], equipmentParameter.MaxTH_HA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[2], equipmentParameter.EtaInH_HA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[3], equipmentParameter.EtaOutH_HA);
+
+            //saveH函数调用
+            object[] dataOut = uec.saveh(1, variableInStruct, equipmentParameterInStruct);
+            MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
+            string[] fieldName = dataOutStruct.FieldNames;
+            //将输出由MWStructArray类型转化为MWNumericArray类型
+            MWNumericArray savedH = (MWNumericArray)dataOutStruct.GetField("savedH");
+            MWNumericArray saveT = (MWNumericArray)dataOutStruct.GetField("saveT");
+            //将输出由MWNumericArray类型转化为double类型(中间需要转化为Array类型)
+            double[,] savedH_Output = (double[,])savedH.ToArray(MWArrayComponent.Real);
+            double[,] saveT_Output = (double[,])saveT.ToArray(MWArrayComponent.Real);
+
+            //返回数据
+            double[] saveH_Output = new double[2];
+            saveH_Output[0] = savedH_Output[0, 0];
+            saveH_Output[1] = saveT_Output[0, 0];
+
+            return saveH_Output;
+        }
+
+        //储电
+        public double saveE(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        {
+            //输入变量，结构数组
+            string[] variableIn = new string[4];
+            variableIn[0] = "charge";
+            variableIn[1] = "duration";
+            variableIn[2] = "speed";
+            variableIn[3] = "savedE";
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
+            variableInStruct.SetField(variableIn[0], simulatedData.Charge_EA);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_EA);
+            variableInStruct.SetField(variableIn[2], 0);//速度 后期添加字段修改
+            variableInStruct.SetField(variableIn[3], simulatedData.SavedE_EA);
+
+            //设备参数，结构数组
+            string[] equipmentParameterIn = new string[5];
+            equipmentParameterIn[0] = "maxE";
+            equipmentParameterIn[1] = "maxInE";
+            equipmentParameterIn[2] = "maxOutE";
+            equipmentParameterIn[3] = "etaIn";
+            equipmentParameterIn[4] = "etaOut";
+            MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, equipmentParameterIn);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[0], equipmentParameter.MaxE_EA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[1], equipmentParameter.MaxInE_EA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[2], equipmentParameter.MaxOutE_EA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[3], equipmentParameter.EtaInE_EA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[4], equipmentParameter.EtaOutE_EA);
+
+            //saveE函数调用
+            object[] dataOut = uec.savee(1, variableInStruct, equipmentParameterInStruct);
+            MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
+            string[] fieldName = dataOutStruct.FieldNames;
+            //将输出由MWStructArray类型转化为MWNumericArray类型
+            MWNumericArray savedE = (MWNumericArray)dataOutStruct.GetField("savedE");
+            double[,] savedE_Output = (double[,])savedE.ToArray(MWArrayComponent.Real);
+
+            double saveE_Output = savedE_Output[0, 0];
+
+            return saveE_Output;
+        }
+
+        //光伏
+        public double pv(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        {
+            //输入变量，结构数组
+            string[] envrmtdata = new string[1];
+            envrmtdata[0] = "lout";
+            MWStructArray envrmtdataStruct = new MWStructArray(1, 1, envrmtdata);
+            envrmtdataStruct.SetField(envrmtdata[0], simulatedData.Envrmtdata_lout_Electricity);
+
+            string[] variableIn = new string[2];
+            variableIn[0] = "envrmtdata";
+            variableIn[1] = "duration";
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
+            variableInStruct.SetField(variableIn[0], envrmtdataStruct);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_Electricity);
+
+            //设备参数，结构数组
+            string[] equipmentParameterIn = new string[1];
+            equipmentParameterIn[0] = "power";
+            MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, equipmentParameterIn);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[0], equipmentParameter.Power_Electricity);
+
+            //pv函数调用
+            object[] dataOut = uec.pv(1, variableInStruct, equipmentParameterInStruct);
+            MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
+            string[] fieldName = dataOutStruct.FieldNames;
+
+            //将输出由MWStructArray类型转化为MWNumericArray类型
+            MWNumericArray e = (MWNumericArray)dataOutStruct.GetField("E");
+            double[,] e_Output = (double[,])e.ToArray(MWArrayComponent.Real);
+
+            double pv_Output = e_Output[0, 0];
+
+            return pv_Output;
+        }
+
+        //光热
+        public double pt(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        {
+            //输入变量，结构数组
+            string[] envrmtdata = new string[1];
+            envrmtdata[0] = "lout";
+            MWStructArray envrmtdataStruct = new MWStructArray(1, 1, envrmtdata);
+            envrmtdataStruct.SetField(envrmtdata[0], simulatedData.Envrmtdata_lout_Heat);
+
+            string[] variableIn = new string[2];
+            variableIn[0] = "envrmtdata";
+            variableIn[1] = "duration";
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
+            variableInStruct.SetField(variableIn[0], envrmtdataStruct);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_Heat);
+
+            //设备参数，结构数组
+            string[] equipmentParameterIn = new string[1];
+            equipmentParameterIn[0] = "power";
+            MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, equipmentParameterIn);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[0], equipmentParameter.Power_Heat);
+
+            //pt函数调用
+            object[] dataOut = uec.pt(1, variableInStruct, equipmentParameterInStruct);
+            MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
+            string[] fieldName = dataOutStruct.FieldNames;
+
+            //将输出由MWStructArray类型转化为MWNumericArray类型
+            MWNumericArray h = (MWNumericArray)dataOutStruct.GetField("H");
+            double[,] h_Output = (double[,])h.ToArray(MWArrayComponent.Real);
+
+            double pt_Output = h_Output[0, 0];
+
+            return pt_Output;
+        }
+
+        //补燃锅炉
+        public double[] gasBoiler(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
+        {
+            //输入变量，结构数组
+            string[] variableIn = new string[2];
+            variableIn[0] = "gear";
+            variableIn[1] = "duration";
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
+            variableInStruct.SetField(variableIn[0], simulatedData.Gear_Boiler);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_Boiler);
+
+            //设备参数，嵌套结构数组
+            //内层结构数组powerH定义
+            string[] equipmentParameter_PowerH = new string[1];
+            equipmentParameter_PowerH[0] = "gear";
+            MWStructArray powerH = new MWStructArray(1, 1, equipmentParameter_PowerH);
+            powerH.SetField(equipmentParameter_PowerH[0], equipmentParameter.PowerH_gear_Boiler);
+
+            //内层结构数组gas定义
+            string[] equipmentParameter_Gas = new string[1];
+            equipmentParameter_Gas[0] = "gear";
+            MWStructArray gas = new MWStructArray(1, 1, equipmentParameter_Gas);
+            gas.SetField(equipmentParameter_Gas[0], equipmentParameter.Gas_gear_Boiler);
+
+            //设备参数，结构数组
+            string[] equipmentParamaterIn = new string[2];
+            equipmentParamaterIn[0] = "powerH";
+            equipmentParamaterIn[1] = "gas";
+            MWStructArray equipmentParamaterInStruct = new MWStructArray(1, 1, equipmentParamaterIn);
+            equipmentParamaterInStruct.SetField(equipmentParamaterIn[0], equipmentParameter.PowerH_gear_Boiler);
+            equipmentParamaterInStruct.SetField(equipmentParamaterIn[1], equipmentParameter.Gas_gear_Boiler);
+
+            //函数调用
+            object[] dataOut = uec.gasboiler(1, variableInStruct, equipmentParamaterInStruct);
+            MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
+            string[] fieldName = dataOutStruct.FieldNames;
+            //将输出由MWStructArray类型转化为MWNumericArray类型
+            MWStructArray prdct = (MWStructArray)dataOutStruct.GetField("prdct");
+            MWStructArray consume = (MWStructArray)dataOutStruct.GetField("consume");
+            string[] prdctFieldName = prdct.FieldNames;
+            string[] consumeFieldName = consume.FieldNames;
+
+            //将输出由MWNumericArray类型转化为double类型(中间需要转化为Array类型)
+            MWNumericArray prdctH = (MWNumericArray)prdct.GetField("H");
+            MWNumericArray consumeG = (MWNumericArray)consume.GetField("G");
+
+            double[,] prdctH_Output = (double[,])prdctH.ToArray(MWArrayComponent.Real);
+            double[,] consumeG_Output = (double[,])consumeG.ToArray(MWArrayComponent.Real);
+
+            //返回数据
+            double[] gasBoiler_Output = new double[2];
+            gasBoiler_Output[0] = prdctH_Output[0, 0];
+            gasBoiler_Output[1] = consumeG_Output[0, 0];
+
+            return gasBoiler_Output;
         }
     }
 }
