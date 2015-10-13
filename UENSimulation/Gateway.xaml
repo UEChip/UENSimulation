@@ -4,7 +4,7 @@
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
         Title="Gateway" Height="569.077" Width="991.154" Left="1366" Top="0">
-    <Grid Margin="0,0,0,-20">
+    <Grid>
         <StackPanel HorizontalAlignment="Left" Height="94" Margin="433,0,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="50">
                 <Image.Source>
@@ -107,8 +107,8 @@
                         <Label Content="灯" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Height="71" VerticalAlignment="Top" Width="107" Margin="0,30,0,0">
-                        <Label Content="状态：" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Label Content="亮度：" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Label Content="状态：" Name="lightState" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Label Content="亮度：" Name="lightBrightness" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </DockPanel>
                 <StackPanel Height="136" VerticalAlignment="Top" Width="148">
@@ -120,8 +120,8 @@
                         </Image>
                         <Label Content="空调" Height="49" VerticalAlignment="Top"/>
                     </DockPanel>
-                    <Label Content="温度：" HorizontalAlignment="Center"/>
-                    <Label Content="风速：" HorizontalAlignment="Center"/>
+                    <Label Content="温度：" Name="conTemperature" HorizontalAlignment="Center"/>
+                    <Label Content="风速：" Name="conWindSpeed" HorizontalAlignment="Center"/>
                 </StackPanel>
             </DockPanel>
 

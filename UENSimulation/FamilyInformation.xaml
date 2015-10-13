@@ -7,55 +7,55 @@
             <Label Content="家庭信息配置" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="房屋面积" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="60m^2以下 " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="60-80m^2 "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="80-110m^2 "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="110-140m^2 " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="140m^以上" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="60m^2以下 " Name="house1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="60-80m^2 " Name="house2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="80-110m^2 " Name="house3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="110-140m^2 " Name="house4" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="140m^以上" Name="house5" VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="房间类型" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="二室一厅一卫  " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三室二厅一卫  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="四室二厅一卫  "  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="二室一厅一卫  " Name="houseType1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="三室二厅一卫  " Name="houseType2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="四室二厅一卫  " Name="houseType3"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="家庭类型" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="老年人家庭" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三代同堂  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三口之家  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="青年家庭  "  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="老年人家庭" Name="family1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="三代同堂  " Name="family2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="三口之家  " Name="family3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="青年家庭  " Name="family4"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="设备配置：泛能机" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="斯特林机  " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="内燃机  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="燃料电池  "  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="斯特林机  " Name="machine1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="内燃机  " Name="machine2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="燃料电池  "  Name="machine3"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="壁挂炉" VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="光伏板"  VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="空调"  VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="燃气灶"  VerticalAlignment="Center" FontSize="18"/>
+                <CheckBox Content="壁挂炉" Name="furnace" VerticalAlignment="Center" FontSize="18"/>
+                <CheckBox Content="光伏板" Name="panels"  VerticalAlignment="Center" FontSize="18"/>
+                <CheckBox Content="空调" Name="conditioner"  VerticalAlignment="Center" FontSize="18"/>
+                <CheckBox Content="燃气灶" Name="gasStove"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="建筑参数" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板楼  " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="塔楼  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板塔结合  "  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="板楼  " Name="slabApartment" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="塔楼  " Name="tower"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="板塔结合  " Name="slabTower"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="砖混材料  " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="刚混材料  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="砖混材料  " Name="brick" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="钢混材料  " Name="steel"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="其他" Name="otherMaterial"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="南北通透  " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="东西通透  "  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="南北通透  " Name="directionNS" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="东西通透  " Name="directionWE"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="其他" Name="directionOther"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
         </StackPanel>
 

@@ -12,58 +12,58 @@
 						<BitmapImage UriSource="/Resources/Images/cloud.png"/>
 					</Image.Source>
 				</Image>
-				<Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="22"/>
-			</StackPanel>
-			<DockPanel Height="586" LastChildFill="False">
-				<StackPanel Height="586" VerticalAlignment="Top" Width="351">
-					<Label Content="集智排名" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,10,0"/>
-					<DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-						<Image Height="150"  Width="104" x:Name="Portrait1">
-							<Image.Source>
-								<BitmapImage UriSource="/Resources/Images/user0.png"/>
-							</Image.Source>
-						</Image>
-						<Label Content="No.1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
-						<StackPanel Height="150" VerticalAlignment="Top" Width="168">
-							<Label Content="月用能:" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="节能率：" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="共节约：" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
-						</StackPanel>
-					</DockPanel>
-					<DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-						<Image Height="150"  Width="104" x:Name="Portrait2">
-							<Image.Source>
-								<BitmapImage UriSource="/Resources/Images/user0.png"/>
-							</Image.Source>
-						</Image>
-						<Label Content="No.2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
-						<StackPanel Height="150" VerticalAlignment="Top" Width="166">
-							<Label Content="月用能:" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="节能率：" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="共节约：" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
-						</StackPanel>
-					</DockPanel>
-					<DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-						<Image Height="150"  Width="104" x:Name="Portrait3">
-							<Image.Source>
-								<BitmapImage UriSource="/Resources/Images/user0.png"/>
-							</Image.Source>
-						</Image>
-						<Label Content="No.3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
-						<StackPanel Height="150" VerticalAlignment="Top" Width="170">
-							<Label Content="月用能:" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="节能率：" Height="50" Margin="0,0,10,0" FontSize="18"/>
-							<Label Content="共节约：" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
-						</StackPanel>
-					</DockPanel>
-					<DockPanel Margin="0,0,10,0" Height="98" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-						<Label Content="注：本排名根据专家库规则得出" FontSize="18" HorizontalAlignment="Center"/>
-					</DockPanel>
-				</StackPanel>
-				<StackPanel Height="586" VerticalAlignment="Top" Width="1006">
-					<Label Content="调度与交易" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,-36,0"/>
-					<DockPanel Height="559" LastChildFill="False">
-						<Canvas Height="559" VerticalAlignment="Top" Width="841">
+                <Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="22"/>
+            </StackPanel>
+            <DockPanel Height="586" LastChildFill="False">
+                <StackPanel Height="586" VerticalAlignment="Top" Width="351">
+                    <Label Content="集智排名" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,10,0"/>
+                    <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <Image Height="150"  Width="104" x:Name="Portrait1">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Content="No.1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel Height="150" VerticalAlignment="Top" Width="168">
+                            <Label Content="月用能:" Name="first_use" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="节能率：" Name="first_save" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="共节约：" Name="first_benefit" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <Image Height="150"  Width="104" x:Name="Portrait2">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Content="No.2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel Height="150" VerticalAlignment="Top" Width="166">
+                            <Label Content="月用能:" Name="second_use" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="节能率：" Name="second_save" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="共节约：" Name="second_benefit" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <Image Height="150"  Width="104" x:Name="Portrait3">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Content="No.3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel Height="150" VerticalAlignment="Top" Width="170">
+                            <Label Content="月用能:" Name="third_use" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="节能率：" Name="third_save" Height="50" Margin="0,0,10,0" FontSize="18"/>
+                            <Label Content="共节约：" Name="third_benefit" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel Margin="0,0,10,0" Height="98" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <Label Content="注：本排名根据专家库规则得出" FontSize="18" HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Height="586" VerticalAlignment="Top" Width="1006">
+                    <Label Content="调度与交易" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,-36,0"/>
+                    <DockPanel Height="559" LastChildFill="False">
+                        <Canvas Height="559" VerticalAlignment="Top" Width="841">
                             <ed:BlockArrow Fill="Red" Height="360.334" Canvas.Left="177.117" Orientation="Up" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="58.305" Width="50" RenderTransformOrigin="0.5,0.5">
                                 <ed:BlockArrow.RenderTransform>
                                     <TransformGroup>
@@ -107,67 +107,67 @@
                             </ed:BlockArrow>
                             <ed:BlockArrow Fill="Red" Height="135.8" Canvas.Left="581" Orientation="Down" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="130.2" Width="50"/>
                             <DockPanel Height="200" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartA_MouseEnter" MouseLeave="chartA_MouseLeave">
-								<StackPanel Height="200" VerticalAlignment="Top" Width="90" >
-									<Image Height="100">
-										<Image.Source>
-											<BitmapImage UriSource="/Resources/Images/user0.png"/>
-										</Image.Source>
-									</Image>
-									<Label Content="家庭A" HorizontalAlignment="Center" />
-								</StackPanel>
-								<Grid x:Name="chartA"  Opacity="0"/>
-							</DockPanel>
-							<DockPanel Height="200" Canvas.Left="541" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartB_MouseEnter"  MouseLeave="chartB_MouseLeave">
-								<StackPanel Height="200" VerticalAlignment="Top" Width="90">
-									<Image Height="100">
-										<Image.Source>
-											<BitmapImage UriSource="/Resources/Images/user0.png"/>
-										</Image.Source>
-									</Image>
-									<Label Content="家庭B" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<Grid x:Name="chartB"  Opacity="0"/>
-							</DockPanel>
-							<DockPanel Height="200" Canvas.Left="10" Canvas.Top="266" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartC_MouseEnter"  MouseLeave="chartC_MouseLeave">
-								<StackPanel Height="173" VerticalAlignment="Top" Width="90">
-									<Image Height="100">
-										<Image.Source>
-											<BitmapImage UriSource="/Resources/Images/user0.png"/>
-										</Image.Source>
-									</Image>
-									<Label Content="家庭C" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<Grid x:Name="chartC"  Opacity="0"/>
-							</DockPanel>
-							<DockPanel Height="200" Canvas.Left="331" Canvas.Top="349" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartD_MouseEnter"  MouseLeave="chartD_MouseLeave">
-								<StackPanel Height="173" VerticalAlignment="Top" Width="90">
-									<Image Height="100">
-										<Image.Source>
-											<BitmapImage UriSource="/Resources/Images/user0.png"/>
-										</Image.Source>
-									</Image>
-									<Label Content="家庭D" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<Grid x:Name="chartD"  Opacity="0"/>
-							</DockPanel>
-							<DockPanel Height="200" Canvas.Left="541" Canvas.Top="266" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartE_MouseEnter"  MouseLeave="chartE_MouseLeave">
-								<StackPanel Height="173" VerticalAlignment="Top" Width="90">
-									<Image Height="100">
-										<Image.Source>
-											<BitmapImage UriSource="/Resources/Images/user0.png"/>
-										</Image.Source>
-									</Image>
-									<Label Content="家庭E" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<Grid x:Name="chartE"  Opacity="0"/>
-							</DockPanel>
-							
-						</Canvas>
-						<ListBox Height="559" VerticalAlignment="Top" Width="160" x:Name="cloudDetail"/>
+                                <StackPanel Height="200" VerticalAlignment="Top" Width="90" >
+                                    <Image Height="100">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Content="家庭A" HorizontalAlignment="Center" />
+                                </StackPanel>
+                                <Grid x:Name="chartA"  Opacity="0"/>
+                            </DockPanel>
+                            <DockPanel Height="200" Canvas.Left="541" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartB_MouseEnter"  MouseLeave="chartB_MouseLeave">
+                                <StackPanel Height="200" VerticalAlignment="Top" Width="90">
+                                    <Image Height="100">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Content="家庭B" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <Grid x:Name="chartB"  Opacity="0"/>
+                            </DockPanel>
+                            <DockPanel Height="200" Canvas.Left="10" Canvas.Top="266" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartC_MouseEnter"  MouseLeave="chartC_MouseLeave">
+                                <StackPanel Height="173" VerticalAlignment="Top" Width="90">
+                                    <Image Height="100">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Content="家庭C" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <Grid x:Name="chartC"  Opacity="0"/>
+                            </DockPanel>
+                            <DockPanel Height="200" Canvas.Left="331" Canvas.Top="349" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartD_MouseEnter"  MouseLeave="chartD_MouseLeave">
+                                <StackPanel Height="173" VerticalAlignment="Top" Width="90">
+                                    <Image Height="100">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Content="家庭D" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <Grid x:Name="chartD"  Opacity="0"/>
+                            </DockPanel>
+                            <DockPanel Height="200" Canvas.Left="541" Canvas.Top="266" Width="300" RenderTransformOrigin="0.465,0.505"  MouseEnter="chartE_MouseEnter"  MouseLeave="chartE_MouseLeave">
+                                <StackPanel Height="173" VerticalAlignment="Top" Width="90">
+                                    <Image Height="100">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Content="家庭E" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <Grid x:Name="chartE"  Opacity="0"/>
+                            </DockPanel>
 
-					</DockPanel>
-				</StackPanel>
-			</DockPanel>
-		</StackPanel>
-	</Grid>
+                        </Canvas>
+                        <ListBox Height="559" VerticalAlignment="Top" Width="160" x:Name="cloudDetail"/>
+
+                    </DockPanel>
+                </StackPanel>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
 </Window>
