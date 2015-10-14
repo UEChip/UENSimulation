@@ -65,19 +65,20 @@ namespace UENSimulation.Utility
 
             simulatedData.Charge_EA = Convert.ToDouble(dataRead[4]);
             simulatedData.Duration_EA = Convert.ToDouble(dataRead[5]);
-            simulatedData.SavedE_EA = Convert.ToDouble(dataRead[6]);
+            simulatedData.Speed_EA = Convert.ToDouble(dataRead[6]);
+            simulatedData.SavedE_EA = Convert.ToDouble(dataRead[7]);
 
-            simulatedData.Gear_Boiler = Convert.ToDouble(dataRead[7]);
-            simulatedData.Duration_Boiler = Convert.ToDouble(dataRead[8]);
+            simulatedData.Gear_Boiler = Convert.ToDouble(dataRead[8]);
+            simulatedData.Duration_Boiler = Convert.ToDouble(dataRead[9]);
 
-            simulatedData.Envrmtdata_lout_Heat = Convert.ToDouble(dataRead[9]);
-            simulatedData.Duration_Heat = Convert.ToDouble(dataRead[10]);
+            simulatedData.Envrmtdata_lout_Heat = Convert.ToDouble(dataRead[10]);
+            simulatedData.Duration_Heat = Convert.ToDouble(dataRead[11]);
 
-            simulatedData.Envrmtdata_lout_Electricity = Convert.ToDouble(dataRead[11]);
-            simulatedData.Duration_Electricity = Convert.ToDouble(dataRead[12]);
+            simulatedData.Envrmtdata_lout_Electricity = Convert.ToDouble(dataRead[12]);
+            simulatedData.Duration_Electricity = Convert.ToDouble(dataRead[13]);
 
-            simulatedData.Gear_UE = Convert.ToDouble(dataRead[13]);
-            simulatedData.Duration_UE = Convert.ToDouble(dataRead[14]);
+            simulatedData.Gear_UE = Convert.ToDouble(dataRead[14]);
+            simulatedData.Duration_UE = Convert.ToDouble(dataRead[15]);
         }
 
         //泛能机
@@ -88,8 +89,8 @@ namespace UENSimulation.Utility
             variableIn[0] = "gear";
             variableIn[1] = "duration";
             MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
-            variableInStruct.SetField(variableIn[0], simulatedData.Gear_Boiler);
-            variableInStruct.SetField(variableIn[1], simulatedData.Duration_Boiler);
+            variableInStruct.SetField(variableIn[0], simulatedData.Gear_UE);
+            variableInStruct.SetField(variableIn[1], simulatedData.Duration_UE);
 
             //设备参数，嵌套结构数组
             //内层结构数组powerE定义
@@ -203,7 +204,7 @@ namespace UENSimulation.Utility
             MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
             variableInStruct.SetField(variableIn[0], simulatedData.Charge_EA);
             variableInStruct.SetField(variableIn[1], simulatedData.Duration_EA);
-            variableInStruct.SetField(variableIn[2], 0);//速度 后期添加字段修改
+            variableInStruct.SetField(variableIn[2], simulatedData.Speed_EA);
             variableInStruct.SetField(variableIn[3], simulatedData.SavedE_EA);
 
             //设备参数，结构数组
@@ -334,8 +335,8 @@ namespace UENSimulation.Utility
             equipmentParamaterIn[0] = "powerH";
             equipmentParamaterIn[1] = "gas";
             MWStructArray equipmentParamaterInStruct = new MWStructArray(1, 1, equipmentParamaterIn);
-            equipmentParamaterInStruct.SetField(equipmentParamaterIn[0], equipmentParameter.PowerH_gear_Boiler);
-            equipmentParamaterInStruct.SetField(equipmentParamaterIn[1], equipmentParameter.Gas_gear_Boiler);
+            equipmentParamaterInStruct.SetField(equipmentParamaterIn[0], powerH);
+            equipmentParamaterInStruct.SetField(equipmentParamaterIn[1], gas);
 
             //函数调用
             object[] dataOut = uec.gasboiler(1, variableInStruct, equipmentParamaterInStruct);

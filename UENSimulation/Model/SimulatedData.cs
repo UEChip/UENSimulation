@@ -15,6 +15,7 @@ namespace UENSimulation.Model
 
         double charge_EA;//储电——充放电状态
         double duration_EA;//储电——运行时间
+        double speed_EA;//储电——速度       
         double savedE_EA;//储电——当前存储电量
 
         double gear_Boiler;//补燃锅炉——补燃锅炉负荷
@@ -63,6 +64,12 @@ namespace UENSimulation.Model
         {
             get { return duration_EA; }
             set { duration_EA = value; }
+        }
+
+        public double Speed_EA
+        {
+            get { return speed_EA; }
+            set { speed_EA = value; }
         }
 
         public double SavedE_EA

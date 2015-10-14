@@ -65,3 +65,4 @@ E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hans\Microsoft.Express
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache

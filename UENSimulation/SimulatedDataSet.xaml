@@ -43,8 +43,9 @@
 
                 <Label Content="充放电状态" Grid.Row="1" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="当前存储电量" Grid.Row="3" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-               
+                <Label Content="速度" Grid.Row="3" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="当前存储电量" Grid.Row="4" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+
                 <Label Content="补燃锅炉负荷" Grid.Row="1" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="2" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
@@ -64,7 +65,8 @@
 
                 <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="charge_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="duration_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="3" Grid.Column="1" Name="savedE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="3" Grid.Column="1" Name="speed_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="4" Grid.Column="1" Name="savedE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
                 <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="duration_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>

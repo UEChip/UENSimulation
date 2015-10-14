@@ -45,19 +45,20 @@ namespace UENSimulation
 
             charge_EA.Value = Convert.ToDecimal(dataRead[4]);
             duration_EA.Value = Convert.ToDecimal(dataRead[5]);
-            savedE_EA.Value = Convert.ToDecimal(dataRead[6]);
+            speed_EA.Value = Convert.ToDecimal(dataRead[6]);
+            savedE_EA.Value = Convert.ToDecimal(dataRead[7]);
 
-            gear_Boiler.Value = Convert.ToDecimal(dataRead[7]);
-            duration_Boiler.Value = Convert.ToDecimal(dataRead[8]);
+            gear_Boiler.Value = Convert.ToDecimal(dataRead[8]);
+            duration_Boiler.Value = Convert.ToDecimal(dataRead[9]);
 
-            envrmtdata_lout_Heat.Value = Convert.ToDecimal(dataRead[9]);
-            duration_Heat.Value = Convert.ToDecimal(dataRead[10]);
+            envrmtdata_lout_Heat.Value = Convert.ToDecimal(dataRead[10]);
+            duration_Heat.Value = Convert.ToDecimal(dataRead[11]);
 
-            envrmtdata_lout_Electricity.Value = Convert.ToDecimal(dataRead[11]);
-            duration_Electricity.Value = Convert.ToDecimal(dataRead[12]);
+            envrmtdata_lout_Electricity.Value = Convert.ToDecimal(dataRead[12]);
+            duration_Electricity.Value = Convert.ToDecimal(dataRead[13]);
 
-            gear_UE.Value = Convert.ToDecimal(dataRead[13]);
-            duration_UE.Value = Convert.ToDecimal(dataRead[14]);
+            gear_UE.Value = Convert.ToDecimal(dataRead[14]);
+            duration_UE.Value = Convert.ToDecimal(dataRead[15]);
         }
 
         private void dataWriteToSimulatedData(string dataFilePath)
@@ -74,19 +75,20 @@ namespace UENSimulation
 
             dataWrite[4] = charge_EA.Value.ToString();
             dataWrite[5] = duration_EA.Value.ToString();
-            dataWrite[6] = savedE_EA.Value.ToString();
+            dataWrite[6] = speed_EA.Value.ToString();
+            dataWrite[7] = savedE_EA.Value.ToString();
 
-            dataWrite[7] = gear_Boiler.Value.ToString();
-            dataWrite[8] = duration_Boiler.Value.ToString();
+            dataWrite[8] = gear_Boiler.Value.ToString();
+            dataWrite[9] = duration_Boiler.Value.ToString();
 
-            dataWrite[9] = envrmtdata_lout_Heat.Value.ToString();
-            dataWrite[10] = duration_Heat.Value.ToString();
+            dataWrite[10] = envrmtdata_lout_Heat.Value.ToString();
+            dataWrite[11] = duration_Heat.Value.ToString();
 
-            dataWrite[11] = envrmtdata_lout_Electricity.Value.ToString();
-            dataWrite[12] = duration_Electricity.Value.ToString();
+            dataWrite[12] = envrmtdata_lout_Electricity.Value.ToString();
+            dataWrite[13] = duration_Electricity.Value.ToString();
 
-            dataWrite[13] = gear_UE.Value.ToString();
-            dataWrite[14] = duration_UE.Value.ToString();
+            dataWrite[14] = gear_UE.Value.ToString();
+            dataWrite[15] = duration_UE.Value.ToString();
 
             txt_Handle.dataWrite(dataFilePath, dataWrite);
         }
