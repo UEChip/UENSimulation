@@ -1,7 +1,7 @@
 ﻿<Window x:Class="UENSimulation.FamilyInformation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FamilyInformation" Height="500" Width="800" Left="1366" Top="0">
+        Title="FamilyInformation" Height="500" Width="800" Left="1366" Top="0" Closing="Window_Closing">
     <Grid>
         <StackPanel>
             <Label Content="家庭信息配置" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
@@ -41,21 +41,21 @@
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="建筑参数" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板楼  " Name="slabApartment" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="塔楼  " Name="tower"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板塔结合  " Name="slabTower"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="板楼  " Name="buildingParameters1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="塔楼  " Name="buildingParameters2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="板塔结合  " Name="buildingParameters3"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="砖混材料  " Name="brick" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="钢混材料  " Name="steel"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他" Name="otherMaterial"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="砖混材料  " Name="material1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="钢混材料  " Name="material2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="其他" Name="material3"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
             <DockPanel Height="50" LastChildFill="False">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="南北通透  " Name="directionNS" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="东西通透  " Name="directionWE"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他" Name="directionOther"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="南北通透  " Name="direction1" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="东西通透  " Name="direction2"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="其他" Name="direction3"  VerticalAlignment="Center" FontSize="18"/>
             </DockPanel>
         </StackPanel>
 
