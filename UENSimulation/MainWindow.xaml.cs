@@ -43,6 +43,11 @@ namespace UENSimulation
             InitializeComponent();
             StateGet();
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("是否确定关闭", "选择", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            e.Cancel = (mbr == MessageBoxResult.No);
+        }
         private void cloud_MouseDown(object sender, MouseButtonEventArgs e)
         {
 

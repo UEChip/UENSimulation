@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace UENSimulation
+{
+    /// <summary>
+    /// FamilyInformation.xaml 的交互逻辑
+    /// </summary>
+    public partial class FamilyInformation : Window
+    {
+        public int firstTime = 0;
+        public FamilyInformation()
+        {
+            InitializeComponent();
+         
+           
+        }
+
+        public void FirstTime()
+        {
+            house1.IsChecked = true;
+            houseType1.IsChecked = true;
+            family1.IsChecked = true;
+            machine1.IsChecked = true;
+            furnace.IsChecked = false;
+            panels.IsChecked = false;
+            conditioner.IsChecked = false;
+            gasStove.IsChecked = false;
+            slabApartment.IsChecked = true;
+            brick.IsChecked = true;
+            directionNS.IsChecked = true;
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+    }
+}
