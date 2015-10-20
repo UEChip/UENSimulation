@@ -9,7 +9,6 @@ namespace UENSimulation.Model
     class EquipmentParameter
     {
         double maxH_HA;//储热——最大储热量
-        double maxTH_HA;//储热——最大储热水温
         double etaInH_HA;//储热——充热能量损失
         double etaOutH_HA;//储热——放热能量损失
 
@@ -43,12 +42,6 @@ namespace UENSimulation.Model
         {
             get { return maxH_HA; }
             set { maxH_HA = value; }
-        }
-
-        public double MaxTH_HA
-        {
-            get { return maxTH_HA; }
-            set { maxTH_HA = value; }
         }
 
         public double EtaInH_HA

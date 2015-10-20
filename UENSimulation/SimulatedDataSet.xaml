@@ -36,10 +36,9 @@
                 <Label Content="光伏" Grid.Row="0" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
                 <Label Content="泛能机" Grid.Row="0" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
 
-                <Label Content="充放电状态" Grid.Row="1" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="运行时间" Grid.Row="2" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="当前存储电量" Grid.Row="3" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="当前存储水温度" Grid.Row="4" Grid.Column="0" Width="135" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="充放热状态" Grid.Row="1" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="存储/释放热量" Grid.Row="2" Grid.Column="0" Width="130" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="当前存储热量" Grid.Row="3" Grid.Column="0" Width="135" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
                 <Label Content="充放电状态" Grid.Row="1" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
@@ -58,10 +57,9 @@
                 <Label Content="泛能机负荷" Grid.Row="1" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="charge_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" RenderTransformOrigin="-1,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="duration_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="charge_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="h_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,15,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="3" Grid.Column="0" Name="savedH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="4" Grid.Column="0" Name="saveT_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
                 <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="charge_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="duration_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>

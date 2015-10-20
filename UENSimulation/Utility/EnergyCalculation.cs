@@ -22,35 +22,34 @@ namespace UENSimulation.Utility
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
 
             equipmentParameter.MaxH_HA = Convert.ToDouble(dataRead[0]);
-            equipmentParameter.MaxTH_HA = Convert.ToDouble(dataRead[1]);
-            equipmentParameter.EtaInH_HA = Convert.ToDouble(dataRead[2]);
-            equipmentParameter.EtaOutH_HA = Convert.ToDouble(dataRead[3]);
+            equipmentParameter.EtaInH_HA = Convert.ToDouble(dataRead[1]);
+            equipmentParameter.EtaOutH_HA = Convert.ToDouble(dataRead[2]);
 
-            equipmentParameter.MaxE_EA = Convert.ToDouble(dataRead[4]);
-            equipmentParameter.MaxInE_EA = Convert.ToDouble(dataRead[5]);
-            equipmentParameter.MaxOutE_EA = Convert.ToDouble(dataRead[6]);
-            equipmentParameter.EtaInE_EA = Convert.ToDouble(dataRead[7]);
-            equipmentParameter.EtaOutE_EA = Convert.ToDouble(dataRead[8]);
+            equipmentParameter.MaxE_EA = Convert.ToDouble(dataRead[3]);
+            equipmentParameter.MaxInE_EA = Convert.ToDouble(dataRead[4]);
+            equipmentParameter.MaxOutE_EA = Convert.ToDouble(dataRead[5]);
+            equipmentParameter.EtaInE_EA = Convert.ToDouble(dataRead[6]);
+            equipmentParameter.EtaOutE_EA = Convert.ToDouble(dataRead[7]);
 
-            equipmentParameter.PowerH_gear_Boiler = Convert.ToDouble(dataRead[9]);
-            equipmentParameter.Gas_gear_Boiler = Convert.ToDouble(dataRead[10]);
+            equipmentParameter.PowerH_gear_Boiler = Convert.ToDouble(dataRead[8]);
+            equipmentParameter.Gas_gear_Boiler = Convert.ToDouble(dataRead[9]);
 
-            equipmentParameter.Power_Heat = Convert.ToDouble(dataRead[11]);
+            equipmentParameter.Power_Heat = Convert.ToDouble(dataRead[10]);
 
-            equipmentParameter.Electricity = Convert.ToDouble(dataRead[12]);
+            equipmentParameter.Electricity = Convert.ToDouble(dataRead[11]);
 
-            equipmentParameter.PowerE_UE = Convert.ToDouble(dataRead[13]);
-            equipmentParameter.PowerH_UE = Convert.ToDouble(dataRead[14]);
-            equipmentParameter.Gas_gear_UE = Convert.ToDouble(dataRead[15]);
-            equipmentParameter.Gear_UE = Convert.ToDouble(dataRead[16]);
+            equipmentParameter.PowerE_UE = Convert.ToDouble(dataRead[12]);
+            equipmentParameter.PowerH_UE = Convert.ToDouble(dataRead[13]);
+            equipmentParameter.Gas_gear_UE = Convert.ToDouble(dataRead[14]);
+            equipmentParameter.Gear_UE = Convert.ToDouble(dataRead[15]);
 
-            equipmentParameter.PriceE = Convert.ToDouble(dataRead[17]);
-            equipmentParameter.PriceH = Convert.ToDouble(dataRead[18]);
-            equipmentParameter.PriceG = Convert.ToDouble(dataRead[19]);
+            equipmentParameter.PriceE = Convert.ToDouble(dataRead[16]);
+            equipmentParameter.PriceH = Convert.ToDouble(dataRead[17]);
+            equipmentParameter.PriceG = Convert.ToDouble(dataRead[18]);
 
-            equipmentParameter.Electricity = Convert.ToDouble(dataRead[20]);
-            equipmentParameter.Photoelectricity = Convert.ToDouble(dataRead[21]);
-            equipmentParameter.Optothermal = Convert.ToDouble(dataRead[22]);
+            equipmentParameter.Electricity = Convert.ToDouble(dataRead[19]);
+            equipmentParameter.Photoelectricity = Convert.ToDouble(dataRead[20]);
+            equipmentParameter.Optothermal = Convert.ToDouble(dataRead[21]);
         }
 
         //读取模拟输入数据
@@ -59,26 +58,25 @@ namespace UENSimulation.Utility
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
 
             simulatedData.Charge_HA = Convert.ToDouble(dataRead[0]);
-            simulatedData.Duration_HA = Convert.ToDouble(dataRead[1]);
+            simulatedData.H_HA = Convert.ToDouble(dataRead[1]);
             simulatedData.SavedH_HA = Convert.ToDouble(dataRead[2]);
-            simulatedData.SaveT_HA = Convert.ToDouble(dataRead[3]);
 
-            simulatedData.Charge_EA = Convert.ToDouble(dataRead[4]);
-            simulatedData.Duration_EA = Convert.ToDouble(dataRead[5]);
-            simulatedData.Speed_EA = Convert.ToDouble(dataRead[6]);
-            simulatedData.SavedE_EA = Convert.ToDouble(dataRead[7]);
+            simulatedData.Charge_EA = Convert.ToDouble(dataRead[3]);
+            simulatedData.Duration_EA = Convert.ToDouble(dataRead[4]);
+            simulatedData.Speed_EA = Convert.ToDouble(dataRead[5]);
+            simulatedData.SavedE_EA = Convert.ToDouble(dataRead[6]);
 
-            simulatedData.Gear_Boiler = Convert.ToDouble(dataRead[8]);
-            simulatedData.Duration_Boiler = Convert.ToDouble(dataRead[9]);
+            simulatedData.Gear_Boiler = Convert.ToDouble(dataRead[7]);
+            simulatedData.Duration_Boiler = Convert.ToDouble(dataRead[8]);
 
-            simulatedData.Envrmtdata_lout_Heat = Convert.ToDouble(dataRead[10]);
-            simulatedData.Duration_Heat = Convert.ToDouble(dataRead[11]);
+            simulatedData.Envrmtdata_lout_Heat = Convert.ToDouble(dataRead[9]);
+            simulatedData.Duration_Heat = Convert.ToDouble(dataRead[10]);
 
-            simulatedData.Envrmtdata_lout_Electricity = Convert.ToDouble(dataRead[12]);
-            simulatedData.Duration_Electricity = Convert.ToDouble(dataRead[13]);
+            simulatedData.Envrmtdata_lout_Electricity = Convert.ToDouble(dataRead[11]);
+            simulatedData.Duration_Electricity = Convert.ToDouble(dataRead[12]);
 
-            simulatedData.Gear_UE = Convert.ToDouble(dataRead[14]);
-            simulatedData.Duration_UE = Convert.ToDouble(dataRead[15]);
+            simulatedData.Gear_UE = Convert.ToDouble(dataRead[13]);
+            simulatedData.Duration_UE = Convert.ToDouble(dataRead[14]);
         }
 
         //泛能机
@@ -150,28 +148,24 @@ namespace UENSimulation.Utility
         public double[] saveH(EquipmentParameter equipmentParameter, SimulatedData simulatedData)
         {
             //输入变量，结构数组
-            string[] variableIn = new string[4];
+            string[] variableIn = new string[3];
             variableIn[0] = "charge";
-            variableIn[1] = "duration";
-            variableIn[2] = "savedH";
-            variableIn[3] = "saveT";
+            variableIn[1] = "h";
+            variableIn[2] = "saveT";
             MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
             variableInStruct.SetField(variableIn[0], simulatedData.Charge_HA);
-            variableInStruct.SetField(variableIn[1], simulatedData.Duration_HA);
+            variableInStruct.SetField(variableIn[1], simulatedData.H_HA);
             variableInStruct.SetField(variableIn[2], simulatedData.SavedH_HA);
-            variableInStruct.SetField(variableIn[3], simulatedData.SaveT_HA);
 
             //设备参数，结构数组
-            string[] equipmentParameterIn = new string[4];
+            string[] equipmentParameterIn = new string[3];
             equipmentParameterIn[0] = "maxH";
-            equipmentParameterIn[1] = "maxTH";
-            equipmentParameterIn[2] = "etaIn";
-            equipmentParameterIn[3] = "etaOut";
+            equipmentParameterIn[1] = "etaIn";
+            equipmentParameterIn[2] = "etaOut";
             MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, equipmentParameterIn);
             equipmentParameterInStruct.SetField(equipmentParameterIn[0], equipmentParameter.MaxH_HA);
-            equipmentParameterInStruct.SetField(equipmentParameterIn[1], equipmentParameter.MaxTH_HA);
-            equipmentParameterInStruct.SetField(equipmentParameterIn[2], equipmentParameter.EtaInH_HA);
-            equipmentParameterInStruct.SetField(equipmentParameterIn[3], equipmentParameter.EtaOutH_HA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[1], equipmentParameter.EtaInH_HA);
+            equipmentParameterInStruct.SetField(equipmentParameterIn[2], equipmentParameter.EtaOutH_HA);
 
             //saveH函数调用
             object[] dataOut = uec.saveh(1, variableInStruct, equipmentParameterInStruct);
@@ -179,15 +173,15 @@ namespace UENSimulation.Utility
             string[] fieldName = dataOutStruct.FieldNames;
             //将输出由MWStructArray类型转化为MWNumericArray类型
             MWNumericArray savedH = (MWNumericArray)dataOutStruct.GetField("savedH");
-            MWNumericArray saveT = (MWNumericArray)dataOutStruct.GetField("saveT");
+            MWNumericArray deltaH = (MWNumericArray)dataOutStruct.GetField("deltaH");
             //将输出由MWNumericArray类型转化为double类型(中间需要转化为Array类型)
             double[,] savedH_Output = (double[,])savedH.ToArray(MWArrayComponent.Real);
-            double[,] saveT_Output = (double[,])saveT.ToArray(MWArrayComponent.Real);
+            double[,] deltaH_Output = (double[,])deltaH.ToArray(MWArrayComponent.Real);
 
             //返回数据
             double[] saveH_Output = new double[2];
             saveH_Output[0] = savedH_Output[0, 0];
-            saveH_Output[1] = saveT_Output[0, 0];
+            saveH_Output[1] = deltaH_Output[0, 0];
 
             return saveH_Output;
         }

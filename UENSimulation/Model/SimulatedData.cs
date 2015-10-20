@@ -8,10 +8,9 @@ namespace UENSimulation.Model
 {
     class SimulatedData
     {
-        double charge_HA;//储热——充放电状态(+1/-1)
-        double duration_HA;//储热——运行时间
-        double savedH_HA;//储热——当前存储电量
-        double saveT_HA;//储热——当前存储水温度
+        double charge_HA;//储热——充放热状态(+1/-1)
+        double h_HA;//储热——储存或释放的热量（正值）
+        double savedH_HA;//储热——当前存储热量
 
         double charge_EA;//储电——充放电状态
         double duration_EA;//储电——运行时间
@@ -36,22 +35,16 @@ namespace UENSimulation.Model
             set { charge_HA = value; }
         }
 
-        public double Duration_HA
+        public double H_HA
         {
-            get { return duration_HA; }
-            set { duration_HA = value; }
+            get { return h_HA; }
+            set { h_HA = value; }
         }
 
         public double SavedH_HA
         {
             get { return savedH_HA; }
             set { savedH_HA = value; }
-        }
-
-        public double SaveT_HA
-        {
-            get { return saveT_HA; }
-            set { saveT_HA = value; }
         }
 
         public double Charge_EA
