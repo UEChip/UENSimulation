@@ -30,6 +30,11 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gatewa
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.baml
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Gateway.g.cs
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\SimulatedDataSet.g.cs
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.baml
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UEMSystem.baml
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.g.cs
+C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UEMSystem.g.cs
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\CloudService.baml
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.baml
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.baml
@@ -49,6 +54,7 @@ E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation_MarkupCompi
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.g.resources
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.Properties.Resources.resources
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csproj.GenerateResource.Cache
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe.config
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.exe
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\UENSimulation.pdb
@@ -63,10 +69,3 @@ E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ko\Microsoft.Expression.D
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.baml
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UEMSystem.baml
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.g.cs
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UEMSystem.g.cs

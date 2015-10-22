@@ -13,8 +13,14 @@ namespace UENSimulation.Utility
     {
         UECM.UEC uec = new UECM.UEC();
         Txt_Handle txt_Handle = new Txt_Handle();
-        EquipmentParameter equipmentParameter = new EquipmentParameter();
-        SimulatedData simulatedData = new SimulatedData();
+        public EquipmentParameter equipmentParameter = new EquipmentParameter();
+        public SimulatedData simulatedData = new SimulatedData();
+
+        public EnergyCalculation(string filePath_EquipmentParameter, string filePath_SimulatedData)
+        {
+            dataReadFromEquipmentParameter(filePath_EquipmentParameter);
+            dataReadFromSimulatedData(filePath_SimulatedData);
+        }
 
         //读取设备数据
         public void dataReadFromEquipmentParameter(string dataFilePath)
@@ -150,8 +156,8 @@ namespace UENSimulation.Utility
             //输入变量，结构数组
             string[] variableIn = new string[3];
             variableIn[0] = "charge";
-            variableIn[1] = "h";
-            variableIn[2] = "saveT";
+            variableIn[1] = "H";
+            variableIn[2] = "savedH";
             MWStructArray variableInStruct = new MWStructArray(1, 1, variableIn);
             variableInStruct.SetField(variableIn[0], simulatedData.Charge_HA);
             variableInStruct.SetField(variableIn[1], simulatedData.H_HA);
@@ -253,10 +259,11 @@ namespace UENSimulation.Utility
             //pv函数调用
             object[] dataOut = uec.pv(1, variableInStruct, equipmentParameterInStruct);
             MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
-            string[] fieldName = dataOutStruct.FieldNames;
+            MWStructArray prdct = (MWStructArray)dataOutStruct.GetField("prdct");//////////
+            string[] fieldName = prdct.FieldNames;
 
             //将输出由MWStructArray类型转化为MWNumericArray类型
-            MWNumericArray e = (MWNumericArray)dataOutStruct.GetField("E");
+            MWNumericArray e = (MWNumericArray)prdct.GetField("E");
             double[,] e_Output = (double[,])e.ToArray(MWArrayComponent.Real);
 
             double pv_Output = e_Output[0, 0];
@@ -288,11 +295,15 @@ namespace UENSimulation.Utility
 
             //pt函数调用
             object[] dataOut = uec.pt(1, variableInStruct, equipmentParameterInStruct);
+            //外层结构数组
             MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
             string[] fieldName = dataOutStruct.FieldNames;
+            //内层结构数组
+            MWStructArray prdct = (MWStructArray)dataOutStruct.GetField("prdct");
+            string[] fieldName_prdct = prdct.FieldNames;
 
             //将输出由MWStructArray类型转化为MWNumericArray类型
-            MWNumericArray h = (MWNumericArray)dataOutStruct.GetField("H");
+            MWNumericArray h = (MWNumericArray)prdct.GetField("H");
             double[,] h_Output = (double[,])h.ToArray(MWArrayComponent.Real);
 
             double pt_Output = h_Output[0, 0];
