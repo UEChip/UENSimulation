@@ -3,19 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.CloudService"
-       Title="CloudService" Height="700" Width="1363.5" Left="1366">
-	<Grid>
-		<StackPanel>
-			<StackPanel Height="88">
-				<Image Height="50">
-					<Image.Source>
-						<BitmapImage UriSource="/Resources/Images/cloud.png"/>
-					</Image.Source>
-				</Image>
+       Title="CloudService" Height="761.5" Width="1518" Left="1366">
+    <Grid>
+        <StackPanel>
+            <StackPanel Height="88">
+                <Image Height="50">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/Images/cloud.png"/>
+                    </Image.Source>
+                </Image>
                 <Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="22"/>
             </StackPanel>
-            <DockPanel Height="586" LastChildFill="False">
-                <StackPanel Height="586" VerticalAlignment="Top" Width="351">
+            <DockPanel Height="646" LastChildFill="False">
+                <StackPanel Height="646" VerticalAlignment="Top" Width="351">
                     <Label Content="集智排名" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,10,0"/>
                     <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                         <Image Height="150"  Width="104" x:Name="Portrait1">
@@ -56,15 +56,15 @@
                             <Label Content="共节约：" Name="third_benefit" Height="50" Margin="0,0,10,0" FontSize="18" Foreground="Red"/>
                         </StackPanel>
                     </DockPanel>
-                    <DockPanel Margin="0,0,10,0" Height="98" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-                        <Label Content="注：本排名根据专家库规则得出" FontSize="18" HorizontalAlignment="Center"/>
+                    <DockPanel Margin="0,0,10,0" Height="161" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <Label Content="注：本排名根据专家库规则得出" FontSize="18" HorizontalAlignment="Center" Margin="0,53,0,71"/>
                     </DockPanel>
                 </StackPanel>
-                <StackPanel Height="586" VerticalAlignment="Top" Width="1006">
+                <StackPanel Height="586" VerticalAlignment="Top" Width="1159">
                     <Label Content="调度与交易" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="20" Margin="0,0,-36,0"/>
-                    <DockPanel Height="559" LastChildFill="False">
-                        <Canvas Height="559" VerticalAlignment="Top" Width="841">
-                            <ed:BlockArrow Fill="Red" Height="360.334" Canvas.Left="177.117" Orientation="Up" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="58.305" Width="50" RenderTransformOrigin="0.5,0.5">
+                    <DockPanel Height="610" LastChildFill="False">
+                        <Canvas Height="600" VerticalAlignment="Top" Width="841">
+                            <ed:BlockArrow Fill="#FFF35D5D" Height="360.334" Canvas.Left="177.117" Orientation="Up" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="58.305" Width="50" RenderTransformOrigin="0.5,0.5">
                                 <ed:BlockArrow.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -74,7 +74,7 @@
                                     </TransformGroup>
                                 </ed:BlockArrow.RenderTransform>
                             </ed:BlockArrow>
-                            <ed:BlockArrow Fill="Red" Height="50" Canvas.Left="114.582" Orientation="Right" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="48.11" Width="421.418"/>
+                            <ed:BlockArrow Fill="#FFF35D5D" Height="50" Canvas.Left="114.582" Orientation="Right" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="48.11" Width="421.418"/>
                             <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Height="469.665" Canvas.Left="316.085" Orientation="Down" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="-13.652" Width="50" RenderTransformOrigin="0.5,0.5">
                                 <ed:BlockArrow.RenderTransform>
                                     <TransformGroup>
@@ -105,7 +105,7 @@
                                     </TransformGroup>
                                 </ed:BlockArrow.RenderTransform>
                             </ed:BlockArrow>
-                            <ed:BlockArrow Fill="Red" Height="135.8" Canvas.Left="581" Orientation="Down" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="130.2" Width="50"/>
+                            <ed:BlockArrow Fill="#FFF35D5D" Height="135.8" Canvas.Left="581" Orientation="Down" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="130.2" Width="50"/>
                             <DockPanel Height="200" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartA_MouseEnter" MouseLeave="chartA_MouseLeave">
                                 <StackPanel Height="200" VerticalAlignment="Top" Width="90" >
                                     <Image Height="100">
@@ -163,7 +163,7 @@
                             </DockPanel>
 
                         </Canvas>
-                        <ListBox Height="559" VerticalAlignment="Top" Width="160" x:Name="cloudDetail"/>
+                        <ListBox Height="600" VerticalAlignment="Top" Width="300" x:Name="cloudDetail"/>
 
                     </DockPanel>
                 </StackPanel>
