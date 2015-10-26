@@ -20,7 +20,7 @@
                     <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                         <Image Height="150"  Width="104" x:Name="Portrait1">
                             <Image.Source>
-                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                <BitmapImage UriSource="/Resources/Images/user1.png"/>
                             </Image.Source>
                         </Image>
                         <Label Content="No.1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
@@ -33,7 +33,7 @@
                     <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                         <Image Height="150"  Width="104" x:Name="Portrait2">
                             <Image.Source>
-                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                <BitmapImage UriSource="/Resources/Images/user2.png"/>
                             </Image.Source>
                         </Image>
                         <Label Content="No.2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
@@ -46,7 +46,7 @@
                     <DockPanel Height="150" LastChildFill="False" Margin="0,0,10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
                         <Image Height="150"  Width="104" x:Name="Portrait3">
                             <Image.Source>
-                                <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                <BitmapImage UriSource="/Resources/Images/user3.png"/>
                             </Image.Source>
                         </Image>
                         <Label Content="No.3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" FontSize="18" FontWeight="Bold"/>
@@ -110,7 +110,7 @@
                                 <StackPanel Height="200" VerticalAlignment="Top" Width="90" >
                                     <Image Height="100">
                                         <Image.Source>
-                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                            <BitmapImage UriSource="/Resources/Images/user4.png"/>
                                         </Image.Source>
                                     </Image>
                                     <Label Content="家庭A" HorizontalAlignment="Center" />
@@ -121,7 +121,7 @@
                                 <StackPanel Height="200" VerticalAlignment="Top" Width="90">
                                     <Image Height="100">
                                         <Image.Source>
-                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                            <BitmapImage UriSource="/Resources/Images/user5.png"/>
                                         </Image.Source>
                                     </Image>
                                     <Label Content="家庭B" HorizontalAlignment="Center"/>
@@ -132,7 +132,7 @@
                                 <StackPanel Height="173" VerticalAlignment="Top" Width="90">
                                     <Image Height="100">
                                         <Image.Source>
-                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                            <BitmapImage UriSource="/Resources/Images/user6.png"/>
                                         </Image.Source>
                                     </Image>
                                     <Label Content="家庭C" HorizontalAlignment="Center"/>
@@ -143,7 +143,7 @@
                                 <StackPanel Height="173" VerticalAlignment="Top" Width="90">
                                     <Image Height="100">
                                         <Image.Source>
-                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                            <BitmapImage UriSource="/Resources/Images/user7.png"/>
                                         </Image.Source>
                                     </Image>
                                     <Label Content="家庭D" HorizontalAlignment="Center"/>
@@ -154,7 +154,7 @@
                                 <StackPanel Height="173" VerticalAlignment="Top" Width="90">
                                     <Image Height="100">
                                         <Image.Source>
-                                            <BitmapImage UriSource="/Resources/Images/user0.png"/>
+                                            <BitmapImage UriSource="/Resources/Images/user8.png"/>
                                         </Image.Source>
                                     </Image>
                                     <Label Content="家庭E" HorizontalAlignment="Center"/>
