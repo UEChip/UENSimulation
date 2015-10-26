@@ -83,8 +83,35 @@
     <Compile Include="UEMSystem.xaml.cs">
       <DependentUpon>UEMSystem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LeftRightUC.xaml.cs">
+      <DependentUpon>LeftRightUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MyCheckUC.xaml.cs">
+      <DependentUpon>MyCheckUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OptionSelectUC.xaml.cs">
+      <DependentUpon>OptionSelectUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SceneUC.xaml.cs">
+      <DependentUpon>SceneUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SetValueUC.xaml.cs">
+      <DependentUpon>SetValueUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SwitchUC.xaml.cs">
+      <DependentUpon>SwitchUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\EnergyCalculation.cs" />
     <Compile Include="Utility\Txt_Handle.cs" />
+    <Compile Include="Windows\EquControl.xaml.cs">
+      <DependentUpon>EquControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SceneConfig.xaml.cs">
+      <DependentUpon>SceneConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SceneSet.xaml.cs">
+      <DependentUpon>SceneSet.xaml</DependentUpon>
+    </Compile>
     <Page Include="CloudService.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +153,42 @@
     <Page Include="UEMSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LeftRightUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\MyCheckUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OptionSelectUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SceneUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SetValueUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SwitchUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\EquControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SceneConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SceneSet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +268,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Local Storage\familyInformation.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\fhyc.png" />
+    <Resource Include="Resources\Images\fnj.png" />
+    <Resource Include="Resources\Images\fnjkzq.png" />
+    <Resource Include="Resources\Images\jthjxx.png" />
+    <Resource Include="Resources\Images\nyyh2.png" />
+    <Resource Include="Resources\Images\sbyh.png" />
+    <Resource Include="Resources\Images\wxz.png" />
+    <Resource Include="Resources\Images\xsjt.png" />
+    <Resource Include="Resources\Images\xxjt.png" />
+    <Resource Include="Resources\Images\yxz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\yhmnsj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\sbcs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

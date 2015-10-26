@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="UENSimulation.UserControls.LeftRightUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid>
+        <Border Tag="1" Name="border_0" Width="120" Height="60" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Border Tag="1" Name="border_1" Width="50" Background="#FF5B9BD5" MouseLeftButtonDown="border_1_MouseLeftButtonDown" MouseEnter="border_1_MouseEnter" MouseLeave="border_1_MouseLeave">
+                    <Label Name="label_1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="电视"/>
+                </Border>
+                <Border Tag="1" Name="border_2" Width="50" Margin="10,0,0,0" Background="#FF5B9BD5" MouseLeftButtonDown="border_2_MouseLeftButtonDown" MouseEnter="border_2_MouseEnter" MouseLeave="border_2_MouseLeave">
+                    <Label Name="label_2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="音响"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="UENSimulation.UserControls.SceneUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:UENSimulation.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="1400">
+    <Grid>
+        <Border Name="border" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20" CornerRadius="20" Background="#FFDEEBF7">
+            <StackPanel Name="stackpanel" Orientation="Vertical">
+                <!--<StackPanel Name="stackpanel_1" VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <my:MyCheckUC Name="mycheckuc" Bstate="True"/>
+                    <Border Width="280" Height="100" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
+                        <StackPanel Orientation="Vertical">
+                            <Label HorizontalAlignment="Left" Margin="20,5,0,0" Content="温度：xx" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="风管风速：xx" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="湿度：xx" FontSize="16"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Width="280" Height="100" Margin="40,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
+                        <StackPanel Orientation="Vertical">
+                            <Label HorizontalAlignment="Left" Margin="20,5,0,0" Content="照明：照明灯开" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="          射灯关" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="亮度：xx" FontSize="16"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Width="280" Height="100" Margin="40,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
+                        <StackPanel Orientation="Vertical">
+                            <Label HorizontalAlignment="Left" Margin="20,5,0,0" Content="电视：开" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="音响：关" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="湿度：xx" FontSize="16"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Width="280" Height="100" Margin="40,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
+                        <StackPanel Orientation="Vertical">
+                            <Label HorizontalAlignment="Left" Margin="20,5,0,0" Content="温度：xx" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="风管风速：xx" FontSize="16"/>
+                            <Label HorizontalAlignment="Left" Margin="20,0,0,0" Content="湿度：xx" FontSize="16"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>-->
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

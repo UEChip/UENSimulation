@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("local%20storage/familyinformation.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/sbcs.png")]
 
 
