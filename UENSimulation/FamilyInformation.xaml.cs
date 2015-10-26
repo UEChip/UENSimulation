@@ -13,24 +13,135 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
-
+using System.Diagnostics;
+using System.Data.OleDb;
+using System.Data;
 namespace UENSimulation
+
 {
     /// <summary>
     /// FamilyInformation.xaml 的交互逻辑
     /// </summary>
     public partial class FamilyInformation : Window
     {
-        
+        private string[] cityName = { "北京", "上海", "广州", "哈尔滨", "青岛", "沈阳", "石家庄", "武汉", "长沙", "重庆" };
+        private string[] monthList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+        private string[] hourList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19","20","21","22","23","24" };
         public FamilyInformation()
         {
             InitializeComponent();
+            city.Items.Clear();
+            foreach (string cName in cityName)
+            {
+                city.Items.Add(cName);
+            }
+            month.Items.Clear();
+            foreach (string mName in monthList)
+            {
+                month.Items.Add(mName);
+            }
+            hour.Items.Clear();
+            foreach (string hName in hourList)
+            {
+                hour.Items.Add(hName);
+            }   
             this.Read();
+           
+            hour.Text = DateTime.Now.Hour.ToString();
+            month.Text = DateTime.Now.Month.ToString();
+            this.getData();
+          
+        }
+        private void getData()//根据时间与表格获得相应参数
+        {
+            int mon =Convert.ToInt32(month.Text);
+            int hou = Convert.ToInt32(hour.Text);
+            DataTable dt;
+            dt=ReadXlsx();
+            if(mon<8 && mon>4){
+                  if(city.Text == "广州")
+                {
+                     electric.Content =dt.Rows[hou-1][2].ToString();
+                     hot.Content ="0";
+                     cold.Content =dt.Rows[hou-1][1].ToString();
+                }
+                  else
+                  {
+                electric.Content =dt.Rows[hou-1][4].ToString();
+                hot.Content ="0";
+                 cold.Content =dt.Rows[hou-1][3].ToString();
+                  }       
+            }
+            if(mon>7 && mon<11){
+                 electric.Content ="秋季无数据";
+                 hot.Content ="秋季无数据";
+                 cold.Content ="秋季无数据";
+            }
+             if(mon>1 && mon<5){
+                 electric.Content ="春季无数据";
+                hot.Content ="春季无数据";
+                 cold.Content ="春季无数据";
+            }
+             if(mon>10||mon<2){
+                    if(city.Text == "广州")
+                {
+                     electric.Content ="0";
+                     hot.Content ="0";
+                     cold.Content ="0";
+                }
+                 else{
+                        cold.Content ="0";
+                        electric.Content ="0";
+                         hot.Content = dt.Rows[hou-1][1].ToString();
+                    }
+             }
+        }
+        private DataTable ReadXlsx()//将表格放入数据库
+        {
+            string cityNick;
+            switch (city.Text)
+            {
+                case "北京": cityNick = "BEIJ";
+                    break;
+                case "上海": cityNick= "SHANGH";
+                    break;
+                case "广州": cityNick= "GUANGZ";
+                    break;
+                case "哈尔滨": cityNick= "HAEB";
+                    break;
+                case "青岛": cityNick= "QINGD";
+                    break;
+                case "沈阳": cityNick= "SHENY";
+                    break;
+                case "石家庄": cityNick= "SHIJZ";
+                    break;
+                case "武汉": cityNick= "WUH";
+                    break;
+                case "长沙": cityNick= "CHANGS";
+                    break;
+                case "重庆": cityNick= "CHONGQ";
+                    break;
+                default: cityNick = "BEIJ";//缺参默认北京
+                    break;
+            }
+            string filePath = @"..\..\Local Storage\database\"+cityNick+".xlsx";
+            string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties='Excel 8.0;HDR=False;IMEX=1'"; //固定句不更改
+            OleDbConnection OleConn = new OleDbConnection(strConn); 
+            OleConn.Open();
+            String sql = "select * from [Sheet1$]";
+            OleDbCommand select = new OleDbCommand(sql, OleConn);
+            OleDbDataAdapter objAdapter1 = new OleDbDataAdapter();
+            objAdapter1.SelectCommand = select;
+            DataSet OleDsExcle = new DataSet();
+            objAdapter1.Fill(OleDsExcle, "Sheet1");
+            OleConn.Close();
+
+            return OleDsExcle.Tables["Sheet1"];
         }
 
-        private void Write()
+        private void Write()//将选项设置存放到本地文件
         {
-            string[] dataWrite = new string[28];
+            string[] dataWrite = new string[29];
             dataWrite[0] = house1.IsChecked.ToString();
             dataWrite[1] = house2.IsChecked.ToString();
             dataWrite[2] = house3.IsChecked.ToString();
@@ -59,12 +170,13 @@ namespace UENSimulation
             dataWrite[25] = direction1.IsChecked.ToString();
             dataWrite[26] = direction2.IsChecked.ToString();
             dataWrite[27] = direction3.IsChecked.ToString();
+            dataWrite[28] = city.Text;
             if (!File.Exists(@"..\..\Local Storage\familyInformation.txt"))
             {
 
                 FileStream fs = new FileStream(@"..\..\Local Storage\familyInformation.txt", FileMode.Create, FileAccess.Write);//创建写入文件 
                 StreamWriter sw = new StreamWriter(fs);
-                for (int i = 0; i < 28; i++)
+                for (int i = 0; i < 29; i++)
                 {
                     sw.WriteLine(dataWrite[i]);
                 }
@@ -73,10 +185,10 @@ namespace UENSimulation
             }
             else
             {
-                System.IO.File.WriteAllText(@"..\..\Local Storage\familyInformation.txt", string.Empty);
+                System.IO.File.WriteAllText(@"..\..\Local Storage\familyInformation.txt", string.Empty);//清空文档信息方便重新书写
                 FileStream fs = new FileStream(@"..\..\Local Storage\familyInformation.txt", FileMode.Open, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs);
-                for (int i = 0; i < 28; i++)
+                for (int i = 0; i < 29; i++)
                 {
                     sw.WriteLine(dataWrite[i]);
                 }
@@ -85,32 +197,36 @@ namespace UENSimulation
             }
             }
 
-        private void Read()
+        private void Read()//读取配置信息
         {
             try
             {
 
-                string[] dataRead = new string[28];
+                string[] dataRead = new string[29];
                 bool file = File.Exists(@"..\..\Local Storage\familyInformation.txt");
                 if (file == true)
                 {
                     StreamReader sr = new StreamReader(@"..\..\Local Storage\familyInformation.txt");
                     int i = 0;
-                    for (i = 0; i < 28; i++)
+                    for (i = 0; i < 29; i++)
                     {
                         dataRead[i] = sr.ReadLine();
                     }
                     sr.Close();
                     for (i = 0; i < 28; i++)
                     {
-                        if (dataRead[i] == null) { dataRead[i] = "false"; }
+                        if (dataRead[i] == null) { 
+                            dataRead[i] = "false"; }
                     }
-
+                    if(dataRead[28] == null){
+                    dataRead[28] = city.Items[0] as string;
+                    }
 
                 }
                 else
                 {
                     for (int i = 0; i < 28; i++) { dataRead[i] = "false"; }
+                    dataRead[28] = city.Items[0] as string;
                 }
                 house1.IsChecked = Convert.ToBoolean(dataRead[0]);
                 house2.IsChecked = Convert.ToBoolean(dataRead[1]);
@@ -140,7 +256,7 @@ namespace UENSimulation
                 direction1.IsChecked = Convert.ToBoolean(dataRead[25]);
                 direction2.IsChecked = Convert.ToBoolean(dataRead[26]);
                 direction3.IsChecked = Convert.ToBoolean(dataRead[27]);
-
+                city.Text =dataRead[28];
             }
 
             catch (IOException e)
@@ -148,10 +264,45 @@ namespace UENSimulation
                 Console.WriteLine(e.ToString());
             }
         }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)//每次关闭界面时自动保存配置
         {
             
             Write();
+        }
+
+        private void file_Click(object sender, RoutedEventArgs e)//按钮查看文件
+        {
+            switch (city.Text)
+            {
+                case "北京": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\BEIJ.xlsx");
+                    break;
+                case "上海": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\SHANGH.xlsx");
+                    break;
+                case "广州": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\GUANGZ.xlsx");
+                    break;
+                case "哈尔滨": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\HAEB.xlsx");
+                    break;
+                case "青岛": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\QINGD.xlsx");
+                    break;
+                case "沈阳": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\SHENY.xlsx");
+                    break;
+                case "石家庄": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\SHIJZ.xlsx");
+                    break;
+                case "武汉": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\WUH.xlsx");
+                    break;
+                case "长沙": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\CHANGS.xlsx");
+                    break;
+                case "重庆": System.Diagnostics.Process.Start(@"..\..\Local Storage\database\CHONGQ.xlsx");
+                    break;
+                default: MessageBox.Show("未选择城市", "you can't");
+                    break;
+            }
+           
+        }
+
+        private void run_Click(object sender, RoutedEventArgs e)//按钮获取参数可执行相应方法
+        {
+            getData();
         }
     }
 }
