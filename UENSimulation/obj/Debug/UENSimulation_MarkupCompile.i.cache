@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\
+D:\代码\code\UENSimulation\UENSimulation\obj\Debug\
 UENSimulation
 none
 false
 DEBUG;TRACE
-E:\Work\Projects\UENSimulation\UENSimulation\App.xaml
-7-1578723181
+D:\代码\code\UENSimulation\UENSimulation\App.xaml
+16136774997
 
-19793540200
-17573608779
-CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;
+28647050353
+171195566294
+CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;UserControls\LeftRightUC.xaml;UserControls\MyCheckUC.xaml;UserControls\OptionSelectUC.xaml;UserControls\SceneUC.xaml;UserControls\SetValueUC.xaml;UserControls\SwitchUC.xaml;Windows\EquControl.xaml;Windows\SceneConfig.xaml;Windows\SceneSet.xaml;
 
 False
 
