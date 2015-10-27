@@ -108,7 +108,7 @@
                                 </ed:BlockArrow.RenderTransform>
                             </ed:BlockArrow>
                             <ed:BlockArrow Fill="#FFF35D5D" Height="135.8" Canvas.Left="581" Orientation="Down" Stroke="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Canvas.Top="130.2" Width="50"/>
-                            <DockPanel Height="200" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartA_MouseEnter" MouseLeave="chartA_MouseLeave" Canvas.Left="10">
+                            <DockPanel Height="200" Width="300" RenderTransformOrigin="0.465,0.505" MouseEnter="chartA_MouseEnter" MouseLeave="chartA_MouseLeave">
                                 <StackPanel Height="200" VerticalAlignment="Top" Width="90" >
                                     <Image Height="100">
                                         <Image.Source>
@@ -173,8 +173,8 @@
         </StackPanel>
         <Rectangle Height="153" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,159,1169,0" StrokeThickness="3"/>
         <Rectangle Height="148" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,310,1169,0" StrokeThickness="3"/>
-        <Rectangle Height="160" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,456,1169,0" StrokeThickness="3"/>
-        <Rectangle Height="97" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,614,1169,0" StrokeThickness="3"/>
+        <Rectangle Height="153" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,456,1169,0" StrokeThickness="3"/>
+        <Rectangle Height="107" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="0,606,1169,0" StrokeThickness="3"/>
         <Rectangle Height="561" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="354,159,315,0"  StrokeThickness="3"/>
         <Rectangle Height="52" Stroke="#FF5B9BD5" VerticalAlignment="Top" Margin="-36,42,-28,0" StrokeThickness="3"/>
         <Rectangle Height="44" Stroke="#FF5B9BD5" VerticalAlignment="Top" StrokeThickness="3" Margin="-36,0,-28,0"/>

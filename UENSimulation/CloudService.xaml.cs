@@ -49,7 +49,7 @@ namespace UENSimulation
             Title title = new Title();
 
             //设置标题的名称
-            title.Text = Name;
+            title.Text = name;
             title.Padding = new Thickness(0, 10, 5, 0);
 
             //向图标添加标题
@@ -122,6 +122,15 @@ namespace UENSimulation
             chartE.Children.Clear();
             CreateChartColumn("耗能表", strListx, strListyE);
             chartE.Children.Add(grid);
+            first_use.Content = "本月用能：128kWh";
+            first_save.Content = "节能率：16%";
+            first_benefit.Content = "共节约：18.88元";
+            second_use.Content = "本月用能：136kWh";
+            second_save.Content = "节能率：12%";
+            second_benefit.Content = "共节约：15.68元";
+            third_use.Content = "本月用能：158kWh";
+            third_save.Content = "节能率：9%";
+            third_benefit.Content = "共节约：11.88元";
         }
 
         private void chartA_MouseEnter(object sender, MouseEventArgs e)

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
-        Title="Gateway" Height="569.077" Width="991.154" Left="1366" Top="0">
-    <Grid>
+        Title="Gateway" Height="569.077" Width="1050.856" Left="1366" Top="0">
+    <Grid Margin="0,0,-8,0">
         <StackPanel HorizontalAlignment="Left" Height="94" Margin="433,0,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="50">
                 <Image.Source>
@@ -13,8 +13,8 @@
             </Image>
             <Label Content="泛能云服务" FontSize="18"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,137,0,0" VerticalAlignment="Top" Width="100">
-            <Image Height="76">
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="4,91,0,0" VerticalAlignment="Top" Width="100">
+            <Image Height="76" RenderTransformOrigin="0.515,0.224">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/app.jpg"/>
                 </Image.Source>
@@ -29,7 +29,7 @@
             </Image>
             <Label Content="泛能机" HorizontalAlignment="Center"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="815,34,0,0" VerticalAlignment="Top" Width="100">
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="914,34,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="76">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/gateway.png"/>
@@ -80,31 +80,21 @@
                 <Label Content="燃气灶"/>
             </StackPanel>
         </DockPanel>
-        <Image Margin="82,80,0,0" Height="290" VerticalAlignment="Top" HorizontalAlignment="Left" Width="901">
-            <Image.Source>
-                <BitmapImage UriSource="/Resources/Images/gatewayBack2.png"/>
-            </Image.Source>
-        </Image>
-        <Grid HorizontalAlignment="Left" Height="263" Margin="115,113,0,0" VerticalAlignment="Top" Width="723">
+        <Grid HorizontalAlignment="Left" Height="238" Margin="116,118,0,0" VerticalAlignment="Top" Width="722">
             <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.975,1.647" Margin="118,36,0,0"/>
             <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="17" RenderTransformOrigin="2.975,1.647" Margin="509,36,0,0"/>
-            <Image HorizontalAlignment="Left" Height="243" Margin="354,10,-33,0" VerticalAlignment="Top" Width="402">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/Images/gatewayBack1.png"/>
-                </Image.Source>
-            </Image>
             <Label Content="IES建筑节能模型" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="133" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
             <Label Content="设备优化控制模型" HorizontalAlignment="Left" Margin="465,10,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-            <Grid HorizontalAlignment="Left" x:Name="model" Height="179" Margin="10,55,0,0" VerticalAlignment="Top" Width="404"/>
+            <Grid HorizontalAlignment="Left" x:Name="model" Height="179" Margin="10,55,0,0" VerticalAlignment="Top" Width="391"/>
             <DockPanel HorizontalAlignment="Left" Height="136" LastChildFill="False" Margin="419,68,0,0" VerticalAlignment="Top" Width="304">
                 <DockPanel Height="136" LastChildFill="False" VerticalAlignment="Top" Width="156">
                     <StackPanel Height="136" VerticalAlignment="Top" Width="49">
-                        <Image Height="93">
+                        <Image Height="92">
                             <Image.Source>
                                 <BitmapImage UriSource="Resources/Images/light.png"/>
                             </Image.Source>
                         </Image>
-                        <Label Content="灯" HorizontalAlignment="Center"/>
+                        <Label Content="灯" HorizontalAlignment="Center" Height="29" Margin="14,0,13,0"/>
                     </StackPanel>
                     <StackPanel Height="71" VerticalAlignment="Top" Width="107" Margin="0,30,0,0">
                         <Label Content="状态：" Name="lightState" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -137,8 +127,8 @@
         </DockPanel>
         <Path Data="M81.5,127 L438,26" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="102" Margin="81.5,26,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="357.5" StrokeThickness="3" StrokeDashArray="2 1"/>
         <Path Data="M108.5,245.5 L81,146" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="100.5" Margin="81,146,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="28.5" StrokeThickness="3" StrokeDashArray="2 1"/>
-        <ed:Callout AnchorPoint="-0.29,1.02" CalloutStyle="Oval" Content="Callout" FontSize="16" HorizontalAlignment="Left" Height="144" Margin="786,10,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="164" Foreground="{x:Null}"/>
-        <DockPanel Margin="0,376,852,119">
+        <ed:Callout AnchorPoint="-0.118,0.942" CalloutStyle="Oval" Content="Callout" FontSize="16" HorizontalAlignment="Left" Height="124" Margin="914,15,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="109" Foreground="{x:Null}"/>
+        <DockPanel Margin="0,356,852,139">
             <Label Content="用能负荷数据" Width="83" />
             <ed:BlockArrow HorizontalAlignment="Left"  Orientation="Left" Width="47" RenderTransformOrigin="0.274,0.335" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,9,0,0" Height="25" VerticalAlignment="Top">
                 <ed:BlockArrow.RenderTransform>
@@ -151,8 +141,8 @@
                 </ed:BlockArrow.RenderTransform>
             </ed:BlockArrow>
         </DockPanel>
-        <DockPanel Margin="806,316,0,169">
-            <ed:BlockArrow HorizontalAlignment="Left" Height="22" Orientation="Left" VerticalAlignment="Top" Width="44" RenderTransformOrigin="-1.667,3.221" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" DockPanel.Dock="Left" Margin="0,-8,0,0">
+        <DockPanel Margin="896,304,10,181">
+            <ed:BlockArrow HorizontalAlignment="Left" Height="21" Orientation="Left" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-1.667,3.221" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" DockPanel.Dock="Left" Margin="0,-4,0,0">
                 <ed:BlockArrow.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -162,7 +152,7 @@
                     </TransformGroup>
                 </ed:BlockArrow.RenderTransform>
             </ed:BlockArrow>
-            <ed:BlockArrow HorizontalAlignment="Left" Height="25"  Orientation="Right" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,14,0,0">
+            <ed:BlockArrow HorizontalAlignment="Left" Height="21"  Orientation="Right" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,11,0,0">
                 <ed:BlockArrow.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -172,16 +162,22 @@
                     </TransformGroup>
                 </ed:BlockArrow.RenderTransform>
             </ed:BlockArrow>
-            <Label Content="负荷需求" FontSize="9"/>
+            <Label Content="负荷需求" FontSize="9" Width="55"/>
         </DockPanel>
-        <Path Data="M129,404 L700.5,402.5 700.5,362.5 753.49053,362.27451 935.5,361.5"  HorizontalAlignment="Left" Height="41.5" Margin="129,361.5,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="807.5"/>
+        <Path Data="M129,404 L700,404 700,362 753,362 935,362"  HorizontalAlignment="Left" Height="41.5" Margin="129,361.5,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="807.5"/>
         <Path Data="M754,402 L752.5,362.5"  HorizontalAlignment="Left" Height="40.5" Margin="752.5,362.5,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="2.5"/>
         <Path Data="M522,464" HorizontalAlignment="Left" Height="1" Margin="522,464,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1"/>
-        <Path Data="M804,364 L804.5,403.5"  HorizontalAlignment="Left" Height="40.5" Margin="804,364,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M844,365 L843.5,389.5"  HorizontalAlignment="Left" Height="25.5" Margin="843.5,365,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M131,429 L710.5,423.5 710.5,371.5 932.5,369.5"  HorizontalAlignment="Left" Height="60.5" Margin="131,369.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="802.5"/>
-        <Path Data="M890,372 L889.5,392.5"  HorizontalAlignment="Left" Height="21.5" Margin="889.5,372,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M129,454 L719.5,449.5 720.5,381.5 932.5,380.5 934.5,413.5" HorizontalAlignment="Left" Height="74.5" Margin="129,380.5,0,0" Stretch="Fill" Stroke="#FFE8CA0E" VerticalAlignment="Top" Width="806.5"/>
+        <Path Data="M804,364 L804.5,403.5"  HorizontalAlignment="Left" Height="40.5" Margin="805,362.5,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1.5"/>
+        <Path Data="M844,371 L844,389.5"  HorizontalAlignment="Left" Height="25.5" Margin="848.5,372,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
+        <Path Data="M131,429 L710,429 710,371 932,371"  HorizontalAlignment="Left" Height="60.5" Margin="131,369.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="802.5"/>
+        <Path Data="M890,372 L890,392.5"  HorizontalAlignment="Left" Height="21.5" Margin="889.5,372,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
+        <Path Data="M129,454 L720,454 720,381 932.5,381 932.5,413.5" HorizontalAlignment="Left" Height="74.5" Margin="129,380.5,0,0" Stretch="Fill" Stroke="#FFE8CA0E" VerticalAlignment="Top" Width="806.5"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="#FF5B9BD5" Height="132" Margin="539,184,0,0"  VerticalAlignment="Top" Width="147"/>
+        <Rectangle HorizontalAlignment="Left" Height="131" Margin="691,185,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="159"/>
+        <Rectangle HorizontalAlignment="Left" Height="158.209" Margin="522,171.224,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="344.776" StrokeThickness="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="238" Margin="109.5,118,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="781.5" StrokeThickness="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="168" Margin="691,358,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
+        <Rectangle HorizontalAlignment="Left" Height="129" Margin="0,400,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
 
     </Grid>
 </Window>
