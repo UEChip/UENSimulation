@@ -91,7 +91,7 @@ namespace UENSimulation.UserControls
 
         private void SetBorder()
         {
-            if (this.border_0.Tag.Equals("1") && this.border_0.Tag.Equals("1"))
+            if (this.border_1.Tag.Equals("1") && this.border_2.Tag.Equals("1"))
             {
                 this.border_0.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(zccolour));
             }

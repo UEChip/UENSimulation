@@ -117,7 +117,7 @@ namespace UENSimulation
         private double mstime = 10000;//毫秒
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //StartMove();
+            StartMove();
         }
 
         int num = 0;
@@ -223,9 +223,10 @@ namespace UENSimulation
 
                          (ThreadStart)(() =>//使用lambda表达式
                          {
-                             foreach (String str in pstr)
+                             foreach (string str in pstr)
                              {
                                  Path p = FindName(str) as Path;
+                                 p.Stroke = new SolidColorBrush(Colors.Blue);
                                  p.StrokeDashOffset -= 10;
                              }
                          }));
@@ -243,7 +244,13 @@ namespace UENSimulation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             EquControl ec = new EquControl();
+            ec._btClick2 += new BTClick(BTClickFunc);
             ec.Show();
+        }
+
+        private void BTClickFunc()
+        {
+
         }
 
         //场景选择

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0"  Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <Image Margin="-6,10,106,10" Panel.ZIndex="0" >
+        <Image Margin="-6,10,106,10" Panel.ZIndex="0" Opacity="0.7" >
             <Image.Source>
                 <BitmapImage UriSource="/Resources/Images/background2.png"/>
             </Image.Source>
@@ -86,7 +86,7 @@
                 </Image>
             </StackPanel>
         </StackPanel>
-        <StackPanel  Height="118" Margin="720,437,1084,495"  Width="108" Panel.ZIndex="2">
+        <StackPanel  Height="118" Margin="720,477,1084,455"  Width="108" Panel.ZIndex="2">
             <Image Name="image_3" Height="76">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/meter.png"/>
@@ -129,53 +129,53 @@
             <Label Content="燃气:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
         </StackPanel>
         <Canvas>
-            <Path Name="path_2" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
-            <Path Name="path_1" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1" Data="m 300,180 l 0,350  l 240,0 l 0,50"/>
-            <Path Data="M930,314 940,337 950,314" Fill="Blue" Height="25" Canvas.Left="936" Stretch="Fill" Canvas.Top="328" Width="30"/>
+            <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
+            <Path Name="path_1" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 300,180 l 0,350  l 240,0 l 0,50"/>
+            <Path Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="943" Canvas.Top="336"/>
         </Canvas>
         <Canvas>
-            <Path Name="path_6" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="m0,0 l 0,-50 l 150,0" Canvas.Left="769" Canvas.Top="433"  />
+            <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 150,0" Canvas.Left="769" Canvas.Top="473"  />
         </Canvas>
         <Canvas>
-            <Path Name="path_7" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="m0,0 l0,50 l-350,0" Canvas.Left="915" Canvas.Top="558"/>
+            <Path Name="path_7" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l0,50 l-350,0" Canvas.Left="915" Canvas.Top="558"/>
         </Canvas>
         <Canvas>
-            <Path Name="path_8" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="m0,0 l0,70" Canvas.Left="1038" Canvas.Top="561"/>
-            <Path Name="path_9" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="m1050,500 l200,0 l0,150"/>
-            <Path Name="path_10" Data="M105,688 L420,688" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_11" Data="M105,755.5 L420,755" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_12" Data="M105,824.5 L420,824" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_13" Data="M105,892 L420,892" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_14" Data="M105,958 L420,958" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_15" Data="M660,733 L900,733" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_16" Data="M660,806 L900,806" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
-            <Path Name="path_17" Data="M660,883 L900,883" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"/>
+            <Path Name="path_8" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 0,70" Canvas.Left="1038" Canvas.Top="556"/>
+            <Path Name="path_9" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m1050,500 l200,0 l0,150"/>
+            <Path Name="path_10" Data="M105,688 L405,688" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_11" Data="M105,755.5 L405,755" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_12" Data="M105,824.5 L405,824" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_13" Data="M105,892 L405,892" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_14" Data="M105,958 L405,958" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_15" Data="M660,733 L900,733" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_16" Data="M660,806 L900,806" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+            <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
         </Canvas>
         <Canvas Margin="1014,148,645,706">
-            <Path Name="path_3" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1" Data="m70,100 l-100,0 l0,100"/>
-            <Path Name="path_4" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="m 160,100 l100,0 l0,-70"/>
+            <Path Name="path_3" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m70,100 l-100,0 l0,100"/>
+            <Path Name="path_4" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 160,100 l100,0 l0,-70"/>
         </Canvas>
         <Canvas Margin="1069,172,563,593">
-            <Path Name="path_5" Stroke="Blue" StrokeThickness="5" StrokeDashArray="2,1"  Data="M2.5,252.5 L252.5,252.5 252.5,2.5" Height="255" Canvas.Left="-2.5" Canvas.Top="-2.5" Width="255"/>
+            <Path Name="path_5" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M2.5,252.5 L252.5,252.5 252.5,2.5" Height="255" Canvas.Left="-2.5" Canvas.Top="-2.5" Width="255"/>
         </Canvas>
-        <Path Data="M930,314 940,337 950,314" Fill="Blue" Stretch="Fill" Margin="526,567,1356,458" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,314 940,337 950,314" Fill="Black" Stretch="Fill" Margin="971,328,911,697" RenderTransformOrigin="1.8,0.4"/>
-        <Path Data="M930,314 940,337 950,314" Fill="Blue" Stretch="Fill" Margin="756,412,1126,613" RenderTransformOrigin="-1.7,1.2"/>
-        <Path Data="M930,314 940,337 950,314" Fill="Blue" Stretch="Fill" Margin="1235,600,647,425"/>
-        <Path Data="M930,314 940,291 950,314" Fill="Blue" Stretch="Fill" Margin="1022,551,860,474"/>
-        <Path Data="M930,302.5 950,291 950,314" Fill="Black" Stretch="Fill" Margin="1057,412,825,613"/>
-        <Path Data="M930,300 930,323 910,313" Fill="Blue" Stretch="Fill" Margin="100,674,1782,351" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 910,313" Fill="Blue" Stretch="Fill" Margin="100,742,1782,283" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="391,810,1491,215" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="391,878,1491,147" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="391,943,1491,82" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="873,719,1009,306" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="874,791,1008,234" RenderTransformOrigin="3.733,2.64"/>
-        <Path Data="M930,300 930,323 950,313" Fill="Blue" Stretch="Fill" Margin="873,870,1009,155" RenderTransformOrigin="3.733,2.64"/>
+        <Path Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="532,567,0,0"/>
+        <Path Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="976,336,0,0"/>
+        <Path Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="762,459,0,0"/>
+        <Path Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1235,600,0,0"/>
+        <Path Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1030,548,0,0"/>
+        <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1066.5,415,0,0"/>
+        <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="94,680,0,0"/>
+        <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,748,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,816,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,884,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
+        <Path Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
         <Path Data="M956,628 L953,548.5" Fill="Blue" HorizontalAlignment="Left" Height="79.5" Margin="953,548.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="3"/>
-        <Path Name="path_18" Data="M955,625 L955,553" StrokeThickness="5" StrokeDashArray="2,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="77.5" Margin="949,550.5,0,0"  Stroke="Blue" VerticalAlignment="Top" Width="8.5"/>
-        <Path Data="M930,314 940,291 950,314" Fill="Blue" Stretch="Fill" Margin="936,548.5,946,476.5"/>
-        <Path Data="M930,300 930,323 910,313" Fill="Blue" Stretch="Fill" Margin="585,594,1297,431" RenderTransformOrigin="3.733,2.64"/>
-
+        <Path Name="path_18" Data="M955,625 L955,555" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="70" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
+        <Path Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
+        <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
+        <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1116.5,269,0,0"/>
     </Grid>
 </Window>

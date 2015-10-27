@@ -25,6 +25,7 @@ namespace UENSimulation.UserControls
             InitializeComponent();
         }
 
+        #region 基础显示功能
         //总名称
         private string bname = "灯光";
 
@@ -83,6 +84,10 @@ namespace UENSimulation.UserControls
         {
             this.label_2.Opacity = 1;
         }
+        #endregion
+
+        #region 点击关联对应房间区域显示
+        public BTClick _btClick;
 
         //分部选中颜色
         string fccolour = "#FF5B9BD5";
@@ -105,8 +110,10 @@ namespace UENSimulation.UserControls
                 this.label_1.Tag = "0";
             }
             SetBorder();
-        }
 
+            if (_btClick != null)
+                _btClick();
+        }
         private void label_2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.label_2.Tag.Equals("0"))
@@ -120,11 +127,14 @@ namespace UENSimulation.UserControls
                 this.label_2.Tag = "0";
             }
             SetBorder();
+
+            if (_btClick != null)
+                _btClick();
         }
 
         private void SetBorder()
         {
-            if (this.border.Tag.Equals("1") && this.border.Tag.Equals("1"))
+            if (this.label_1.Tag.Equals("1") && this.label_2.Tag.Equals("1"))
             {
                 this.border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(zccolour));
             }
@@ -133,5 +143,6 @@ namespace UENSimulation.UserControls
                 this.border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(zucolour));
             }
         }
+        #endregion
     }
 }
