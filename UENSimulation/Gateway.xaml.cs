@@ -41,8 +41,8 @@ namespace UENSimulation
         {
             
             Chart chart = new Chart();
-            chart.Width = 404;
-            chart.Height = 178;
+            chart.Width = 385;
+            chart.Height = 175;
             chart.Margin = new Thickness(0, 0, 10, 0);
             //是否启用打印和保持图片
             chart.ToolBarEnabled = false;
@@ -194,6 +194,10 @@ namespace UENSimulation
             InitializeComponent();
             model.Children.Clear();
             CreateChartSpline("用能负荷", modelTime, electric, heat,gas);
+            conWindSpeed.Content = "温度：中";
+            conTemperature.Content = "温度：26℃";
+            lightState.Content = "状态： 开";
+            lightBrightness.Content = "亮度：80%";
         }
     }
 }

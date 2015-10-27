@@ -1,7 +1,7 @@
 ﻿<Window x:Class="UENSimulation.FamilyInformation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FamilyInformation" Height="500" Width="800" Left="1366" Top="0" Closing="Window_Closing">
+        Title="FamilyInformation" Height="611.94" Width="800" Left="1366" Top="0" Closing="Window_Closing">
     <Grid>
         <StackPanel>
             <Label Content="家庭信息配置" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
@@ -56,6 +56,26 @@
                 <RadioButton Content="南北通透  " Name="direction1" VerticalAlignment="Center" FontSize="18"/>
                 <RadioButton Content="东西通透  " Name="direction2"  VerticalAlignment="Center" FontSize="18"/>
                 <RadioButton Content="其他" Name="direction3"  VerticalAlignment="Center" FontSize="18"/>
+            </DockPanel>
+            <DockPanel Height="61" LastChildFill="False">
+                <Label Content="选择城市 " VerticalAlignment="Center" FontSize="18"/>
+                <ComboBox Height="34" VerticalAlignment="Top" Width="110" Name="city" Margin="0,14,0,0"/>
+                <Label Content="设置时间: " VerticalAlignment="Center" FontSize="18"/>
+                <ComboBox Height="34" VerticalAlignment="Top" Width="50" Name="month" Margin="0,14,0,0"/>
+                <Label Content="月" VerticalAlignment="Center" FontSize="18" Height="37" Margin="0,14,0,10" Width="35"/>
+                <ComboBox Height="34" VerticalAlignment="Top" Width="46" Name="hour" Margin="0,14,0,0"/>
+                <Label Content="时" VerticalAlignment="Center" FontSize="18" Height="37" Margin="0,14,0,10" Width="35"/>
+                <Button Content="获取参数" Name="run" Height="34" VerticalAlignment="Top" Width="100" Margin="0,14,0,0" Click="run_Click"/>
+                <Label Content="  " VerticalAlignment="Center" FontSize="18" Height="37" Margin="0,14,0,10" Width="35"/>
+                <Button Content="查看参数文件" Name="file" Height="34" VerticalAlignment="Top" Width="103" Margin="0,14,0,0" Click="file_Click"/>
+            </DockPanel>
+            <DockPanel Height="64" LastChildFill="False">
+                <Label Content="冷负荷系数: " VerticalAlignment="Center" FontSize="18"/>
+                <Label Name="cold" VerticalAlignment="Center" FontSize="18" Height="36" Margin="0,16,0,12" Width="143" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+                <Label Content="热负荷系数 " VerticalAlignment="Center" FontSize="18"/>
+                <Label Name="hot" VerticalAlignment="Center" FontSize="18" Height="36" Margin="0,16,0,12" Width="143" Background="#FFFBCECE"/>
+                <Label Content="电负荷系数 " VerticalAlignment="Center" FontSize="18"/>
+                <Label Name="electric" VerticalAlignment="Center" FontSize="18" Height="36" Margin="0,16,0,12" Width="143" Background="#FFE8F371"/>
             </DockPanel>
         </StackPanel>
 

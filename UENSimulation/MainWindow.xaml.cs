@@ -48,7 +48,7 @@ namespace UENSimulation
                 tb = new TextBox();
                 tb.Margin = new Thickness(0, 0, 0, 10);
                 tb.FontSize = 18;
-                tb.Width = 150;
+                tb.Width = 270;
                 tb.TextWrapping = System.Windows.TextWrapping.Wrap;
                 tb.Text = str;
                 cloudService.cloudDetail.Items.Add(tb);

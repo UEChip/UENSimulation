@@ -38,11 +38,11 @@ namespace UENSimulation
         {
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
 
-            charge_HA.Value = Convert.ToDecimal(dataRead[0]);
+            charge_HA.Text = dataRead[0];
             h_HA.Value = Convert.ToDecimal(dataRead[1]);
             savedH_HA.Value = Convert.ToDecimal(dataRead[2]);
 
-            charge_EA.Value = Convert.ToDecimal(dataRead[3]);
+            charge_EA.Text = dataRead[3];
             duration_EA.Value = Convert.ToDecimal(dataRead[4]);
             speed_EA.Value = Convert.ToDecimal(dataRead[5]);
             savedE_EA.Value = Convert.ToDecimal(dataRead[6]);
@@ -67,11 +67,11 @@ namespace UENSimulation
 
             string[] dataWrite = new string[length];
 
-            dataWrite[0] = charge_HA.Value.ToString();
+            dataWrite[0] = charge_HA.Text.ToString();
             dataWrite[1] = h_HA.Value.ToString();
             dataWrite[2] = savedH_HA.Value.ToString();
 
-            dataWrite[3] = charge_EA.Value.ToString();
+            dataWrite[3] = charge_EA.Text.ToString();
             dataWrite[4] = duration_EA.Value.ToString();
             dataWrite[5] = speed_EA.Value.ToString();
             dataWrite[6] = savedE_EA.Value.ToString();
