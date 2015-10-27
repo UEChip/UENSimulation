@@ -194,6 +194,10 @@ namespace UENSimulation
             InitializeComponent();
             model.Children.Clear();
             CreateChartSpline("用能负荷", modelTime, electric, heat,gas);
+            conWindSpeed.Content = "温度：中";
+            conTemperature.Content = "温度：26℃";
+            lightState.Content = "状态： 开";
+            lightBrightness.Content = "亮度：80%";
         }
     }
 }
