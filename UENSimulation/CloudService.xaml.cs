@@ -49,7 +49,7 @@ namespace UENSimulation
             Title title = new Title();
 
             //设置标题的名称
-            title.Text = Name;
+            title.Text = name;
             title.Padding = new Thickness(0, 10, 5, 0);
 
             //向图标添加标题

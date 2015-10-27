@@ -41,8 +41,8 @@ namespace UENSimulation
         {
             
             Chart chart = new Chart();
-            chart.Width = 404;
-            chart.Height = 178;
+            chart.Width = 385;
+            chart.Height = 175;
             chart.Margin = new Thickness(0, 0, 10, 0);
             //是否启用打印和保持图片
             chart.ToolBarEnabled = false;
