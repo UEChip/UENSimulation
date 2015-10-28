@@ -299,6 +299,22 @@
     <Resource Include="Resources\Images\user8.png" />
     <Resource Include="Resources\Images\user9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bj.png" />
+    <Resource Include="Resources\Images\dg.png" />
+    <Resource Include="Resources\Images\ds.png" />
+    <Resource Include="Resources\Images\hdg.png" />
+    <Resource Include="Resources\Images\hds.png" />
+    <Resource Include="Resources\Images\hhs.png" />
+    <Resource Include="Resources\Images\hkt.png" />
+    <Resource Include="Resources\Images\hs.png" />
+    <Resource Include="Resources\Images\hwdj.png" />
+    <Resource Include="Resources\Images\hwx.png" />
+    <Resource Include="Resources\Images\kt.png" />
+    <Resource Include="Resources\Images\wdj.png" />
+    <Resource Include="Resources\Images\wx.png" />
+    <Resource Include="Resources\Images\zr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
