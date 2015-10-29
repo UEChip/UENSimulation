@@ -209,12 +209,6 @@
                     </Image>
                     <Label Content="30℃" FontSize="6" Height="20" HorizontalAlignment="Center"/>
                 </StackPanel>
-                <Image Name="man" HorizontalAlignment="Left"  Margin="221,154,0,0" VerticalAlignment="Top" Width="38" Height="42">
-                    <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/zr.png"/>
-                    </Image.Source>
-                </Image>
-
 
 
             </Grid>
