@@ -117,7 +117,7 @@ namespace UENSimulation
         private double mstime = 10000;//毫秒
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            StartMove();
+            //StartMove();
         }
 
         int num = 0;
@@ -244,13 +244,13 @@ namespace UENSimulation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             EquControl ec = new EquControl();
-            ec._btClick2 += new BTClick(BTClickFunc);
+            ec._btClick3 += new BTClick(BTClickFunc);
             ec.Show();
         }
 
         private void BTClickFunc()
         {
-
+            this.image_7.Source = new BitmapImage(new Uri("Resources/Images/bg.png", UriKind.Relative));
         }
 
         //场景选择

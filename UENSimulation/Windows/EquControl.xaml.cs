@@ -19,11 +19,17 @@ namespace UENSimulation.Windows
     /// </summary>
     public partial class EquControl : Window
     {
-        public BTClick _btClick2;
+        public BTClick _btClick3;
         public EquControl()
         {
             InitializeComponent();
-            this.swithuc_sf._btClick += new BTClick(_btClick2);
+            swithuc_sf._btClick += new BTClick(_btClick2);
+        }
+
+        public void _btClick2()
+        {
+            if (_btClick3 != null)
+                _btClick3();
         }
     }
 }
