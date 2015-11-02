@@ -228,6 +228,8 @@ namespace UENSimulation
                                  Path p = FindName(str) as Path;
                                  p.Stroke = new SolidColorBrush(Colors.Blue);
                                  p.StrokeDashOffset -= 10;
+                                 Path pj = FindName("pathj_" + str.Split('_')[1]) as Path;
+                                 pj.Stroke = new SolidColorBrush(Colors.Blue);
                              }
                          }));
                      Thread.Sleep(500);//线程挂起
@@ -250,7 +252,6 @@ namespace UENSimulation
 
         private void BTClickFunc()
         {
-            this.image_7.Source = new BitmapImage(new Uri("Resources/Images/bg.png", UriKind.Relative));
         }
 
         //场景选择
