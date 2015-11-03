@@ -77,6 +77,7 @@
     <Compile Include="Gateway.xaml.cs">
       <DependentUpon>Gateway.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\EnergyNeed.cs" />
     <Compile Include="Model\SimulatedData.cs" />
     <Compile Include="SimulatedDataSet.xaml.cs">
       <DependentUpon>SimulatedDataSet.xaml</DependentUpon>
@@ -301,6 +302,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Local Storage\EnergyNeed.txt" />
+    <Resource Include="Local Storage\Mode.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

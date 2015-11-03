@@ -31,8 +31,10 @@ namespace UENSimulation
         {
             string filePath_EquipmentParameter = @"..\..\Local Storage\EquipmentParameter.txt";
             string filePath_SimulatedData = @"..\..\Local Storage\SimulatedData.txt";
+            string filePath_EnergyNeed = @"..\..\Local Storage\SimulatedData.txt";
+            string filePath_Mode = @"..\..\Local Storage\Mode.txt";
 
-            EnergyCalculation energyCalculation = new EnergyCalculation(filePath_EquipmentParameter, filePath_SimulatedData);
+            EnergyCalculation energyCalculation = new EnergyCalculation(filePath_EquipmentParameter, filePath_SimulatedData, filePath_EnergyNeed, filePath_Mode);
 
             //储热
             double[] output_SaveH = new double[2];
