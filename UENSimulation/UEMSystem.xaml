@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="UEMSystem" Height="850" Width="1366" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Width="1358" Height="150" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0">
-            <Label Content="泛能机系统" Width="300" Height="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="48" Margin="0,35"/>
+        <StackPanel Width="1358" Height="80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0">
+            <Label Content="泛能机系统" Width="300" Height="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="48"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="670" Width="1358" VerticalAlignment="Top" Margin="0,150,0,0">
+        <StackPanel Width="1358" Height="120" VerticalAlignment="Top" Margin="0,80,0,0">
+            <Grid Width="1358" Height="120">
+                <Image Width="200" Height="30" HorizontalAlignment="Left" Margin="5,30,0,0" Source="Resources/Images/arrow_Electricity.png" VerticalAlignment="Top" />
+                <Image Width="200" Height="30" HorizontalAlignment="Left" Margin="5,85,0,0" Source="Resources/Images/arrow_Heat.png" />
+
+                <Label Content="电" Width="50" Height="44" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="0,0,0,0"/>
+                <Label Content="热" Width="50" Height="44" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="0,55,0,0"/>
+
+                <Label Content="kWh" Width="55" Height="44" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="120,0,0,0"/>
+                <Label Content="kWh" Width="55" Height="44" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="120,55,0,0"/>
+
+                <Label Name="outsideE" Content="XX" Width="50" Height="44" FontSize="20" HorizontalContentAlignment="Right"  HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="70,0,0,0"/>
+                <Label Name="outsideH" Content="XX" Width="50" Height="44" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="70,55,0,0"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="620" Width="1358" VerticalAlignment="Top" Margin="0,200,0,0">
             <Grid Width="600" Height="600" HorizontalAlignment="Left" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"/>
@@ -17,17 +32,32 @@
 
                 <Label Content="光  伏" Grid.Row="0" Grid.Column="0" Width="200" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="AntiqueWhite"/>
                 <Label Content="光  热" Grid.Row="1" Grid.Column="0" Width="200" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="AntiqueWhite"/>
-                <Label Content="斯特林机" Grid.Row="2" Grid.Column="0" Width="200" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="AntiqueWhite"/>
-                <Label Content="补燃锅炉" Grid.Row="3" Grid.Column="0" Width="200" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="AntiqueWhite"/>
-
+                <StackPanel Grid.Row="2" Grid.Column="0" Width="200" Height=" 125" Background="AntiqueWhite">
+                    <Grid Height=" 125">
+                        <Label Content="斯特林机" Grid.Row="2" Grid.Column="0" Width="200" Height="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="40"/>
+                        <Label Content="档位:" Grid.Row="2" Grid.Column="0" Width="80" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,80,0,0"/>
+                        <Label Content="XX" Name="gear_UE" Grid.Row="2" Grid.Column="0" Width="60" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="100,80,0,0"/>
+                        <Label Content="档" Grid.Row="2" Grid.Column="0" Width="40" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="160,80,0,0"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="0" Width="200" Height=" 125" Background="AntiqueWhite">
+                    <Grid Height=" 125">
+                        <Label Content="补燃锅炉" Grid.Row="2" Grid.Column="0" Width="200" Height="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="40"/>
+                        <Label Content="档位:" Grid.Row="2" Grid.Column="0" Width="80" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,80,0,0"/>
+                        <Label Content="XX" Name="gasboiler_Gear" Grid.Row="2" Grid.Column="0" Width="60" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="100,80,0,0"/>
+                        <Label Content="档" Grid.Row="2" Grid.Column="0" Width="40" Height="45" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="160,80,0,0"/>
+                    </Grid>
+                </StackPanel>
                 <Image Grid.Row="0" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Left" Margin="5,60,0,60" Source="Resources/Images/arrow_Light.png" />
                 <Image Grid.Row="1" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Left" Margin="5,60,0,60" Source="Resources/Images/arrow_Light.png" />
                 <Image Grid.Row="2" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Left" Margin="5,32,0,0" Source="Resources/Images/arrow_Electricity.png" VerticalAlignment="Top" />
                 <Image Grid.Row="2" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Left" Margin="5,0,0,32" Source="Resources/Images/arrow_Gas.png" VerticalAlignment="Bottom" />
                 <Image Grid.Row="3" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Left" Margin="5,60,0,60" Source="Resources/Images/arrow_Gas.png" />
 
-                <Image Grid.Row="0" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,60" Source="Resources/Images/arrow_Electricity.png" />
-                <Image Grid.Row="1" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,60" Source="Resources/Images/arrow_Heat.png" />
+                <Image Grid.Row="0" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Electricity.png" VerticalAlignment="Top"/>
+                <Image Grid.Row="0" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Electricity.png" VerticalAlignment="Bottom"/>
+                <Image Grid.Row="1" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Heat.png" VerticalAlignment="Top"/>
+                <Image Grid.Row="1" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Heat.png" VerticalAlignment="Bottom"/>
                 <Image Grid.Row="2" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Electricity.png"  VerticalAlignment="Top" />
                 <Image Grid.Row="2" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,32" Source="Resources/Images/arrow_Heat.png"  VerticalAlignment="Bottom" />
                 <Image Grid.Row="3" Grid.Column="0" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,60" Source="Resources/Images/arrow_Heat.png" />
@@ -40,26 +70,32 @@
                 <Label Grid.Row="3" Grid.Column="0" Content="天然气" Width="100" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="top" VerticalContentAlignment="Bottom" Margin="0,25,0,0"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="m³" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="top" VerticalContentAlignment="Bottom" Margin="150,25,0,0"/>
 
-                <Label Grid.Row="2" Grid.Column="0" Name="consumeG_Gear" Content="XX" Width="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Margin="104,60,0,40"/>
+                <Label Grid.Row="2" Grid.Column="0" Name="consumeG_UE" Content="XX" Width="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Margin="104,60,0,40"/>
                 <Label Grid.Row="3" Grid.Column="0" Name="consumeG_Boiler" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="104,25,0,0"/>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="电" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,25,0,0"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="热" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,25,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="电(使用)" Width="85" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,0,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="电(存储)" Width="85" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="400,0,0,40"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="热(使用)" Width="85" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,0,0,0"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="热(存储)" Width="85" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="400,0,0,40"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="电" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,0,0,0"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="热" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="400,0,0,40"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="热" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="400,25,0,0"/>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="526,25,0,0"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="526,25,0,0"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="526,0,0,0"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="526,0,0,40"/>
-                <Label Grid.Row="3" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="526,25,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="545,0,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="545,0,0,40"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="545,0,0,0"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="545,0,0,40"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="545,0,0,0"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="545,0,0,40"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="545,25,0,0"/>
 
-                <Label Grid.Row="0" Grid.Column="0" Name="prdctE_Electricity" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="470,25,0,0"/>
-                <Label Grid.Row="1" Grid.Column="0" Name="prdctH_Heat" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="470,25,0,0"/>
-                <Label Grid.Row="2" Grid.Column="0" Name="prdctE_Gear" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="470,0,0,0"/>
-                <Label Grid.Row="2" Grid.Column="0" Name="prdctH_Gear" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="470,0,0,40"/>
-                <Label Grid.Row="3" Grid.Column="0" Name="prdctH_Boiler" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="470,25,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Name="consume_Pv" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="490,0,0,0"/>
+                <Label Grid.Row="0" Grid.Column="0" Name="save_Pv" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="490,0,0,40"/>
+                <Label Grid.Row="1" Grid.Column="0" Name="consume_Pt" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="490,0,0,0"/>
+                <Label Grid.Row="1" Grid.Column="0" Name="save_Pt" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="490,0,0,40"/>
+                <Label Grid.Row="2" Grid.Column="0" Name="prdctE_UE" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="490,0,0,0"/>
+                <Label Grid.Row="2" Grid.Column="0" Name="prdctH_UE" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="490,0,0,40"/>
+                <Label Grid.Row="3" Grid.Column="0" Name="prdctH_Boiler" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="490,25,0,0"/>
 
                 <Grid Width="600" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,0,-600,0" Grid.RowSpan="4">
                     <Grid.RowDefinitions>
@@ -68,25 +104,32 @@
                     </Grid.RowDefinitions>
                     <Label Content="泛能机控制器" Grid.Row="0" Grid.Column="0" Width="400" Height="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="AntiqueWhite"/>
 
-                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="250" Height="200" Margin="30,50,0,50" Background="AntiqueWhite">
-                        <Grid>
+                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="250" Height="250" Margin="30,25,0,25" Background="AntiqueWhite">
+                        <Grid Height="100">
                             <Label Content="储热" Width="150" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Margin="50,0,50,0"/>
-                            <Label Content="存储热量：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,100,130,-50"/>
-                            <Label Content="水       温：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,150,130,-100"/>
-                            <Label Content="KJ" Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="200,100,0,-50"/>
-                            <Label Content="℃" Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="200,150,0,-100"/>
+                            <Label Content="状态：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,100,130,-50"/>
+                            <Label Content="存储热量：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,150,130,-100"/>
+                            <Label Content="热量改变：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,200,130,-150"/>
+                            <Label Content="kWh" Width="55" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="200,150,0,-100"/>
+                            <Label Content="kWh" Width="55" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="200,200,0,-150"/>
 
-                            <Label Name="savedH_HA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,100,50,-50"/>
-                            <Label Name="saveT_HA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,150,50,-100"/>
+                            <Label Name="charge_HA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,100,50,-50"/>
+                            <Label Name="saveH_HA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,150,50,-100"/>
+                            <Label Name="deltaH_HA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,200,50,-150"/>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="250" Height="200" Margin="320,50,0,50" Background="AntiqueWhite">
-                        <Grid>
-                            <Label Content="储电" Width="150" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Margin="50,0,50,50"/>
-                            <Label Content="存储电量：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,125,130,-25"/>
-                            <Label Content="KJ" Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="200,125,0,-25"/>
+                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="250" Height="250" Margin="320,25,0,25" Background="AntiqueWhite">
+                        <Grid Height="100">
+                            <Label Content="储电" Width="150" Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Margin="50,0,50,0"/>
+                            <Label Content="状态：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,100,130,-50"/>
+                            <Label Content="存储电量：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,150,130,-100"/>
+                            <Label Content="电量改变：" Width="120" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,200,130,-150"/>
+                            <Label Content="kWh" Width="55" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="200,150,0,-100"/>
+                            <Label Content="kWh" Width="55" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="200,200,0,-150"/>
 
-                            <Label Name="savedE_EA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,125,50,-25"/>
+                            <Label Name="charge_EA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,100,50,-50"/>
+                            <Label Name="saveE_EA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,150,50,-100"/>
+                            <Label Name="deltaE_EA" Content="XX" Width="80" Height="50" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Margin="120,200,50,-150"/>
                         </Grid>
                     </StackPanel>
                     <Grid Width="160" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,0,-160,0" Grid.RowSpan="2">
@@ -100,11 +143,11 @@
 
                         <Label Grid.Row="0" Grid.Column="0" Content="电" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="0,175,0,0"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="热" Width="50" Height="50" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="0,26,0,0"/>
-                        <Label Grid.Row="0" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="106,175,0,0"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="kW" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="106,26,0,0"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="101,175,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="kWh" Width="55" Height="50" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="101,26,0,0"/>
 
-                        <Label Grid.Row="0" Grid.Column="0" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right"  HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="54,175,0,0"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="XX" Width="50" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="54,26,0,0"/>
+                        <Label Name="needE" Grid.Row="0" Grid.Column="0" Content="XX" Width="45" Height="50" FontSize="20" HorizontalContentAlignment="Right"  HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="54,175,0,0"/>
+                        <Label Name="needH" Grid.Row="1" Grid.Column="0" Content="XX" Width="45" Height="50" FontSize="20" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Margin="54,26,0,0"/>
                     </Grid>
                 </Grid>
             </Grid>
