@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("local%20storage/energyneed.txt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("local%20storage/mode.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/panelback_simulateddata.png")]
 
 

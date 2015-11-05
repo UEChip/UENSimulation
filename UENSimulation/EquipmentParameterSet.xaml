@@ -4,14 +4,14 @@
         xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation" x:Class="UENSimulation.EquipmentParameterSet"
         Title="EquipmentParameterSet" Height="768" Width="1366" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="1358">
+        <StackPanel HorizontalAlignment="Left" Margin="0,0,0,638" Width="1358">
             <Label Content="设备参数设置" Width="300" Height="80" HorizontalContentAlignment="Center" FontSize="48" VerticalContentAlignment="Center" Margin="529,10"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="350" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="548" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
             <StackPanel.Background>
                 <ImageBrush ImageSource="Resources/Images/panelBack_Equipment.png" TileMode="Tile"/>
             </StackPanel.Background>
-            <Label Content="设备参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,10"/>
+            <Label Content="设备参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,0"/>
             <Grid Width="1320" Height="240" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -22,103 +22,128 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="310"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="305"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="305"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="310"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Content="储热" Grid.Row="0" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                <Label Content="储电" Grid.Row="0" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="补燃锅炉" Grid.Row="0" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="光热" Grid.Row="0" Grid.Column="3" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="光伏" Grid.Row="0" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="泛能机" Grid.Row="0" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
+                <Label Content="储电" Grid.Row="0" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
+                <Label Content="光热" Grid.Row="0" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
+                <Label Content="光伏" Grid.Row="0" Grid.Column="6" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
 
-                <Label Content="最大储热量" Grid.Row="1" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="充热能量损失" Grid.Row="2" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="放热能量损失" Grid.Row="3" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="最大储热量" Grid.Row="1" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="充热能量损失" Grid.Row="2" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="放热能量损失" Grid.Row="3" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
 
-                <Label Content="最大储电量" Grid.Row="1" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="最大充电速度" Grid.Row="2" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="最大放电速度" Grid.Row="3" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="充电能量损失" Grid.Row="4" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="放电能量损失" Grid.Row="5" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="最大储电量" Grid.Row="1" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="最大充电速度" Grid.Row="2" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="最大放电速度" Grid.Row="3" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="充电能量损失" Grid.Row="4" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="放电能量损失" Grid.Row="5" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
 
-                <Label Content="设备产热能力" Grid.Row="1" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="设备消耗燃气量" Grid.Row="2" Grid.Column="2" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="设备最大产热能力" Grid.Row="1" Grid.Column="4" Width="160" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
 
-                <Label Content="设备最大产热能力" Grid.Row="1" Grid.Column="3" Width="160" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-
-                <Label Content="设备最大产电能力" Grid.Row="1" Grid.Column="4" Width="160" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-
-                <Label Content="设备产电能力" Grid.Row="1" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="设备产热能力" Grid.Row="2" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="设备消耗燃气量" Grid.Row="3" Grid.Column="5" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <Label Content="泛能机档位" Grid.Row="4" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="设备最大产电能力" Grid.Row="1" Grid.Column="6" Width="160" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
 
                 <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="maxH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" RenderTransformOrigin="-1,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="etaInH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
                 <talex:NumericUpDown Grid.Row="3" Grid.Column="0" Name="etaOutH_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="maxE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="maxInE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="3" Grid.Column="1" Name="maxOutE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="4" Grid.Column="1" Name="etaInE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="5" Grid.Column="1" Name="etaOutE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="maxE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="maxInE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="3" Grid.Column="2" Name="maxOutE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="4" Grid.Column="2" Name="etaInE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="5" Grid.Column="2" Name="etaOutE_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="powerH_gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="gas_gear_Boiler" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="power_Heat" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
 
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="power_Heat" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
-
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="power_Electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" DecimalPlaces="2"/>
-
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="powerE_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="2" Grid.Column="5" Name="powerH_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="3" Grid.Column="5" Name="gas_gear_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="4" Grid.Column="5" Name="gear_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="6" Name="power_Electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
             </Grid>
-        </StackPanel>
-        <StackPanel Width="1358" Margin="0,450,0,60">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="Resources/Images/panelBack_External.png" TileMode="Tile"/>
-            </StackPanel.Background>
-            <Label Content="外部参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,10"/>
-            <Grid Width="1320" Height="140">
+            <Grid Width="1320" Height="60" Margin="19,20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
-                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="645"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="645"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="能源价格" Grid.Row="0" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="电" Grid.Row="1" Grid.Column="0" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-                <Label Content="热" Grid.Row="1" Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-                <Label Content="气" Grid.Row="1" Grid.Column="2" Width="40" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="0" Name="priceE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="priceH" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="priceG" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-
-                <Label Content="能源限额" Grid.Row="0" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
-                <Label Content="市电" Grid.Row="1" Grid.Column="3" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-                <Label Content="光电" Grid.Row="1" Grid.Column="4" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-                <Label Content="光热" Grid.Row="1" Grid.Column="5" Width="60" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="40,0,0,20"/>
-
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="electricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="4" Name="photoelectricity" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-                <talex:NumericUpDown Grid.Row="1" Grid.Column="5" Name="optothermal" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,20" DecimalPlaces="2"/>
-
+                <Label Content="泛能机" Grid.Row="0" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Bottom"  HorizontalContentAlignment="Center"/>
+                <Label Content="补燃锅炉" Grid.Row="0" Grid.Column="3" Width="120" Height="40" HorizontalAlignment="Center" FontSize="25" VerticalContentAlignment="Bottom"  HorizontalContentAlignment="Center"/>
             </Grid>
+            <Grid Width="1320" Height="135" Margin="19,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="165"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="设备产电能力" Grid.Row="0" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="设备产热能力" Grid.Row="1" Grid.Column="0" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="设备消耗燃气量" Grid.Row="2" Grid.Column="0" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+
+                <Label Content="一档:" Grid.Row="0" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="一档:" Grid.Row="1" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="一档:" Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <Label Content="二档:" Grid.Row="0" Grid.Column="2" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="二档:" Grid.Row="1" Grid.Column="2" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="二档:" Grid.Row="2" Grid.Column="2" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <Label Content="三档:" Grid.Row="0" Grid.Column="3" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="三档:" Grid.Row="1" Grid.Column="3" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="三档:" Grid.Row="2" Grid.Column="3" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <Label Content="设备产热能力" Grid.Row="0" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                <Label Content="设备消耗燃气量" Grid.Row="1" Grid.Column="5" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+
+                <Label Content="一档:" Grid.Row="0" Grid.Column="6" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="一档:" Grid.Row="1" Grid.Column="6" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <Label Content="二档:" Grid.Row="0" Grid.Column="7" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="二档:" Grid.Row="1" Grid.Column="7" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <Label Content="三档:" Grid.Row="0" Grid.Column="8" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+                <Label Content="三档:" Grid.Row="1" Grid.Column="8" Width="50" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,0,0"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="1" Name="powerE_UE_1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="1" Name="powerH_UE_1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="gas_gear_UE_1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="2" Name="powerE_UE_2" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="2" Name="powerH_UE_2" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="2" Name="gas_gear_UE_2" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="3" Name="powerE_UE_3" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="3" Name="powerH_UE_3" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="2" Grid.Column="3" Name="gas_gear_UE_3" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="6" Name="powerH_gear_Boiler_1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="6" Name="gas_gear_Boiler_1" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="7" Name="powerH_gear_Boiler_2" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="7" Name="gas_gear_Boiler_2" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+
+                <talex:NumericUpDown Grid.Row="0" Grid.Column="8" Name="powerH_gear_Boiler_3" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+                <talex:NumericUpDown Grid.Row="1" Grid.Column="8" Name="gas_gear_Boiler_3" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" DecimalPlaces="2"/>
+            </Grid>
+
         </StackPanel>
         <StackPanel Width="1358" Margin="0,683,0,0">
             <Button Name="btn_OK" Content="确定" Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,50,0" FontSize="20" Click="btn_OK_Click"/>

@@ -48,25 +48,29 @@ namespace UENSimulation
             etaInE_EA.Value = Convert.ToDecimal(dataRead[6]);
             etaOutE_EA.Value = Convert.ToDecimal(dataRead[7]);
 
-            powerH_gear_Boiler.Value = Convert.ToDecimal(dataRead[8]);
-            gas_gear_Boiler.Value = Convert.ToDecimal(dataRead[9]);
+            power_Heat.Value = Convert.ToDecimal(dataRead[8]);
 
-            power_Heat.Value = Convert.ToDecimal(dataRead[10]);
+            power_Electricity.Value = Convert.ToDecimal(dataRead[9]);
 
-            power_Electricity.Value = Convert.ToDecimal(dataRead[11]);
+            powerE_UE_1.Value = Convert.ToDecimal(dataRead[10]);
+            powerE_UE_2.Value = Convert.ToDecimal(dataRead[11]);
+            powerE_UE_3.Value = Convert.ToDecimal(dataRead[12]);
 
-            powerE_UE.Value = Convert.ToDecimal(dataRead[12]);
-            powerH_UE.Value = Convert.ToDecimal(dataRead[13]);
-            gas_gear_UE.Value = Convert.ToDecimal(dataRead[14]);
-            gear_UE.Value = Convert.ToDecimal(dataRead[15]);
+            powerH_UE_1.Value = Convert.ToDecimal(dataRead[13]);
+            powerH_UE_2.Value = Convert.ToDecimal(dataRead[14]);
+            powerH_UE_3.Value = Convert.ToDecimal(dataRead[15]);
 
-            priceE.Value = Convert.ToDecimal(dataRead[16]);
-            priceH.Value = Convert.ToDecimal(dataRead[17]);
-            priceG.Value = Convert.ToDecimal(dataRead[18]);
+            gas_gear_UE_1.Value = Convert.ToDecimal(dataRead[16]);
+            gas_gear_UE_2.Value = Convert.ToDecimal(dataRead[17]);
+            gas_gear_UE_3.Value = Convert.ToDecimal(dataRead[18]);
 
-            electricity.Value = Convert.ToDecimal(dataRead[19]);
-            photoelectricity.Value = Convert.ToDecimal(dataRead[20]);
-            optothermal.Value = Convert.ToDecimal(dataRead[21]);
+            powerH_gear_Boiler_1.Value = Convert.ToDecimal(dataRead[19]);
+            powerH_gear_Boiler_2.Value = Convert.ToDecimal(dataRead[20]);
+            powerH_gear_Boiler_3.Value = Convert.ToDecimal(dataRead[21]);
+
+            gas_gear_Boiler_1.Value = Convert.ToDecimal(dataRead[22]);
+            gas_gear_Boiler_2.Value = Convert.ToDecimal(dataRead[23]);
+            gas_gear_Boiler_3.Value = Convert.ToDecimal(dataRead[24]);
         }
 
         private void dataWriteToEquipmentParameter(string dataFilePath)
@@ -86,25 +90,29 @@ namespace UENSimulation
             dataWrite[6] = etaInE_EA.Value.ToString();
             dataWrite[7] = etaOutE_EA.Value.ToString();
 
-            dataWrite[8] = powerH_gear_Boiler.Value.ToString();
-            dataWrite[9] = gas_gear_Boiler.Value.ToString();
+            dataWrite[8] = power_Heat.Value.ToString();
 
-            dataWrite[10] = power_Heat.Value.ToString();
+            dataWrite[9] = power_Electricity.Value.ToString();
 
-            dataWrite[11] = power_Electricity.Value.ToString();
+            dataWrite[10] = powerE_UE_1.Value.ToString();
+            dataWrite[11] = powerE_UE_2.Value.ToString();
+            dataWrite[12] = powerE_UE_3.Value.ToString();
 
-            dataWrite[12] = powerE_UE.Value.ToString();
-            dataWrite[13] = powerH_UE.Value.ToString();
-            dataWrite[14] = gas_gear_UE.Value.ToString();
-            dataWrite[15] = gear_UE.Value.ToString();
+            dataWrite[13] = powerH_UE_1.Value.ToString();
+            dataWrite[14] = powerH_UE_2.Value.ToString();
+            dataWrite[15] = powerH_UE_3.Value.ToString();
 
-            dataWrite[16] = priceE.Value.ToString();
-            dataWrite[17] = priceH.Value.ToString();
-            dataWrite[18] = priceG.Value.ToString();
+            dataWrite[16] = gas_gear_UE_1.Value.ToString();
+            dataWrite[17] = gas_gear_UE_2.Value.ToString();
+            dataWrite[18] = gas_gear_UE_3.Value.ToString();
 
-            dataWrite[19] = electricity.Value.ToString();
-            dataWrite[20] = photoelectricity.Value.ToString();
-            dataWrite[21] = optothermal.Value.ToString();
+            dataWrite[19] = powerH_gear_Boiler_1.Value.ToString();
+            dataWrite[20] = powerH_gear_Boiler_2.Value.ToString();
+            dataWrite[21] = powerH_gear_Boiler_3.Value.ToString();
+
+            dataWrite[22] = gas_gear_Boiler_1.Value.ToString();
+            dataWrite[23] = gas_gear_Boiler_2.Value.ToString();
+            dataWrite[24] = gas_gear_Boiler_3.Value.ToString();
 
             txt_Handle.dataWrite(dataFilePath, dataWrite);
         }

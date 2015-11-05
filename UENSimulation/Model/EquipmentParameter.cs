@@ -16,27 +16,31 @@ namespace UENSimulation.Model
         double maxInE_EA;//储电——最大充电速度
         double maxOutE_EA;//储电——最大放电速度
         double etaInE_EA;//储电——充电能量损失
-        double etaOutE_EA;//储电——放电能量损失
-
-        double powerH_gear_Boiler;//补燃锅炉——设备产热能力
-        double gas_gear_Boiler;//补燃锅炉——设备消耗燃气量
+        double etaOutE_EA;//储电——放电能量损失        
 
         double power_Heat;//光热——设备最大产热能力
 
         double power_Electricity;//光伏——设备最大产电能力
 
-        double powerE_UE;//泛能机——设备产电能力
-        double powerH_UE;//泛能机——设备产热能力
-        double gas_gear_UE;//泛能机——设备消耗燃气量  
-        double gear_UE;//泛能机——泛能机档位
+        double powerE_UE_1;//泛能机——设备产电能力（一档）
+        double powerE_UE_2;//泛能机——设备产电能力（二档）
+        double powerE_UE_3;//泛能机——设备产电能力（三档）
 
-        double priceE;//能源价格——电价
-        double priceH;//能源价格——热价
-        double priceG;//能源价格——气价
+        double powerH_UE_1;//泛能机——设备产热能力（一档）
+        double powerH_UE_2;//泛能机——设备产热能力（二档）
+        double powerH_UE_3;//泛能机——设备产热能力（三档）
 
-        double electricity;//能源限额——电
-        double photoelectricity;//能源限额——光电
-        double optothermal;//能源限额——光伏
+        double gas_gear_UE_1;//泛能机——设备消耗燃气量（一档） 
+        double gas_gear_UE_2;//泛能机——设备消耗燃气量（二档）
+        double gas_gear_UE_3;//泛能机——设备消耗燃气量（三档）
+
+        double powerH_gear_Boiler_1;//补燃锅炉——设备产热能力（一档）
+        double powerH_gear_Boiler_2;//补燃锅炉——设备产热能力（二档）
+        double powerH_gear_Boiler_3;//补燃锅炉——设备产热能力（三档）
+
+        double gas_gear_Boiler_1;//补燃锅炉——设备消耗燃气量（一档）
+        double gas_gear_Boiler_2;//补燃锅炉——设备消耗燃气量（二档）
+        double gas_gear_Boiler_3;//补燃锅炉——设备消耗燃气量（三档）        
 
         public double MaxH_HA
         {
@@ -86,18 +90,6 @@ namespace UENSimulation.Model
             set { etaOutE_EA = value; }
         }
 
-        public double PowerH_gear_Boiler
-        {
-            get { return powerH_gear_Boiler; }
-            set { powerH_gear_Boiler = value; }
-        }
-
-        public double Gas_gear_Boiler
-        {
-            get { return gas_gear_Boiler; }
-            set { gas_gear_Boiler = value; }
-        }
-
         public double Power_Heat
         {
             get { return power_Heat; }
@@ -110,64 +102,94 @@ namespace UENSimulation.Model
             set { power_Electricity = value; }
         }
 
-        public double PowerE_UE
+        public double PowerE_UE_1
         {
-            get { return powerE_UE; }
-            set { powerE_UE = value; }
+            get { return powerE_UE_1; }
+            set { powerE_UE_1 = value; }
         }
 
-        public double PowerH_UE
+        public double PowerE_UE_2
         {
-            get { return powerH_UE; }
-            set { powerH_UE = value; }
+            get { return powerE_UE_2; }
+            set { powerE_UE_2 = value; }
         }
 
-        public double Gas_gear_UE
+        public double PowerE_UE_3
         {
-            get { return gas_gear_UE; }
-            set { gas_gear_UE = value; }
+            get { return powerE_UE_3; }
+            set { powerE_UE_3 = value; }
         }
 
-        public double Gear_UE
+        public double PowerH_UE_1
         {
-            get { return gear_UE; }
-            set { gear_UE = value; }
+            get { return powerH_UE_1; }
+            set { powerH_UE_1 = value; }
         }
 
-        public double PriceE
+        public double PowerH_UE_2
         {
-            get { return priceE; }
-            set { priceE = value; }
+            get { return powerH_UE_2; }
+            set { powerH_UE_2 = value; }
         }
 
-        public double PriceH
+        public double PowerH_UE_3
         {
-            get { return priceH; }
-            set { priceH = value; }
+            get { return powerH_UE_3; }
+            set { powerH_UE_3 = value; }
         }
 
-        public double PriceG
+        public double Gas_gear_UE_1
         {
-            get { return priceG; }
-            set { priceG = value; }
+            get { return gas_gear_UE_1; }
+            set { gas_gear_UE_1 = value; }
         }
 
-        public double Electricity
+        public double Gas_gear_UE_2
         {
-            get { return electricity; }
-            set { electricity = value; }
+            get { return gas_gear_UE_2; }
+            set { gas_gear_UE_2 = value; }
         }
 
-        public double Photoelectricity
+        public double Gas_gear_UE_3
         {
-            get { return photoelectricity; }
-            set { photoelectricity = value; }
+            get { return gas_gear_UE_3; }
+            set { gas_gear_UE_3 = value; }
         }
 
-        public double Optothermal
+        public double PowerH_gear_Boiler_1
         {
-            get { return optothermal; }
-            set { optothermal = value; }
+            get { return powerH_gear_Boiler_1; }
+            set { powerH_gear_Boiler_1 = value; }
+        }
+
+        public double PowerH_gear_Boiler_2
+        {
+            get { return powerH_gear_Boiler_2; }
+            set { powerH_gear_Boiler_2 = value; }
+        }
+
+        public double PowerH_gear_Boiler_3
+        {
+            get { return powerH_gear_Boiler_3; }
+            set { powerH_gear_Boiler_3 = value; }
+        }
+
+        public double Gas_gear_Boiler_1
+        {
+            get { return gas_gear_Boiler_1; }
+            set { gas_gear_Boiler_1 = value; }
+        }
+
+        public double Gas_gear_Boiler_2
+        {
+            get { return gas_gear_Boiler_2; }
+            set { gas_gear_Boiler_2 = value; }
+        }
+
+        public double Gas_gear_Boiler_3
+        {
+            get { return gas_gear_Boiler_3; }
+            set { gas_gear_Boiler_3 = value; }
         }
     }
 }

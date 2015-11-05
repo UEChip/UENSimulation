@@ -38,27 +38,27 @@ namespace UENSimulation
 
             //储热
             double[] output_SaveH = new double[2];
-            output_SaveH = energyCalculation.saveH(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_SaveH = energyCalculation.saveH();
 
             //储电
             double output_SaveE;
-            output_SaveE = energyCalculation.saveE(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_SaveE = energyCalculation.saveE();
 
             //补燃锅炉
             double[] output_GasBoiler = new double[2];
-            output_GasBoiler = energyCalculation.gasBoiler(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_GasBoiler = energyCalculation.gasBoiler();
 
             //光热
             double output_PV;
-            output_PV = energyCalculation.pv(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_PV = energyCalculation.pv();
 
             //光伏
             double output_PT;
-            output_PT = energyCalculation.pt(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_PT = energyCalculation.pt();
 
             //泛能机
             double[] output_UEMachine = new double[3];
-            output_UEMachine = energyCalculation.ueMachine(energyCalculation.equipmentParameter, energyCalculation.simulatedData);
+            output_UEMachine = energyCalculation.ueMachine();
 
             //控件赋值
             //储热
@@ -73,10 +73,10 @@ namespace UENSimulation
             consumeG_Boiler.Content = output_GasBoiler[1].ToString();
 
             //光热
-            prdctH_Heat.Content = output_PV.ToString();
+            prdctH_Heat.Content = output_PT.ToString();
 
             //光伏
-            prdctE_Electricity.Content = output_PT.ToString();
+            prdctE_Electricity.Content = output_PV.ToString();
 
             //泛能机
             prdctE_Gear.Content = output_UEMachine[0].ToString();
