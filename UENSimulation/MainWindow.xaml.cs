@@ -75,7 +75,7 @@ namespace UENSimulation
         #region 箭头流动，动画效果实现
 
         #region 设置动画数据
-        //设置动画组别和展示顺序:图片名、path名、文本框名
+        //设置动画组别和展示顺序:文本框名、图片名、path名
         private String[,] configstr = new String[,]{
                                    {"textblock_1","image_1,image_2", "path_3,path_4,path_5"},
                                     //显示文字，app直接发给网关或者app连接泛能云，通过云端发给网关
@@ -117,7 +117,7 @@ namespace UENSimulation
         private double mstime = 10000;//毫秒
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //StartMove();
+            StartMove();
         }
 
         int num = 0;
@@ -164,12 +164,21 @@ namespace UENSimulation
 
                            if (pathname.Trim().Length > 0)
                            {
-                               Flow(pathname); 
+                               Flow(pathname);
                            }
                            num += 1;
                        }
                        else if (timer != null)
                        {
+                           if (P_th != null)
+                           {
+                               P_th.Abort();
+                           }
+                           timer.Stop();
+                       }
+                       if (timer != null && timer.Enabled != true)
+                       {
+                          //此处编写动画运行完毕后程序代码
                            if (P_th != null)
                            {
                                P_th.Abort();
@@ -246,12 +255,55 @@ namespace UENSimulation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             EquControl ec = new EquControl();
-            ec._btClick3 += new BTClick(BTClickFunc);
+            ec._btClick += new BTClick(btClick);
             ec.Show();
         }
 
-        private void BTClickFunc()
+         //设置动画组别和展示顺序:图片名、path名、文本框名
+        private String[,] configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16,path_17" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
+        private void btClick(List<string> lsequ, List<string> lsstate)
         {
+            if (lsequ != null && lsstate != null && lsequ.Count == lsstate.Count)
+            {
+                for (int i = 0; i < lsequ.Count; i++)
+                {
+                    if (FindName(lsequ[i]) != null)
+                    {
+                        if (!lsequ[i].Split('_')[1].Contains("tem"))
+                        {
+                            Image im = FindName(lsequ[i]) as Image;
+                            if (lsstate[i].Equals("on"))
+                            {
+                                im.Opacity = 1;
+                            }
+                            else if (lsstate[i].Equals("off"))
+                            {
+                                im.Opacity = 0;
+                            }
+                        }
+                        else
+                        {
+                            if (FindName(lsequ[i]) != null)
+                            {
+                                Image im2 = FindName(lsequ[i]) as Image;
+                                im2.Opacity = 1;
+                            } 
+                            if (FindName(lsequ[i] + "_tem") != null)
+                            {
+                                Image im3 = FindName(lsequ[i] + "_tem") as Image;
+                                im3.Opacity = 1;
+                            }
+                            if (FindName(lsequ[i] + "_text") != null)
+                            {
+                                Label l = FindName(lsequ[i] + "_text") as Label;
+                                l.Content = lsstate[i] + "℃";
+                            }
+                        }
+                    }
+                }
+            }
+            //SetConfigstr(configstr2);
+            //StartMove();
         }
 
         //场景选择
@@ -261,7 +313,7 @@ namespace UENSimulation
             ss.Show();
         }
         #endregion
-        #endregion 
+        #endregion
 
 
         #region fcc
