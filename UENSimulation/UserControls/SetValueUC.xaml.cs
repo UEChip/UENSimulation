@@ -55,6 +55,17 @@ namespace UENSimulation.UserControls
         {
             this.image_xx.Opacity = 1;
         }
+
+        private string protitle = "温度";
+        public string ProTitle
+        {
+            get { return protitle; }
+            set
+            {
+                protitle = value;
+                this.label_tit.Content = protitle;
+            }
+        }
         #endregion
 
         #region 事件
@@ -84,6 +95,13 @@ namespace UENSimulation.UserControls
                 int i = Int32.Parse(str);
                 this.textblock_value.Text = i + 1 + "";
             }
+        }
+        #endregion
+
+        #region 返回值
+        public string GetValue()
+        {
+            return this.textblock_value.Text;
         }
         #endregion
     }

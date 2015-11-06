@@ -4,15 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="45">
+             d:DesignHeight="60" Width="120">
     <Grid>
-        <StackPanel Orientation="Vertical">
+        <Border CornerRadius="10" Background="#FFBDD7EE">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="label_tit" Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                <StackPanel Orientation="Vertical" Margin="13,0,0,0">
             <Image Name="image_xs" Width="45" MouseEnter="image_xs_MouseEnter" MouseLeave="image_xs_MouseLeave" Cursor="Hand" MouseLeftButtonDown="image_xs_MouseLeftMouseDown">
                 <Image.Source>
                     <BitmapImage UriSource="../Resources/Images/xsjt.png"/>
                 </Image.Source>
             </Image>
-            <Border Name="border_value" Margin="0,3,0,0" Height="25" Width="45" Background="#FF5B9BD5" MouseEnter="border_value_MouseEnter" MouseLeave="image_xs_MouseLeftMouseDown">
+                    <Border Name="border_value" Margin="0,3,0,0" Height="25" Width="45" Background="#FF5B9BD5" MouseEnter="border_value_MouseEnter" MouseLeave="border_value_MouseLeave">
                 <TextBlock Name="textblock_value" Text="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
             <Image Name="image_xx" Width="45" Margin="0,3,0,0" MouseEnter="image_xx_MouseEnter" MouseLeave="image_xx_MouseLeave" Cursor="Hand" MouseLeftButtonDown="image_xx_MouseLeftButtonDown">
@@ -21,5 +24,7 @@
                 </Image.Source>
             </Image>
         </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

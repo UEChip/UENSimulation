@@ -24,86 +24,46 @@
         <Grid Grid.Row="1">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30" Orientation="Horizontal">
                 <Border Width="310" Height="220" CornerRadius="10" Background="#FFF2F2F2">
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="书房(20㎡)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Vertical" Name="stackpanel_master">
+                        <Label Content="主卧(20㎡)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
-                            <my:SwitchUC x:Name="swithuc_sf" Margin="20,0,0,0"/>
+                            <my:SetValueUC Margin="13,0,0,0"/>
+                            <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFFBE5D6">
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Name="stackpanel_drawing">
                         <Label Content="客厅" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <StackPanel Margin="20,20,0,0" Orientation="Horizontal">
-                        <Border Width="120" Height="60" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <StackPanel Margin="13,20,0,0" Orientation="Horizontal">
+                            <my:SetValueUC ProTitle="湿度"/>
                             <my:LeftRightUC Margin="20,0,0,0"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFFFF2CC">
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Name="stackpanel_dining">
                         <Label Content="餐厅" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFE2F0D9">
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Name="stackpanel_bathroom">
                         <Label Content="卫生间" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -111,86 +71,49 @@
         <Grid Grid.Row="2">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30" Orientation="Horizontal">
                 <Border Width="310" Height="220" CornerRadius="10" Background="#FFF2F2F2">
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="主卧" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Vertical" Name="stackpanel_study">
+                        <Label Content="书房" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFFBE5D6">
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Name="stackpanel_children">
                         <Label Content="儿童房" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFFFF2CC">
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="其他" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Vertical" Name="stackpanel_kitchen">
+                        <Label Content="厨房" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFE2F0D9">
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="书房" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Vertical" Name="stackpanel_balcony">
+                        <Label Content="阳台" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="120" Height="60" Margin="20,0,0,0" CornerRadius="10" Background="#FFBDD7EE">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                    <my:SetValueUC Margin="13,0,0,0"/>
-                                </StackPanel>
-                            </Border>
+                            <my:SetValueUC Margin="13,0,0,0"/>
                             <my:SwitchUC Margin="20,0,0,0"/>
                         </StackPanel>
-                        <Border Width="120" Height="60" Margin="20,20,0,0" HorizontalAlignment="Left" CornerRadius="10" Background="#FFBDD7EE">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="温度" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-                                <my:SetValueUC Margin="13,0,0,0"/>
-                            </StackPanel>
-                        </Border>
+                        <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Height="30" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Content="确定" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>

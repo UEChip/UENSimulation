@@ -87,7 +87,6 @@ namespace UENSimulation.UserControls
         #endregion
 
         #region 点击关联对应房间区域显示
-        public BTClick _btClick;
 
         //分部选中颜色
         string fccolour = "#FF5B9BD5";
@@ -110,9 +109,6 @@ namespace UENSimulation.UserControls
                 this.label_1.Tag = "0";
             }
             SetBorder();
-
-            if (_btClick != null)
-                _btClick();
         }
         private void label_2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -127,9 +123,6 @@ namespace UENSimulation.UserControls
                 this.label_2.Tag = "0";
             }
             SetBorder();
-
-            if (_btClick != null)
-                _btClick();
         }
 
         private void SetBorder()
@@ -141,6 +134,32 @@ namespace UENSimulation.UserControls
             else
             {
                 this.border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(zucolour));
+            }
+        }
+        #endregion
+
+        #region 返回值
+        public bool GetUpState()
+        {
+            if (this.label_1.Tag.Equals("0"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool GetDownState()
+        {
+            if (this.label_2.Tag.Equals("0"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
         #endregion

@@ -25,6 +25,7 @@ namespace UENSimulation.UserControls
             InitializeComponent();
         }
 
+        #region 显示效果
         //左名字
         private string lname = "电视";
 
@@ -120,5 +121,34 @@ namespace UENSimulation.UserControls
         {
             this.border_1.Opacity = 1;
         }
+        #endregion
+
+        #region 返回值
+
+        public bool GetLeftState()
+        {
+            if (this.border_1.Tag.Equals("1"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetRightState()
+        {
+            if (this.border_2.Tag.Equals("1"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
     }
 }
