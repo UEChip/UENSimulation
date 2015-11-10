@@ -39,7 +39,6 @@ namespace UENSimulation
         }
         private void cloud_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
             UENSimulation.CloudService cloudService = new UENSimulation.CloudService();
             cloudService.cloudDetail.Items.Clear();
             TextBox tb;
@@ -53,10 +52,7 @@ namespace UENSimulation
                 tb.Text = str;
                 cloudService.cloudDetail.Items.Add(tb);
             }
-
-
             cloudService.ShowDialog();
-
         }
         private void gateway_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -76,8 +72,10 @@ namespace UENSimulation
 
         #region 设置动画数据
         //设置动画组别和展示顺序:文本框名、图片名、path名
-        private String[,] configstr = new String[,]{
-                                   {"textblock_1","image_1,image_2", "path_3,path_4,path_5"},
+        private String[,] configstr;
+
+        private String[,] _configstr = new String[,]{
+                                   {"textblock_1","image_1,image_2", "path_3,path_4"},
                                     //显示文字，app直接发给网关或者app连接泛能云，通过云端发给网关
                                    {"textblock_2","image_1,image_4,image_3,image_10", "path_2,path_5,path_6"},
                                     //泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据
@@ -112,19 +110,19 @@ namespace UENSimulation
         #endregion
 
         //设置图片闪烁次数，path流动时常，两组动画间隔时间
-        private int blingtimes = 3;
-        private double flowtime = 3;
-        private double mstime = 10000;//毫秒
+        private int blingtimes = 4;
+        private double flowtime = 4;
+        private double mstime = 8000;//毫秒
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            StartMove();
         }
 
         int num = 0;
-        System.Timers.Timer timer = null;
+        System.Timers.Timer timer;
         //设定动画方案，以一组为单位
         private void StartMove()
         {
+            timer = null;
             MoveTeam(null, null);
             timer = new System.Timers.Timer(mstime);
             timer.Elapsed += new ElapsedEventHandler(MoveTeam);
@@ -162,6 +160,10 @@ namespace UENSimulation
                                }
                            }
 
+                           if (P_th != null)
+                           {
+                               P_th.Abort();
+                           }
                            if (pathname.Trim().Length > 0)
                            {
                                Flow(pathname);
@@ -178,7 +180,8 @@ namespace UENSimulation
                        }
                        if (timer != null && timer.Enabled != true)
                        {
-                          //此处编写动画运行完毕后程序代码
+                           //此处编写动画运行完毕后程序代码
+                           RecoverPath();
                            if (P_th != null)
                            {
                                P_th.Abort();
@@ -187,6 +190,22 @@ namespace UENSimulation
                        }
                    }));
         }
+
+        string[] pstr = { "path_1", "path_2", "path_3", "path_4", "path_5", "path_6", "path_7", "path_9", "path_10",
+                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_17", "path_18"};
+        //将path颜色恢复灰色
+        private void RecoverPath()
+        {
+            foreach (string str in pstr)
+            {
+                Path p = FindName(str) as Path;
+                p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
+                p.StrokeDashOffset -= 10;
+                Path pj = FindName("pathj_" + str.Split('_')[1]) as Path;
+                pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
+            }
+        }
+
 
         //控制文本框显示
         private void ShowData(TextBlock t)
@@ -201,8 +220,8 @@ namespace UENSimulation
             DoubleAnimationUsingKeyFrames dak = new DoubleAnimationUsingKeyFrames();
             //关键帧定义
             dak.KeyFrames.Add(new LinearDoubleKeyFrame(1, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
-            dak.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(flowtime / 2))));
-            dak.KeyFrames.Add(new LinearDoubleKeyFrame(1, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(flowtime))));
+            dak.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(flowtime / (blingtimes * 2)))));
+            dak.KeyFrames.Add(new LinearDoubleKeyFrame(1, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(flowtime / blingtimes))));
             dak.RepeatBehavior = new RepeatBehavior(blingtimes);//动画重复次数
             //开始动画
             image.BeginAnimation(Border.OpacityProperty, dak);
@@ -214,10 +233,6 @@ namespace UENSimulation
         {
             String[] pstr = pathname.Split(',');
             //如果线程已存在则删除/取消该线程
-            if (P_th != null)
-            {
-                P_th.Abort();
-            }
 
             int i = 0;
             P_th = new Thread(//建立线程
@@ -238,15 +253,54 @@ namespace UENSimulation
                                  p.Stroke = new SolidColorBrush(Colors.Blue);
                                  p.StrokeDashOffset -= 10;
                                  Path pj = FindName("pathj_" + str.Split('_')[1]) as Path;
-                                 pj.Stroke = new SolidColorBrush(Colors.Blue);
+                                 pj.Fill = new SolidColorBrush(Colors.Blue);
                              }
                          }));
                      Thread.Sleep(500);//线程挂起
-                     //i += 1;
+                     i += 1;
                  }
              });
             P_th.IsBackground = true;//设置线程为后台线程
             P_th.Start();//线程开始
+        }
+
+        //整体调用
+        private void ztdy_Click(object sender, RoutedEventArgs e)
+        {
+            num = 0;
+            SetConfigstr(_configstr);
+            StartMove();
+        }
+
+        //区域调用
+        private void qydy_Click(object sender, RoutedEventArgs e)
+        {
+            num = 0;
+            TextCollapsed();
+            SetConfigstr(_configstr2);
+            StartMove();
+        }
+
+        //收起展示文字
+        private void TextCollapsed()
+        {
+            this.textblock_1.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_2.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_3.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_4.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_5.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_6.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_7.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_8.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_9.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_10.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_11.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_12.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_13.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_14.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_15.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_16.Visibility = System.Windows.Visibility.Collapsed;
+            this.textblock_17.Visibility = System.Windows.Visibility.Collapsed;
         }
         #endregion
 
@@ -259,8 +313,8 @@ namespace UENSimulation
             ec.Show();
         }
 
-         //设置动画组别和展示顺序:图片名、path名、文本框名
-        private String[,] configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16,path_17" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
+        //设置动画组别和展示顺序:图片名、path名、文本框名
+        private String[,] _configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16,path_17" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
         private void btClick(List<string> lsequ, List<string> lsstate)
         {
             if (lsequ != null && lsstate != null && lsequ.Count == lsstate.Count)
@@ -283,27 +337,25 @@ namespace UENSimulation
                         }
                         else
                         {
-                            if (FindName(lsequ[i]) != null)
-                            {
-                                Image im2 = FindName(lsequ[i]) as Image;
-                                im2.Opacity = 1;
-                            } 
-                            if (FindName(lsequ[i] + "_tem") != null)
-                            {
-                                Image im3 = FindName(lsequ[i] + "_tem") as Image;
-                                im3.Opacity = 1;
-                            }
                             if (FindName(lsequ[i] + "_text") != null)
                             {
                                 Label l = FindName(lsequ[i] + "_text") as Label;
+                                if (FindName(lsequ[i]) != null && !lsstate[i].Equals(l.Content.ToString().Trim()))
+                                {
+                                    Image im2 = FindName(lsequ[i]) as Image;
+                                    im2.Opacity = 1;
+                                }
+                                if (FindName(lsequ[i] + "_tem") != null && !lsstate[i].Equals(l.Content.ToString().Trim()))
+                                {
+                                    Image im3 = FindName(lsequ[i] + "_tem") as Image;
+                                    im3.Opacity = 1;
+                                }
                                 l.Content = lsstate[i] + "℃";
                             }
                         }
                     }
                 }
             }
-            //SetConfigstr(configstr2);
-            //StartMove();
         }
 
         //场景选择
@@ -311,6 +363,18 @@ namespace UENSimulation
         {
             SceneSet ss = new SceneSet();
             ss.Show();
+        }
+        #endregion
+
+        #region 可点击图片鼠标移入移出效果
+        private void image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ((Image)sender).Opacity = 0.8;
+        }
+
+        private void image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ((Image)sender).Opacity = 1;
         }
         #endregion
         #endregion

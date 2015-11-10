@@ -14,8 +14,12 @@
                     <BitmapImage UriSource="/Resources/Images/background3.png"/>
                 </Image.Source>
             </Image>
-            <StackPanel Margin="1442,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Label  Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="114,0,0,0"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,10,0,0">
+                <Button Name="ztdy" Width="80" Height="35" Content="整体调用流程展示" Click="ztdy_Click"/>
+                <Button Name="qydy" Width="80" Height="35" Content="区域调用流程展示" Click="qydy_Click" Margin="0,5,0,0"/>
+            </StackPanel>
+            <StackPanel Margin="1467,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Label  Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0"/>
                 <TextBlock Name="textblock_1" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.135：客户端指令下发到泛能网关" Visibility="Collapsed"/>
                 <TextBlock Name="textblock_2" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20" Text="12:00:01.136：泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据" Visibility="Collapsed"/>
                 <TextBlock Name="textblock_3" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.138：根据载入数据，网关内部能源优化模块计算合适的控制策略" Visibility="Collapsed"/>
@@ -41,14 +45,19 @@
                         <BitmapImage UriSource="Resources/Images/fnjkzq.png"/>
                     </Image.Source>
                 </Image>
-                <Image Name="image_6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="350" MouseLeftButtonDown="image_6_MouseLeftButtonDown">
+                <Image Name="image_6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="350" MouseLeftButtonDown="image_6_MouseLeftButtonDown" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnj.png"/>
                     </Image.Source>
                 </Image>
             </Grid>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="905,590,0,0" Panel.ZIndex="2">
-                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="2" Content="手动控制" FontSize="22" Background="#FFF16300" BorderBrush="Red" Height="45" Width="100" Click="Button_Click" Margin="0,0,20,0"/>
+                <!--<Button HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="2" Content="手动控制" FontSize="22" Background="#FFF16300" BorderBrush="Red" Height="45" Width="100" Click="Button_Click" Margin="0,0,20,0"/>-->
+                <Image Height="45" MouseLeftButtonDown="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/Images/sdkz.png"/>
+                    </Image.Source>
+                </Image>
                 <Label Content="用能设备" FontSize="18" HorizontalAlignment="Center" Margin="0,-20,0,0"/>
                 <Grid  Height="342">
                     <Image Name="image_7" Panel.ZIndex="0">
@@ -109,7 +118,7 @@
                                     <BitmapImage UriSource="/Resources/Images/hdg.png"/>
                                 </Image.Source>
                             </Image>
-                            <Image Name="drawing_light_zm" Opacity="0">
+                            <Image Name="drawing_light_zm" Opacity="1">
                                 <Image.Source>
                                     <BitmapImage UriSource="/Resources/Images/dg.png"/>
                                 </Image.Source>
@@ -214,7 +223,7 @@
                                     <BitmapImage UriSource="/Resources/Images/hkt.png"/>
                                 </Image.Source>
                             </Image>
-                            <Image Name="drawing_tem" Opacity="0">
+                            <Image Name="drawing_tem" Opacity="1">
                                 <Image.Source>
                                     <BitmapImage UriSource="/Resources/Images/kt.png"/>
                                 </Image.Source>
@@ -259,7 +268,7 @@
                                     <BitmapImage UriSource="/Resources/Images/hds.png"/>
                                 </Image.Source>
                             </Image>
-                            <Image Name="drawing_tv" Opacity="0">
+                            <Image Name="drawing_tv" Opacity="1">
                                 <Image.Source>
                                     <BitmapImage UriSource="/Resources/Images/ds.png"/>
                                 </Image.Source>
@@ -320,7 +329,7 @@
                                     <BitmapImage UriSource="/Resources/Images/hwdj.png"/>
                                 </Image.Source>
                             </Image>
-                            <Image Name="drawing_tem_tem" Opacity="0">
+                            <Image Name="drawing_tem_tem" Opacity="1">
                                 <Image.Source>
                                     <BitmapImage UriSource="/Resources/Images/wdj.png"/>
                                 </Image.Source>
@@ -350,13 +359,13 @@
                                     <BitmapImage UriSource="/Resources/Images/hwdj.png"/>
                                 </Image.Source>
                             </Image>
-                            <Image Name="dining_tem_tem" Opacity="0">
+                            <Image Name="kitchen_tem_tem" Opacity="0">
                                 <Image.Source>
                                     <BitmapImage UriSource="/Resources/Images/wdj.png"/>
                                 </Image.Source>
                             </Image>
                         </Grid>
-                        <Label Name="dining_tem_text" Margin="0,-5,0,0" Content="30℃" FontSize="6" Height="20" HorizontalAlignment="Center"/>
+                        <Label Name="kitchen_tem_text" Margin="0,-5,0,0" Content="30℃" FontSize="6" Height="20" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <Image Name="man" HorizontalAlignment="Left"  Margin="241,174,0,0" VerticalAlignment="Top" Width="38" Height="42">
                         <Image.Source>
@@ -366,7 +375,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Margin="1176,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="2" Name="cloud"  MouseDown="cloud_MouseDown">
-                <Image Name="image_1" Height="120">
+                <Image Name="image_1" Height="120" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/Images/cloud.png"/>
                     </Image.Source>
@@ -383,7 +392,7 @@
             </StackPanel>
             <StackPanel  Height="206" Margin="891,349,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
                 <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
-                <Image Name="image_4" Height="128">
+                <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/gateway.png"/>
                     </Image.Source>
@@ -410,18 +419,18 @@
                 </Image>
                 <Label Content="传感表计" FontSize="18" HorizontalAlignment="Center"/>
             </StackPanel>
-            <Image Name="image_10" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="598,79,0,0"  MouseLeftButtonDown="familyButton_Click">
+            <Image Name="image_10" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="598,79,0,0"  MouseLeftButtonDown="familyButton_Click" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                 <Image.Source>
                     <BitmapImage UriSource="Resources/Images/jthjxx.png"/>
                 </Image.Source>
             </Image>
             <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,79,0,0" Panel.ZIndex="2">
-                <Image Name="image_11" Height="50" MouseLeftButtonDown="Button_Click_2">
+                <Image Name="image_11" Height="50" MouseLeftButtonDown="Button_Click_2" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/sbcs.png"/>
                     </Image.Source>
                 </Image>
-                <Image Name="image_12" Height="50" MouseLeftButtonDown="Button_Click_3">
+                <Image Name="image_12" Height="50" MouseLeftButtonDown="Button_Click_3" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/yhmnsj.png"/>
                     </Image.Source>
@@ -429,8 +438,13 @@
             </StackPanel>
 
             <StackPanel Margin="1090,154,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
-                <Button Content="场景选择" FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" Click="Button_Click_1">
-                </Button>
+                <!--<Button Content="场景选择" FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" Click="Button_Click_1">
+                </Button>-->
+                <Image Height="45" MouseLeftButtonDown="Button_Click_1" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/Images/cjxz.png"/>
+                    </Image.Source>
+                </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="725,695,0,0">
                 <Label Content="电:xxxx" FontSize="24" HorizontalAlignment="Center"/>
@@ -450,14 +464,13 @@
                 <Path Name="pathj_2" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="943" Canvas.Top="336"/>
             </Canvas>
             <Canvas>
-                <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 150,0" Canvas.Left="769" Canvas.Top="473"  />
+                <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 140,0" Canvas.Left="769" Canvas.Top="473"  />
             </Canvas>
             <Canvas>
-                <Path Name="path_7" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l0,50 l-350,0" Canvas.Left="915" Canvas.Top="558"/>
+                <Path Name="path_7" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l0,55 l-320,0" Canvas.Left="915" Canvas.Top="552"/>
             </Canvas>
             <Canvas>
-                <Path Name="path_8" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 0,70" Canvas.Left="1038" Canvas.Top="556"/>
-                <Path Name="path_9" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m1050,500 l200,0 l0,150" Canvas.Top="-50"/>
+                <Path Name="path_9" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m1075,580 l175,0 l0,80" Canvas.Top="-50"/>
                 <Path Name="path_10" Data="M105,688 L405,688" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
                 <Path Name="path_11" Data="M105,755.5 L405,755" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
                 <Path Name="path_12" Data="M105,824.5 L405,824" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
@@ -472,13 +485,13 @@
                 <Path Name="path_4" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 160,100 l100,0 l0,-70"/>
                 <Path Name="pathj_4" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,93,0,0"/>
             </Canvas>
-            <Path Name="path_5" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M2.5,252.5 L252.5,252.5 252.5,2.5" Height="255" Canvas.Left="-2.5" Canvas.Top="-2.5" Width="255" Margin="1069,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Path Name="path_5" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M0,252.5 L252.5,252.5 252.5,2.5" Height="255" Width="255" Margin="1069,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Path Name="pathj_1" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="532,567,0,0"/>
             <Path Name="pathj_3" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="976,336,0,0"/>
-            <Path Name="pathj_6" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="762,459,0,0"/>
+            <Path Name="pathj_6" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,415,0,0"/>
             <Path Name="pathj_9" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1243,598,0,0"/>
-            <Path Name="pathj_8" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1030,548,0,0"/>
-            <Path Name="pathj_5" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1066.5,415,0,0"/>
+            <!--<Path Name="pathj_8" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1030,548,0,0"/>-->
+            <Path Name="pathj_5" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1055,415,0,0"/>
             <Path Name="pathj_10" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="94,680,0,0"/>
             <Path Name="pathj_11" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,748,0,0"/>
             <Path Name="pathj_12" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,816,0,0"/>
@@ -488,10 +501,9 @@
             <Path Name="pathj_16" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
             <Path Name="pathj_17" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
             <Path Data="M956,628 L953,548.5" Fill="Blue" HorizontalAlignment="Left" Height="79.5" Margin="953,548.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="3"/>
-            <Path Name="path_18" Data="M955,625 L955,555" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="70" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
+            <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
-            <Path Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1116.5,269,0,0"/>
         </Grid>
     </Grid>
 </Window>

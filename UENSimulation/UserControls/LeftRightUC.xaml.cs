@@ -57,9 +57,9 @@ namespace UENSimulation.UserControls
         //分部取消颜色
         string fucolour = "#FFADB9CA";
         //整体选中颜色
-        string zccolour = "#FFD6DCE5";
+        string zccolour = "#FFBDD7EE";
         //整体取消颜色
-        string zucolour = "#FFBDD7EE";
+        string zucolour = "#FFD6DCE5";
         private void border_2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.border_2.Tag.Equals("0"))
