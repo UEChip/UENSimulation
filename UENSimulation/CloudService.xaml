@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.CloudService"
-       Title="CloudService" Height="761.5" Width="1518" Left="1366">
+       Title="CloudService" Height="761.5" Width="1518" Left="1366" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel Height="126">

@@ -52,6 +52,50 @@ namespace UENSimulation.UserControls
             }
         }
 
+        //设置照明、装饰是否选中效果
+        private bool bfu = true;
+        public bool Bfu
+        {
+            get { return bfu; }
+            set
+            {
+                bfu = value;
+                if (bfu)
+                {
+                    this.label_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
+                    this.label_1.Tag = "1";
+                }
+                else
+                {
+                    this.label_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
+                    this.label_1.Tag = "0";
+                }
+                SetBorder();
+            }
+        }
+
+        private bool bfd = true;
+        public bool Bfd
+        {
+            get { return bfd; }
+            set
+            {
+                bfd = value;
+                if (bfu)
+                {
+                    this.label_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
+                    this.label_2.Tag = "1";
+                }
+                else
+                {
+                    this.label_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
+                    this.label_2.Tag = "0";
+                }
+
+                SetBorder();
+            }
+        }
+
         //右下名字
         private string fdname = "装饰";
 
@@ -93,9 +137,9 @@ namespace UENSimulation.UserControls
         //分部取消颜色
         string fucolour = "#FFADB9CA";
         //整体选中颜色
-        string zccolour = "#FFD6DCE5";
+        string zccolour = "#FFBDD7EE";
         //整体取消颜色
-        string zucolour = "#FFBDD7EE";
+        string zucolour = "#FFD6DCE5";
         private void label_1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.label_1.Tag.Equals("0"))

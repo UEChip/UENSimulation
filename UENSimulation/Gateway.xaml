@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
-        Title="Gateway" Height="569.077" Width="1050.856" Left="1366" Top="0">
+        Title="Gateway" Height="569.077" Width="1050.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,-8,0">
         <StackPanel HorizontalAlignment="Left" Height="94" Margin="433,0,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="50">
