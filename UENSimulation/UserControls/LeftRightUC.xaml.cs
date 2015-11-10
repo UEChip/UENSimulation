@@ -52,6 +52,51 @@ namespace UENSimulation.UserControls
             }
         }
 
+        //设置电视、音响是否选中效果  11.10 Jessie
+        private bool lstate;
+
+        public bool Lstate
+        {
+            get { return lstate; }
+            set
+            {
+                lstate = value;
+                if (lstate)
+                {
+                    this.border_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
+                    this.border_1.Tag = "1";
+                }
+                else
+                {
+                    this.border_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
+                    this.border_1.Tag = "0";
+                }
+                SetBorder();
+            }
+        }
+
+        private bool rstate;
+
+        public bool Rstate
+        {
+            get { return rstate; }
+            set
+            {
+                rstate = value;
+                if (rstate)
+                {
+                    this.border_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
+                    this.border_2.Tag = "1";
+                }
+                else
+                {
+                    this.border_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
+                    this.border_2.Tag = "0";
+                }
+                SetBorder();
+            }
+        }
+
         //分部选中颜色
         string fccolour = "#FF5B9BD5";
         //分部取消颜色
@@ -66,11 +111,13 @@ namespace UENSimulation.UserControls
             {
                 this.border_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
                 this.border_2.Tag = "1";
+                Rstate = true;
             }
             else
             {
                 this.border_2.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
                 this.border_2.Tag = "0";
+                Rstate = false;
             }
             SetBorder();
         }
@@ -81,11 +128,13 @@ namespace UENSimulation.UserControls
             {
                 this.border_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fccolour));
                 this.border_1.Tag = "1";
+                Lstate = true;
             }
             else
             {
                 this.border_1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(fucolour));
                 this.border_1.Tag = "0";
+                Lstate = false;
             }
             SetBorder();
         }

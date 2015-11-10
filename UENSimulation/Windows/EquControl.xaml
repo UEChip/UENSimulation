@@ -42,7 +42,7 @@
                         </StackPanel>
                         <StackPanel Margin="13,20,0,0" Orientation="Horizontal">
                             <my:SetValueUC ProTitle="湿度"/>
-                            <my:LeftRightUC Margin="20,0,0,0"/>
+                            <my:LeftRightUC Margin="20,0,0,0" Lstate="False" Rstate="True"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -51,7 +51,7 @@
                         <Label Content="餐厅" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
                             <my:SetValueUC Margin="13,0,0,0"/>
-                            <my:SwitchUC Margin="20,0,0,0" Bfu="False" Bfd="False"/>
+                            <my:SwitchUC Margin="20,0,0,0"  Bfu="False" Bfd="False"/>
                         </StackPanel>
                         <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
