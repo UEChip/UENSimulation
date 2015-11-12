@@ -68,6 +68,7 @@ namespace UENSimulation.UserControls
         }
         #endregion
 
+        public static valueChanged _valueChanged;
         #region 事件
         //点击向上
         private void image_xs_MouseLeftMouseDown(object sender, MouseEventArgs e)
@@ -85,6 +86,7 @@ namespace UENSimulation.UserControls
                     this.textblock_value.Text = "0";
                 }
             }
+            _valueChanged();
         }
         //点击向下
         private void image_xx_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -95,6 +97,7 @@ namespace UENSimulation.UserControls
                 int i = Int32.Parse(str);
                 this.textblock_value.Text = i + 1 + "";
             }
+            _valueChanged();
         }
         #endregion
 

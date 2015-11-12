@@ -324,7 +324,7 @@ namespace UENSimulation.Windows
                     else if (str.Contains("湿度"))
                     {
                         this.checkbox_sd.IsChecked = true;
-                        this.textbox_sd1.Text = str.Split(':')[1];
+                        this.textbox_sd1.Text = str.Split(':')[1].TrimEnd('%');
                     }
                     else if (str.Contains("电视"))
                     {
@@ -353,7 +353,7 @@ namespace UENSimulation.Windows
                     else if (str.Contains("风管风速"))
                     {
                         this.checkbox_fs.IsChecked = true;
-                        this.textbox_fs1.Text = str.Split(':')[1];
+                        this.textbox_fs1.Text = str.Split(':')[1].TrimEnd('s').TrimEnd('/').TrimEnd('m');
                     }
                 }
             }

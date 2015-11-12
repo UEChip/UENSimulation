@@ -140,6 +140,7 @@ namespace UENSimulation.UserControls
         string zccolour = "#FFBDD7EE";
         //整体取消颜色
         string zucolour = "#FFD6DCE5";
+        public static valueChanged _valueChanged;
         private void label_1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.label_1.Tag.Equals("0"))
@@ -153,6 +154,8 @@ namespace UENSimulation.UserControls
                 this.label_1.Tag = "0";
             }
             SetBorder();
+
+            _valueChanged();
         }
         private void label_2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -167,6 +170,8 @@ namespace UENSimulation.UserControls
                 this.label_2.Tag = "0";
             }
             SetBorder();
+
+            _valueChanged();
         }
 
         private void SetBorder()

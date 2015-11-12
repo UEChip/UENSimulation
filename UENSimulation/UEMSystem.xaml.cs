@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,8 @@ namespace UENSimulation
         {
             InitializeComponent();
 
-            dataFromEnergyCalculation();
+            Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
+            dataCalculation.Start();
         }
 
         private void dataFromEnergyCalculation()
@@ -65,57 +67,60 @@ namespace UENSimulation
             ArrayList output_Ctrlopt = new ArrayList();
             output_Ctrlopt = energyCalculation.ctrlopt();
 
-            //控件赋值
-            //光伏
-            consume_Pv.Content = output_Ctrlopt[6].ToString();
-            save_Pv.Content = output_Ctrlopt[7].ToString();
-
-            //光热
-            consume_Pt.Content = output_Ctrlopt[8].ToString();
-            save_Pt.Content = output_Ctrlopt[9].ToString();
-
-            //储热
-            if (Convert.ToInt32(output_Ctrlopt[3]) == 1)
+            this.Dispatcher.Invoke(new Action(() =>
             {
-                charge_HA.Content = "充热";
-            }
-            else if (Convert.ToInt32(output_Ctrlopt[4]) == -1)
-            {
-                charge_HA.Content = "放热";
-            }
-            saveH_HA.Content = output_Ctrlopt[4].ToString();
-            deltaH_HA.Content = output_Ctrlopt[5].ToString();
+                //控件赋值
+                //光伏
+                consume_Pv.Content = output_Ctrlopt[6].ToString();
+                save_Pv.Content = output_Ctrlopt[7].ToString();
 
-            //储电        
-            if (Convert.ToInt32(output_Ctrlopt[0]) == 1)
-            {
-                charge_EA.Content = "充电";
-            }
-            else if (Convert.ToInt32(output_Ctrlopt[0]) == -1)
-            {
-                charge_EA.Content = "放电";
-            }
-            saveE_EA.Content = output_Ctrlopt[1].ToString();
-            deltaE_EA.Content = output_Ctrlopt[2].ToString();
+                //光热
+                consume_Pt.Content = output_Ctrlopt[8].ToString();
+                save_Pt.Content = output_Ctrlopt[9].ToString();
 
-            //泛能机
-            prdctE_UE.Content = output_UEMachine[0].ToString();
-            prdctH_UE.Content = output_UEMachine[1].ToString();
-            consumeG_UE.Content = output_UEMachine[2].ToString();
-            gear_UE.Content = output_Ctrlopt[12].ToString();
+                //储热
+                if (Convert.ToInt32(output_Ctrlopt[3]) == 1)
+                {
+                    charge_HA.Content = "充热";
+                }
+                else if (Convert.ToInt32(output_Ctrlopt[4]) == -1)
+                {
+                    charge_HA.Content = "放热";
+                }
+                saveH_HA.Content = output_Ctrlopt[4].ToString();
+                deltaH_HA.Content = output_Ctrlopt[5].ToString();
 
-            //补燃锅炉
-            prdctH_Boiler.Content = output_GasBoiler[0].ToString();
-            consumeG_Boiler.Content = output_GasBoiler[1].ToString();
-            gasboiler_Gear.Content = output_Ctrlopt[13].ToString();
+                //储电        
+                if (Convert.ToInt32(output_Ctrlopt[0]) == 1)
+                {
+                    charge_EA.Content = "充电";
+                }
+                else if (Convert.ToInt32(output_Ctrlopt[0]) == -1)
+                {
+                    charge_EA.Content = "放电";
+                }
+                saveE_EA.Content = output_Ctrlopt[1].ToString();
+                deltaE_EA.Content = output_Ctrlopt[2].ToString();
 
-            //额外的电和热
-            outsideE.Content = output_Ctrlopt[10].ToString();
-            outsideH.Content = output_Ctrlopt[11].ToString();
+                //泛能机
+                prdctE_UE.Content = output_UEMachine[0].ToString();
+                prdctH_UE.Content = output_UEMachine[1].ToString();
+                consumeG_UE.Content = output_UEMachine[2].ToString();
+                gear_UE.Content = output_Ctrlopt[12].ToString();
 
-            //泛能机系统输出的电和热
-            needE.Content = energyCalculation.EnergyNeed.Electricity_Need;
-            needH.Content = energyCalculation.EnergyNeed.Heat_Need;
+                //补燃锅炉
+                prdctH_Boiler.Content = output_GasBoiler[0].ToString();
+                consumeG_Boiler.Content = output_GasBoiler[1].ToString();
+                gasboiler_Gear.Content = output_Ctrlopt[13].ToString();
+
+                //额外的电和热
+                outsideE.Content = output_Ctrlopt[10].ToString();
+                outsideH.Content = output_Ctrlopt[11].ToString();
+
+                //泛能机系统输出的电和热
+                needE.Content = energyCalculation.EnergyNeed.Electricity_Need;
+                needH.Content = energyCalculation.EnergyNeed.Heat_Need;
+            }));
         }
     }
 }

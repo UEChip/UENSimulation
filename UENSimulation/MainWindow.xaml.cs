@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UENSimulation.Windows;
+using UENSimulation.Utility;
 
 namespace UENSimulation
 {
@@ -91,7 +93,7 @@ namespace UENSimulation
                                     //泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据
                                     {"textblock_8","image_6", "path_12,path_13,path_14,path_11,path_10"},
                                     //泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网
-                                     {"textblock_9","", "path_15,path_16,path_17"},
+                                     {"textblock_9","", "path_15,path_16"},
                                     //泛能机输出多种能源供给用能设备
                                     {"textblock_10","image_7", ""},
                                     //用能设备获取能源，正常运行
@@ -192,7 +194,7 @@ namespace UENSimulation
         }
 
         string[] pstr = { "path_1", "path_2", "path_3", "path_4", "path_5", "path_6", "path_7", "path_9", "path_10",
-                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_17", "path_18"};
+                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_18"};
         //将path颜色恢复灰色
         private void RecoverPath()
         {
@@ -267,6 +269,11 @@ namespace UENSimulation
         //整体调用
         private void ztdy_Click(object sender, RoutedEventArgs e)
         {
+            TextCollapsed();
+            //算法线程
+            Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
+            dataCalculation.Start();
+
             num = 0;
             SetConfigstr(_configstr);
             StartMove();
@@ -314,7 +321,7 @@ namespace UENSimulation
         }
 
         //设置动画组别和展示顺序:图片名、path名、文本框名
-        private String[,] _configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16,path_17" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
+        private String[,] _configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
         private void btClick(List<string> lsequ, List<string> lsstate)
         {
             if (lsequ != null && lsstate != null && lsequ.Count == lsstate.Count)
@@ -400,6 +407,61 @@ namespace UENSimulation
         {
             UEMSystem us = new UEMSystem();
             us.Show();
+        }
+
+        private void dataFromEnergyCalculation()
+        {
+            string filePath_EquipmentParameter = @"..\..\Local Storage\EquipmentParameter.txt";
+            string filePath_SimulatedData = @"..\..\Local Storage\SimulatedData.txt";
+            string filePath_EnergyNeed = @"..\..\Local Storage\EnergyNeed.txt";
+            string filePath_Mode = @"..\..\Local Storage\Mode.txt";
+
+            EnergyCalculation energyCalculation = new EnergyCalculation(filePath_EquipmentParameter, filePath_SimulatedData, filePath_EnergyNeed, filePath_Mode);
+
+            //光伏
+            double output_PT;
+            output_PT = energyCalculation.pt();
+
+            //光热
+            double output_PV;
+            output_PV = energyCalculation.pv();
+
+            //储热
+            double[] output_SaveH = new double[2];
+            output_SaveH = energyCalculation.saveH();
+
+            //储电
+            double output_SaveE;
+            output_SaveE = energyCalculation.saveE();
+
+            //泛能机
+            double[] output_UEMachine = new double[3];
+            output_UEMachine = energyCalculation.ueMachine();
+
+            //补燃锅炉
+            double[] output_GasBoiler = new double[2];
+            output_GasBoiler = energyCalculation.gasBoiler();
+
+            //优化
+            ArrayList output_Ctrlopt = new ArrayList();
+            output_Ctrlopt = energyCalculation.ctrlopt();
+
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                //额外的电和热
+                outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kWh";
+                outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kWh";
+
+                //燃气
+                gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³";
+
+                //泛能机系统输出的电和热
+                needE.Content = "电： " + energyCalculation.EnergyNeed.Electricity_Need + " kWh";
+                needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kWh";
+
+                outE.Content = "余电： 0 kWh";
+                outH.Content = "余热： 0 kWh";
+            }));
         }
         #endregion
     }

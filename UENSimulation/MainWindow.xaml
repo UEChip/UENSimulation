@@ -274,7 +274,7 @@
                                 </Image.Source>
                             </Image>
                         </Grid>
-                       
+
                         <Label Margin="0,-10,0,0" Content="娱乐设施" FontSize="6" Height="20" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Panel.ZIndex="1" Margin="308,237,0,0" Height="52" Width="38" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -447,16 +447,16 @@
                 </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="725,695,0,0">
-                <Label Content="电:xxxx" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Content="热:xxxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Content="水:xxxx" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="needE" Content="电:xxxx" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="needH" Content="热:xxxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Content="水:xxxx" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,645,0,0">
-                <Label Content="余电:xxx" HorizontalAlignment="Center"  FontSize="24"/>
-                <Label Content="余热:xxx" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Content="市电:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
-                <Label Content="光:xxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Content="燃气:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
+                <Label Name="outE" Content="余电:xxx" HorizontalAlignment="Center"  FontSize="24"/>
+                <Label Name="outH" Content="余热:xxx" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="outsideE" Content="电:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
+                <Label Name="outsideH" Content="热:xxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="gas" Content="燃气:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
             </StackPanel>
             <Canvas>
                 <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
@@ -478,7 +478,7 @@
                 <Path Name="path_14" Data="M105,958 L405,958" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
                 <Path Name="path_15" Data="M660,733 L900,733" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
                 <Path Name="path_16" Data="M660,806 L900,806" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+                <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Visibility="Hidden"/>
             </Canvas>
             <Canvas Margin="1014,148,0,0" Width="261" Height="226" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Path Name="path_3" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m70,100 l-100,0 l0,100"/>
@@ -499,7 +499,7 @@
             <Path Name="pathj_14" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
             <Path Name="pathj_15" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
             <Path Name="pathj_16" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
-            <Path Name="pathj_17" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
+            <Path Name="pathj_17" Visibility="Hidden" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
             <Path Data="M956,628 L953,548.5" Fill="Blue" HorizontalAlignment="Left" Height="79.5" Margin="953,548.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="3"/>
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
