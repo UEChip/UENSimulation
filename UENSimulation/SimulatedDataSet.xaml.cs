@@ -22,20 +22,23 @@ namespace UENSimulation
     /// </summary>
     public partial class SimulatedDataSet : Window
     {
-        SimulatedData simulatedData = new SimulatedData();
-        Txt_Handle txt_Handle = new Txt_Handle();
-
-        string path = @"..\..\Local Storage\SimulatedData.txt";
+        string path_Simulated = @"..\..\Local Storage\SimulatedData.txt";
+        string path_NeedE = @"..\..\Local Storage\needE.txt";
+        string path_NeedH = @"..\..\Local Storage\needH.txt";
 
         public SimulatedDataSet()
         {
             InitializeComponent();
 
-            dataReadFromSimulatedData(path);
+            dataReadFromSimulatedData(path_Simulated);
+            dataReadFromNeedE(path_NeedE);
+            dataReadFromNeedH(path_NeedH);
         }
 
         private void dataReadFromSimulatedData(string dataFilePath)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
 
             charge_HA.Text = dataRead[0];
@@ -58,10 +61,16 @@ namespace UENSimulation
 
             gear_UE.Value = Convert.ToDecimal(dataRead[13]);
             duration_UE.Value = Convert.ToDecimal(dataRead[14]);
+
+            price_E.Value = Convert.ToDecimal(dataRead[15]);
+            price_H.Value = Convert.ToDecimal(dataRead[16]);
+            price_G.Value = Convert.ToDecimal(dataRead[17]);
         }
 
         private void dataWriteToSimulatedData(string dataFilePath)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             PropertyInfo[] pis = typeof(SimulatedData).GetProperties();
             int length = pis.Length;
 
@@ -88,13 +97,77 @@ namespace UENSimulation
             dataWrite[13] = gear_UE.Value.ToString();
             dataWrite[14] = duration_UE.Value.ToString();
 
+            dataWrite[15] = price_E.Value.ToString();
+            dataWrite[16] = price_H.Value.ToString();
+            dataWrite[17] = price_G.Value.ToString();
+
             txt_Handle.dataWrite(dataFilePath, dataWrite);
         }
 
         private void btn_OK_Click(object sender, RoutedEventArgs e)
         {
-            dataWriteToSimulatedData(path);
+            dataWriteToSimulatedData(path_Simulated);
+            dataWriteToNeedE(path_NeedE);
+            dataWriteToNeedH(path_NeedH);
             this.Close();
+        }
+
+        private void dataReadFromNeedE(string dataFilePath)
+        {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
+            string[] dataRead = txt_Handle.dataRead(dataFilePath);
+
+            for (int i = 0; i < 24; i++)
+            {
+                TAlex.WPF.Controls.NumericUpDown numbericUpDown = need.FindName("needE_" + i.ToString()) as TAlex.WPF.Controls.NumericUpDown;
+                numbericUpDown.Value = Convert.ToDecimal(dataRead[i]);
+            }
+        }
+
+        private void dataWriteToNeedE(string dataFilePath)
+        {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
+            string[] dataWrite = new string[24];
+
+            for (int i = 0; i < 24; i++)
+            {
+                TAlex.WPF.Controls.NumericUpDown numbericUpDown = need.FindName("needE_" + i.ToString()) as TAlex.WPF.Controls.NumericUpDown;
+
+                dataWrite[i] = numbericUpDown.Value.ToString();
+            }
+
+            txt_Handle.dataWrite(dataFilePath, dataWrite);
+        }
+
+        private void dataReadFromNeedH(string dataFilePath)
+        {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
+            string[] dataRead = txt_Handle.dataRead(dataFilePath);
+
+            for (int i = 0; i < 24; i++)
+            {
+                TAlex.WPF.Controls.NumericUpDown numbericUpDown = need.FindName("needH_" + i.ToString()) as TAlex.WPF.Controls.NumericUpDown;
+                numbericUpDown.Value = Convert.ToDecimal(dataRead[i]);
+            }
+        }
+
+        private void dataWriteToNeedH(string dataFilePath)
+        {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
+            string[] dataWrite = new string[24];
+
+            for (int i = 0; i < 24; i++)
+            {
+                TAlex.WPF.Controls.NumericUpDown numbericUpDown = need.FindName("needH_" + i.ToString()) as TAlex.WPF.Controls.NumericUpDown;
+
+                dataWrite[i] = numbericUpDown.Value.ToString();
+            }
+
+            txt_Handle.dataWrite(dataFilePath, dataWrite);
         }
     }
 }

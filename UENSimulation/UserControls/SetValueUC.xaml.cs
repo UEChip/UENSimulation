@@ -77,15 +77,9 @@ namespace UENSimulation.UserControls
             if (str.Length > 0)
             {
                 int i = Int32.Parse(str);
-                if (i > 0)
-                {
-                    this.textblock_value.Text = i - 1 + "";
-                }
-                else
-                {
-                    this.textblock_value.Text = "0";
-                }
+                this.textblock_value.Text = i + 1 + "";
             }
+
             _valueChanged();
         }
         //点击向下
@@ -95,7 +89,14 @@ namespace UENSimulation.UserControls
             if (str.Length > 0)
             {
                 int i = Int32.Parse(str);
-                this.textblock_value.Text = i + 1 + "";
+                if (i > 0)
+                {
+                    this.textblock_value.Text = i - 1 + "";
+                }
+                else
+                {
+                    this.textblock_value.Text = "0";
+                }
             }
             _valueChanged();
         }

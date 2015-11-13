@@ -27,7 +27,11 @@ namespace UENSimulation.Model
         double duration_Electricity;//光伏——运行时间
 
         double gear_UE;//泛能机——泛能机负荷
-        double duration_UE;//泛能机——运行时间        
+        double duration_UE;//泛能机——运行时间  
+
+        double price_E;//电价
+        double price_H;//热价
+        double price_G;//气价       
 
         public double Charge_HA
         {
@@ -117,6 +121,24 @@ namespace UENSimulation.Model
         {
             get { return duration_UE; }
             set { duration_UE = value; }
-        }        
+        }
+
+        public double Price_E
+        {
+            get { return price_E; }
+            set { price_E = value; }
+        }
+
+        public double Price_H
+        {
+            get { return price_H; }
+            set { price_H = value; }
+        }
+
+        public double Price_G
+        {
+            get { return price_G; }
+            set { price_G = value; }
+        }
     }
 }
