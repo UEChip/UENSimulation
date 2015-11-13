@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0"  Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <Image Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Image Margin="10,0,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Image.Source>
                 <BitmapImage UriSource="/Resources/Images/background2.png"/>
             </Image.Source>
@@ -383,7 +383,7 @@
                 <Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="18"/>
             </StackPanel>
             <StackPanel  Height="168" Margin="1176,394.5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Panel.ZIndex="2">
-                <Image Name="image_2" Height="100">
+                <Image x:Name="image_2" Height="100">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/Images/app.jpg"/>
                     </Image.Source>
@@ -506,23 +506,10 @@
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
             <StackPanel HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top" Width="274">
-                <Grid Width="274" Height="86">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="43"/>
-                        <RowDefinition Height="43"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="124"/>
-
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Name="ue1" Content="泛能机电效率：" FontSize="16" HorizontalAlignment="Right"/>
-                    <Label Grid.Row="1" Grid.Column="0" Name="ue2" Content="泛能机热效率："  FontSize="16" HorizontalAlignment="Right"/>
-
-                    <Label Name="efficiency_E" Grid.Row="0" Grid.Column="1" Content="XX" FontSize="16"/>
-                    <Label Name="efficiency_H" Grid.Row="1" Grid.Column="1" Content="XX" FontSize="16"/>
-                </Grid>
+                <Label Name="ue1" Content="泛能机效率：XXXX" FontSize="16"/>
+                <Label Name="ue2" Content="泛能机运行档位或其他：XXXXX"  FontSize="16"/>
             </StackPanel>
         </Grid>
+
     </Grid>
 </Window>

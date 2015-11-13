@@ -282,6 +282,10 @@ namespace UENSimulation
         //区域调用
         private void qydy_Click(object sender, RoutedEventArgs e)
         {
+            //算法线程
+            Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
+            dataCalculation.Start();
+
             num = 0;
             TextCollapsed();
             SetConfigstr(_configstr2);
@@ -317,6 +321,11 @@ namespace UENSimulation
         {
             EquControl ec = new EquControl();
             ec._btClick += new BTClick(btClick);
+            ec._manualControl += new ManualControl(dataFromEnergyCalculation);
+            Thread dataCalculation = new Thread(new ThreadStart(ec._manualControl));
+            dataCalculation.Start();
+            //Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
+            //dataCalculation.Start();
             ec.Show();
         }
 
@@ -409,6 +418,7 @@ namespace UENSimulation
             us.Show();
         }
 
+        //主页面计算泛能机相关的输入输出数据
         private void dataFromEnergyCalculation()
         {
             string filePath_EquipmentParameter = @"..\..\Local Storage\EquipmentParameter.txt";
@@ -449,18 +459,41 @@ namespace UENSimulation
             this.Dispatcher.Invoke(new Action(() =>
             {
                 //额外的电和热
-                outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kWh";
-                outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kWh";
+                outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kW";
+                outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kW";
 
                 //燃气
-                gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³";
+                gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³/h";
 
                 //泛能机系统输出的电和热
-                needE.Content = "电： " + energyCalculation.EnergyNeed.Electricity_Need + " kWh";
-                needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kWh";
+                needE.Content = "电： " + energyCalculation.EnergyNeed.Electricity_Need + " kW";
+                needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kW";
 
-                outE.Content = "余电： 0 kWh";
-                outH.Content = "余热： 0 kWh";
+                outE.Content = "余电： 0 kW";
+                outH.Content = "余热： 0 kW";
+
+                int gear = Convert.ToInt32(output_Ctrlopt[12]);
+                switch (gear)
+                {
+                    case 0:
+                        efficiency_H.Content = "0";
+                        efficiency_E.Content = "0";
+                        break;
+                    case 1:
+                        efficiency_H.Content = "118.92%";
+                        efficiency_E.Content = "8.61%";
+                        break;
+                    case 2:
+                        efficiency_H.Content = "108.67%";
+                        efficiency_E.Content = "13.16%";
+                        break;
+                    case 3:
+                        efficiency_H.Content = "118.92%";
+                        efficiency_E.Content = "15%";
+                        break;
+                    default:
+                        break;
+                }
             }));
         }
         #endregion

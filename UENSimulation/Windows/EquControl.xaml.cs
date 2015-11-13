@@ -24,6 +24,7 @@ namespace UENSimulation.Windows
     public partial class EquControl : Window
     {
         public BTClick _btClick;
+        public ManualControl _manualControl;
 
         //点击确定，将改变状态的设备信息传到前台，改变前台设备状态图片
         //客厅：drawing  主卧：master   儿童房：children   书房：study   厨房：kitchen   餐厅：dining   卫生间：bathroom   阳台：balcony
@@ -58,6 +59,11 @@ namespace UENSimulation.Windows
             if (_btClick != null)
             {
                 _btClick(arrListEquState[0], arrListEquState[1]);
+            }
+
+            if (_manualControl != null)
+            {
+                _manualControl();
             }
         }
 
