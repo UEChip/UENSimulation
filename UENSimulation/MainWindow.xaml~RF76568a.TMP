@@ -38,14 +38,14 @@
                 <TextBlock Name="textblock_16" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：输出能源满足用能设备改变后的能耗需求" Visibility="Collapsed"/>
                 <TextBlock Name="textblock_17" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
             </StackPanel>
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="372" Width="255" Panel.ZIndex="2">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="430" Width="247" Panel.ZIndex="2">
                 <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4"/>
                 <Image Name="image_5" HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnjkzq.png"/>
                     </Image.Source>
                 </Image>
-                <Image Name="image_6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="image_6_MouseLeftButtonDown" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave" Margin="0,40,0,37">
+                <Image Name="image_6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="350" MouseLeftButtonDown="image_6_MouseLeftButtonDown" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnj.png"/>
                     </Image.Source>
@@ -462,7 +462,6 @@
                 <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
                 <Path Name="path_1" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 300,180 l 0,350  l 240,0 l 0,50"/>
                 <Path Name="pathj_2" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="943" Canvas.Top="336"/>
-                <StackPanel Height="103" Canvas.Left="707" Canvas.Top="898" Width="228"/>
             </Canvas>
             <Canvas>
                 <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 140,0" Canvas.Left="769" Canvas.Top="473"  />
@@ -505,11 +504,6 @@
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
-            <StackPanel HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top" Width="274">
-                <Label Name="ue1" Content="泛能机效率：XXXX" FontSize="16"/>
-                <Label Name="ue2" Content="泛能机档位或其他备用：XXXXX"  FontSize="16"/>
-            </StackPanel>
         </Grid>
-
     </Grid>
 </Window>

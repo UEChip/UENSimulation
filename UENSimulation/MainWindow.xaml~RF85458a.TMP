@@ -507,7 +507,7 @@
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
             <StackPanel HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top" Width="274">
                 <Label Name="ue1" Content="泛能机效率：XXXX" FontSize="16"/>
-                <Label Name="ue2" Content="泛能机档位或其他备用：XXXXX"  FontSize="16"/>
+                <Label Name="ue2" Content="泛能机运行档位或其他：XXXXX"  FontSize="16"/>
             </StackPanel>
         </Grid>
 
