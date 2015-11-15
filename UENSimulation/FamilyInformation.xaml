@@ -3,61 +3,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FamilyInformation" Height="611.94" Width="800" Left="1366" Top="0"  WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
-        <StackPanel>
+        <StackPanel Background="#FFD6AEAE">
             <Label Content="家庭信息配置" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFFBC9C9">
                 <Label Content="房屋面积" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="60m^2以下 " Name="house1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="60-80m^2 " Name="house2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="80-110m^2 " Name="house3"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="110-140m^2 " Name="house4" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="140m^以上" Name="house5" VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="60m^2以下 " Name="house1" VerticalAlignment="Center" FontSize="16" Width="140"/>
+                <RadioButton Content="60-80m^2 " Name="house2"  VerticalAlignment="Center" FontSize="16" Width="140"/>
+                <RadioButton Content="80-110m^2 " Name="house3"  VerticalAlignment="Center" FontSize="16" Width="140"/>
+                <RadioButton Content="110-140m^2 " Name="house4" VerticalAlignment="Center" FontSize="16" Width="140"/>
+                <RadioButton Content="140m^以上" Name="house5" VerticalAlignment="Center" FontSize="16" Width="140"/>
+
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFF0C8C8">
                 <Label Content="房间类型" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="二室一厅一卫  " Name="houseType1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三室二厅一卫  " Name="houseType2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="四室二厅一卫  " Name="houseType3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="二室一厅一卫" Name="houseType1" VerticalAlignment="Center" FontSize="18" Margin="0,13" Width="190"/>
+                <RadioButton Content="三室二厅一卫" Name="houseType2"  VerticalAlignment="Center" FontSize="18" Margin="0,13" Width="190"/>
+                <RadioButton Content="四室二厅一卫" Name="houseType3"  VerticalAlignment="Center" FontSize="18" Width="190"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFF0C39D">
                 <Label Content="家庭类型" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="老年人家庭" Name="family1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三代同堂  " Name="family2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="三口之家  " Name="family3"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="青年家庭  " Name="family4"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="老年人家庭" Name="family1" VerticalAlignment="Center" FontSize="18" Margin="0,13" Width="140"/>
+                <RadioButton Content="三代同堂  " Name="family2"  VerticalAlignment="Center" FontSize="18" Margin="0,13" Width="140"/>
+                <RadioButton Content="三口之家  " Name="family3"  VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <RadioButton Content="青年家庭  " Name="family4"  VerticalAlignment="Center" FontSize="18" Width="140"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
-                <Label Content="设备配置：泛能机" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="斯特林机  " Name="machine1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="内燃机  " Name="machine2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="燃料电池  "  Name="machine3"  VerticalAlignment="Center" FontSize="18"/>
+            <DockPanel Height="50" LastChildFill="False" Background="#FFF0D69D">
+                <Label Content="设备配置：泛能机" VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="斯特林机  " Name="machine1" VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <RadioButton Content="内燃机  " Name="machine2"  VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <RadioButton Content="燃料电池  "  Name="machine3"  VerticalAlignment="Center" FontSize="18" Width="140"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFE8F09D">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="壁挂炉" Name="furnace" VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="光伏板" Name="panels"  VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="空调" Name="conditioner"  VerticalAlignment="Center" FontSize="18"/>
-                <CheckBox Content="燃气灶" Name="gasStove"  VerticalAlignment="Center" FontSize="18"/>
+                <CheckBox Content="壁挂炉" Name="furnace" VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <CheckBox Content="光伏板" Name="panels"  VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <CheckBox Content="空调" Name="conditioner"  VerticalAlignment="Center" FontSize="18" Width="140"/>
+                <CheckBox Content="燃气灶" Name="gasStove"  VerticalAlignment="Center" FontSize="18" Width="140"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFCEF09D">
                 <Label Content="建筑参数" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板楼  " Name="buildingParameters1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="塔楼  " Name="buildingParameters2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="板塔结合  " Name="buildingParameters3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="板楼  " Name="buildingParameters1" VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="塔楼  " Name="buildingParameters2"  VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="板塔结合  " Name="buildingParameters3"  VerticalAlignment="Center" FontSize="18" Width="190"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFB7F09D">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="砖混材料  " Name="material1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="钢混材料  " Name="material2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他" Name="material3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="砖混材料  " Name="material1" VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="钢混材料  " Name="material2"  VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="其他" Name="material3"  VerticalAlignment="Center" FontSize="18" Width="190"/>
             </DockPanel>
-            <DockPanel Height="50" LastChildFill="False">
+            <DockPanel Height="50" LastChildFill="False" Background="#FFA5F09D">
                 <Label Content="              " VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="南北通透  " Name="direction1" VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="东西通透  " Name="direction2"  VerticalAlignment="Center" FontSize="18"/>
-                <RadioButton Content="其他" Name="direction3"  VerticalAlignment="Center" FontSize="18"/>
+                <RadioButton Content="南北通透  " Name="direction1" VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="东西通透  " Name="direction2"  VerticalAlignment="Center" FontSize="18" Width="190"/>
+                <RadioButton Content="其他" Name="direction3"  VerticalAlignment="Center" FontSize="18" Width="190"/>
             </DockPanel>
-            <DockPanel Height="61" LastChildFill="False">
+            <DockPanel Height="61" LastChildFill="False" Background="#FF9FEAB0">
                 <Label Content="选择城市 " VerticalAlignment="Center" FontSize="18"/>
                 <ComboBox Height="34" VerticalAlignment="Top" Width="110" Name="city" Margin="0,14,0,0"/>
                 <Label Content="设置时间: " VerticalAlignment="Center" FontSize="18"/>
@@ -69,7 +70,7 @@
                 <Label Content="  " VerticalAlignment="Center" FontSize="18" Height="37" Margin="0,14,0,10" Width="35"/>
                 <Button Content="查看参数文件" Name="file" Height="34" VerticalAlignment="Top" Width="103" Margin="0,14,0,0" Click="file_Click"/>
             </DockPanel>
-            <DockPanel Height="64" LastChildFill="False">
+            <DockPanel Height="64" LastChildFill="False" Background="#FF9FE3EA">
                 <Label Content="冷负荷系数: " VerticalAlignment="Center" FontSize="18"/>
                 <Label Name="cold" VerticalAlignment="Center" FontSize="18" Height="36" Margin="0,16,0,12" Width="143" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
                 <Label Content="热负荷系数 " VerticalAlignment="Center" FontSize="18"/>
@@ -78,6 +79,15 @@
                 <Label Name="electric" VerticalAlignment="Center" FontSize="18" Height="36" Margin="0,16,0,12" Width="143" Background="#FFE8F371"/>
             </DockPanel>
         </StackPanel>
-
+        <Rectangle Height="38" Margin="0,1,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,39,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,88,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,137,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,186,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,235,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="51" Margin="0,387,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="49" Margin="0,284,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        <Rectangle Height="54" Margin="0,333,-4,0" Stroke="#FF1B6DE4" VerticalAlignment="Top" Width="795.5"/>
+        
     </Grid>
 </Window>

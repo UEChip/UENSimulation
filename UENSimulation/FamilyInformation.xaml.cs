@@ -56,20 +56,44 @@ namespace UENSimulation
         {
             int mon =Convert.ToInt32(month.Text);
             int hou = Convert.ToInt32(hour.Text);
+            string stre;
+            string strh;
+            string strc;
             DataTable dt;
             dt=ReadXlsx();
             if(mon<8 && mon>4){
                   if(city.Text == "广州")
                 {
-                     electric.Content =dt.Rows[hou-1][2].ToString();
+                    stre = dt.Rows[hou - 1][2].ToString();
                      hot.Content ="0";
-                     cold.Content =dt.Rows[hou-1][1].ToString();
+                     strc = dt.Rows[hou - 1][1].ToString();
+                     if (stre.Length >= 4)
+                     {
+                         stre = stre.Substring(0, 4);
+                     }
+                     electric.Content = stre;
+                     if (strc.Length >= 4)
+                     {
+                         strc = strc.Substring(0, 4);
+                     }
+                     cold.Content = strc;
+
                 }
                   else
                   {
-                electric.Content =dt.Rows[hou-1][4].ToString();
+                      stre = dt.Rows[hou - 1][4].ToString();
                 hot.Content ="0";
-                 cold.Content =dt.Rows[hou-1][3].ToString();
+                strc = dt.Rows[hou - 1][3].ToString();
+                 if (stre.Length >= 4)
+                 {
+                     stre = stre.Substring(0, 4);
+                 }
+                 if (strc.Length >= 4)
+                 {
+                     strc = strc.Substring(0, 4);
+                 }
+                 electric.Content = stre;
+                 cold.Content = strc;
                   }       
             }
             if(mon>7 && mon<11){
@@ -92,9 +116,15 @@ namespace UENSimulation
                  else{
                         cold.Content ="0";
                         electric.Content ="0";
-                         hot.Content = dt.Rows[hou-1][1].ToString();
+                        strh = dt.Rows[hou - 1][1].ToString();
+                         if (strh.Length >= 4)
+                         {
+                             strh = strh.Substring(0, 4);
+                         }
+                         hot.Content = strh;
                     }
              }
+            
         }
         private DataTable ReadXlsx()//将表格放入数据库
         {

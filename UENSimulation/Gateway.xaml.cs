@@ -98,7 +98,7 @@ namespace UENSimulation
             //设置图标中Y轴的最小值永远为0           
             yAxis.AxisMinimum = 0;
             //设置图表中Y轴的后缀          
-            yAxis.Suffix = "kW.h";
+            yAxis.Suffix = "Uij";
             chart.AxesY.Add(yAxis);
 
 
@@ -294,7 +294,8 @@ namespace UENSimulation
             GetCity();
             GetXlsx();
             GetData(season);
-            CreateChartSpline("用能负荷", modelTime, electric, heat);
+            string nameCS = city + "用能负荷折线图";
+            CreateChartSpline(nameCS, modelTime, electric, heat);
             conWindSpeed.Content = "温度：中";
             conTemperature.Content = "温度：26℃";
             lightState.Content = "状态： 开";
@@ -307,7 +308,8 @@ namespace UENSimulation
             heat.Clear();
             season = "summer";
             GetData(season);
-            CreateChartSpline("用能负荷", modelTime, electric, heat);
+            string nameCS = city + "用能负荷折线图";
+            CreateChartSpline(nameCS, modelTime, electric, heat);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -316,7 +318,8 @@ namespace UENSimulation
             heat.Clear();
             season = "winter";
             GetData(season);
-            CreateChartSpline("用能负荷", modelTime, electric, heat);
+            string nameCS = city + "用能负荷折线图";
+            CreateChartSpline(nameCS, modelTime, electric, heat);
         }
     }
 }
