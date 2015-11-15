@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Visifire.Charts;
 using System.Windows.Media.Animation;
+using System.IO;
+using Microsoft.Win32;
+using System.Diagnostics;
+using System.Data.OleDb;
+using System.Data;
 
 namespace UENSimulation
 {
@@ -21,28 +26,47 @@ namespace UENSimulation
     /// </summary>
     public partial class Gateway : Window
     {
-        private List<string> electric = new List<string>(){"0","1","6","7","4","5"};
-        private List<string> heat = new List<string>() { "1", "3", "2.5", "2", "2", "0" };
-        private List<string> gas = new List<string>() { "0", "1", "3", "4", "2", "3" };
+        private List<double> electric = new List<double>(){};
+        private List<double> heat = new List<double>() {};
+
         private List<DateTime> modelTime = new List<DateTime>()
             { 
               
-               new DateTime(2015,10,1,0,0,0),
-               new DateTime(2015,10,1,4,0,0),
-               new DateTime(2015,10,1,8,0,0),
-               new DateTime(2015,10,1,12,0,0),
-               new DateTime(2015,10,1,16,0,0),
-               new DateTime(2015,10,1,20,0,0),
+               new DateTime(1,1,1,1,0,0),
+               new DateTime(1,1,1,2,0,0),
+               new DateTime(1,1,1,3,0,0),
+               new DateTime(1,1,1,4,0,0),
+               new DateTime(1,1,1,5,0,0),
+               new DateTime(1,1,1,6,0,0),
+               new DateTime(1,1,1,7,0,0),
+               new DateTime(1,1,1,8,0,0),
+               new DateTime(1,1,1,9,0,0),
+               new DateTime(1,1,1,10,0,0),
+               new DateTime(1,1,1,11,0,0),
+               new DateTime(1,1,1,12,0,0),
+               new DateTime(1,1,1,13,0,0),
+               new DateTime(1,1,1,14,0,0),
+               new DateTime(1,1,1,15,0,0),
+               new DateTime(1,1,1,16,0,0),
+               new DateTime(1,1,1,17,0,0),
+               new DateTime(1,1,1,18,0,0),
+               new DateTime(1,1,1,19,0,0),
+               new DateTime(1,1,1,20,0,0),
+               new DateTime(1,1,1,21,0,0),
+               new DateTime(1,1,1,22,0,0),
+               new DateTime(1,1,1,23,0,0),
+               new DateTime(1,1,1,0,0,0),
             
             };
+  
 
         #region 折线图
-        public void CreateChartSpline(string name, List<DateTime> lsTime, List<string> a, List<string> b,List<string> c)
+        public void CreateChartSpline(string name, List<DateTime> lsTime, List<double> a, List<double> b)
         {
             
             Chart chart = new Chart();
-            chart.Width = 385;
-            chart.Height = 175;
+            chart.Width = 580;
+            chart.Height = 230;
             chart.Margin = new Thickness(0, 0, 10, 0);
             //是否启用打印和保持图片
             chart.ToolBarEnabled = false;
@@ -64,7 +88,7 @@ namespace UENSimulation
             //图表的X轴坐标按什么来分类，如时分秒
             xaxis.IntervalType = IntervalTypes.Hours;
             //图表的X轴坐标间隔如2,3,20等，单位为xAxis.IntervalType设置的时分秒。
-            xaxis.Interval = 4;
+            xaxis.Interval = 2;
             //设置X轴的时间显示格式为7-10 11：20           
             xaxis.ValueFormatString = "HH点";
             //给图标添加Axis            
@@ -96,7 +120,7 @@ namespace UENSimulation
                 // 设置X轴点                    
                 dataPoint.XValue = lsTime[i];
                 //设置Y轴点                   
-                dataPoint.YValue = double.Parse(a[i]);
+                dataPoint.YValue = a[i];
                 dataPoint.MarkerSize = 8;
                 //dataPoint.Tag = tableName.Split('(')[0];
                 //设置数据点颜色                  
@@ -130,7 +154,7 @@ namespace UENSimulation
                 // 设置X轴点                    
                 dataPoint2.XValue = lsTime[i];
                 //设置Y轴点                   
-                dataPoint2.YValue = double.Parse(b[i]);
+                dataPoint2.YValue = b[i];
                 dataPoint2.MarkerSize = 8;
                 //dataPoint2.Tag = tableName.Split('(')[0];
                 //设置数据点颜色                  
@@ -141,37 +165,6 @@ namespace UENSimulation
             }
             // 添加数据线到数据序列。                
             chart.Series.Add(dataSeriesHeat);
-
-
-            DataSeries dataGas = new DataSeries();
-            // 设置数据线的格式。         
-
-            dataGas.LegendText = "气";
-
-            dataGas.RenderAs = RenderAs.Spline;//折线图
-
-            dataGas.XValueType = ChartValueTypes.DateTime;
-            dataGas.Color = new SolidColorBrush(Colors.Yellow);
-            // 设置数据点              
-            DataPoint dataPoint3;
-            for (int i = 0; i < lsTime.Count; i++)
-            {
-                // 创建一个数据点的实例。                   
-                dataPoint3 = new DataPoint();
-                // 设置X轴点                    
-                dataPoint3.XValue = lsTime[i];
-                //设置Y轴点                   
-                dataPoint3.YValue = double.Parse(c[i]);
-                dataPoint3.MarkerSize = 8;
-                //dataPoint3.Tag = tableName.Split('(')[0];
-                //设置数据点颜色                  
-                // dataPoint.Color = new SolidColorBrush(Colors.LightGray);                   
-                dataPoint3.MouseLeftButtonDown += new MouseButtonEventHandler(dataPoint_MouseLeftButtonDown);
-                //添加数据点                   
-                dataGas.DataPoints.Add(dataPoint3);
-            }
-            // 添加数据线到数据序列。                
-            chart.Series.Add(dataGas);
 
             //将生产的图表增加到Grid，然后通过Grid添加到上层Grid.           
             Grid gr = new Grid();
@@ -189,15 +182,141 @@ namespace UENSimulation
             //MessageBox.Show(dp.YValue.ToString());
         }
         #endregion
+        private string city ;
+        private string season = "winter";
+        private void GetCity()
+        {
+             string[] dataRead = new string[29];
+                bool file = File.Exists(@"..\..\Local Storage\familyInformation.txt");
+                if (file == true)
+                {
+                    StreamReader sr = new StreamReader(@"..\..\Local Storage\familyInformation.txt");
+                    int i = 0;
+                    for (i = 0; i < 29; i++)
+                    {
+                        dataRead[i] = sr.ReadLine();
+                    }
+                    sr.Close();
+                    city = dataRead[28];
+                }
+        }
+        private DataTable GetXlsx()
+        {
+            string cityNick;
+            switch (city)
+            {
+                case "北京": cityNick = "BEIJ";
+                    break;
+                case "上海": cityNick = "SHANGH";
+                    break;
+                case "广州": cityNick = "GUANGZ";
+                    break;
+                case "哈尔滨": cityNick = "HAEB";
+                    break;
+                case "青岛": cityNick = "QINGD";
+                    break;
+                case "沈阳": cityNick = "SHENY";
+                    break;
+                case "石家庄": cityNick = "SHIJZ";
+                    break;
+                case "武汉": cityNick = "WUH";
+                    break;
+                case "长沙": cityNick = "CHANGS";
+                    break;
+                case "重庆": cityNick = "CHONGQ";
+                    break;
+                default: cityNick = "BEIJ";//缺参默认北京
+                    break;
+            }
+            string filePath = @"..\..\Local Storage\database\" + cityNick + ".xlsx";
+            string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties='Excel 8.0;HDR=False;IMEX=1'"; //固定句不更改
+            OleDbConnection OleConn = new OleDbConnection(strConn);
+            OleConn.Open();
+            String sql = "select * from [Sheet1$]";
+            OleDbCommand select = new OleDbCommand(sql, OleConn);
+            OleDbDataAdapter objAdapter1 = new OleDbDataAdapter();
+            objAdapter1.SelectCommand = select;
+            DataSet OleDsExcle = new DataSet();
+            objAdapter1.Fill(OleDsExcle, "Sheet1");
+            OleConn.Close();
+
+            return OleDsExcle.Tables["Sheet1"];
+        }
+        private void GetData(string season)
+        {
+            DataTable dt;
+            dt = GetXlsx();
+            season = this.season;
+            if (city == "广州")
+            {
+                if (season == "winter")
+                {
+                    for (int h = 1; h < 25; h++)
+                    {
+                        electric.Add(Convert.ToDouble(dt.Rows[h-1][2]));
+                        heat.Add(0);
+                    }
+                }
+                if (season == "summer")
+                {
+                    for (int h = 1; h < 25; h++)
+                    {
+                        electric.Add(Convert.ToDouble(dt.Rows[h-1][2]));
+                        heat.Add(Convert.ToDouble(dt.Rows[h-1][1]));
+                    }
+                }
+            }
+            else
+            {
+                if (season == "winter")
+                {
+                    for (int h = 1; h < 25; h++)
+                    {
+                        electric.Add(Convert.ToDouble(dt.Rows[h-1][4]));
+                        heat.Add(Convert.ToDouble(dt.Rows[h-1][1]));
+                    }
+                }
+                if (season == "summer")
+                {
+                    for (int h = 1; h < 25; h++)
+                    {
+                        electric.Add(Convert.ToDouble(dt.Rows[h-1][4]));
+                        heat.Add(Convert.ToDouble(dt.Rows[h-1][3]));
+                    }
+                }
+            }
+           
+        }
         public Gateway()
         {
             InitializeComponent();
             model.Children.Clear();
-            CreateChartSpline("用能负荷", modelTime, electric, heat,gas);
+            GetCity();
+            GetXlsx();
+            GetData(season);
+            CreateChartSpline("用能负荷", modelTime, electric, heat);
             conWindSpeed.Content = "温度：中";
             conTemperature.Content = "温度：26℃";
             lightState.Content = "状态： 开";
             lightBrightness.Content = "亮度：80%";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            electric.Clear();
+            heat.Clear();
+            season = "summer";
+            GetData(season);
+            CreateChartSpline("用能负荷", modelTime, electric, heat);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            electric.Clear();
+            heat.Clear();
+            season = "winter";
+            GetData(season);
+            CreateChartSpline("用能负荷", modelTime, electric, heat);
         }
     }
 }
