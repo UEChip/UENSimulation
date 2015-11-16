@@ -6,19 +6,19 @@
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="1358">
             <Label Content="模拟数据设置" Width="300" Height="80" HorizontalContentAlignment="Center" FontSize="48" VerticalContentAlignment="Center" Margin="529,10"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="350" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="310" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
             <StackPanel.Background>
                 <ImageBrush ImageSource="Resources/Images/panelBack_SimulatedData.png"/>
             </StackPanel.Background>
             <Label Content="模拟数据配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,10"/>
-            <Grid Width="1320" Height="240" >
+            <Grid Width="1320" Height="200" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
+                    <!--<RowDefinition Height="40"/>-->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="220"/>
@@ -95,33 +95,38 @@
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="5" Name="duration_UE" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>
             </Grid>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Width="1358" Height="225" VerticalAlignment="Top" Margin="0,450,0,0">
-            <Border Width="1200" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,0,0,0">
-                <StackPanel Width="1200" Height="70">
+        <StackPanel HorizontalAlignment="Left" Width="1358" Height="265" VerticalAlignment="Top" Margin="0,410,0,0">
+            <Border Width="1200" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,0,0,0">
+                <StackPanel Width="1200" Height="60">
                     <Grid>
-                        <Label Width="240" Height="60" Content="能源价格配置：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="30" Margin="10,5,0,10"/>
-                        <Label Width="60" Height="60" Content="电：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="250,5,0,10"/>
-                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="400,5,0,10"/>
-                        <Label Width="60" Height="60" Content="热：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="600,5,0,10"/>
-                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="750,5,0,10"/>
-                        <Label Width="60" Height="60" Content="气：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="950,5,0,10"/>
-                        <Label Width="80" Height="60" Content="元/m³" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="1100,5,0,10"/>
+                        <Label Width="240" Height="60" Content="能源价格配置：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="30" Margin="10,0,0,10"/>
+                        <Label Width="60" Height="60" Content="电：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="250,0,0,10"/>
+                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="400,0,0,10"/>
+                        <Label Width="60" Height="60" Content="热：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="600,0,0,10"/>
+                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="750,0,0,10"/>
+                        <Label Width="60" Height="60" Content="气：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="950,0,0,10"/>
+                        <Label Width="80" Height="60" Content="元/m³" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="1100,0,0,10"/>
 
-                        <talex:NumericUpDown Name="price_E" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="330,0,15,0" DecimalPlaces="2"/>
-                        <talex:NumericUpDown Name="price_H" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="680,0,15,0" DecimalPlaces="2"/>
-                        <talex:NumericUpDown Name="price_G" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1030,0,15,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_E" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="330,0,0,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_H" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="680,0,0,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_G" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1030,0,0,0" DecimalPlaces="2"/>
                     </Grid>
                 </StackPanel>
             </Border>
-            <Border Width="1300" Height="140" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,10,0,0">
+            <Border Width="1300" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,10,0,0">
+                <StackPanel Width="1300" HorizontalAlignment="Left">
+                    <Border Grid.Row="0" Grid.Column="0" Width="1300" Height="60" CornerRadius="0" BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Label Content="24小时用能需求配置(单位:kW)" Width="350" Height="60" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25"/>
+                            <Label Content="模式选择：" Width="130" Height="60" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="500,0,0,0"/>
+
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <Border Width="1300" Height="140" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,0,0,0">
                 <Grid>
-                    <StackPanel Width="170" HorizontalAlignment="Left">
-                        <Border Grid.Row="0" Grid.Column="0" Width="170" Height="140" CornerRadius="0" BorderBrush="Black" BorderThickness="1">
-                            <Label MaxWidth="170" Height="100" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="0,20,0,10">
-                                <TextBlock TextWrapping="Wrap" Text="24小时用能需求配置(kW)：" />
-                            </Label>
-                        </Border>
-                    </StackPanel>
+
                     <StackPanel Width="1130" HorizontalAlignment="Right">
                         <Grid Name="need">
                             <Grid.RowDefinitions>
