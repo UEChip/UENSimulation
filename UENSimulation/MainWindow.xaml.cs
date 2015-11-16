@@ -254,6 +254,16 @@ namespace UENSimulation
                 }
             }
         }
+
+        //耗能、供能量统计数据归零，赋初值
+        private void UtiliValue()
+        {
+            this.Consume_E.Content = "0 kWh";
+            this.Consume_H.Content = "0 kWh";
+            this.Consume_G.Content = "0 m³";
+            this.Provide_E.Content = "0 kWh";
+            this.Provide_H.Content = "0 kWh";
+        }
         #endregion
 
         #region 整体调用流程展示
@@ -299,6 +309,8 @@ namespace UENSimulation
         //整体调用
         private void ztdy_Click(object sender, RoutedEventArgs e)
         {
+            bflag = false;
+            UtiliValue();
             TextCollapsed();
             //算法线程
             Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
@@ -317,6 +329,8 @@ namespace UENSimulation
         //区域调用
         private void qydy_Click(object sender, RoutedEventArgs e)
         {
+            bflag = false;
+            UtiliValue();
             //算法线程
             Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
             dataCalculation.Start();
@@ -359,6 +373,8 @@ namespace UENSimulation
         #endregion
         private void dxrdy_Click(object sender, RoutedEventArgs e)
         {
+            bflag = true;
+            UtiliValue();
             SelectedPath();
             TextCollapsed();
             SetConfigstr(_configstr3);
@@ -400,15 +416,8 @@ namespace UENSimulation
 
             string[] zstr = { zstre[num].ToString(), zstrh[num].ToString() };
             txthandle.dataWrite(filePath_EnergyNeed, zstr);
-            if (dataCalculationdx != null)
-            {
-                dataCalculationdx.Abort();
-            }
-            else
-            {
                 dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
                 dataCalculationdx.Start();
-            }
         }
         #endregion
 
@@ -429,9 +438,11 @@ namespace UENSimulation
         #endregion
         private void cjdy_Click(object sender, RoutedEventArgs e)
         {
+            bflag = true;
+            UtiliValue();
             SelectedPath();
             TextCollapsed();
-            SetConfigstr(_configstr3);
+            SetConfigstr(_configstr4);
             StartMoveDX();
         }
         #endregion
@@ -517,31 +528,39 @@ namespace UENSimulation
         #region 鼠标移入，显示chart曲线图效果
         ChartLineUC cl = null;
 
+        //控制是否鼠标移入图片时显示图表控件
+        bool bflag = false;
         private void Chart_MouseEnter(object sender, MouseEventArgs e)
         {
-            ((UIElement)sender).Opacity = 0.8;
-            Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
-            if (cl != null)
+            if (bflag)
             {
-                cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                cl.Visibility = System.Windows.Visibility.Visible;
-            }
-            else
-            {
-                //_stackPanel为子元素，_grid为父元素
-                cl = new ChartLineUC();
-                cl.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                cl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                this.zgrid.Children.Add(cl);
+                ((UIElement)sender).Opacity = 0.8;
+                Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
+                if (cl != null)
+                {
+                    cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    cl.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    //_stackPanel为子元素，_grid为父元素
+                    cl = new ChartLineUC();
+                    cl.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                    cl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                    cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    this.zgrid.Children.Add(cl);
+                }
             }
         }
         private void Chart_MouseLeaveChart(object sender, MouseEventArgs e)
         {
-            ((UIElement)sender).Opacity = 0.8;
-            if (cl != null)
+            if (bflag)
             {
-                cl.Visibility = System.Windows.Visibility.Hidden;
+                ((UIElement)sender).Opacity = 0.8;
+                if (cl != null)
+                {
+                    cl.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
         }
         #endregion
@@ -646,12 +665,15 @@ namespace UENSimulation
                     default:
                         break;
                 }
-                Consume_E.Content = double.Parse(outsideE.Content.ToString().TrimStart('电').TrimStart(':').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Consume_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
-                Consume_H.Content = double.Parse(outsideH.Content.ToString().TrimStart('热').TrimStart(':').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Consume_H.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
-                string str = gas.Content.ToString().TrimStart('气').TrimStart(':').TrimEnd('h').TrimEnd('/').Trim();
-                Consume_G.Content = double.Parse(str.Substring(0, str.Length - 1)) + double.Parse(Consume_G.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " m³";
-                Provide_E.Content = double.Parse(needE.Content.ToString().TrimStart('电').TrimStart(':').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
-                Provide_H.Content = double.Parse(needH.Content.ToString().TrimStart('热').TrimStart(':').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_H.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
+                string str1 = outsideE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim();
+                string str2 = Consume_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim();
+                Consume_E.Content = double.Parse(str1) + double.Parse(str2) + " kWh";
+                Consume_H.Content = double.Parse(outsideH.Content.ToString().TrimStart('热').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Consume_H.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
+                string str = gas.Content.ToString().TrimStart('天').TrimStart('然').TrimStart('气').TrimStart('：').TrimEnd('h').TrimEnd('/').Trim();
+                string str3 = Consume_G.Content.ToString().Trim();
+                Consume_G.Content = double.Parse(str.Substring(0, str.Length - 2).Trim()) + double.Parse(str3.Substring(0, str3.Length - 2).Trim()) + " m³";
+                Provide_E.Content = double.Parse(needE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
+                Provide_H.Content = double.Parse(needH.Content.ToString().TrimStart('热').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_H.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
             }));
         }
         #endregion

@@ -556,17 +556,17 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <Label Grid.Row="0" Grid.Column="0" Content="耗电量：" FontSize="14" HorizontalAlignment="Right"/>
-                    <Label Name="Consume_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Name="Consume_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="耗热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Consume_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Name="Consume_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="耗气量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Consume_G" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Name="Consume_G" Grid.Row="1" Grid.Column="1" Content="0 m³" FontSize="14"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
                     <Label Grid.Row="0" Grid.Column="0" Content="产电量：" FontSize="14" HorizontalAlignment="Right"/>
-                    <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="产热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -48,7 +48,6 @@ E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ko\Microsoft.Expression.D
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
 E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\CloudService.baml
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\EquipmentParameterSet.baml
 E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\FamilyInformation.baml
@@ -149,3 +148,6 @@ D:\代码\code\UENSimulation\UENSimulation\obj\Debug\UENSimulation.Properties.Re
 D:\代码\code\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csproj.GenerateResource.Cache
 D:\代码\code\UENSimulation\UENSimulation\obj\Debug\UENSimulation.exe
 D:\代码\code\UENSimulation\UENSimulation\obj\Debug\UENSimulation.pdb
+E:\Work\Projects\UENSimulation\UENSimulation\bin\Debug\WPFVisifire.Charts.dll
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UserControls\ChartLineUC.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\UserControls\ChartLineUC.g.cs
