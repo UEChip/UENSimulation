@@ -25,7 +25,7 @@ namespace UENSimulation.Windows
         public SceneSet()
         {
             InitializeComponent();
-            SetSceneUC();
+           // SetSceneUC();
         }
 
         //点击配置
@@ -35,6 +35,7 @@ namespace UENSimulation.Windows
             sc.Show();
         }
 
+        //从场景配置文件中读取数据，加载各场景配置情况
         private void SetSceneUC()
         {
             if (File.Exists(@"SceneData.txt"))
