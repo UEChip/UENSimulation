@@ -18,6 +18,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Data.OleDb;
 using System.Data;
+using UENSimulation.UserControls;
 
 namespace UENSimulation
 {
@@ -31,6 +32,7 @@ namespace UENSimulation
 
         private List<DateTime> modelTime = new List<DateTime>()
             { 
+
                new DateTime(1,1,1,0,0,0),
                new DateTime(1,1,1,1,0,0),
                new DateTime(1,1,1,2,0,0),
@@ -168,7 +170,9 @@ namespace UENSimulation
 
             //将生产的图表增加到Grid，然后通过Grid添加到上层Grid.           
             Grid gr = new Grid();
-            gr.Children.Add(chart);
+            ChartLineUC cl = new ChartLineUC();
+            cl.Height = 200;
+            gr.Children.Add(cl);
 
             model.Children.Add(gr);
         }

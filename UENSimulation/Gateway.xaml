@@ -21,7 +21,7 @@
             </Image>
             <Label Content="客户交互App"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="124" Margin="206,551,0,0" VerticalAlignment="Top" Width="100">
+        <StackPanel HorizontalAlignment="Left" Height="124" Margin="206,535,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="102">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/Images/machine.png"/>
@@ -86,7 +86,7 @@
             <Label Content="IES建筑节能模型" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="133" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
             <Label Content="设备优化控制模型" HorizontalAlignment="Left" Margin="677,10,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="2.217,0.423"/>
             <Grid HorizontalAlignment="Left" x:Name="model" Height="237" Margin="0,60,0,0" VerticalAlignment="Top" Width="588"/>
-            <DockPanel HorizontalAlignment="Left" Height="136" LastChildFill="False" Margin="633,60,0,0" VerticalAlignment="Top" Width="304">
+            <DockPanel HorizontalAlignment="Left" Height="136" LastChildFill="False" Margin="633,110,0,0" VerticalAlignment="Top" Width="304">
                 <DockPanel Height="136" LastChildFill="False" VerticalAlignment="Top" Width="156">
                     <StackPanel Height="136" VerticalAlignment="Top" Width="49">
                         <Image Height="92">
@@ -172,12 +172,12 @@
         <Path Data="M131,429 L710,429 710,371 932,371"  HorizontalAlignment="Left" Height="60.5" Margin="354,532,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="802.5"/>
         <Path Data="M890,372 L890,392.5"  HorizontalAlignment="Left" Height="21.5" Margin="1112.5,534.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
         <Path Data="M129,454 L720,454 720,381 932.5,381 932.5,413.5" HorizontalAlignment="Left" Height="74.5" Margin="352,543,0,0" Stretch="Fill" Stroke="#FFE8CA0E" VerticalAlignment="Top" Width="806.5"/>
-        <Rectangle HorizontalAlignment="Left" Stroke="#FF5B9BD5" Height="139" Margin="934,225,0,0"  VerticalAlignment="Top" Width="147" RenderTransformOrigin="-1.456,0.326"/>
-        <Rectangle HorizontalAlignment="Left" Height="139" Margin="770,225,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="159"/>
-        <Rectangle HorizontalAlignment="Left" Height="182" Margin="760,206,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="354" StrokeThickness="1"/>
-        <Rectangle HorizontalAlignment="Left" Height="325" Margin="110,176,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="1077" StrokeThickness="1"/>
-        <Rectangle HorizontalAlignment="Left" Height="168" Margin="928,501,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
-        <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="#FF5B9BD5" Height="139" Margin="934,275,0,0"  VerticalAlignment="Top" Width="147" RenderTransformOrigin="-1.456,0.326"/>
+        <Rectangle HorizontalAlignment="Left" Height="139" Margin="770,275,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="159"/>
+        <Rectangle HorizontalAlignment="Left" Height="182" Margin="760,256,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="354" StrokeThickness="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="300" Margin="110,175,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="1077" StrokeThickness="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="168" Margin="918,0,0,12" Stroke="#FF5B9BD5" VerticalAlignment="Bottom" Width="323"/>
+        <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,0,0,12" Stroke="#FF5B9BD5" VerticalAlignment="Bottom" Width="124"/>
         <Button Content="夏季典型" HorizontalAlignment="Left" Margin="352,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 

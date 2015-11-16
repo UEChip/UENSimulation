@@ -6,7 +6,7 @@
               xmlns:my="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
              mc:Ignorable="d" Height="320" Width="500">
     <Grid Background="White">
-        <my:Chart Height="320" Margin="5,0,0,0" Background="Transparent" BorderBrush="#FF688CAF" BorderThickness="1" CornerRadius="0,0,0,0"  Width="500" Name="chartC" Padding="10" ScrollingEnabled="false" ShadowEnabled="False" LightingEnabled="False" AnimatedUpdate="true"  IndicatorEnabled="False" ZoomingEnabled="False">
+        <my:Chart HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF688CAF" BorderThickness="1" CornerRadius="0,0,0,0" Name="chartC" Padding="10" ScrollingEnabled="false" ShadowEnabled="False" LightingEnabled="False" AnimatedUpdate="true"  IndicatorEnabled="False" ZoomingEnabled="False">
             <my:Chart.AxesX>
                 <my:Axis ScrollBarScale="1" Enabled="True" >
                     <my:Axis.AxisLabels>

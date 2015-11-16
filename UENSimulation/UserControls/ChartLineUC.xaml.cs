@@ -62,9 +62,9 @@ namespace UENSimulation.UserControls
             }
             #endregion
 
-                chartC.DataPointWidth = 2;
+            chartC.DataPointWidth = 2;
             Visifire.Charts.DataSeries dataSeries_e = new Visifire.Charts.DataSeries();
-            AddDataSeries("电需求", dataSeries_e, LineStyles.Solid, new SolidColorBrush(Colors.Red), Visifire.Charts.RenderAs.Line);
+            AddDataSeries("电需求", dataSeries_e, LineStyles.Solid, new SolidColorBrush(Colors.Blue), Visifire.Charts.RenderAs.Line);
             for (int i = 0; i < dt_e.Rows.Count; i++)
             {
                 Visifire.Charts.DataPoint dataPoint = new DataPoint();
@@ -75,7 +75,7 @@ namespace UENSimulation.UserControls
                 dataSeries_e.DataPoints.Add(dataPoint);
             }
             Visifire.Charts.DataSeries dataSeries_h = new Visifire.Charts.DataSeries();
-            AddDataSeries("热需求", dataSeries_h, LineStyles.Solid, new SolidColorBrush(Colors.Yellow), Visifire.Charts.RenderAs.Line);
+            AddDataSeries("热需求", dataSeries_h, LineStyles.Solid, new SolidColorBrush(Colors.Red), Visifire.Charts.RenderAs.Line);
             for (int i = 0; i < dt_h.Rows.Count; i++)
             {
                 Visifire.Charts.DataPoint dataPoint = new DataPoint();
