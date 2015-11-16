@@ -212,6 +212,11 @@
                                 <RadioButton GroupName="radiobutton_yx" Width="20" Height="20"/>
                                 <TextBlock Text="关"/>
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Background="White">
+                                <Label Content="用能需求：" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="电:xxx kWh" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="热:xxx kWh" Margin="5,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
                             <Button Margin="300,5,0,0" Height="25" Width="40" Content="确定" Click="Button_Click"/>
                         </StackPanel>
                     </Border>

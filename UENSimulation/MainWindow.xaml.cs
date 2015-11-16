@@ -30,6 +30,7 @@ namespace UENSimulation
         public MainWindow()
         {
             InitializeComponent();
+            XzLabelHidden();
         }
 
         #region tjd
@@ -309,6 +310,7 @@ namespace UENSimulation
         //整体调用
         private void ztdy_Click(object sender, RoutedEventArgs e)
         {
+            XzLabelHidden();
             bflag = false;
             UtiliValue();
             TextCollapsed();
@@ -329,6 +331,7 @@ namespace UENSimulation
         //区域调用
         private void qydy_Click(object sender, RoutedEventArgs e)
         {
+            XzLabelHidden();
             bflag = false;
             UtiliValue();
             //算法线程
@@ -373,12 +376,24 @@ namespace UENSimulation
         #endregion
         private void dxrdy_Click(object sender, RoutedEventArgs e)
         {
+            XzLabelShow();
             bflag = true;
             UtiliValue();
             SelectedPath();
             TextCollapsed();
             SetConfigstr(_configstr3);
             StartMoveDX();
+        }
+
+        //显示调用类型
+        private void XzLabelShow()
+        {
+            this.xzlabel.Visibility = System.Windows.Visibility.Visible;
+        }
+        //隐藏调用类型
+        private void XzLabelHidden()
+        {
+            this.xzlabel.Visibility = System.Windows.Visibility.Hidden;
         }
         #endregion
         #region 循环调用算法的方法实现
@@ -438,6 +453,7 @@ namespace UENSimulation
         #endregion
         private void cjdy_Click(object sender, RoutedEventArgs e)
         {
+            XzLabelHidden();
             bflag = true;
             UtiliValue();
             SelectedPath();
