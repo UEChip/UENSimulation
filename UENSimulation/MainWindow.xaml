@@ -1,9 +1,9 @@
 ﻿<Window x:Class="UENSimulation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0"  Loaded="Window_Loaded" Closing="Window_Closing">
-    <Grid>
-        <Image Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top">
+        Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0" Closing="Window_Closing">
+    <Grid Name="zgrid">
+        <Image Name="xxx" Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Image.Source>
                 <BitmapImage UriSource="/Resources/Images/background2.png"/>
             </Image.Source>
@@ -15,8 +15,10 @@
                 </Image.Source>
             </Image>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,10,0,0">
-                <Button Name="ztdy" Width="80" Height="35" Content="整体调用流程展示" Click="ztdy_Click"/>
-                <Button Name="qydy" Width="80" Height="35" Content="区域调用流程展示" Click="qydy_Click" Margin="0,5,0,0"/>
+                <Button Name="ztdy" Width="150" Height="35" Content="整体调用流程展示" Click="ztdy_Click"/>
+                <Button Name="qydy" Width="150" Height="35" Content="区域调用流程展示" Click="qydy_Click" Margin="0,5,0,0"/>
+                <Button Name="dxrdy" Width="150" Height="35" Content="典型日(冬季)24时调用展示" Click="dxrdy_Click" Margin="0,5,0,0"/>
+                <Button Name="cjdy" Width="150" Height="35" Content="当前场景(居家)调用展示" Click="cjdy_Click" Margin="0,5,0,0"/>
             </StackPanel>
             <StackPanel Margin="1467,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Label  Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0"/>
@@ -37,6 +39,41 @@
                 <TextBlock Name="textblock_15" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网" Visibility="Collapsed"/>
                 <TextBlock Name="textblock_16" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：输出能源满足用能设备改变后的能耗需求" Visibility="Collapsed"/>
                 <TextBlock Name="textblock_17" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
+
+                <TextBlock Name="textblock_18" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_19" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="01:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_20" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="02:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_21" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="03:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_22" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="04:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_23" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="05:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_24" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_25" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="07:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_26" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_27" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="09:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_28" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="10:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_29" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="11:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_30" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_31" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_32" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="14:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_33" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="15:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_34" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="16:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_35" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_36" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="18:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_37" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_38" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_39" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="21:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_40" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_41" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="23:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+
+                <TextBlock Name="textblock_42" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 - 06:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_43" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 - 08:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_44" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 - 12:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_45" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 - 13:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_46" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:30 - 17:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_47" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 - 19:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_48" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 - 20:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_49" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 - 22:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                <TextBlock Name="textblock_50" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 - 00:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
             </StackPanel>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="372" Width="255" Panel.ZIndex="2">
                 <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4"/>
@@ -392,7 +429,7 @@
             </StackPanel>
             <StackPanel  Height="206" Margin="891,349,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
                 <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
-                <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/gateway.png"/>
                     </Image.Source>
@@ -447,16 +484,16 @@
                 </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="725,695,0,0">
-                <Label Name="needE" Content="电:xxxx" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Name="needH" Content="热:xxxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Content="水:xxxx" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
+                <Label Name="needE" Content="电:0 kW" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="needH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Content="水:0" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,645,0,0">
-                <Label Name="outE" Content="余电:xxx" HorizontalAlignment="Center"  FontSize="24"/>
-                <Label Name="outH" Content="余热:xxx" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Name="outsideE" Content="电:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
-                <Label Name="outsideH" Content="热:xxx" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"/>
-                <Label Name="gas" Content="燃气:xxx" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"/>
+                <Label Name="outE" Content="余电:0 kW" HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="outH" Content="余热:0 kW" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="outsideE" Content="电:0 kW" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="outsideH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="gas" Content="燃气:0 m³/h" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
             </StackPanel>
             <Canvas>
                 <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
@@ -505,24 +542,33 @@
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
-            <StackPanel HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top" Width="274">
-                <Grid Width="274" Height="86">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="43"/>
-                        <RowDefinition Height="43"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="124"/>
-
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Name="ue1" Content="泛能机电效率：" FontSize="16" HorizontalAlignment="Right"/>
-                    <Label Grid.Row="1" Grid.Column="0" Name="ue2" Content="泛能机热效率："  FontSize="16" HorizontalAlignment="Right"/>
-
-                    <Label Name="efficiency_E" Grid.Row="0" Grid.Column="1" Content="XX" FontSize="16"/>
-                    <Label Name="efficiency_H" Grid.Row="1" Grid.Column="1" Content="XX" FontSize="16"/>
-                </Grid>
-            </StackPanel>
+            <Grid HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Grid.Row="0" Grid.Column="0" Name="ue1" Content="泛能机电效率：" FontSize="14" HorizontalAlignment="Right"/>
+                    <Label Name="efficiency_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Grid.Row="1" Grid.Column="0" Name="ue2" Content="泛能机热效率："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                    <Label Name="efficiency_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label Grid.Row="0" Grid.Column="0" Content="耗电量：" FontSize="14" HorizontalAlignment="Right"/>
+                    <Label Name="Consume_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="耗热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                    <Label Name="Consume_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="耗气量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                    <Label Name="Consume_G" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Label Grid.Row="0" Grid.Column="0" Content="产电量：" FontSize="14" HorizontalAlignment="Right"/>
+                    <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="产热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                    <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
