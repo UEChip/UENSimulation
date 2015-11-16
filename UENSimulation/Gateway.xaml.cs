@@ -31,7 +31,7 @@ namespace UENSimulation
 
         private List<DateTime> modelTime = new List<DateTime>()
             { 
-              
+               new DateTime(1,1,1,0,0,0),
                new DateTime(1,1,1,1,0,0),
                new DateTime(1,1,1,2,0,0),
                new DateTime(1,1,1,3,0,0),
@@ -55,7 +55,7 @@ namespace UENSimulation
                new DateTime(1,1,1,21,0,0),
                new DateTime(1,1,1,22,0,0),
                new DateTime(1,1,1,23,0,0),
-               new DateTime(1,1,1,0,0,0),
+              
             
             };
   
@@ -251,7 +251,8 @@ namespace UENSimulation
             {
                 if (season == "winter")
                 {
-                    for (int h = 1; h < 25; h++)
+                    electric.Add(Convert.ToDouble(dt.Rows[23][2]));
+                    for (int h = 1; h < 24; h++)
                     {
                         electric.Add(Convert.ToDouble(dt.Rows[h-1][2]));
                         heat.Add(0);
@@ -259,7 +260,9 @@ namespace UENSimulation
                 }
                 if (season == "summer")
                 {
-                    for (int h = 1; h < 25; h++)
+                    electric.Add(Convert.ToDouble(dt.Rows[23][2]));
+                    heat.Add(Convert.ToDouble(dt.Rows[23][1]));
+                    for (int h = 1; h < 24; h++)
                     {
                         electric.Add(Convert.ToDouble(dt.Rows[h-1][2]));
                         heat.Add(Convert.ToDouble(dt.Rows[h-1][1]));
@@ -270,7 +273,9 @@ namespace UENSimulation
             {
                 if (season == "winter")
                 {
-                    for (int h = 1; h < 25; h++)
+                    electric.Add(Convert.ToDouble(dt.Rows[23][4]));
+                    heat.Add(Convert.ToDouble(dt.Rows[23][1]));
+                    for (int h = 1; h < 24; h++)
                     {
                         electric.Add(Convert.ToDouble(dt.Rows[h-1][4]));
                         heat.Add(Convert.ToDouble(dt.Rows[h-1][1]));
@@ -278,7 +283,9 @@ namespace UENSimulation
                 }
                 if (season == "summer")
                 {
-                    for (int h = 1; h < 25; h++)
+                    electric.Add(Convert.ToDouble(dt.Rows[23][4]));
+                    heat.Add(Convert.ToDouble(dt.Rows[23][3]));
+                    for (int h = 1; h < 24; h++)
                     {
                         electric.Add(Convert.ToDouble(dt.Rows[h-1][4]));
                         heat.Add(Convert.ToDouble(dt.Rows[h-1][3]));
