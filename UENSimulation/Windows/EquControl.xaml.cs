@@ -318,7 +318,7 @@ namespace UENSimulation.Windows
             double[] temperature_Outdoor_Standard = { -6.6, -7.0, -7.6, -8.4, -9.1, -9.6, -9.9, -8.6, -6.8, -5.1, -3.5, -2.2, -1.0, -0.2, 0.3, -0.1, -1.0, -2.1, -3.2, -4.2, -5.0, -5.5, -5.9, -6.3 };//一月份逐时气温
             double[] heat_Need_Standard = { 0.03632, 0.03726, 0.03810, 0.03911, 0.04006, 0.04101, 0.04193, 0.04197, 0.02951, 0.01791, 0.01285, 0.01233, 0.01181, 0.01125, 0.01087, 0.01118, 0.01489, 0.01776, 0.02127, 0.02428, 0.02701, 0.02948, 0.03122 };//冬季典型日热负荷
 
-            double temperature_Outdoor_Now = 5;//当前室外温度
+            double temperature_Outdoor_Now = 5;//当前室外温度 暂时采用固定数值
 
             DateTime now = DateTime.Now;
             int hour_Now = now.Hour;//当前时刻
@@ -392,6 +392,7 @@ namespace UENSimulation.Windows
             need_H.Content = heat_Need.ToString("0.00");
         }
 
+        //房间参数赋值，返回房间类对象
         private object value_Room(List<string> _lsEqu, List<string> _lsState, string _name_Room, double[] _light_zm_power, double[] _light_zs_power, double[] _acreage, double _tv_power, double _audio_power)
         {
             //string[] zstr = { "drawing", "master", "children", "study", "kitchen", "dining", "bathroom", "balcony" };

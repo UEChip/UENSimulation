@@ -23,8 +23,8 @@ namespace UENSimulation
     public partial class SimulatedDataSet : Window
     {
         string path_Simulated = @"..\..\Local Storage\SimulatedData.txt";
-        string path_NeedE = @"..\..\Local Storage\needE.txt";
-        string path_NeedH = @"..\..\Local Storage\needH.txt";
+        string path_NeedE = @"..\..\Local Storage\needE_Manual.txt";
+        string path_NeedH = @"..\..\Local Storage\needH_Manual.txt";
 
         public SimulatedDataSet()
         {

@@ -65,30 +65,34 @@ namespace UENSimulation
 
             //优化
             ArrayList output_Ctrlopt = new ArrayList();
-            output_Ctrlopt = energyCalculation.ctrlopt();
+            output_Ctrlopt = energyCalculation.ctrlopt_Array();
+
+            //设备效率
+            double[] outPut_Etacal = new double[3];
+            outPut_Etacal = energyCalculation.etacal();
 
             this.Dispatcher.Invoke(new Action(() =>
             {
                 //控件赋值
                 //光伏
-                consume_Pv.Content = output_Ctrlopt[6].ToString();
-                save_Pv.Content = output_Ctrlopt[7].ToString();
+                consume_Pv.Content = ((double)output_Ctrlopt[6]).ToString("0.00");
+                save_Pv.Content = ((double)output_Ctrlopt[7]).ToString("0.00");
 
                 //光热
-                consume_Pt.Content = output_Ctrlopt[8].ToString();
-                save_Pt.Content = output_Ctrlopt[9].ToString();
+                consume_Pt.Content = ((double)output_Ctrlopt[8]).ToString("0.00");
+                save_Pt.Content = ((double)output_Ctrlopt[9]).ToString("0.00");
 
                 //储热
                 if (Convert.ToInt32(output_Ctrlopt[3]) == 1)
                 {
                     charge_HA.Content = "充热";
                 }
-                else if (Convert.ToInt32(output_Ctrlopt[4]) == -1)
+                else if (Convert.ToInt32(output_Ctrlopt[3]) == -1)
                 {
                     charge_HA.Content = "放热";
                 }
-                saveH_HA.Content = output_Ctrlopt[4].ToString();
-                deltaH_HA.Content = output_Ctrlopt[5].ToString();
+                saveH_HA.Content = ((double)output_Ctrlopt[4]).ToString("0.0000");
+                deltaH_HA.Content = ((double)output_Ctrlopt[5]).ToString("0.0000");
 
                 //储电        
                 if (Convert.ToInt32(output_Ctrlopt[0]) == 1)
@@ -99,27 +103,27 @@ namespace UENSimulation
                 {
                     charge_EA.Content = "放电";
                 }
-                saveE_EA.Content = output_Ctrlopt[1].ToString();
-                deltaE_EA.Content = output_Ctrlopt[2].ToString();
+                saveE_EA.Content = ((double)output_Ctrlopt[1]).ToString("0.0000");
+                deltaE_EA.Content = ((double)output_Ctrlopt[2]).ToString("0.0000");
 
                 //泛能机
-                prdctE_UE.Content = output_UEMachine[0].ToString();
-                prdctH_UE.Content = output_UEMachine[1].ToString();
-                consumeG_UE.Content = output_UEMachine[2].ToString();
+                prdctE_UE.Content = ((double)output_UEMachine[0]).ToString("0.00");
+                prdctH_UE.Content = ((double)output_UEMachine[1]).ToString("0.00");
+                consumeG_UE.Content = ((double)output_UEMachine[2]).ToString("0.00");
                 gear_UE.Content = output_Ctrlopt[12].ToString();
 
                 //补燃锅炉
-                prdctH_Boiler.Content = output_GasBoiler[0].ToString();
-                consumeG_Boiler.Content = output_GasBoiler[1].ToString();
+                prdctH_Boiler.Content = ((double)output_GasBoiler[0]).ToString("0.00");
+                consumeG_Boiler.Content = ((double)output_GasBoiler[1]).ToString("0.00");
                 gasboiler_Gear.Content = output_Ctrlopt[13].ToString();
 
                 //额外的电和热
-                outsideE.Content = output_Ctrlopt[10].ToString();
-                outsideH.Content = output_Ctrlopt[11].ToString();
+                outsideE.Content = ((double)output_Ctrlopt[10]).ToString("0.00");
+                outsideH.Content = ((double)output_Ctrlopt[11]).ToString("0.00");
 
                 //泛能机系统输出的电和热
-                needE.Content = energyCalculation.EnergyNeed.Electricity_Need;
-                needH.Content = energyCalculation.EnergyNeed.Heat_Need;
+                needE.Content = energyCalculation.EnergyNeed.Electricity_Need.ToString("0.00");
+                needH.Content = energyCalculation.EnergyNeed.Heat_Need.ToString("0.00");
             }));
         }
     }
