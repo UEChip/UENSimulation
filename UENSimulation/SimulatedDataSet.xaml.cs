@@ -23,16 +23,24 @@ namespace UENSimulation
     public partial class SimulatedDataSet : Window
     {
         string path_Simulated = @"..\..\Local Storage\SimulatedData.txt";
-        string path_NeedE = @"..\..\Local Storage\needE_Manual.txt";
-        string path_NeedH = @"..\..\Local Storage\needH_Manual.txt";
+        string path_NeedE_Manual = @"..\..\Local Storage\needE_Manual.txt";
+        string path_NeedH_Manual = @"..\..\Local Storage\needH_Manual.txt";
+
+        string path_NeedE_Winter = @"..\..\Local Storage\needE_W.txt";
+        string path_NeedH_Winter = @"..\..\Local Storage\needH_W.txt";
+
+        string path_NeedE_Summer = @"..\..\Local Storage\needE_S.txt";
+        string path_NeedH_Summer = @"..\..\Local Storage\needH_S.txt";
+
+        string path_NeedE_SA = @"..\..\Local Storage\needE_SA.txt";
+        string path_NeedH_SA = @"..\..\Local Storage\needH_SA.txt";
 
         public SimulatedDataSet()
         {
             InitializeComponent();
 
             dataReadFromSimulatedData(path_Simulated);
-            dataReadFromNeedE(path_NeedE);
-            dataReadFromNeedH(path_NeedH);
+            RB_Winter.IsChecked = true;
         }
 
         private void dataReadFromSimulatedData(string dataFilePath)
@@ -107,8 +115,11 @@ namespace UENSimulation
         private void btn_OK_Click(object sender, RoutedEventArgs e)
         {
             dataWriteToSimulatedData(path_Simulated);
-            dataWriteToNeedE(path_NeedE);
-            dataWriteToNeedH(path_NeedH);
+            if (RB_Manual.IsChecked == true)
+            {
+                dataWriteToNeedE(path_NeedE_Manual);
+                dataWriteToNeedH(path_NeedH_Manual);
+            }
             this.Close();
         }
 
@@ -168,6 +179,30 @@ namespace UENSimulation
             }
 
             txt_Handle.dataWrite(dataFilePath, dataWrite);
+        }
+
+        private void RB_Winter_Checked(object sender, RoutedEventArgs e)
+        {
+            dataReadFromNeedE(path_NeedE_Winter);
+            dataReadFromNeedH(path_NeedH_Winter);
+        }
+
+        private void RB_Summer_Checked(object sender, RoutedEventArgs e)
+        {
+            dataReadFromNeedE(path_NeedE_Summer);
+            dataReadFromNeedH(path_NeedH_Summer);
+        }
+
+        private void RB_SA_Checked(object sender, RoutedEventArgs e)
+        {
+            dataReadFromNeedE(path_NeedE_SA);
+            dataReadFromNeedH(path_NeedH_SA);
+        }
+
+        private void RB_Manual_Checked(object sender, RoutedEventArgs e)
+        {
+            dataReadFromNeedE(path_NeedH_Manual);
+            dataReadFromNeedH(path_NeedH_Manual);
         }
     }
 }
