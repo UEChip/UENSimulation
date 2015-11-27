@@ -23,6 +23,9 @@ namespace UENSimulation
     public partial class SimulatedDataSet : Window
     {
         string path_Simulated = @"..\..\Local Storage\SimulatedData.txt";
+
+        string path_mode_Season = @"..\..\Local Storage\mode_Season.txt";
+
         string path_NeedE_Manual = @"..\..\Local Storage\needE_Manual.txt";
         string path_NeedH_Manual = @"..\..\Local Storage\needH_Manual.txt";
 
@@ -183,26 +186,50 @@ namespace UENSimulation
 
         private void RB_Winter_Checked(object sender, RoutedEventArgs e)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             dataReadFromNeedE(path_NeedE_Winter);
             dataReadFromNeedH(path_NeedH_Winter);
+
+            string[] mode_Season = new string[1];
+            mode_Season[0] = "W";
+            txt_Handle.dataWrite(path_mode_Season, mode_Season);
         }
 
         private void RB_Summer_Checked(object sender, RoutedEventArgs e)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             dataReadFromNeedE(path_NeedE_Summer);
             dataReadFromNeedH(path_NeedH_Summer);
+
+            string[] mode_Season = new string[1];
+            mode_Season[0] = "S";
+            txt_Handle.dataWrite(path_mode_Season, mode_Season);
         }
 
         private void RB_SA_Checked(object sender, RoutedEventArgs e)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             dataReadFromNeedE(path_NeedE_SA);
             dataReadFromNeedH(path_NeedH_SA);
+
+            string[] mode_Season = new string[1];
+            mode_Season[0] = "SA";
+            txt_Handle.dataWrite(path_mode_Season, mode_Season);
         }
 
         private void RB_Manual_Checked(object sender, RoutedEventArgs e)
         {
+            Txt_Handle txt_Handle = new Txt_Handle();
+
             dataReadFromNeedE(path_NeedH_Manual);
             dataReadFromNeedH(path_NeedH_Manual);
+
+            string[] mode_Season = new string[1];
+            mode_Season[0] = "M";
+            txt_Handle.dataWrite(path_mode_Season, mode_Season);
         }
     }
 }

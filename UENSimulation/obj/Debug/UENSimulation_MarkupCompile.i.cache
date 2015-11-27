@@ -16,5 +16,5 @@ E:\Work\Projects\UENSimulation\UENSimulation\App.xaml
 20211141218
 CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;UserControls\ChartLineUC.xaml;UserControls\LeftRightUC.xaml;UserControls\MyCheckUC.xaml;UserControls\OptionSelectUC.xaml;UserControls\SceneUC.xaml;UserControls\SetValueUC.xaml;UserControls\SwitchUC.xaml;Windows\EquControl.xaml;Windows\SceneConfig.xaml;Windows\SceneSet.xaml;
 
-False
+True
 

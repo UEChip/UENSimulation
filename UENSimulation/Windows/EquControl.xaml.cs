@@ -36,6 +36,7 @@ namespace UENSimulation.Windows
         string equipmentPath = @"..\..\Local Storage\Equipment.txt";
         string statePath = @"..\..\Local Storage\State.txt";
         string needPath = @"..\..\Local Storage\EnergyNeed.txt";
+        string needEquPath = @"..\..\Local Storage\EnergyNeed_Equipment.txt";
 
         public EquControl()
         {
@@ -46,13 +47,15 @@ namespace UENSimulation.Windows
             LeftRightUC._valueChanged += new valueChanged(energyNeedCalculationWhenValueChanged);
 
             equipmentStateFromFileToControl();
-            needReadFromFile(needPath);
+            needReadFromFile(needEquPath);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<string>[] arrListEquState = new List<string>[2];
             arrListEquState = equipmentState();
+
+            needWriteToFile(needPath);
 
             this.Close();
 
@@ -479,9 +482,9 @@ namespace UENSimulation.Windows
 
             energyNeedCalculation();
 
-            needWriteToFile(needPath);
+            needWriteToFile(needEquPath);
 
-            needReadFromFile(needPath);
+            needReadFromFile(needEquPath);
         }
     }
 }
