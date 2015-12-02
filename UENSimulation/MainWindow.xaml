@@ -430,7 +430,7 @@
             </StackPanel>
             <StackPanel  Height="206" Margin="891,349,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
                 <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
-                <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart">
+                <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="Chart_ImageMouseEnter" MouseLeave="Chart_ImageMouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/gateway.png"/>
                     </Image.Source>
@@ -485,16 +485,16 @@
                 </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="725,695,0,0">
-                <Label Name="needE" Content="电:0 kW" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
-                <Label Name="needH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="needE" Content="电:0 kW" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="needH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
                 <Label Content="水:0" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,645,0,0">
-                <Label Name="outE" Content="余电:0 kW" HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
-                <Label Name="outH" Content="余热:0 kW" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
-                <Label Name="outsideE" Content="电:0 kW" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
-                <Label Name="outsideH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
-                <Label Name="gas" Content="燃气:0 m³/h" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_MouseEnter" MouseLeave="Chart_MouseLeaveChart"/>
+                <Label Name="outE" Content="余电:0 kW" HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outH" Content="余热:0 kW" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outsideE" Content="电:0 kW" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outsideH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="gas" Content="燃气:0 m³/h" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
             </StackPanel>
             <Canvas>
                 <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>

@@ -636,7 +636,7 @@ namespace UENSimulation
                 }
             }
         }
-        private void Chart_ImageMouseLeaveChart(object sender, MouseEventArgs e)
+        private void Chart_ImageMouseLeave(object sender, MouseEventArgs e)
         {
             if (bflag)
             {
@@ -749,7 +749,7 @@ namespace UENSimulation
             }
 
         }
-        private void Chart_LabelMouseLeaveChart(object sender, MouseEventArgs e)
+        private void Chart_LabelMouseLeave(object sender, MouseEventArgs e)
         {
             if (bflag)
             {
