@@ -102,6 +102,9 @@
     <Compile Include="UserControls\ChartLineUC.xaml.cs">
       <DependentUpon>ChartLineUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ChartLineYearUC.xaml.cs">
+      <DependentUpon>ChartLineYearUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LeftRightUC.xaml.cs">
       <DependentUpon>LeftRightUC.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,7 @@
     <Compile Include="UserControls\SwitchUC.xaml.cs">
       <DependentUpon>SwitchUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\COMManage.cs" />
     <Compile Include="Utility\EnergyCalculation.cs" />
     <Compile Include="Utility\Txt_Handle.cs" />
     <Compile Include="Utility\WeatherGet.cs" />
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="Windows\SceneSet.xaml.cs">
       <DependentUpon>SceneSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\YearDayShow.xaml.cs">
+      <DependentUpon>YearDayShow.xaml</DependentUpon>
     </Compile>
     <Page Include="CloudService.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +185,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\ChartLineYearUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\LeftRightUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -213,6 +224,10 @@
     <Page Include="Windows\SceneSet.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\YearDayShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

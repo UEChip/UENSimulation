@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using UENSimulation.Windows;
 using UENSimulation.Utility;
 using UENSimulation.UserControls;
+using Visifire.Charts;
 
 namespace UENSimulation
 {
@@ -383,6 +384,7 @@ namespace UENSimulation
             TextCollapsed();
             SetConfigstr(_configstr3);
             StartMoveDX();
+            IntialChart();
         }
 
         //显示调用类型
@@ -397,10 +399,17 @@ namespace UENSimulation
         }
         #endregion
         #region 循环调用算法的方法实现
+        string[] zstre;
+        string[] zstrh;
 
         //设定动画方案，以一组为单位，与通用方法不同的是，这里要循环屡次调用算法模块
         private void StartMoveDX()
         {
+            string strstate = txthandle.dataRead(@"..\..\Local Storage\mode_Season.txt")[0];
+            SetTxtPath(strstate);
+            zstre = txthandle.dataRead(strpath_e);
+            zstrh = txthandle.dataRead(strpath_h);
+
             num = 0;
             timer = null;
             MoveTeam(null, null);
@@ -410,29 +419,57 @@ namespace UENSimulation
             timer.Start();
         }
 
-        double[] zstre = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
-        double[] zstrh = { 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-        //电、热需求文件，更改其中数据可调整电热需求
-        string filePath_EnergyNeed = @"..\..\Local Storage\EnergyNeed.txt";
-        //夏季典型日电需求保存文件路径
-        string filePath_needE_S = @"..\..\Local Storage\EnergyNeed.txt";
-        //夏季典型日热需求保存文件路径
-        string filePath_needH_S = @"..\..\Local Storage\EnergyNeed.txt";
-        //冬季典型日电需求保存文件路径
-        string filePath_needE_W = @"..\..\Local Storage\EnergyNeed.txt";
-        //冬季典型日热需求保存文件路径
-        string filePath_needH_W = @"..\..\Local Storage\EnergyNeed.txt";
         //操作txt类
         Txt_Handle txthandle = new Txt_Handle();
         Thread dataCalculationdx = null;
+        //电需求存储文件路径
+        string strpath_e = "";
+        //热需求存储文件路径
+        string strpath_h = "";
+        //电、热需求文件，更改其中数据可调整电热需求
+        string filePath_EnergyNeed = @"..\..\Local Storage\EnergyNeed.txt";
         //调用算法
         private void InvokeAl(object sender, ElapsedEventArgs e)
         {
-
-            string[] zstr = { zstre[num].ToString(), zstrh[num].ToString() };
+            String axisLabel = num + "时";
+            DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num]) });
+            DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num]) });
+            string[] zstr = { zstre[num], zstrh[num] };
             txthandle.dataWrite(filePath_EnergyNeed, zstr);
-                dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
-                dataCalculationdx.Start();
+            dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
+            dataCalculationdx.Start();
+        }
+
+        //根据“优化模拟数据”页面设置，获取当前选择（冬季W/夏季S/自定义C/春秋典型日A），定位相应保存文件
+        private void SetTxtPath(string strstate)
+        {
+            switch (strstate)
+            {
+                case "W":
+                    //冬季典型日电需求保存文件路径
+                    strpath_e = @"..\..\Local Storage\needE_W.txt";
+                    //冬季典型日热需求保存文件路径
+                    strpath_h = @"..\..\Local Storage\needH_W.txt";
+                    this.xzlabel.Content = "当前选择展示类型：冬季典型日";
+                    break;
+                case "S":
+                    //夏季典型日电需求保存文件路径
+                    strpath_e = @"..\..\Local Storage\needE_S.txt";
+                    //夏季典型日热需求保存文件路径
+                    strpath_h = @"..\..\Local Storage\needH_S.txt";
+                    this.xzlabel.Content = "当前选择展示类型：夏季典型日";
+                    break;
+                case "SA"://春秋
+                    strpath_e = @"..\..\Local Storage\needE_SA.txt";
+                    strpath_h = @"..\..\Local Storage\needH_SA.txt";
+                    this.xzlabel.Content = "当前选择展示类型：春秋季典型日";
+                    break;
+                case "M"://手动
+                    strpath_e = @"..\..\Local Storage\needE_Manual.txt";
+                    strpath_h = @"..\..\Local Storage\needH_Manual.txt";
+                    this.xzlabel.Content = "当前选择展示类型：自定义内容";
+                    break;
+            }
         }
         #endregion
 
@@ -542,42 +579,224 @@ namespace UENSimulation
         #endregion
 
         #region 鼠标移入，显示chart曲线图效果
-        ChartLineUC cl = null;
 
-        //控制是否鼠标移入图片时显示图表控件
+        //控制是否鼠标移入图片时显示图表控件---只有点击“家庭24时调用展示”后才显示
         bool bflag = false;
-        private void Chart_MouseEnter(object sender, MouseEventArgs e)
+        #region 泛能管家移入移出实现
+        #region 数据
+        ChartLineUC cl_fnwg = null;
+        //绑定到图表控件的数据点List
+        public List<DataPointCollection> ListDataPoints
+        {
+            get;
+            set;
+        }
+        //24h需求数据——耗电
+        public DataPointCollection DataPoints_DE
+        {
+            get;
+            set;
+        }
+        //24h需求数据——耗热
+        public DataPointCollection DataPoints_DH
+        {
+            get;
+            set;
+        }
+        #endregion
+        private void Chart_ImageMouseEnter(object sender, MouseEventArgs e)
         {
             if (bflag)
             {
                 ((UIElement)sender).Opacity = 0.8;
                 Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
-                if (cl != null)
+                if (cl_fnwg != null)
                 {
-                    cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    cl.Visibility = System.Windows.Visibility.Visible;
+                    cl_fnwg.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    cl_fnwg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 {
+                    //数据：数值+x轴时间+标题+单位（？）+曲线颜色
+                    ListDataPoints = new List<DataPointCollection>();
+                    DataPoints_DE = new DataPointCollection();
+                    DataPoints_DH = new DataPointCollection();
+                    ListDataPoints.Add(DataPoints_DE);
+                    ListDataPoints.Add(DataPoints_DH);
+                    string[] zstr = { "电需求(kW)", "热需求(kW)" };
+                    cl_fnwg = new ChartLineUC(ListDataPoints, zstr);
                     //_stackPanel为子元素，_grid为父元素
-                    cl = new ChartLineUC();
-                    cl.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                    cl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                    cl.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    this.zgrid.Children.Add(cl);
+                    cl_fnwg.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                    cl_fnwg.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                    cl_fnwg.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    this.zgrid.Children.Add(cl_fnwg);
                 }
             }
         }
-        private void Chart_MouseLeaveChart(object sender, MouseEventArgs e)
+        private void Chart_ImageMouseLeaveChart(object sender, MouseEventArgs e)
         {
             if (bflag)
             {
                 ((UIElement)sender).Opacity = 0.8;
-                if (cl != null)
+                if (cl_fnwg != null)
                 {
-                    cl.Visibility = System.Windows.Visibility.Hidden;
+                    cl_fnwg.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
+        }
+        #endregion
+
+        #region 泛能机输入输出Label移入移出实现
+        #region 相关数据
+        ChartLineUC cl_ye = null;
+        //余电
+        public DataPointCollection DataPoints_YE
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_yh = null;
+        //余热
+        public DataPointCollection DataPoints_YH
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_se = null;
+        //输入电（市电）
+        public DataPointCollection DataPoints_SE
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_sh = null;
+        //输入热
+        public DataPointCollection DataPoints_SH
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_sg = null;
+        //输入燃气
+        public DataPointCollection DataPoints_SG
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_pe = null;
+        //输出电
+        public DataPointCollection DataPoints_PE
+        {
+            get;
+            set;
+        }
+        ChartLineUC cl_ph = null;
+        //输出热
+        public DataPointCollection DataPoints_PH
+        {
+            get;
+            set;
+        }
+        #endregion
+        ChartLineUC cuc;
+        private void Chart_LabelMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (bflag)
+            {
+                ((UIElement)sender).Opacity = 0.8;
+                Label lb = sender as Label;
+                switch (lb.Name.ToString().Trim())
+                {
+                    //余电
+                    case "outE":
+                        cuc = cl_ye;
+                        break;
+                    //余热
+                    case "outH":
+                        cuc = cl_yh;
+                        break;
+                    case "outsideE":
+                        cuc = cl_se;
+                        break;
+                    case "outsideH":
+                        cuc = cl_sh;
+                        break;
+                    case "gas":
+                        cuc = cl_sg;
+                        break;
+                    case "needE":
+                        cuc = cl_pe;
+                        break;
+                    case "needH":
+                        cuc = cl_ph;
+                        break;
+                    default:
+                        cuc = new ChartLineUC();
+                        break;
+                }
+
+                Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
+                if (cuc != null)
+                {
+                    cuc.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    cuc.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    //_stackPanel为子元素，_grid为父元素
+                    cuc.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                    cuc.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                    cuc.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    this.zgrid.Children.Add(cuc);
+                }
+            }
+
+        }
+        private void Chart_LabelMouseLeaveChart(object sender, MouseEventArgs e)
+        {
+            if (bflag)
+            {
+                ((UIElement)sender).Opacity = 0.8;
+                if (cuc != null)
+                {
+                    cuc.Visibility = System.Windows.Visibility.Hidden;
+                }
+            }
+        }
+
+        //初始化图表控件和数据点，将其互相赋值绑定
+        private void IntialChart()
+        {
+            //余电
+            DataPoints_YE = new DataPointCollection();
+            cl_ye = new ChartLineUC(DataPoints_YE, "余电(kW)");
+            //余热
+            DataPoints_YH = new DataPointCollection();
+            cl_yh = new ChartLineUC(DataPoints_YH, "余热(kW)");
+            //输入电
+            DataPoints_SE = new DataPointCollection();
+            cl_ph = new ChartLineUC(DataPoints_SE, "市电(kW)");
+            //输入热
+            DataPoints_SH = new DataPointCollection();
+            cl_sh = new ChartLineUC(DataPoints_SH, "输入热(kW)");
+            //输入气
+            DataPoints_SG = new DataPointCollection();
+            cl_sg = new ChartLineUC(DataPoints_SG, "输入气(m³/h)");
+            //输出电
+            DataPoints_PE = new DataPointCollection();
+            cl_pe = new ChartLineUC(DataPoints_PE, "输出电(kW)");
+            //输出热
+            DataPoints_DH = new DataPointCollection();
+            cl_ph = new ChartLineUC(DataPoints_DH, "输出热(kW)");
+        }
+        #endregion
+        #endregion
+
+        #region 点击家庭全年调用展示
+        private void qndy_Click(object sender, RoutedEventArgs e)
+        {
+            YearDayShow yds = new YearDayShow();
+            yds.Show();
         }
         #endregion
         #endregion
@@ -645,19 +864,28 @@ namespace UENSimulation
 
             this.Dispatcher.Invoke(new Action(() =>
             {
+                String axisLabel = num + "时";
                 //额外的电和热
                 outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kW";
+                DataPoints_SE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[10].ToString()) });
                 outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kW";
+                DataPoints_SH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[11].ToString()) });
 
                 //燃气
                 gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³/h";
+                DataPoints_SG.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse((output_UEMachine[2] + output_GasBoiler[1]).ToString()) });
 
                 //泛能机系统输出的电和热
                 needE.Content = "电： " + energyCalculation.EnergyNeed.Electricity_Need + " kW";
+                DataPoints_PE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Electricity_Need });
                 needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kW";
+                DataPoints_PH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Heat_Need });
 
+                
                 outE.Content = "余电： 0 kW";
+                DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                 outH.Content = "余热： 0 kW";
+                DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
 
                 int gear = Convert.ToInt32(output_Ctrlopt[12]);
                 switch (gear)

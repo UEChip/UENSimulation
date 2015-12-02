@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\
+D:\代码\code\UENSimulation\UENSimulation\obj\Debug\
 UENSimulation
 none
 false
 DEBUG;TRACE
-E:\Work\Projects\UENSimulation\UENSimulation\App.xaml
-17-1571162283
+D:\代码\code\UENSimulation\UENSimulation\App.xaml
+19478322805
 
-36159101672
-20211141218
-CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;UserControls\ChartLineUC.xaml;UserControls\LeftRightUC.xaml;UserControls\MyCheckUC.xaml;UserControls\OptionSelectUC.xaml;UserControls\SceneUC.xaml;UserControls\SetValueUC.xaml;UserControls\SwitchUC.xaml;Windows\EquControl.xaml;Windows\SceneConfig.xaml;Windows\SceneSet.xaml;
+391001839085
+20797099444
+CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;UserControls\ChartLineUC.xaml;UserControls\ChartLineYearUC.xaml;UserControls\LeftRightUC.xaml;UserControls\MyCheckUC.xaml;UserControls\OptionSelectUC.xaml;UserControls\SceneUC.xaml;UserControls\SetValueUC.xaml;UserControls\SwitchUC.xaml;Windows\EquControl.xaml;Windows\SceneConfig.xaml;Windows\SceneSet.xaml;Windows\YearDayShow.xaml;
 
 False
 

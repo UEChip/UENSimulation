@@ -18,40 +18,45 @@ using Visifire.Charts;
 namespace UENSimulation.UserControls
 {
     /// <summary>
-    /// ChartLineUC.xaml 的交互逻辑
+    /// ChartLineYearUC.xaml 的交互逻辑
     /// </summary>
-    public partial class ChartLineUC : UserControl
+    public partial class ChartLineYearUC : UserControl
     {
-        public ChartLineUC()
+        public ChartLineYearUC()
         {
             InitializeComponent();
         }
 
-        #region 传递数据，刷新展示曲线，刷新函数在调用页面实现
-        public ChartLineUC(List<DataPointCollection> ListDataPoints, string[] zstr)
+        public ChartLineYearUC(string strtitle)
         {
             InitializeComponent();
-            chartC.DataPointWidth = 2;
 
-            for (int i = 0; i < ListDataPoints.Count(); i++)
+            chartC.ZoomingEnabled = true;
+            chartC.ZoomOutText = "返回";
+            chartC.ShowAllText = "退出";
+            Title title = new Title();
+            title.Text = strtitle;
+            chartC.Titles.Add(title);
+        }
+
+        public void AddLineData(DataTable dt,string strname, string linecolor){
+            SetChartData(dt, strname, linecolor);
+        }
+
+        private void SetChartData(DataTable dt,string strname, string linecolor)
+        {
+            Visifire.Charts.DataSeries dataSeries = new Visifire.Charts.DataSeries();
+            AddDataSeries(strname, dataSeries, LineStyles.Solid, new SolidColorBrush((Color)ColorConverter.ConvertFromString(linecolor)), Visifire.Charts.RenderAs.QuickLine);
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                DataPointCollection dpc = ListDataPoints[i];
-                chartC.Series[i].DataPoints = dpc;
-                chartC.Series[i].LegendText = zstr[i];
-                chartC.Series[i].ShowInLegend = true;
-                chartC.Series[i].ToolTipText = string.Format("名称：#AxisXLabel {0}数值：#YValue {0}", System.Environment.NewLine);
+                Visifire.Charts.DataPoint dataPoint = new DataPoint();
+                dataPoint.AxisXLabel = dt.Rows[i]["time"].ToString();
+                dataPoint.Color = new SolidColorBrush(Colors.Blue);
+                dataPoint.YValue = Convert.ToDouble(dt.Rows[i]["value"]);
+                dataPoint.Tag = " ";
+                dataSeries.DataPoints.Add(dataPoint);
             }
-        }
-
-        public ChartLineUC(DataPointCollection DataPoints, string str)
-        {
-            InitializeComponent();
-            chartC.DataPointWidth = 2;
-
-            chartC.Series[0].DataPoints = DataPoints;
-            chartC.Series[0].LegendText = str;
-            chartC.Series[0].ShowInLegend = true;
-            chartC.Series[0].ToolTipText = string.Format("名称：#AxisXLabel {0}数值：#YValue {0}", System.Environment.NewLine);
+            this.chartC.Series.Add(dataSeries);
         }
 
         private void AddDataSeries(string legendText, Visifire.Charts.DataSeries dataSeries, LineStyles style, SolidColorBrush brush, Visifire.Charts.RenderAs renderAs)
@@ -73,6 +78,5 @@ namespace UENSimulation.UserControls
             //dataSeries.IncludePercentageInLegend = true;
             //dataSeries.ToolTipText = string.Format("名称：#AxisXLabel {0}数量：#YValue {0}占比：#Percentage%", System.Environment.NewLine);
         }
-        #endregion 
     }
 }

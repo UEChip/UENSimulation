@@ -1,0 +1,13 @@
+﻿<Window x:Class="UENSimulation.Windows.YearDayShow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="YearDayShow" Height="1000" Width="1900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Name="grid_xq"></Grid>
+        <Grid Grid.Row="1"></Grid>
+    </Grid>
+</Window>

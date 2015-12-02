@@ -1,16 +1,12 @@
-﻿<UserControl x:Class="UENSimulation.UserControls.ChartLineUC"
+﻿<UserControl x:Class="UENSimulation.UserControls.ChartLineYearUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-              xmlns:my="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
-             mc:Ignorable="d" Height="320" Width="500">
-    <Grid Background="White">
+             xmlns:my="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+             mc:Ignorable="d">
+    <Grid>
         <my:Chart HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF688CAF" BorderThickness="1" CornerRadius="0,0,0,0" Name="chartC" Padding="10" ScrollingEnabled="false" ShadowEnabled="False" LightingEnabled="False" AnimatedUpdate="true"  IndicatorEnabled="False" ZoomingEnabled="False">
-            <my:Chart.Series>
-                <my:DataSeries LightWeight="true" RenderAs="Line" LineThickness="2" Bevel="false" BubbleStyle="Style2"  LabelEnabled="False" LightingEnabled="false" Color="Blue"></my:DataSeries>
-                <my:DataSeries LightWeight="true" RenderAs="Line" LineThickness="2" Bevel="false" BubbleStyle="Style2"  LabelEnabled="False" LightingEnabled="false" Color="Red"></my:DataSeries>
-            </my:Chart.Series>
             <my:Chart.PlotArea>
                 <my:PlotArea LightingEnabled="False" ShadowEnabled="false" BorderThickness="0.24" />
             </my:Chart.PlotArea>

@@ -117,7 +117,7 @@
                             <Label Content="24小时用能需求配置(单位:kW)" Width="350" Height="50" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="200,0,0,0"/>
                             <Label Content="模式选择：" Width="130" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="650,0,0,0"/>
                             <RadioButton Content="冬季" Width="70" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Margin="800,0,0,0" GroupName="msxzradiobutton" IsChecked="True"/>
-                            <RadioButton Content="夏季" Width="70" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Margin="900,0,0,0" GroupName="msxzradiobutton"/>
+                            <RadioButton Content="夏季" Width="70" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Margin="904,11,0,11" GroupName="msxzradiobutton"/>
                             <RadioButton Content="手动" Width="70" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Margin="1000,0,0,0" GroupName="msxzradiobutton"/>
                         </Grid>
                     </Border>
