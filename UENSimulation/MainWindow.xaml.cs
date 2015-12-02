@@ -429,17 +429,22 @@ namespace UENSimulation
         //电、热需求文件，更改其中数据可调整电热需求
         string filePath_EnergyNeed = @"..\..\Local Storage\EnergyNeed.txt";
         //调用算法
+        int num_h = 0;
         private void InvokeAl(object sender, ElapsedEventArgs e)
         {
              this.Dispatcher.Invoke(new Action(() =>
             {
-            String axisLabel = num + "时";
-            DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num]) });
-            DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num]) });
-            string[] zstr = { zstre[num], zstrh[num] };
-            txthandle.dataWrite(filePath_EnergyNeed, zstr);
-            dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
-            dataCalculationdx.Start();
+                if (num_h < zstre.Count() && num_h < zstrh.Count())
+                {
+                    String axisLabel = num_h + "时";
+                    DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num_h]) });
+                    DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num_h]) });
+                    string[] zstr = { zstre[num_h], zstrh[num_h] };
+                    txthandle.dataWrite(filePath_EnergyNeed, zstr);
+                    dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
+                    dataCalculationdx.Start();
+                    num_h += 1;
+                }
             }));
         }
 
@@ -615,24 +620,10 @@ namespace UENSimulation
                 Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
                 if (cl_fnwg != null)
                 {
-                    cl_fnwg.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    cl_fnwg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                {
-                    //数据：数值+x轴时间+标题+单位（？）+曲线颜色
-                    ListDataPoints = new List<DataPointCollection>();
-                    DataPoints_DE = new DataPointCollection();
-                    DataPoints_DH = new DataPointCollection();
-                    ListDataPoints.Add(DataPoints_DE);
-                    ListDataPoints.Add(DataPoints_DH);
-                    string[] zstr = { "电需求(kW)", "热需求(kW)" };
-                    cl_fnwg = new ChartLineUC(ListDataPoints, zstr);
-                    //_stackPanel为子元素，_grid为父元素
                     cl_fnwg.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                     cl_fnwg.VerticalAlignment = System.Windows.VerticalAlignment.Top;
                     cl_fnwg.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    this.zgrid.Children.Add(cl_fnwg);
+                    cl_fnwg.Visibility = System.Windows.Visibility.Visible;
                 }
             }
         }
@@ -766,39 +757,49 @@ namespace UENSimulation
         {
             //余电
             DataPoints_YE = new DataPointCollection();
-            cl_ye = new ChartLineUC(DataPoints_YE, "余电(kW)");
+            cl_ye = new ChartLineUC(DataPoints_YE, "余电(kW)", "余电数据");
             cl_ye.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_ye);
             //余热
             DataPoints_YH = new DataPointCollection();
-            cl_yh = new ChartLineUC(DataPoints_YH, "余热(kW)");
+            cl_yh = new ChartLineUC(DataPoints_YH, "余热(kW)", "余热数据");
             cl_yh.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_yh);
             //输入电
             DataPoints_SE = new DataPointCollection();
-            cl_ph = new ChartLineUC(DataPoints_SE, "市电(kW)");
+            cl_ph = new ChartLineUC(DataPoints_SE, "市电(kW)", "市电数据");
             cl_ph.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_ph);
             //输入热
             DataPoints_SH = new DataPointCollection();
-            cl_sh = new ChartLineUC(DataPoints_SH, "输入热(kW)");
+            cl_sh = new ChartLineUC(DataPoints_SH, "输入热(kW)", "输入热数据");
             cl_sh.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_sh);
             //输入气
             DataPoints_SG = new DataPointCollection();
-            cl_sg = new ChartLineUC(DataPoints_SG, "输入气(m³/h)");
+            cl_sg = new ChartLineUC(DataPoints_SG, "输入气(m³/h)", "输入气数据");
             cl_sg.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_sg);
             //输出电
             DataPoints_PE = new DataPointCollection();
-            cl_pe = new ChartLineUC(DataPoints_PE, "输出电(kW)");
+            cl_pe = new ChartLineUC(DataPoints_PE, "输出电(kW)", "输出电数据");
             cl_pe.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_pe);
             //输出热
             DataPoints_DH = new DataPointCollection();
-            cl_ph = new ChartLineUC(DataPoints_DH, "输出热(kW)");
+            cl_ph = new ChartLineUC(DataPoints_DH, "输出热(kW)", "输出热数据");
             cl_ph.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_ph);
+
+            ListDataPoints = new List<DataPointCollection>();
+            DataPoints_DE = new DataPointCollection();
+            DataPoints_DH = new DataPointCollection();
+            ListDataPoints.Add(DataPoints_DE);
+            ListDataPoints.Add(DataPoints_DH);
+            string[] zstr = { "电需求(kW)", "热需求(kW)" };
+            cl_fnwg = new ChartLineUC(ListDataPoints, zstr, "能耗需求数据");
+            cl_fnwg.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_fnwg);
         }
         #endregion
         #endregion
@@ -880,7 +881,7 @@ namespace UENSimulation
 
             this.Dispatcher.Invoke(new Action(() =>
             {
-                String axisLabel = num + "时";
+                String axisLabel = num_h + "时";
                 //额外的电和热
                 outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kW";
                 DataPoints_SE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[10].ToString()) });

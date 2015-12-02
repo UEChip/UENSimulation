@@ -66,17 +66,6 @@ namespace UENSimulation.UserControls
             dataSeries.LegendText = legendText;
             dataSeries.ShowInLegend = true;
             dataSeries.Color = brush;
-            //dataSeries.AutoFitToPlotArea = true;
-            //dataSeries.LineStyle = style;
-            //dataSeries.LabelEnabled = false;
-            //dataSeries.Bevel = false;
-            //dataSeries.ShadowEnabled = true;
-            //dataSeries.YValueFormatString = "######.## ";
-            //dataSeries.LightingEnabled = true;
-            //dataSeries.LabelText = " #AxisXLabel";
-            //dataSeries.LabelFontSize = 13;
-            //dataSeries.IncludePercentageInLegend = true;
-            //dataSeries.ToolTipText = string.Format("名称：#AxisXLabel {0}数量：#YValue {0}占比：#Percentage%", System.Environment.NewLine);
         }
     }
 }

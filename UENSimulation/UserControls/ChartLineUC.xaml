@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:my="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
-             mc:Ignorable="d" Height="320" Width="500">
+             mc:Ignorable="d" Height="320" Width="500" Name="mUserControl">
     <Grid Background="White">
-        <my:Chart HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF688CAF" BorderThickness="1" CornerRadius="0,0,0,0" Name="chartC" Padding="10" ScrollingEnabled="false" ShadowEnabled="False" LightingEnabled="False" AnimatedUpdate="true"  IndicatorEnabled="False" ZoomingEnabled="False">
+        <my:Chart HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF688CAF" BorderThickness="1" CornerRadius="0,0,0,0" Name="chartC" Padding="10" ScrollingEnabled="false" ShadowEnabled="False" LightingEnabled="False" AnimatedUpdate="true"  IndicatorEnabled="False" ZoomingEnabled="False" MouseEnter="chartC_MouseEnter" MouseLeave="chartC_MouseLeave">
             <my:Chart.Series>
                 <my:DataSeries LightWeight="true" RenderAs="Line" LineThickness="2" Bevel="false" BubbleStyle="Style2"  LabelEnabled="False" LightingEnabled="false" Color="Blue"></my:DataSeries>
                 <my:DataSeries LightWeight="true" RenderAs="Line" LineThickness="2" Bevel="false" BubbleStyle="Style2"  LabelEnabled="False" LightingEnabled="false" Color="Red"></my:DataSeries>

@@ -18,64 +18,73 @@
                 <Button Name="ztdy" Width="150" Height="35" Content="整体调用流程展示" Click="ztdy_Click"/>
                 <Button Name="qydy" Width="150" Height="35" Content="手动控制调用流程展示" Click="qydy_Click" Margin="0,5,0,0"/>
                 <Button Name="dxrdy" Width="150" Height="35" Content="家庭24时调用展示" Click="dxrdy_Click" Margin="0,5,0,0"/>
-                <Button Name="cjdy" Width="150" Height="35" Content="当前场景(居家)调用展示" Click="cjdy_Click" Margin="0,5,0,0"/>
+                <Button Name="cjdy" Width="150" Height="35" Content="当前场景(居家)调用展示" Click="cjdy_Click" Margin="0,5,0,0" Visibility="Collapsed"/>
+                <Button Name="qndy" Width="150" Height="35" Content="全年能效数据调用展示" Click="qndy_Click" Margin="0,5,0,0"/>
             </StackPanel>
             <Label Name="xzlabel" Content="当前选择展示类型：冬季典型日" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,20,0,0" FontSize="16" Foreground="Blue"/>
-            <StackPanel Margin="1467,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Label  Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0"/>
-                <TextBlock Name="textblock_1" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.135：客户端指令下发到泛能网关" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_2" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20" Text="12:00:01.136：泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_3" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.138：根据载入数据，网关内部能源优化模块计算合适的控制策略" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_4" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.150：网关将各项优化指令下发到家庭各用能设备" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_5" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.160：用能设备状态改变，状态信息传递到泛能网关" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_6" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.167：泛能网关'负荷预测'模块启动，利用IES和优化算法，计算能源负荷" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_7" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.170：泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_8" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_9" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="112:00:01.200：泛能机输出多种能源供给用能设备" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_10" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.210：用能设备获取能源，正常运行" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_11" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_12" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：设备状态改变能耗改变，改变情况上传到泛能网关" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_13" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：泛能网关将能耗信息发送到泛能机控制器" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_14" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.170：泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_15" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_16" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：输出能源满足用能设备改变后的能耗需求" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_17" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
+            <Border Margin="1467,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <StackPanel Orientation="Vertical">
+                    <Label Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="410" Height="870">
+                        <ScrollViewer.Content>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Name="textblock_1" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.135：客户端指令下发到泛能网关" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_2" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20" Text="12:00:01.136：泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_3" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.138：根据载入数据，网关内部能源优化模块计算合适的控制策略" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_4" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.150：网关将各项优化指令下发到家庭各用能设备" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_5" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.160：用能设备状态改变，状态信息传递到泛能网关" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_6" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.167：泛能网关'负荷预测'模块启动，利用IES和优化算法，计算能源负荷" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_7" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.170：泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_8" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_9" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="112:00:01.200：泛能机输出多种能源供给用能设备" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_10" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.210：用能设备获取能源，正常运行" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_11" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_12" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：设备状态改变能耗改变，改变情况上传到泛能网关" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_13" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：泛能网关将能耗信息发送到泛能机控制器" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_14" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.170：泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_15" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.190：泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_16" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：输出能源满足用能设备改变后的能耗需求" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_17" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.220：执行完毕" Visibility="Collapsed"/>
 
-                <TextBlock Name="textblock_18" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_19" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="01:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_20" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="02:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_21" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="03:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_22" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="04:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_23" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="05:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_24" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_25" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="07:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_26" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_27" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="09:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_28" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="10:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_29" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="11:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_30" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_31" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_32" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="14:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_33" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="15:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_34" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="16:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_35" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_36" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="18:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_37" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_38" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_39" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="21:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_40" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_41" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="23:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_18" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_19" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="01:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_20" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="02:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_21" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="03:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_22" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="04:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_23" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="05:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_24" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_25" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="07:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_26" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_27" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="09:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_28" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="10:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_29" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="11:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_30" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_31" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_32" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="14:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_33" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="15:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_34" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="16:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_35" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_36" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="18:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_37" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_38" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_39" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="21:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_40" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_41" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="23:00 泛能网关获取电热需求，泛能机控制器根据各项参数，利用优化算法调整各能源输入输出" Visibility="Collapsed"/>
 
-                <TextBlock Name="textblock_42" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 - 06:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_43" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 - 08:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_44" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 - 12:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_45" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 - 13:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_46" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:30 - 17:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_47" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 - 19:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_48" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 - 20:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_49" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 - 22:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-                <TextBlock Name="textblock_50" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 - 00:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
-            </StackPanel>
+                                <TextBlock Name="textblock_42" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="00:00 - 06:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_43" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="06:00 - 08:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_44" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="08:00 - 12:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_45" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00 - 13:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_46" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="13:30 - 17:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_47" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="17:00 - 19:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_48" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="19:00 - 20:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_49" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="20:00 - 22:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_50" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="22:00 - 00:00 根据场景配置，调整家庭设备状态、改变能耗需求，泛能机控制器据此调整各能源输入输出" Visibility="Collapsed"/>
+                            </StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="372" Width="255" Panel.ZIndex="2">
                 <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4"/>
                 <Image Name="image_5" HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3">
@@ -484,17 +493,17 @@
                     </Image.Source>
                 </Image>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="725,695,0,0">
-                <Label Name="needE" Content="电:0 kW" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="needH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="650,695,0,0">
+                <Label Name="needE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="needH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
                 <Label Content="水:0" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,645,0,0">
-                <Label Name="outE" Content="余电:0 kW" HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outH" Content="余热:0 kW" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outsideE" Content="电:0 kW" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outsideH" Content="热:0 kW" Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="gas" Content="燃气:0 m³/h" Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,645,0,0">
+                <Label Name="outE" Content="余电:0 kW"  Width="250" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outH" Content="余热:0 kW" Width="250" HorizontalContentAlignment="Center" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outsideE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outsideH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="gas" Content="燃气:0 m³/h"  Width="250" HorizontalContentAlignment="Center"  Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
             </StackPanel>
             <Canvas>
                 <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
