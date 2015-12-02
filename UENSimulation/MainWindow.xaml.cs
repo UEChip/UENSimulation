@@ -414,8 +414,8 @@ namespace UENSimulation
             timer = null;
             MoveTeam(null, null);
             timer = new System.Timers.Timer(mstime);
-            timer.Elapsed += new ElapsedEventHandler(MoveTeam);
             timer.Elapsed += new ElapsedEventHandler(InvokeAl);
+            timer.Elapsed += new ElapsedEventHandler(MoveTeam);
             timer.Start();
         }
 
@@ -431,6 +431,8 @@ namespace UENSimulation
         //调用算法
         private void InvokeAl(object sender, ElapsedEventArgs e)
         {
+             this.Dispatcher.Invoke(new Action(() =>
+            {
             String axisLabel = num + "时";
             DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num]) });
             DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num]) });
@@ -438,6 +440,7 @@ namespace UENSimulation
             txthandle.dataWrite(filePath_EnergyNeed, zstr);
             dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
             dataCalculationdx.Start();
+            }));
         }
 
         //根据“优化模拟数据”页面设置，获取当前选择（冬季W/夏季S/自定义C/春秋典型日A），定位相应保存文件
@@ -738,16 +741,10 @@ namespace UENSimulation
                 Point point = ((UIElement)sender).TranslatePoint(new Point(0, 0), (UIElement)zgrid);
                 if (cuc != null)
                 {
-                    cuc.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    cuc.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                {
-                    //_stackPanel为子元素，_grid为父元素
                     cuc.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                     cuc.VerticalAlignment = System.Windows.VerticalAlignment.Top;
                     cuc.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
-                    this.zgrid.Children.Add(cuc);
+                    cuc.Visibility = System.Windows.Visibility.Visible;
                 }
             }
 
@@ -770,24 +767,38 @@ namespace UENSimulation
             //余电
             DataPoints_YE = new DataPointCollection();
             cl_ye = new ChartLineUC(DataPoints_YE, "余电(kW)");
+            cl_ye.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_ye);
             //余热
             DataPoints_YH = new DataPointCollection();
             cl_yh = new ChartLineUC(DataPoints_YH, "余热(kW)");
+            cl_yh.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_yh);
             //输入电
             DataPoints_SE = new DataPointCollection();
             cl_ph = new ChartLineUC(DataPoints_SE, "市电(kW)");
+            cl_ph.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_ph);
             //输入热
             DataPoints_SH = new DataPointCollection();
             cl_sh = new ChartLineUC(DataPoints_SH, "输入热(kW)");
+            cl_sh.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_sh);
             //输入气
             DataPoints_SG = new DataPointCollection();
             cl_sg = new ChartLineUC(DataPoints_SG, "输入气(m³/h)");
+            cl_sg.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_sg);
             //输出电
             DataPoints_PE = new DataPointCollection();
             cl_pe = new ChartLineUC(DataPoints_PE, "输出电(kW)");
+            cl_pe.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_pe);
             //输出热
             DataPoints_DH = new DataPointCollection();
             cl_ph = new ChartLineUC(DataPoints_DH, "输出热(kW)");
+            cl_ph.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_ph);
         }
         #endregion
         #endregion
