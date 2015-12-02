@@ -108,6 +108,10 @@ namespace UENSimulation.Utility
 
             simulatedData.Gear_UE = Convert.ToDouble(dataRead[13]);
             simulatedData.Duration_UE = Convert.ToDouble(dataRead[14]);
+
+            simulatedData.Price_E = Convert.ToDouble(dataRead[15]);
+            simulatedData.Price_H = Convert.ToDouble(dataRead[16]);
+            simulatedData.Price_G = Convert.ToDouble(dataRead[17]);
         }
 
         //读取能源需求
@@ -278,8 +282,11 @@ namespace UENSimulation.Utility
             return gasBoiler_Output;
         }
 
-        public ArrayList ctrlopt()
+        //设备效率
+        public double[] etacal()
         {
+            MWStructArray product = ctrlopt_Struct();
+
             //能源需求参数
             string[] need = new string[3];
             need[0] = "E";
@@ -298,22 +305,38 @@ namespace UENSimulation.Utility
             MWStructArray[] data_ueMachine = ueMachine_pack();
             MWStructArray[] data_gasBoiler = gasBoiler_pack();
 
-            string[] variable = new string[6];
+            string[] variable = new string[7];
             variable[0] = "pv";
             variable[1] = "pt";
             variable[2] = "savee";
             variable[3] = "saveh";
             variable[4] = "uemachine";
             variable[5] = "gasboiler";
+            variable[6] = "price";
 
-            //输入变量提取            
-            MWStructArray variableInStruct = new MWStructArray(1, 1, variable);
-            variableInStruct.SetField(variable[0], data_pv_pack[0].GetField(variable[0]));
-            variableInStruct.SetField(variable[1], data_pt_pack[0].GetField(variable[1]));
-            variableInStruct.SetField(variable[2], data_saveE_pack[0].GetField(variable[2]));
-            variableInStruct.SetField(variable[3], data_saveH_pack[0].GetField(variable[3]));
-            variableInStruct.SetField(variable[4], data_ueMachine[0].GetField(variable[4]));
-            variableInStruct.SetField(variable[5], data_gasBoiler[0].GetField(variable[5]));
+            //输入变量提取
+            MWStructArray variable_uemachine = (MWStructArray)data_ueMachine[0].GetField(variable[4]);
+            MWStructArray variable_gasboiler = (MWStructArray)data_gasBoiler[0].GetField(variable[5]);
+
+            //档位重新赋值
+            MWStructArray gear_uemachine_product = (MWStructArray)product.GetField("uemachine");
+            string[] gear_uemachine_product_fieldNames = gear_uemachine_product.FieldNames;
+            variable_uemachine.SetField(gear_uemachine_product_fieldNames[0], (MWNumericArray)gear_uemachine_product.GetField(gear_uemachine_product_fieldNames[0]));
+
+            MWStructArray gear_gasboiler_product = (MWStructArray)product.GetField("gasboiler");
+            string[] gear_gasboiler_product_fieldNames = gear_gasboiler_product.FieldNames;
+            variable_gasboiler.SetField(gear_gasboiler_product_fieldNames[0], (MWNumericArray)gear_gasboiler_product.GetField(gear_gasboiler_product_fieldNames[0]));
+
+            //内层结构数组gas定义 与档位对应的数组
+            double[] gas_gear_Boiler = new double[3];
+            gas_gear_Boiler[0] = equipmentParameter.Gas_gear_Boiler_1;
+            gas_gear_Boiler[1] = equipmentParameter.Gas_gear_Boiler_2;
+            gas_gear_Boiler[2] = equipmentParameter.Gas_gear_Boiler_3;
+
+            string[] equipmentParameter_Gas = new string[1];
+            equipmentParameter_Gas[0] = "gear";
+            MWStructArray gas = new MWStructArray(1, 1, equipmentParameter_Gas);
+            gas.SetField(equipmentParameter_Gas[0], (MWNumericArray)gas_gear_Boiler);
 
             //设备参数提取
             MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, variable);
@@ -325,10 +348,89 @@ namespace UENSimulation.Utility
             equipmentParameterInStruct.SetField(variable[5], data_gasBoiler[1].GetField(variable[5]));
 
             //函数调用
-            object[] dataOut = uec.ctrlopt(1, needStruct, variableInStruct, equipmentParameterInStruct);
+            MWNumericArray dataOut = (MWNumericArray)uec.etacal(product, needStruct, variable_uemachine, variable_gasboiler, equipmentParameterInStruct);
+            double[,] dataOutArray = (double[,])dataOut.ToArray(MWArrayComponent.Real);
+
+            double[] etacal_Output = new double[3];
+            etacal_Output[0] = dataOutArray[0, 0];
+            etacal_Output[1] = dataOutArray[1, 0];
+            etacal_Output[2] = dataOutArray[2, 0];
+
+            return etacal_Output;
+        }
+
+        //优化函数
+        public MWStructArray ctrlopt_Struct()
+        {
+            //能源需求参数
+            string[] need = new string[3];
+            need[0] = "E";
+            need[1] = "H";
+            need[2] = "mode";
+            MWStructArray needStruct = new MWStructArray(1, 1, need);
+            needStruct.SetField(need[0], energyNeed.Electricity_Need);
+            needStruct.SetField(need[1], energyNeed.Heat_Need);
+            needStruct.SetField(need[2], energyNeed.Mode);
+
+            //能源价格参数
+            string[] price = new string[3];
+            price[0] = "E";
+            price[1] = "H";
+            price[2] = "G";
+            MWStructArray priceStruct = new MWStructArray(1, 1, price);
+            priceStruct.SetField(price[0], simulatedData.Price_E);
+            priceStruct.SetField(price[1], simulatedData.Price_H);
+            priceStruct.SetField(price[2], simulatedData.Price_G);
+
+            //参数封装格式定义
+            MWStructArray[] data_pv_pack = pv_pack();
+            MWStructArray[] data_pt_pack = pt_pack();
+            MWStructArray[] data_saveE_pack = saveE_pack();
+            MWStructArray[] data_saveH_pack = saveH_pack();
+            MWStructArray[] data_ueMachine = ueMachine_pack();
+            MWStructArray[] data_gasBoiler = gasBoiler_pack();
+
+            string[] variable = new string[7];
+            variable[0] = "pv";
+            variable[1] = "pt";
+            variable[2] = "savee";
+            variable[3] = "saveh";
+            variable[4] = "uemachine";
+            variable[5] = "gasboiler";
+            variable[6] = "price";
+
+            //输入变量提取            
+            MWStructArray variableInStruct = new MWStructArray(1, 1, variable);
+            variableInStruct.SetField(variable[0], data_pv_pack[0].GetField(variable[0]));
+            variableInStruct.SetField(variable[1], data_pt_pack[0].GetField(variable[1]));
+            variableInStruct.SetField(variable[2], data_saveE_pack[0].GetField(variable[2]));
+            variableInStruct.SetField(variable[3], data_saveH_pack[0].GetField(variable[3]));
+            variableInStruct.SetField(variable[4], data_ueMachine[0].GetField(variable[4]));
+            variableInStruct.SetField(variable[5], data_gasBoiler[0].GetField(variable[5]));
+            variableInStruct.SetField(variable[6], priceStruct);
+
+            //设备参数提取
+            MWStructArray equipmentParameterInStruct = new MWStructArray(1, 1, variable);
+            equipmentParameterInStruct.SetField(variable[0], data_pv_pack[1].GetField(variable[0]));
+            equipmentParameterInStruct.SetField(variable[1], data_pt_pack[1].GetField(variable[1]));
+            equipmentParameterInStruct.SetField(variable[2], data_saveE_pack[1].GetField(variable[2]));
+            equipmentParameterInStruct.SetField(variable[3], data_saveH_pack[1].GetField(variable[3]));
+            equipmentParameterInStruct.SetField(variable[4], data_ueMachine[1].GetField(variable[4]));
+            equipmentParameterInStruct.SetField(variable[5], data_gasBoiler[1].GetField(variable[5]));
+
+            //函数调用
+            object[] dataOut = uec.newctrlopt(1, needStruct, variableInStruct, equipmentParameterInStruct);
             //输出结果为嵌套结构数组，类型转换
             MWStructArray dataOutStruct = (MWStructArray)dataOut[0];
             string[] fieldName = dataOutStruct.FieldNames;
+
+            return dataOutStruct;
+        }
+
+        //优化函数
+        public ArrayList ctrlopt_Array()
+        {
+            MWStructArray dataOutStruct = ctrlopt_Struct();
 
             //输出结构体的内层结构体
             MWStructArray savee = (MWStructArray)dataOutStruct.GetField("savee");
@@ -350,11 +452,11 @@ namespace UENSimulation.Utility
             //内层结构体Savee
             MWNumericArray charge_Savee = (MWNumericArray)savee.GetField("charge");
             MWNumericArray savedE_Savee = (MWNumericArray)savee.GetField("savedE");
-            MWNumericArray deltaE_Savee = (MWNumericArray)savee.GetField("deltaE");
+            MWNumericArray deltaE_Savee = (MWNumericArray)savee.GetField("IOE");
             //内层结构体Saveh
             MWNumericArray charge_Saveh = (MWNumericArray)saveh.GetField("charge");
             MWNumericArray savedH_Saveh = (MWNumericArray)saveh.GetField("savedH");
-            MWNumericArray deltaH_Saveh = (MWNumericArray)saveh.GetField("deltaH");
+            MWNumericArray deltaH_Saveh = (MWNumericArray)saveh.GetField("IOH");
             //内层结构体Pv
             MWNumericArray consume_Pv = (MWNumericArray)pv.GetField("consume");
             MWNumericArray save_Pv = (MWNumericArray)pv.GetField("save");
@@ -387,7 +489,7 @@ namespace UENSimulation.Utility
 
             //返回数据
             ArrayList ctrlopt_Output = new ArrayList();
-            
+
             ctrlopt_Output.Add(charge_Savee_Output[0, 0]);
             ctrlopt_Output.Add(savedE_Savee_Output[0, 0]);
             ctrlopt_Output.Add(deltaE_Savee_Output[0, 0]);
@@ -406,26 +508,6 @@ namespace UENSimulation.Utility
             ctrlopt_Output.Add(outsideH_Output[0, 0]);
             ctrlopt_Output.Add(uemachine_gear_Output[0, 0]);
             ctrlopt_Output.Add(gasboiler_gear_Output[0, 0]);
-
-
-            //ctrlopt_Output[0] = charge_Savee_Output[0, 0];//储电控制参数
-            //ctrlopt_Output[1] = savedE_Savee_Output[0, 0];//储电值
-            //ctrlopt_Output[2] = deltaE_Savee_Output[0, 0];//存储电量的改变值
-
-            //ctrlopt_Output[3] = charge_Saveh_Output[0, 0];//储热控制参数
-            //ctrlopt_Output[4] = savedH_Saveh_Output[0, 0];//储热值
-            //ctrlopt_Output[5] = deltaH_Saveh_Output[0, 0];//存储热量的改变值
-
-            //ctrlopt_Output[6] = consume_Pv_Output[0, 0];//光伏产电量中被用掉了多少
-            //ctrlopt_Output[7] = save_Pv_Output[0, 0];//光伏产电量中被存储了多少
-
-            //ctrlopt_Output[8] = consume_Pt_Output[0, 0];//光热产热量中被用掉了多少
-            //ctrlopt_Output[9] = save_Pt_Output[0, 0];//光热产热量中被存储了多少
-
-            //ctrlopt_Output[10] = outsideE_Output[0, 0];//除光伏、储电、泛能机之外还需要多少电
-            //ctrlopt_Output[11] = outsideH_Output[0, 0];//除光热、储热、泛能机之外还需要多少热
-            //ctrlopt_Output[12] = uemachine_gear_Output[0, 0];//泛能机档位设置
-            //ctrlopt_Output[13] = gasboiler_gear_Output[0, 0];//补燃锅炉档位设置
 
             return ctrlopt_Output;
         }

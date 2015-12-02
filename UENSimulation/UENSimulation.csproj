@@ -56,7 +56,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TAlex.WPF.Controls">
+    <Reference Include="TAlex.WPF.Controls, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\Extended\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="UECM, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">

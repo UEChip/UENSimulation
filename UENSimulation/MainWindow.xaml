@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="模拟展示平台" Height="1080" Width="1920" Left="1366" Top="0" Closing="Window_Closing">
     <Grid Name="zgrid">
-        <Image Name="xxx" Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Image Name="xxx" Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="#FFB9C9E4">
             <Image.Source>
                 <BitmapImage UriSource="/Resources/Images/background2.png"/>
             </Image.Source>
@@ -545,33 +545,37 @@
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
             <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
-            <Grid HorizontalAlignment="Left" Height="86" Margin="412,924,0,0" VerticalAlignment="Top">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Grid.Row="0" Grid.Column="0" Name="ue1" Content="泛能机电效率：" FontSize="14" HorizontalAlignment="Right"/>
-                    <Label Name="efficiency_E" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
-                    <Label Grid.Row="1" Grid.Column="0" Name="ue2" Content="泛能机热效率："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="efficiency_H" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Label Grid.Row="0" Grid.Column="0" Content="耗电量：" FontSize="14" HorizontalAlignment="Right"/>
-                    <Label Name="Consume_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="耗热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Consume_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="耗气量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Consume_G" Grid.Row="1" Grid.Column="1" Content="0 m³" FontSize="14"/>
-                </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <Label Grid.Row="0" Grid.Column="0" Content="产电量：" FontSize="14" HorizontalAlignment="Right"/>
-                    <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="产热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
-                    <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
-                </StackPanel>
-            </Grid>
+            <Border  HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="86" Margin="412,925,0,0" Background="#FFB9C9E4">
+                <Grid HorizontalAlignment="Left" Height="86" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Grid.Row="0" Grid.Column="0" Name="ue1" Content="斯特林机电效率：" FontSize="14" HorizontalAlignment="Right"/>
+                        <Label Name="efficiency_E_uemachine" Grid.Row="0" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                        <Label Grid.Row="1" Grid.Column="0" Name="ue2" Content="热效率："  FontSize="14" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+                        <Label Name="efficiency_H_uemachine" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="补燃锅炉热效率："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                        <Label Name="efficiency_E_gasboiler" Grid.Row="1" Grid.Column="1" Content="0kWh" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label Grid.Row="0" Grid.Column="0" Content="耗电量：" FontSize="14" HorizontalAlignment="Right"/>
+                        <Label Name="Consume_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="耗热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                        <Label Name="Consume_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="耗气量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                        <Label Name="Consume_G" Grid.Row="1" Grid.Column="1" Content="0 m³" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <Label Grid.Row="0" Grid.Column="0" Content="产电量：" FontSize="14" HorizontalAlignment="Right"/>
+                        <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="产热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+                        <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Window>
