@@ -858,9 +858,14 @@ namespace UENSimulation
             double[] output_GasBoiler = new double[2];
             output_GasBoiler = energyCalculation.gasBoiler();
 
+
             //优化
             ArrayList output_Ctrlopt = new ArrayList();
-            output_Ctrlopt = energyCalculation.ctrlopt();
+            output_Ctrlopt = energyCalculation.ctrlopt_Array();
+
+            //设备效率
+            double[] outPut_Etacal = new double[3];
+            outPut_Etacal = energyCalculation.etacal();
 
             this.Dispatcher.Invoke(new Action(() =>
             {
@@ -881,34 +886,16 @@ namespace UENSimulation
                 needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kW";
                 DataPoints_PH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Heat_Need });
 
-                
+
                 outE.Content = "余电： 0 kW";
                 DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                 outH.Content = "余热： 0 kW";
                 DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
 
-                int gear = Convert.ToInt32(output_Ctrlopt[12]);
-                switch (gear)
-                {
-                    case 0:
-                        efficiency_H.Content = "0";
-                        efficiency_E.Content = "0";
-                        break;
-                    case 1:
-                        efficiency_H.Content = "118.92%";
-                        efficiency_E.Content = "8.61%";
-                        break;
-                    case 2:
-                        efficiency_H.Content = "108.67%";
-                        efficiency_E.Content = "13.16%";
-                        break;
-                    case 3:
-                        efficiency_H.Content = "118.92%";
-                        efficiency_E.Content = "15%";
-                        break;
-                    default:
-                        break;
-                }
+                efficiency_E_uemachine.Content = (outPut_Etacal[0] * 100).ToString("0.00") + "%";
+                efficiency_H_uemachine.Content = (outPut_Etacal[1] * 100).ToString("0.00") + "%";
+                efficiency_E_gasboiler.Content = (outPut_Etacal[2] * 100).ToString("0.00") + "%";
+
                 string str1 = outsideE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim();
                 string str2 = Consume_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim();
                 Consume_E.Content = double.Parse(str1) + double.Parse(str2) + " kWh";
