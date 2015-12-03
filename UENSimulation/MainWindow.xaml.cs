@@ -918,5 +918,11 @@ namespace UENSimulation
             }));
         }
         #endregion
+
+        private void image_5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Port port = new Port();
+            port.ShowDialog();
+        }
     }
 }

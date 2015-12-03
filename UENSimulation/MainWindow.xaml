@@ -87,7 +87,7 @@
             </Border>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="372" Width="255" Panel.ZIndex="2">
                 <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4"/>
-                <Image Name="image_5" HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3">
+                <Image Name="image_5" MouseDown="image_5_MouseDown"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnjkzq.png"/>
                     </Image.Source>
@@ -488,9 +488,9 @@
                 <!--<Button Content="场景选择" FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" Click="Button_Click_1">
                 </Button>-->
                 <Image Height="45" MouseLeftButtonDown="Button_Click_1" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
-                    <Image.Source>
+                    <!--<Image.Source>
                         <BitmapImage UriSource="/Resources/Images/cjxz.png"/>
-                    </Image.Source>
+                    </Image.Source>-->
                 </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="650,695,0,0">
@@ -519,12 +519,12 @@
             </Canvas>
             <Canvas>
                 <Path Name="path_9" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m1075,580 l175,0 l0,80" Canvas.Top="-50"/>
-                <Path Name="path_10" Data="M105,688 L405,688" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_11" Data="M105,755.5 L405,755" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_12" Data="M105,824.5 L405,824" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_13" Data="M105,892 L405,892" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_14" Data="M105,958 L405,958" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_15" Data="M660,733 L900,733" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
+                <Path Name="path_10" Data="M105,688 L405,688" Stroke="#FF0DA4DC" StrokeThickness="4" StrokeDashArray="3 0"/>
+                <Path Name="path_11" Data="M105,755.5 L405,755" Stroke="Red" StrokeThickness="4" StrokeDashArray="3 0"/>
+                <Path Name="path_12" Data="M105,824.5 L405,824" Stroke="#FF0DA4DC" StrokeThickness="4" StrokeDashArray="3 0"/>
+                <Path Name="path_13" Data="M105,892 L405,892" Stroke="Red" StrokeThickness="4" StrokeDashArray="3,0"/>
+                <Path Name="path_14" Data="M105,958 L405,958" Stroke="#FFF3FD1A" StrokeThickness="4" StrokeDashArray="3,0"/>
+                <Path Name="path_15" Data="M660,733 L900,733" Stroke="#FF2E75B6" StrokeThickness="4" StrokeDashArray="3,1"/>
                 <Path Name="path_16" Data="M660,806 L900,806" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
                 <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Visibility="Hidden"/>
             </Canvas>
@@ -540,11 +540,11 @@
             <Path Name="pathj_9" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1243,598,0,0"/>
             <!--<Path Name="pathj_8" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1030,548,0,0"/>-->
             <Path Name="pathj_3" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1055,415,0,0"/>
-            <Path Name="pathj_10" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="94,680,0,0"/>
-            <Path Name="pathj_11" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,748,0,0"/>
-            <Path Name="pathj_12" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,816,0,0"/>
-            <Path Name="pathj_13" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,884,0,0"/>
-            <Path Name="pathj_14" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
+            <Path Name="pathj_10" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF0DA4DC" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="94,680,0,0"/>
+            <Path Name="pathj_11" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,748,0,0"/>
+            <Path Name="pathj_12" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF0DA4DC"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,816,0,0"/>
+            <Path Name="pathj_13" Data="M600,510 L632,520 600,530 610,520 z" Fill="Red"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,884,0,0"/>
+            <Path Name="pathj_14" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FFF3FD1A"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
             <Path Name="pathj_15" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
             <Path Name="pathj_16" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
             <Path Name="pathj_17" Visibility="Hidden" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>

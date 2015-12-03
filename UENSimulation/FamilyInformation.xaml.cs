@@ -24,7 +24,7 @@ namespace UENSimulation
     /// </summary>
     public partial class FamilyInformation : Window
     {
-        private string[] cityName = { "北京", "上海", "广州", "哈尔滨", "青岛", "沈阳", "石家庄", "武汉", "长沙", "重庆" };
+        private string[] cityName = { "北京", "上海", "广州", "沈阳","武汉","重庆" };
         private string[] monthList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
         private string[] hourList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19","20","21","22","23","24" };
         public FamilyInformation()

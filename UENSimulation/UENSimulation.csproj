@@ -86,6 +86,9 @@
     <Compile Include="Model\Room_Drawing.cs" />
     <Compile Include="Model\SimulatedData.cs" />
     <Compile Include="Model\Weather.cs" />
+    <Compile Include="Port.xaml.cs">
+      <DependentUpon>Port.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WeatherServer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +174,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Port.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SimulatedDataSet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
