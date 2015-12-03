@@ -12,7 +12,7 @@ namespace UENSimulation.Utility
     //com口（串口）管理类
     class COMManage
     {
-        //获取端口名
+        //获取所有端口名
         public string[] GetPortNames()
         {
             return System.IO.Ports.SerialPort.GetPortNames();
@@ -35,5 +35,9 @@ namespace UENSimulation.Utility
             }
             return bflag;
         }
+
+        //读取数据
+
+        //下发数据
     }
 }

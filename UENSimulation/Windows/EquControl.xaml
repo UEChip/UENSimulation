@@ -22,23 +22,31 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30" Orientation="Horizontal">
+            <Border Height="30" HorizontalAlignment="Center" Width="1320" VerticalAlignment="Top" BorderThickness="1" CornerRadius="5" BorderBrush="LightBlue">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="控制口:"  Width="77" FontSize="14"/>
+                <ComboBox Height="28" VerticalAlignment="Top" Margin="0,0,0,0" Width="82" Name="COMName" FontSize="14"/>
+                <Button Height="28" VerticalAlignment="Top" Content="启动控制" Name="open" Margin="80,0,0,0" Width="75" Click="open_Click"  FontSize="14"/>
+                <Button Height="28" VerticalAlignment="Top" Content="停止控制" Margin="40,0,0,0" Width="75" Name="stop" Click="stop_Click"  FontSize="14"/>
+            </StackPanel>
+            </Border>
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,0,30,30" Orientation="Horizontal">
                 <Border Width="310" Height="220" CornerRadius="10" Background="#FFF2F2F2">
                     <StackPanel Orientation="Vertical" Name="stackpanel_master">
-                        <Label Content="主卧(20㎡)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                        <Label Content="主卧(led3)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
                             <my:SetValueUC Margin="13,0,0,0"/>
-                            <my:SwitchUC Margin="20,0,0,0" Bfu="False" Bfd="False"/>
+                            <my:SwitchUC x:Name="led3"  Margin="20,0,0,0" Bfu="False" Bfd="False" MouseLeftButtonDown="led_MouseLeftButtonDown"/>
                         </StackPanel>
                         <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
                 </Border>
                 <Border Width="310" Margin="30,0,0,0" Height="220" CornerRadius="10" Background="#FFFBE5D6">
                     <StackPanel Orientation="Vertical" Name="stackpanel_drawing">
-                        <Label Content="客厅" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                        <Label Content="客厅(led2)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
                             <my:SetValueUC Margin="13,0,0,0"/>
-                            <my:SwitchUC Margin="20,0,0,0"/>
+                            <my:SwitchUC x:Name="led2" Margin="20,0,0,0" MouseLeftButtonDown="led_MouseLeftButtonDown"/>
                         </StackPanel>
                         <StackPanel Margin="13,20,0,0" Orientation="Horizontal">
                             <my:SetValueUC ProTitle="湿度"/>
@@ -51,7 +59,7 @@
                         <Label Content="餐厅" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
                             <my:SetValueUC Margin="13,0,0,0"/>
-                            <my:SwitchUC Margin="20,0,0,0"  Bfu="False" Bfd="False"/>
+                            <my:SwitchUC Margin="20,0,0,0"  Bfu="False" Bfd="False" />
                         </StackPanel>
                         <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>
@@ -72,10 +80,10 @@
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30" Orientation="Horizontal">
                 <Border Width="310" Height="220" CornerRadius="10" Background="#FFF2F2F2">
                     <StackPanel Orientation="Vertical" Name="stackpanel_study">
-                        <Label Content="书房" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                        <Label Content="书房(led1)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
                             <my:SetValueUC Margin="13,0,0,0"/>
-                            <my:SwitchUC Margin="20,0,0,0" Bfu="False" Bfd="False"/>
+                            <my:SwitchUC x:Name="led1" Margin="20,0,0,0" Bfu="False" Bfd="False" MouseLeftButtonDown="led_MouseLeftButtonDown"/>
                         </StackPanel>
                         <my:SetValueUC ProTitle="湿度" HorizontalAlignment="Left" Margin="13,20,0,0"/>
                     </StackPanel>

@@ -15,6 +15,8 @@ using UENSimulation.UserControls;
 using UENSimulation.Model;
 using UENSimulation.Utility;
 using System.Net;
+using System.IO.Ports;
+using System.Threading;
 
 namespace UENSimulation.Windows
 {
@@ -38,6 +40,10 @@ namespace UENSimulation.Windows
         string needPath = @"..\..\Local Storage\EnergyNeed.txt";
         string needEquPath = @"..\..\Local Storage\EnergyNeed_Equipment.txt";
 
+        //com口操作函数
+        COMManage cmm = new COMManage();
+        public SerialPort port = null;
+
         public EquControl()
         {
             InitializeComponent();
@@ -48,6 +54,14 @@ namespace UENSimulation.Windows
 
             equipmentStateFromFileToControl();
             needReadFromFile(needEquPath);
+
+            string[] portName = cmm.GetPortNames();
+            for (int i = 0; i < portName.Length; i++)
+            {
+                COMName.Items.Add(portName[i]);
+            }
+            stop.IsEnabled = false;
+            open.IsEnabled = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -485,6 +499,148 @@ namespace UENSimulation.Windows
             needWriteToFile(needEquPath);
 
             needReadFromFile(needEquPath);
+
+            //改变灯状态为led标识符赋值，便于后面下发指令
+            led1.Tag = led1.GetUpState();
+            led2.Tag = led2.GetUpState();
+            led3.Tag = led3.GetUpState();
         }
+
+        #region com口获取灯状态并控制
+        //打开串口
+        private void open_Click(object sender, RoutedEventArgs e)
+        {
+            if (COMName.Text.ToString().Trim().Length > 0)
+            {
+                open.IsEnabled = false;
+                stop.IsEnabled = true;
+                port = new SerialPort();
+                port.BaudRate = 115200;
+                port.PortName = COMName.Text;
+                port.DataBits = 8;
+                cmm.OpenPort(port);
+                _keepReading = true;
+                _readThread = new Thread(ReadPort);
+                _readThread.Start();
+            }
+            else
+            {
+                MessageBox.Show("请选择端口");
+            }
+        }
+
+        //关闭串口
+        private void stop_Click(object sender, RoutedEventArgs e)
+        {
+            _keepReading = false;
+            port.Close();
+            stop.IsEnabled = false;
+            open.IsEnabled = true;
+        }
+
+        private Thread _readThread;
+        private bool _keepReading;
+        private void ReadPort()//接收数据
+        {
+            while (_keepReading)
+            {
+                if (port.IsOpen)
+                {
+                    Thread.Sleep(2000);
+                    byte[] readBuffer = new byte[port.ReadBufferSize];
+                    try
+                    {
+                        int count = port.Read(readBuffer, 0, port.ReadBufferSize);
+                        String SerialIn = System.Text.Encoding.ASCII.GetString(readBuffer, 0, count);
+                        if (count != 0)
+                            ThreadFunction(SerialIn);
+                    }
+                    catch { }
+                }
+                else
+                {
+                    TimeSpan waitTime = new TimeSpan(0, 0, 0, 0, 50);
+                    Thread.Sleep(waitTime);
+                }
+            }
+
+        }
+        private void ThreadFunction(string sRecv)//将接收的字符串显示并进行下一步操作
+        {
+            //处理数据。。。。额
+            Dispatcher.Invoke((Action)delegate
+            {
+                string[] zstr = sRecv.Split('&');
+                foreach (string str in zstr)
+                {
+                    if (str.Contains("@led1open")) {
+                        OpenLed("led1");
+                    }
+                    else if (str.Contains("@led2open"))
+                    {
+                        OpenLed("led2");
+                    }
+                    else if (str.Contains("@led3open"))
+                    {
+                        OpenLed("led3");
+                    }
+                    else if (str.Contains("@led1off"))
+                    {
+                        OffLed("led1");
+                    }
+                    else if (str.Contains("@led2off"))
+                    {
+                        OffLed("led2");
+                    }
+                    else if (str.Contains("@led3off"))
+                    {
+                        OffLed("led3");
+                    }
+                }
+            });
+        }
+
+        //改变显示灯状态
+        public void OpenLed(string str)
+        {
+            SwitchUC swc = FindName(str) as SwitchUC;
+            swc.Bfu = true;
+        }
+        public void OffLed(string str)
+        {
+            SwitchUC swc = FindName(str) as SwitchUC;
+            swc.Bfu = false;
+        }
+
+        //点击书房（led1）、客厅（led2）、主卧（led3）的灯进行控制
+        private void led_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SwitchUC swc = sender as SwitchUC;
+            //点击下发不同的操作指令
+            if (swc.Tag.ToString().Equals("True") && port != null && _keepReading)
+            {
+                try
+                {
+                    string str = "@open" + swc.Name + "&";
+                    byte[] sendByte = Encoding.ASCII.GetBytes(str);
+                    port.Write(sendByte, 0, sendByte.Length);
+                }
+                catch (Exception ex)
+                {}
+            }
+            else if (swc.Tag.ToString().Equals("False") && port != null && _keepReading)
+            {
+                try
+                {
+                    string str = "@off" + swc.Name + "&";
+                    byte[] sendByte = Encoding.ASCII.GetBytes(str);
+                    port.Write(sendByte, 0, sendByte.Length);
+                }
+                catch (Exception ex)
+                { }
+            }
+            
+        }
+        #endregion 
     }
 }

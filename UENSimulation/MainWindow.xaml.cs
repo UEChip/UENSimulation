@@ -518,8 +518,6 @@ namespace UENSimulation
             ec._manualControl += new ManualControl(dataFromEnergyCalculation);
             Thread dataCalculation = new Thread(new ThreadStart(ec._manualControl));
             dataCalculation.Start();
-            //Thread dataCalculation = new Thread(new ThreadStart(dataFromEnergyCalculation));
-            //dataCalculation.Start();
             ec.Show();
         }
 
