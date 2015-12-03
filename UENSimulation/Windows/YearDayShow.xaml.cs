@@ -46,7 +46,6 @@ namespace UENSimulation.Windows
             DataTable dt_fnzData = null;
             if (File.Exists(filepath))
             {
-                int nu = 1;
                 dt_fnzData = new DataTable();
                 dt_fnzData.Columns.Add("id", typeof(string));
                 dt_fnzData.Columns.Add("value", typeof(string));
