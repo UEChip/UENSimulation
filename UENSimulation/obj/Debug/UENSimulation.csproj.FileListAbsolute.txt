@@ -259,3 +259,5 @@ C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Window
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Port.baml
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\Port.g.cs
 C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\UENSimulation.csprojResolveAssemblyReference.cache
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\Port.baml
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\Port.g.cs
