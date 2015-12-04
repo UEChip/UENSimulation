@@ -16,17 +16,18 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Data.OleDb;
 using System.Data;
-namespace UENSimulation
+using UENSimulation.Utility;
 
+namespace UENSimulation
 {
     /// <summary>
     /// FamilyInformation.xaml 的交互逻辑
     /// </summary>
     public partial class FamilyInformation : Window
     {
-        private string[] cityName = { "北京", "上海", "广州", "沈阳","武汉","重庆" };
+        private string[] cityName = { "北京", "上海", "广州", "沈阳", "武汉", "重庆" };
         private string[] monthList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
-        private string[] hourList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19","20","21","22","23","24" };
+        private string[] hourList = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" };
         public FamilyInformation()
         {
             InitializeComponent();
@@ -44,87 +45,92 @@ namespace UENSimulation
             foreach (string hName in hourList)
             {
                 hour.Items.Add(hName);
-            }   
+            }
             this.Read();
-           
+
             hour.Text = DateTime.Now.Hour.ToString();
             month.Text = DateTime.Now.Month.ToString();
             this.getData();
-          
+
         }
         private void getData()//根据时间与表格获得相应参数
         {
-            int mon =Convert.ToInt32(month.Text);
+            int mon = Convert.ToInt32(month.Text);
             int hou = Convert.ToInt32(hour.Text);
             string stre;
             string strh;
             string strc;
             DataTable dt;
-            dt=ReadXlsx();
-            if(mon<8 && mon>4){
-                  if(city.Text == "广州")
+            dt = ReadXlsx();
+            if (mon < 8 && mon > 4)
+            {
+                if (city.Text == "广州")
                 {
                     stre = dt.Rows[hou - 1][2].ToString();
-                     hot.Content ="0";
-                     strc = dt.Rows[hou - 1][1].ToString();
-                     if (stre.Length >= 4)
-                     {
-                         stre = stre.Substring(0, 4);
-                     }
-                     electric.Content = stre;
-                     if (strc.Length >= 4)
-                     {
-                         strc = strc.Substring(0, 4);
-                     }
-                     cold.Content = strc;
+                    hot.Content = "0";
+                    strc = dt.Rows[hou - 1][1].ToString();
+                    if (stre.Length >= 4)
+                    {
+                        stre = stre.Substring(0, 4);
+                    }
+                    electric.Content = stre;
+                    if (strc.Length >= 4)
+                    {
+                        strc = strc.Substring(0, 4);
+                    }
+                    cold.Content = strc;
 
                 }
-                  else
-                  {
-                      stre = dt.Rows[hou - 1][4].ToString();
-                hot.Content ="0";
-                strc = dt.Rows[hou - 1][3].ToString();
-                 if (stre.Length >= 4)
-                 {
-                     stre = stre.Substring(0, 4);
-                 }
-                 if (strc.Length >= 4)
-                 {
-                     strc = strc.Substring(0, 4);
-                 }
-                 electric.Content = stre;
-                 cold.Content = strc;
-                  }       
-            }
-            if(mon>7 && mon<11){
-                 electric.Content ="秋季无数据";
-                 hot.Content ="秋季无数据";
-                 cold.Content ="秋季无数据";
-            }
-             if(mon>1 && mon<5){
-                 electric.Content ="春季无数据";
-                hot.Content ="春季无数据";
-                 cold.Content ="春季无数据";
-            }
-             if(mon>10||mon<2){
-                    if(city.Text == "广州")
+                else
                 {
-                     electric.Content ="0";
-                     hot.Content ="0";
-                     cold.Content ="0";
-                }
-                 else{
-                        cold.Content ="0";
-                        electric.Content ="0";
-                        strh = dt.Rows[hou - 1][1].ToString();
-                         if (strh.Length >= 4)
-                         {
-                             strh = strh.Substring(0, 4);
-                         }
-                         hot.Content = strh;
+                    stre = dt.Rows[hou - 1][4].ToString();
+                    hot.Content = "0";
+                    strc = dt.Rows[hou - 1][3].ToString();
+                    if (stre.Length >= 4)
+                    {
+                        stre = stre.Substring(0, 4);
                     }
-             }
-            
+                    if (strc.Length >= 4)
+                    {
+                        strc = strc.Substring(0, 4);
+                    }
+                    electric.Content = stre;
+                    cold.Content = strc;
+                }
+            }
+            if (mon > 7 && mon < 11)
+            {
+                electric.Content = "秋季无数据";
+                hot.Content = "秋季无数据";
+                cold.Content = "秋季无数据";
+            }
+            if (mon > 1 && mon < 5)
+            {
+                electric.Content = "春季无数据";
+                hot.Content = "春季无数据";
+                cold.Content = "春季无数据";
+            }
+            if (mon > 10 || mon < 2)
+            {
+                if (city.Text == "广州")
+                {
+                    electric.Content = "0";
+                    hot.Content = "0";
+                    cold.Content = "0";
+                }
+                else
+                {
+                    cold.Content = "0";
+                    electric.Content = "0";
+                    strh = dt.Rows[hou - 1][1].ToString();
+                    if (strh.Length >= 4)
+                    {
+                        strh = strh.Substring(0, 4);
+                    }
+                    hot.Content = strh;
+                }
+            }
+
         }
         private DataTable ReadXlsx()//将表格放入数据库
         {
@@ -133,30 +139,30 @@ namespace UENSimulation
             {
                 case "北京": cityNick = "BEIJ";
                     break;
-                case "上海": cityNick= "SHANGH";
+                case "上海": cityNick = "SHANGH";
                     break;
-                case "广州": cityNick= "GUANGZ";
+                case "广州": cityNick = "GUANGZ";
                     break;
-                case "哈尔滨": cityNick= "HAEB";
+                case "哈尔滨": cityNick = "HAEB";
                     break;
-                case "青岛": cityNick= "QINGD";
+                case "青岛": cityNick = "QINGD";
                     break;
-                case "沈阳": cityNick= "SHENY";
+                case "沈阳": cityNick = "SHENY";
                     break;
-                case "石家庄": cityNick= "SHIJZ";
+                case "石家庄": cityNick = "SHIJZ";
                     break;
-                case "武汉": cityNick= "WUH";
+                case "武汉": cityNick = "WUH";
                     break;
-                case "长沙": cityNick= "CHANGS";
+                case "长沙": cityNick = "CHANGS";
                     break;
-                case "重庆": cityNick= "CHONGQ";
+                case "重庆": cityNick = "CHONGQ";
                     break;
                 default: cityNick = "BEIJ";//缺参默认北京
                     break;
             }
-            string filePath = @"..\..\Local Storage\database\"+cityNick+".xlsx";
+            string filePath = @"..\..\Local Storage\database\" + cityNick + ".xlsx";
             string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties='Excel 8.0;HDR=False;IMEX=1'"; //固定句不更改
-            OleDbConnection OleConn = new OleDbConnection(strConn); 
+            OleDbConnection OleConn = new OleDbConnection(strConn);
             OleConn.Open();
             String sql = "select * from [Sheet1$]";
             OleDbCommand select = new OleDbCommand(sql, OleConn);
@@ -225,13 +231,12 @@ namespace UENSimulation
                 sw.Close();
                 fs.Close();
             }
-            }
+        }
 
         private void Read()//读取配置信息
         {
             try
             {
-
                 string[] dataRead = new string[29];
                 bool file = File.Exists(@"..\..\Local Storage\familyInformation.txt");
                 if (file == true)
@@ -245,11 +250,14 @@ namespace UENSimulation
                     sr.Close();
                     for (i = 0; i < 28; i++)
                     {
-                        if (dataRead[i] == null) { 
-                            dataRead[i] = "false"; }
+                        if (dataRead[i] == null)
+                        {
+                            dataRead[i] = "false";
+                        }
                     }
-                    if(dataRead[28] == null){
-                    dataRead[28] = city.Items[0] as string;
+                    if (dataRead[28] == null)
+                    {
+                        dataRead[28] = city.Items[0] as string;
                     }
 
                 }
@@ -286,7 +294,7 @@ namespace UENSimulation
                 direction1.IsChecked = Convert.ToBoolean(dataRead[25]);
                 direction2.IsChecked = Convert.ToBoolean(dataRead[26]);
                 direction3.IsChecked = Convert.ToBoolean(dataRead[27]);
-                city.Text =dataRead[28];
+                city.Text = dataRead[28];
             }
 
             catch (IOException e)
@@ -296,7 +304,6 @@ namespace UENSimulation
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)//每次关闭界面时自动保存配置
         {
-            
             Write();
         }
 
@@ -327,12 +334,126 @@ namespace UENSimulation
                 default: MessageBox.Show("未选择城市", "you can't");
                     break;
             }
-           
+
         }
 
         private void run_Click(object sender, RoutedEventArgs e)//按钮获取参数可执行相应方法
         {
             getData();
+        }
+
+        private void city_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //所选地区能源数据存储
+            string path_NeedE_Winter = "";
+            string path_NeedH_Winter = "";
+
+            string path_NeedE_Summer = "";
+            string path_NeedH_Summer = "";
+
+            string path_NeedE_SA = "";
+
+            switch (city.Text)
+            {
+                case "北京":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Beijing.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Beijing.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Beijing.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Beijing.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Beijing.txt";
+
+                    break;
+                case "上海":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Shanghai.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Shanghai.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Shanghai.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Shanghai.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Shanghai.txt";
+
+                    break;
+
+                case "广州":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Guangzhou.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Guangzhou.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Guangzhou.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Guangzhou.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Guangzhou.txt";
+
+                    break;
+                case "沈阳":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Shenyang.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Shenyang.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Shenyang.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Shenyang.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Shenyang.txt";
+
+                    break;
+                case "武汉":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Wuhan.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Wuhan.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Wuhan.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Wuhan.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Wuhan.txt";
+
+                    break;
+                case "重庆":
+                    path_NeedE_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedE_W_Chongqing.txt";
+                    path_NeedH_Winter = @"..\..\Local Storage\EnergyNeedFile\NeedH_W_Chongqing.txt";
+
+                    path_NeedE_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedE_S_Chongqing.txt";
+                    path_NeedH_Summer = @"..\..\Local Storage\EnergyNeedFile\NeedH_S_Chongqing.txt";
+
+                    path_NeedE_SA = @"..\..\Local Storage\EnergyNeedFile\NeedE_SA_Chongqing.txt";
+
+                    break;
+            }
+
+            Txt_Handle txt_Handle = new Txt_Handle();
+
+            //读取所选地区能源数据
+            string[] needE_Winter = txt_Handle.dataRead(path_NeedE_Winter);
+            string[] needH_Winter = txt_Handle.dataRead(path_NeedH_Winter);
+
+            string[] needE_Summer = txt_Handle.dataRead(path_NeedE_Summer);
+            string[] needH_Summer = txt_Handle.dataRead(path_NeedH_Summer);
+
+            string[] needE_SA = txt_Handle.dataRead(path_NeedE_SA);
+            string[] needH_SA = new string[24];
+
+            for (int i = 0; i < 24; i++)
+            {
+                needH_SA[i] = "0";
+            }
+
+            //要写入的文件
+            string pathToWrite_NeedE_Winter = @"..\..\Local Storage\NeedE_W.txt";
+            string pathToWrite_NeedH_Winter = @"..\..\Local Storage\NeedH_W.txt";
+
+            string pathToWrite_NeedE_Summer = @"..\..\Local Storage\NeedE_S.txt";
+            string pathToWrite_NeedH_Summer = @"..\..\Local Storage\NeedH_S.txt";
+
+            string pathToWrite_NeedE_SA = @"..\..\Local Storage\NeedE_SA.txt";
+            string pathToWrite_NeedH_SA = @"..\..\Local Storage\NeedH_SA.txt";
+
+            //写入数据
+            txt_Handle.dataWrite(pathToWrite_NeedE_Winter, needE_Winter);
+            txt_Handle.dataWrite(pathToWrite_NeedH_Winter, needH_Winter);
+
+            txt_Handle.dataWrite(pathToWrite_NeedE_Summer, needE_Summer);
+            txt_Handle.dataWrite(pathToWrite_NeedH_Summer, needH_Summer);
+
+            txt_Handle.dataWrite(pathToWrite_NeedE_SA, needE_SA);
+            txt_Handle.dataWrite(pathToWrite_NeedH_SA, needH_SA);
         }
     }
 }

@@ -60,7 +60,7 @@
             </DockPanel>
             <DockPanel Height="61" LastChildFill="False" Background="#FF9FEAB0">
                 <Label Content="选择城市 " VerticalAlignment="Center" FontSize="18"/>
-                <ComboBox Height="34" VerticalAlignment="Top" Width="110" Name="city" Margin="0,14,0,0"/>
+                <ComboBox Height="34" VerticalAlignment="Top" Width="110" Name="city" Margin="0,14,0,0" SelectionChanged="city_SelectionChanged"/>
                 <Label Content="设置时间: " VerticalAlignment="Center" FontSize="18"/>
                 <ComboBox Height="34" VerticalAlignment="Top" Width="50" Name="month" Margin="0,14,0,0"/>
                 <Label Content="月" VerticalAlignment="Center" FontSize="18" Height="37" Margin="0,14,0,10" Width="35"/>
