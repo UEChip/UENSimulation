@@ -8,6 +8,18 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Name="grid_xq"></Grid>
-        <Grid Grid.Row="1"></Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,100,0">
+                <Label Content="请选择优化数据:"></Label>
+                <ComboBox Margin="5,0,0,0" Name="mComboBox" Width="150" Height="30">
+                </ComboBox>
+                <Button Margin="20,0,0,0" Content="确定" Click="Button_Click"/>
+            </StackPanel>
+            <Grid Grid.Row="1" Name="grid_fnj"></Grid>
+        </Grid>
     </Grid>
 </Window>
