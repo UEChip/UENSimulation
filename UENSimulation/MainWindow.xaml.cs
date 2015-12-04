@@ -67,6 +67,7 @@ namespace UENSimulation
 
         private void familyButton_Click(object sender, RoutedEventArgs e)
         {
+            bflag = false;
             FamilyInformation family = new FamilyInformation();
             family.ShowDialog();
         }
@@ -407,6 +408,7 @@ namespace UENSimulation
         #region 循环调用算法的方法实现
         string[] zstre;
         string[] zstrh;
+        string[] zstrhw;//生活热水
 
         //设定动画方案，以一组为单位，与通用方法不同的是，这里要循环屡次调用算法模块
         private void StartMoveDX()
@@ -415,6 +417,7 @@ namespace UENSimulation
             SetTxtPath(strstate);
             zstre = txthandle.dataRead(strpath_e);
             zstrh = txthandle.dataRead(strpath_h);
+            zstrhw = txthandle.dataRead(strpath_hw);
 
             num = 0;
             timer = null;
@@ -432,26 +435,28 @@ namespace UENSimulation
         string strpath_e = "";
         //热需求存储文件路径
         string strpath_h = "";
+        //生活热水存储文件路径
+        string strpath_hw = @"..\..\Local Storage\need_HotWater.txt";
         //电、热需求文件，更改其中数据可调整电热需求
         string filePath_EnergyNeed = @"..\..\Local Storage\EnergyNeed.txt";
         //调用算法
         int num_h = 0;
         private void InvokeAl(object sender, ElapsedEventArgs e)
         {
-             this.Dispatcher.Invoke(new Action(() =>
-            {
-                if (num_h < zstre.Count() && num_h < zstrh.Count())
-                {
-                    String axisLabel = num_h + "时";
-                    DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num_h]) });
-                    DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num_h]) });
-                    string[] zstr = { zstre[num_h], zstrh[num_h] };
-                    txthandle.dataWrite(filePath_EnergyNeed, zstr);
-                    dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
-                    dataCalculationdx.Start();
-                    num_h += 1;
-                }
-            }));
+            this.Dispatcher.Invoke(new Action(() =>
+           {
+               if (num_h < zstre.Count() && num_h < zstrh.Count())
+               {
+                   String axisLabel = num_h + "时";
+                   DataPoints_DE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstre[num_h]) });
+                   DataPoints_DH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(zstrh[num_h]) });
+                   string[] zstr = { zstre[num_h], zstrh[num_h], zstrhw[num_h] };
+                   txthandle.dataWrite(filePath_EnergyNeed, zstr);
+                   dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
+                   dataCalculationdx.Start();
+                   num_h += 1;
+               }
+           }));
         }
 
         //根据“优化模拟数据”页面设置，获取当前选择（冬季W/夏季S/自定义C/春秋典型日A），定位相应保存文件
@@ -790,8 +795,8 @@ namespace UENSimulation
             cl_pe.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_pe);
             //输出热
-            DataPoints_DH = new DataPointCollection();
-            cl_ph = new ChartLineUC(DataPoints_DH, "输出热(kW)", "输出热数据");
+            DataPoints_PH = new DataPointCollection();
+            cl_ph = new ChartLineUC(DataPoints_PH, "输出热(kW)", "输出热数据");
             cl_ph.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_ph);
 
@@ -874,7 +879,6 @@ namespace UENSimulation
             double[] output_GasBoiler = new double[2];
             output_GasBoiler = energyCalculation.gasBoiler();
 
-
             //优化
             ArrayList output_Ctrlopt = new ArrayList();
             output_Ctrlopt = energyCalculation.ctrlopt_Array();
@@ -888,29 +892,31 @@ namespace UENSimulation
                 String axisLabel = num_h + "时";
                 //额外的电和热
                 outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kW";
-                DataPoints_SE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[10].ToString()) });
                 outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kW";
-                DataPoints_SH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[11].ToString()) });
 
                 //燃气
                 gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³/h";
-                DataPoints_SG.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse((output_UEMachine[2] + output_GasBoiler[1]).ToString()) });
 
                 //泛能机系统输出的电和热
                 needE.Content = "电： " + energyCalculation.EnergyNeed.Electricity_Need + " kW";
-                DataPoints_PE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Electricity_Need });
                 needH.Content = "热： " + energyCalculation.EnergyNeed.Heat_Need + "kW";
-                DataPoints_PH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Heat_Need });
-
-
+                needHW.Content = "生活热水:" + energyCalculation.EnergyNeed.HotWater_Need + "W";//生活热水
                 outE.Content = "余电： 0 kW";
-                DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                 outH.Content = "余热： 0 kW";
-                DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
 
                 efficiency_E_uemachine.Content = (outPut_Etacal[0] * 100).ToString("0.00") + "%";
                 efficiency_H_uemachine.Content = (outPut_Etacal[1] * 100).ToString("0.00") + "%";
                 efficiency_E_gasboiler.Content = (outPut_Etacal[2] * 100).ToString("0.00") + "%";
+                if (bflag)
+                {
+                    DataPoints_SE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[10].ToString()) });
+                    DataPoints_SH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[11].ToString()) });
+                    DataPoints_SG.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse((output_UEMachine[2] + output_GasBoiler[1]).ToString()) });
+                    DataPoints_PE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Electricity_Need });
+                    DataPoints_PH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Heat_Need });
+                    DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
+                    DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
+                }
 
                 string str1 = outsideE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim();
                 string str2 = Consume_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim();
@@ -922,6 +928,7 @@ namespace UENSimulation
                 Provide_E.Content = double.Parse(needE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_E.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
                 Provide_H.Content = double.Parse(needH.Content.ToString().TrimStart('热').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim()) + double.Parse(Provide_H.Content.ToString().TrimEnd('h').TrimEnd('W').TrimEnd('k').Trim()) + " kWh";
             }));
+
         }
         #endregion
     }

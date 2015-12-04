@@ -122,15 +122,22 @@ namespace UENSimulation.Utility
 
             energyNeed.Electricity_Need = Convert.ToDouble(dataRead_EnergyNeed[0]);
             energyNeed.Heat_Need = Convert.ToDouble(dataRead_EnergyNeed[1]);
+            energyNeed.HotWater_Need = Convert.ToDouble(dataRead_EnergyNeed[2]);
             energyNeed.Mode = Convert.ToDouble(dataRead_Mode[0]);
         }
 
         //泛能机
         public double[] ueMachine()
         {
+            MWStructArray product = ctrlopt_Struct();
+
             MWStructArray[] data_ueMachine_pack = ueMachine_pack();
             MWStructArray variableInStruct = (MWStructArray)data_ueMachine_pack[0].GetField("uemachine");
             MWStructArray equipmentParameterInStruct = (MWStructArray)data_ueMachine_pack[1].GetField("uemachine");
+
+            MWStructArray gear_uemachine_product = (MWStructArray)product.GetField("uemachine");
+            string[] gear_uemachine_product_fieldNames = gear_uemachine_product.FieldNames;
+            variableInStruct.SetField(gear_uemachine_product_fieldNames[0], (MWNumericArray)gear_uemachine_product.GetField(gear_uemachine_product_fieldNames[0]));
 
             //uemachine函数调用
             object[] dataOut = uec.uemachine(1, variableInStruct, equipmentParameterInStruct);
@@ -253,9 +260,16 @@ namespace UENSimulation.Utility
         //补燃锅炉
         public double[] gasBoiler()
         {
+            MWStructArray product = ctrlopt_Struct();
+
             MWStructArray[] data_gasBoiler_pack = gasBoiler_pack();
             MWStructArray variableInStruct = (MWStructArray)data_gasBoiler_pack[0].GetField("gasboiler");
             MWStructArray equipmentParameterInStruct = (MWStructArray)data_gasBoiler_pack[1].GetField("gasboiler");
+
+            //档位赋值
+            MWStructArray gear_gasboiler_product = (MWStructArray)product.GetField("gasboiler");
+            string[] gear_gasboiler_product_fieldNames = gear_gasboiler_product.FieldNames;
+            variableInStruct.SetField(gear_gasboiler_product_fieldNames[0], (MWNumericArray)gear_gasboiler_product.GetField(gear_gasboiler_product_fieldNames[0]));
 
             //函数调用
             object[] dataOut = uec.gasboiler(1, variableInStruct, equipmentParameterInStruct);

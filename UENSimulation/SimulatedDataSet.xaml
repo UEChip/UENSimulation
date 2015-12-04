@@ -44,7 +44,7 @@
                 <Label Content="速度" Grid.Row="3" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="当前存储电量" Grid.Row="4" Grid.Column="1" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
-                <Label Content="补燃锅炉负荷" Grid.Row="1" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="补燃锅炉档位" Grid.Row="1" Grid.Column="2" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="2" Width="140" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
                 <Label Content="阳光强度参数" Grid.Row="1" Grid.Column="3" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
@@ -53,7 +53,7 @@
                 <Label Content="阳光强度参数" Grid.Row="1" Grid.Column="4" Width="160" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="4" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
 
-                <Label Content="泛能机负荷" Grid.Row="1" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+                <Label Content="泛能机档位" Grid.Row="1" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                 <Label Content="运行时间" Grid.Row="2" Grid.Column="5" Width="120" Height="40" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
 
                 <ComboBox Grid.Row="1" Grid.Column="0" Name="charge_HA" Width="60" Height="30" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,15,0">

@@ -10,6 +10,7 @@ namespace UENSimulation.Model
     {
         double electricity_Need;//电需求
         double heat_Need;//热需求
+        double hotWater_Need;//生活热水
         double mode;//模式       
 
         public double Electricity_Need
@@ -22,6 +23,11 @@ namespace UENSimulation.Model
         {
             get { return heat_Need; }
             set { heat_Need = value; }
+        }
+        public double HotWater_Need
+        {
+            get { return hotWater_Need; }
+            set { hotWater_Need = value; }
         }
 
         public double Mode

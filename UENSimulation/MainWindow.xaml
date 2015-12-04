@@ -496,7 +496,7 @@
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="650,695,0,0">
                 <Label Name="needE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
                 <Label Name="needH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Content="水:0" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center" Visibility="Hidden"/>
+                <Label Name="needHW" Content="生活热水:0 W" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,645,0,0">
                 <Label Name="outE" Content="余电:0 kW"  Width="250" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
@@ -526,7 +526,7 @@
                 <Path Name="path_14" Data="M105,958 L405,958" Stroke="#FFF3FD1A" StrokeThickness="4" StrokeDashArray="3,0"/>
                 <Path Name="path_15" Data="M660,733 L900,733" Stroke="#FF2E75B6" StrokeThickness="4" StrokeDashArray="3,1"/>
                 <Path Name="path_16" Data="M660,806 L900,806" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
-                <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Visibility="Hidden"/>
+                <Path Name="path_17" Data="M660,883 L900,883" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1"/>
             </Canvas>
             <Canvas Margin="1069,131,0,0" Width="306" Height="414" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Path Name="path_3" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m70,100 l-100,0 l0,0" Canvas.Top="204" Height="176" Stretch="Fill" Width="139.5"/>
@@ -547,7 +547,7 @@
             <Path Name="pathj_14" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FFF3FD1A"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
             <Path Name="pathj_15" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
             <Path Name="pathj_16" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
-            <Path Name="pathj_17" Visibility="Hidden" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
+            <Path Name="pathj_17" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
             <Path Data="M956,628 L953,548.5" Fill="Blue" HorizontalAlignment="Left" Height="79.5" Margin="953,548.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="3"/>
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>

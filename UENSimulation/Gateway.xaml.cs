@@ -26,9 +26,9 @@ namespace UENSimulation
     /// </summary>
     public partial class Gateway : Window
     {
-        private List<double> electric = new List<double>(){};
-        private List<double> heat = new List<double>() {};
-        private List<double> water = new List<double>() {};
+        private List<double> electric = new List<double>() { };
+        private List<double> heat = new List<double>() { };
+        private List<double> water = new List<double>() { };
 
         private List<DateTime> modelTime = new List<DateTime>()
             { 
@@ -59,12 +59,12 @@ namespace UENSimulation
                
             
             };
-  
+
 
         #region 折线图
-        public void CreateChartSpline(string name, List<DateTime> lsTime, List<double> a, List<double> b,List<double> c)
+        public void CreateChartSpline(string name, List<DateTime> lsTime, List<double> a, List<double> b, List<double> c)
         {
-            
+
             Chart chart = new Chart();
             chart.Width = 580;
             chart.Height = 230;
@@ -208,7 +208,7 @@ namespace UENSimulation
             model.Children.Add(gr);
         }
         #endregion
-     
+
         #region 点击事件
         //点击事件
         void dataPoint_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -217,22 +217,22 @@ namespace UENSimulation
             //MessageBox.Show(dp.YValue.ToString());
         }
         #endregion
-        private string city ;
+        private string city;
         private void GetCity()
         {
-             string[] dataRead = new string[29];
-                bool file = File.Exists(@"..\..\Local Storage\familyInformation.txt");
-                if (file == true)
+            string[] dataRead = new string[29];
+            bool file = File.Exists(@"..\..\Local Storage\familyInformation.txt");
+            if (file == true)
+            {
+                StreamReader sr = new StreamReader(@"..\..\Local Storage\familyInformation.txt");
+                int i = 0;
+                for (i = 0; i < 29; i++)
                 {
-                    StreamReader sr = new StreamReader(@"..\..\Local Storage\familyInformation.txt");
-                    int i = 0;
-                    for (i = 0; i < 29; i++)
-                    {
-                        dataRead[i] = sr.ReadLine();
-                    }
-                    sr.Close();
-                    city = dataRead[28];
+                    dataRead[i] = sr.ReadLine();
                 }
+                sr.Close();
+                city = dataRead[28];
+            }
         }
         private DataTable GetXlsx()
         {
@@ -312,7 +312,7 @@ namespace UENSimulation
                     electric.Add(Convert.ToDouble(dt.Rows[h - 1][9]));
                     heat.Add(0);
                 }
-            }          
+            }
         }
 
         private DataTable GetXlsxPath(string filePath)
@@ -346,7 +346,7 @@ namespace UENSimulation
         public Gateway()
         {
             InitializeComponent();
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -359,7 +359,7 @@ namespace UENSimulation
             GetData("summer");
             GetWaterData();
             string nameCS = city + "用能负荷折线图";
-            CreateChartSpline(nameCS, modelTime, electric, heat,water);
+            CreateChartSpline(nameCS, modelTime, electric, heat, water);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -373,7 +373,7 @@ namespace UENSimulation
             GetData("winter");
             GetWaterData();
             string nameCS = city + "用能负荷折线图";
-            CreateChartSpline(nameCS, modelTime, electric, heat,water);
+            CreateChartSpline(nameCS, modelTime, electric, heat, water);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -387,7 +387,7 @@ namespace UENSimulation
             GetData("spring");
             GetWaterData();
             string nameCS = city + "用能负荷折线图";
-            CreateChartSpline(nameCS, modelTime, electric, heat,water);
+            CreateChartSpline(nameCS, modelTime, electric, heat, water);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -401,7 +401,13 @@ namespace UENSimulation
             GetData("autumn");
             GetWaterData();
             string nameCS = city + "用能负荷折线图";
-            CreateChartSpline(nameCS, modelTime, electric, heat,water);
+            CreateChartSpline(nameCS, modelTime, electric, heat, water);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            btn_Winter.Focus();
+            Button_Click_1(sender, e);
         }
     }
 }

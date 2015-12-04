@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
-        Title="Gateway" Height="707.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen">
+        Title="Gateway" Height="707.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid Margin="0,0,-8,0">
         <StackPanel HorizontalAlignment="Left" Height="101" Margin="575,0,0,0" VerticalAlignment="Top" Width="100">
             <Image Height="50">
@@ -179,7 +179,7 @@
         <Rectangle HorizontalAlignment="Left" Height="168" Margin="928,501,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
         <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
         <Button Content="夏季典型" HorizontalAlignment="Left" Margin="352,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Name="btn_Winter" Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="秋季典型" HorizontalAlignment="Left" Margin="593,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" />
         <Button Content="春季典型" HorizontalAlignment="Left" Margin="513,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" />
 

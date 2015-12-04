@@ -316,9 +316,10 @@ namespace UENSimulation.Windows
         private void needWriteToFile(string needFilePath)
         {
             Txt_Handle txt_Handle = new Txt_Handle();
-            string[] dataToWrite = new string[2];
+            string[] dataToWrite = new string[3];
             dataToWrite[0] = need_E.Content.ToString();
             dataToWrite[1] = need_H.Content.ToString();
+            dataToWrite[2] = "0";
             txt_Handle.dataWrite(needFilePath, dataToWrite);
         }
 
@@ -573,7 +574,8 @@ namespace UENSimulation.Windows
                 string[] zstr = sRecv.Split('&');
                 foreach (string str in zstr)
                 {
-                    if (str.Contains("@led1open")) {
+                    if (str.Contains("@led1open"))
+                    {
                         OpenLed("led1");
                     }
                     else if (str.Contains("@led2open"))
@@ -626,7 +628,7 @@ namespace UENSimulation.Windows
                     port.Write(sendByte, 0, sendByte.Length);
                 }
                 catch (Exception ex)
-                {}
+                { }
             }
             else if (swc.Tag.ToString().Equals("False") && port != null && _keepReading)
             {
@@ -639,8 +641,8 @@ namespace UENSimulation.Windows
                 catch (Exception ex)
                 { }
             }
-            
+
         }
-        #endregion 
+        #endregion
     }
 }
