@@ -498,15 +498,36 @@ namespace UENSimulation
                     }
                     else if (str.Contains("@lightposition"))
                     {
-                        this.lighttextblock.Text = str.Split(':')[1];
+                        if (str.Split(':')[1].Equals("light"))
+                        {
+                            this.lighttextblock.Text = "有光";
+                        }
+                        else if (str.Split(':')[1].Equals("dark"))
+                        {
+                            this.lighttextblock.Text = "无光";
+                        }
                     }
                     else if (str.Contains("@smokeposition"))
                     {
-                        this.smoketextblock.Text = str.Split(':')[1];
+                        if (str.Split(':')[1].Equals("smoke"))
+                        {
+                            this.smoketextblock.Text = "有烟";
+                        }
+                        else if (str.Split(':')[1].Equals("nosmoke"))
+                        {
+                            this.smoketextblock.Text = "无烟";
+                        }
                     }
                     else if (str.Contains("@bodyposition"))
                     {
-                        this.bodytextblock.Text = str.Split(':')[1];
+                        if (str.Split(':')[1].Equals("somebody"))
+                        {
+                            this.bodytextblock.Text = "有人";
+                        }
+                        else if (str.Split(':')[1].Equals("nobody"))
+                        {
+                            this.bodytextblock.Text = "无人";
+                        }
                     }
                     else if (str.Contains("@gasmeter"))
                     {
@@ -515,6 +536,6 @@ namespace UENSimulation
                 }
             });
         }
-        #endregion 
+        #endregion
     }
 }

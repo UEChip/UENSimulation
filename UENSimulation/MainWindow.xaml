@@ -444,7 +444,7 @@
                 <Label Content="客户交互APP" FontSize="18" HorizontalAlignment="Center" FontFamily="NSimSun"/>
             </StackPanel>
             <StackPanel  Height="206" Margin="891,349,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
-                <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
+                <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18" FontFamily="NSimSun"/>
                 <Image Name="image_4" Height="128" Cursor="Hand" MouseEnter="Chart_ImageMouseEnter" MouseLeave="Chart_ImageMouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/gateway.png"/>

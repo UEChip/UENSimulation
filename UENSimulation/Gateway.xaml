@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
-        Title="Gateway" Height="827.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Gateway" Height="857.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="707.077"/>
@@ -182,7 +182,7 @@
             <Rectangle HorizontalAlignment="Left" Height="182" Margin="760,206,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="354" StrokeThickness="1"/>
             <Rectangle HorizontalAlignment="Left" Height="325" Margin="110,176,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="1077" StrokeThickness="1"/>
             <Rectangle HorizontalAlignment="Left" Height="168" Margin="928,501,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
-            <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
+            <Rectangle HorizontalAlignment="Left" Height="146" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
             <Button Content="夏季典型" HorizontalAlignment="Left" Margin="352,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             <Button Name="btn_Winter" Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
             <Button Content="秋季典型" HorizontalAlignment="Left" Margin="593,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" />
@@ -192,13 +192,13 @@
         <Grid Grid.Row="1">
             <Border CornerRadius="5" BorderThickness="1" BorderBrush="LightBlue" Margin="5">
                 <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label Content="控制口:"  Width="77" FontSize="14"/>
                         <ComboBox Height="28" VerticalAlignment="Top" Margin="0,0,0,0" Width="82" Name="COMName" FontSize="14"/>
                         <Button Height="28" VerticalAlignment="Top" Content="启动控制" Name="open" Margin="80,0,0,0" Width="75" Click="open_Click"  FontSize="14"/>
                         <Button Height="28" VerticalAlignment="Top" Content="停止控制" Margin="40,0,0,0" Width="75" Name="stop" Click="stop_Click"  FontSize="14"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                         <Label Content="感应设备表计："></Label>
                         <StackPanel Orientation="Horizontal">
                             <Label Margin="20,0,0,0" Content="温度："/>

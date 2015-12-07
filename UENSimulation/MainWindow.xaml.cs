@@ -101,10 +101,24 @@ namespace UENSimulation
             foreach (string str in pstr)
             {
                 Path p = FindName(str) as Path;
-                p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
                 p.StrokeDashOffset -= 10;
                 Path pj = FindName("pathj_" + str.Split('_')[1]) as Path;
-                pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
+                if (str.Equals("path_10") || str.Equals("path_12") || str.Equals("path_15"))
+                {
+                    p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
+                    pj.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
+                }else if(str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16")){
+                    p.Stroke = new SolidColorBrush(Colors.Red);
+                    pj.Fill = new SolidColorBrush(Colors.Red);
+                }else if(str.Equals("path_14") || str.Equals("path_17")){
+                    p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
+                    pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
+                }
+                else
+                {
+                    p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
+                    pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF2E75B6"));
+                }
             }
         }
 
