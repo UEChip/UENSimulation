@@ -30,7 +30,7 @@
                 <Button Height="28" VerticalAlignment="Top" Content="停止控制" Margin="40,0,0,0" Width="75" Name="stop" Click="stop_Click"  FontSize="14"/>
             </StackPanel>
             </Border>
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,0,30,30" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,15,30,30" Orientation="Horizontal">
                 <Border Width="310" Height="220" CornerRadius="10" Background="#FFF2F2F2">
                     <StackPanel Orientation="Vertical" Name="stackpanel_master">
                         <Label Content="主卧(led3)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>

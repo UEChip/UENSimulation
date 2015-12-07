@@ -32,7 +32,7 @@ namespace UENSimulation.Windows
         {
             InitializeComponent();
 
-            string[] zstr = { "电需求", "热需求", "泛能机产电量", "泛能机产热量", "泛能机消耗燃气量", "补燃锅炉产热量", "补燃锅炉消耗燃气量", "泛能机电效率", "泛能机热效率", "补燃锅炉热效率", "市电", "市热", "光伏消耗", "光伏存储", "光伏产电量", "光热消耗", "光热存储", "光热产热量", "储电量", "储热量" };
+            string[] zstr = { "电需求(kW)", "热需求(kW)", "泛能机产电量(kWh)", "泛能机产热量(kWh)", "泛能机消耗燃气量(m³)", "补燃锅炉产热量(kWh)", "补燃锅炉消耗燃气量(m³)", "泛能机电效率(%)", "泛能机热效率(%)", "补燃锅炉热效率(%)", "市电(kW)", "市热(kW)", "光伏消耗(kW)", "光伏存储(kWh)", "光伏产电量(kWh)", "光热消耗(kWh)", "光热存储(kWh)", "光热产热量(kWh)", "储电量(kWh)", "储热量(kWh)" };
             DataTable dt_com = new DataTable();
             dt_com.Columns.Add("id", typeof(string));
             dt_com.Columns.Add("name", typeof(string));
@@ -109,18 +109,18 @@ namespace UENSimulation.Windows
                                 DataTable dt_h = ImportDatatable(0, 3, 1);
                                 if (dt_e != null)
                                 {
-                                    cyu.AddLineData(dt_e, "电需求(kW)", "#FF5B9BD5");
+                                    cyu.AddLineData(dt_e, "电需求(kW)", "#FF0000FF");
                                 }
                                 if (dt_h != null)
                                 {
-                                    cyu.AddLineData(dt_h, "热需求(kW)", "#FFADB9CA");
+                                    cyu.AddLineData(dt_h, "热需求(kW)", "#FFFF0000");
                                 }
 
                                 int j = Int32.Parse(mComboBox.SelectedValue.ToString().Trim());
                                 cyu_down = new ChartLineYearUC(mComboBox.Text + "全年数据");
                                 this.grid_fnj.Children.Add(cyu_down);
                                 DataTable dt = ImportDatatable(0, j, 1);
-                                cyu_down.AddLineData(dt, mComboBox.SelectedItem.ToString(), "#FFADB9CA");
+                                cyu_down.AddLineData(dt, mComboBox.SelectedItem.ToString(), "#FF0DA4DC");
                             }));
             
             }

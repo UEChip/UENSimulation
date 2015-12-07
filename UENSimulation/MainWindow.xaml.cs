@@ -93,7 +93,7 @@ namespace UENSimulation
 
         //所有的path name（不包括箭头，箭头name由此name得出
         string[] pstr = { "path_1", "path_2", "path_3", "path_4", "path_5", "path_6", "path_7", "path_9", "path_10",
-                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_18", "path_19"};
+                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16","path_17","path_18", "path_19"};
 
         //将path颜色恢复灰色
         private void RecoverPath()
@@ -107,10 +107,10 @@ namespace UENSimulation
                 {
                     p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
                     pj.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
-                }else if(str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16")){
+                }else if(str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16")|| str.Equals("path_17")){
                     p.Stroke = new SolidColorBrush(Colors.Red);
                     pj.Fill = new SolidColorBrush(Colors.Red);
-                }else if(str.Equals("path_14") || str.Equals("path_17")){
+                }else if(str.Equals("path_14")){
                     p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
                     pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
                 }
@@ -136,6 +136,7 @@ namespace UENSimulation
         }
 
         System.Timers.Timer timer;
+        System.Timers.Timer timer2;
         //设定动画方案，以一组为单位
         private void StartMove()
         {
@@ -311,7 +312,7 @@ namespace UENSimulation
                                     //泛能机控制器接收泛能网关的负荷信息，并载入设备参数和优化模拟数据
                                     {"textblock_8","image_6", "path_12,path_13,path_14,path_11,path_10"},
                                     //泛能机控制器优化根据各项参数，调整泛能机各部分工作状态，余电、余热上网
-                                     {"textblock_9","", "path_15,path_16"},
+                                     {"textblock_9","", "path_15,path_16,path_17"},
                                     //泛能机输出多种能源供给用能设备
                                     {"textblock_10","image_7", ""},
                                     //用能设备获取能源，正常运行
@@ -348,7 +349,7 @@ namespace UENSimulation
         #region 区域调用流程展示
 
         //设置动画组别和展示顺序:文本框名、图片名、path名
-        private String[,] _configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
+        private String[,] _configstr2 = new String[,] { { "textblock_12", "image_7", "path_18" }, { "textblock_13", "image_4", "path_7" }, { "textblock_14", "image_5,image_11,image_12", "path_1" }, { "textblock_15", "image_6", "path_12,path_13,path_14,path_11,path_10" }, { "textblock_16", "", "path_15,path_16,path_17" }, { "textblock_16", "image_7", "" }, { "textblock_17", "", "" } };
 
         //区域调用
         private void qydy_Click(object sender, RoutedEventArgs e)
@@ -404,8 +405,8 @@ namespace UENSimulation
             SelectedPath();
             TextCollapsed();
             SetConfigstr(_configstr3);
-            StartMoveDX();
             IntialChart();
+            StartMoveDX();
         }
 
         //显示调用类型
@@ -435,11 +436,15 @@ namespace UENSimulation
 
             num = 0;
             timer = null;
+            timer2 = null;
             MoveTeam(null, null);
+            InvokeAl(null, null);
             timer = new System.Timers.Timer(mstime);
+            timer2 = new System.Timers.Timer(mstime);
             timer.Elapsed += new ElapsedEventHandler(InvokeAl);
-            timer.Elapsed += new ElapsedEventHandler(MoveTeam);
+            timer2.Elapsed += new ElapsedEventHandler(MoveTeam);
             timer.Start();
+            timer2.Start();
         }
 
         //操作txt类
@@ -469,6 +474,13 @@ namespace UENSimulation
                    dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
                    dataCalculationdx.Start();
                    num_h += 1;
+               }
+               else
+               {
+                   if (timer2 != null)
+                   {
+                       timer2.Stop();
+                   }
                }
            }));
         }
@@ -714,6 +726,15 @@ namespace UENSimulation
             get;
             set;
         }
+
+        ChartLineUC cl_phw = null;
+        //输出热水
+        public DataPointCollection DataPoints_PHW
+        {
+            get;
+            set;
+        }
+
         #endregion
         ChartLineUC cuc;
         private void Chart_LabelMouseEnter(object sender, MouseEventArgs e)
@@ -747,6 +768,9 @@ namespace UENSimulation
                     case "needH":
                         cuc = cl_ph;
                         break;
+                    case "needHW":
+                        cuc = cl_phw;
+                        break;
                     default:
                         cuc = new ChartLineUC();
                         break;
@@ -757,7 +781,9 @@ namespace UENSimulation
                 {
                     cuc.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                     cuc.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                    cuc.Margin = new Thickness(point.X + 100, point.Y, 0, 0);
+                    double b = point.Y;
+                    if (b > 700) { b = 700; }
+                    cuc.Margin = new Thickness(point.X + 200, b, 0, 0);
                     cuc.Visibility = System.Windows.Visibility.Visible;
                 }
             }
@@ -790,9 +816,9 @@ namespace UENSimulation
             this.zgrid.Children.Add(cl_yh);
             //输入电
             DataPoints_SE = new DataPointCollection();
-            cl_ph = new ChartLineUC(DataPoints_SE, "市电(kW)", "市电数据");
-            cl_ph.Visibility = System.Windows.Visibility.Hidden;
-            this.zgrid.Children.Add(cl_ph);
+            cl_se = new ChartLineUC(DataPoints_SE, "市电(kW)", "市电数据");
+            cl_se.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_se);
             //输入热
             DataPoints_SH = new DataPointCollection();
             cl_sh = new ChartLineUC(DataPoints_SH, "输入热(kW)", "输入热数据");
@@ -813,6 +839,11 @@ namespace UENSimulation
             cl_ph = new ChartLineUC(DataPoints_PH, "输出热(kW)", "输出热数据");
             cl_ph.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_ph);
+            //输出热水
+            DataPoints_PHW = new DataPointCollection();
+            cl_phw = new ChartLineUC(DataPoints_PHW, "输出热水(W)", "输出热数据");
+            cl_phw.Visibility = System.Windows.Visibility.Hidden;
+            this.zgrid.Children.Add(cl_phw);
 
             ListDataPoints = new List<DataPointCollection>();
             DataPoints_DE = new DataPointCollection();
@@ -928,6 +959,7 @@ namespace UENSimulation
                     DataPoints_SG.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse((output_UEMachine[2] + output_GasBoiler[1]).ToString()) });
                     DataPoints_PE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Electricity_Need });
                     DataPoints_PH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.Heat_Need });
+                    DataPoints_PHW.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.HotWater_Need });
                     DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                     DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                 }
