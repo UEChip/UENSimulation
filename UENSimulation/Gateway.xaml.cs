@@ -18,6 +18,9 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Data.OleDb;
 using System.Data;
+using UENSimulation.Utility;
+using System.IO.Ports;
+using System.Threading;
 
 namespace UENSimulation
 {
@@ -347,6 +350,13 @@ namespace UENSimulation
         {
             InitializeComponent();
 
+            string[] portName = cmm.GetPortNames();
+            for (int i = 0; i < portName.Length; i++)
+            {
+                COMName.Items.Add(portName[i]);
+            }
+            stop.IsEnabled = false;
+            open.IsEnabled = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -409,5 +419,102 @@ namespace UENSimulation
             btn_Winter.Focus();
             Button_Click_1(sender, e);
         }
+
+        #region com口获取感应结果和模拟表计值
+
+        //com口操作函数
+        COMManage cmm = new COMManage();
+        public SerialPort port = null;
+        private Thread _readThread;
+        private bool _keepReading;
+        //打开串口
+        private void open_Click(object sender, RoutedEventArgs e)
+        {
+            if (COMName.Text.ToString().Trim().Length > 0)
+            {
+                open.IsEnabled = false;
+                stop.IsEnabled = true;
+                port = new SerialPort();
+                port.BaudRate = 115200;
+                port.PortName = COMName.Text;
+                port.DataBits = 8;
+                cmm.OpenPort(port);
+                _keepReading = true;
+                _readThread = new Thread(ReadPort);
+                _readThread.Start();
+            }
+            else
+            {
+                MessageBox.Show("请选择端口");
+            }
+        }
+
+        //关闭串口
+        private void stop_Click(object sender, RoutedEventArgs e)
+        {
+            _keepReading = false;
+            port.Close();
+            stop.IsEnabled = false;
+            open.IsEnabled = true;
+        }
+
+        private void ReadPort()//接收数据
+        {
+            while (_keepReading)
+            {
+                if (port.IsOpen)
+                {
+                    Thread.Sleep(2000);
+                    byte[] readBuffer = new byte[port.ReadBufferSize];
+                    try
+                    {
+                        int count = port.Read(readBuffer, 0, port.ReadBufferSize);
+                        String SerialIn = System.Text.Encoding.ASCII.GetString(readBuffer, 0, count);
+                        if (count != 0)
+                            ThreadFunction(SerialIn);
+                    }
+                    catch { }
+                }
+                else
+                {
+                    TimeSpan waitTime = new TimeSpan(0, 0, 0, 0, 50);
+                    Thread.Sleep(waitTime);
+                }
+            }
+
+        }
+        private void ThreadFunction(string sRecv)//将接收的字符串显示并进行下一步操作
+        {
+            //处理数据
+            Dispatcher.Invoke((Action)delegate
+            {
+                string[] zstr = sRecv.Split('&');
+                foreach (string str in zstr)
+                {
+                    if (str.Contains("@temhumposition"))
+                    {
+                        this.temtexblock.Text = str.Split(':')[1].Split(',')[0] + "℃";
+                        this.humtextblock.Text = str.Split(':')[1].Split(',')[1] + "%";
+                    }
+                    else if (str.Contains("@lightposition"))
+                    {
+                        this.lighttextblock.Text = str.Split(':')[1];
+                    }
+                    else if (str.Contains("@smokeposition"))
+                    {
+                        this.smoketextblock.Text = str.Split(':')[1];
+                    }
+                    else if (str.Contains("@bodyposition"))
+                    {
+                        this.bodytextblock.Text = str.Split(':')[1];
+                    }
+                    else if (str.Contains("@gasmeter"))
+                    {
+                        this.gastextblock.Text = str.Split(':')[1];
+                    }
+                }
+            });
+        }
+        #endregion 
     }
 }

@@ -3,185 +3,230 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="UENSimulation.Gateway"
-        Title="Gateway" Height="707.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Margin="0,0,-8,0">
-        <StackPanel HorizontalAlignment="Left" Height="101" Margin="575,0,0,0" VerticalAlignment="Top" Width="100">
-            <Image Height="50">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/Images/cloud.png"/>
-                </Image.Source>
-            </Image>
-            <Label Content="泛能云服务" FontSize="18"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="4,91,0,0" VerticalAlignment="Top" Width="100">
-            <Image Height="76" RenderTransformOrigin="0.515,0.224">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/Images/app.jpg"/>
-                </Image.Source>
-            </Image>
-            <Label Content="客户交互App"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="124" Margin="206,551,0,0" VerticalAlignment="Top" Width="100">
-            <Image Height="102">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/Images/machine.png"/>
-                </Image.Source>
-            </Image>
-            <Label Content="泛能机" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="1087,50,0,0" VerticalAlignment="Top" Width="100">
-            <Image Height="76">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/Images/gateway.png"/>
-                </Image.Source>
-            </Image>
-            <Label Content="泛能网关" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <DockPanel HorizontalAlignment="Left" Height="124" LastChildFill="False" Margin="954,552,0,0" VerticalAlignment="Top" Width="242">
-            <StackPanel Height="114" VerticalAlignment="Top" Width="45">
-                <Image Height="79">
+        Title="Gateway" Height="827.077" Width="1260.856" Left="1366" Top="0" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="707.077"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,-8,0" Grid.Row="0">
+            <StackPanel HorizontalAlignment="Left" Height="101" Margin="575,0,0,0" VerticalAlignment="Top" Width="100">
+                <Image Height="50">
                     <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/airConditioning.png"/>
+                        <BitmapImage UriSource="/Resources/Images/cloud.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="空调"/>
+                <Label Content="泛能云服务" FontSize="18"/>
             </StackPanel>
-            <StackPanel Height="114" VerticalAlignment="Top" Width="45">
-                <Image Height="79">
+            <StackPanel HorizontalAlignment="Left" Height="100" Margin="4,91,0,0" VerticalAlignment="Top" Width="100">
+                <Image Height="76" RenderTransformOrigin="0.515,0.224">
                     <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/heatSink.png"/>
+                        <BitmapImage UriSource="/Resources/Images/app.jpg"/>
                     </Image.Source>
                 </Image>
-                <Label Content="散热片"/>
+                <Label Content="客户交互App"/>
             </StackPanel>
-            <StackPanel Height="114" VerticalAlignment="Top" Width="45">
-                <Label Content="优化控制" FontSize="9"/>
-                <Image Height="54">
+            <StackPanel HorizontalAlignment="Left" Height="124" Margin="206,551,0,0" VerticalAlignment="Top" Width="100">
+                <Image Height="102">
                     <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/tv.png"/>
+                        <BitmapImage UriSource="/Resources/Images/machine.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="电视"/>
+                <Label Content="泛能机" HorizontalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Height="114" VerticalAlignment="Top" Width="45">
-                <Image Height="79">
+            <StackPanel HorizontalAlignment="Left" Height="100" Margin="1087,50,0,0" VerticalAlignment="Top" Width="100">
+                <Image Height="76">
                     <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/airCleaner.png"/>
+                        <BitmapImage UriSource="/Resources/Images/gateway.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="净化器"/>
+                <Label Content="泛能网关" HorizontalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Height="114" VerticalAlignment="Top" Width="45">
-                <Image Height="79">
-                    <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/gasStove.png"/>
-                    </Image.Source>
-                </Image>
-                <Label Content="燃气灶"/>
-            </StackPanel>
-        </DockPanel>
-        <Grid HorizontalAlignment="Left" Height="330" Margin="144,171,0,0" VerticalAlignment="Top" Width="947">
-            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.975,1.647" Margin="118,36,0,0"/>
-            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="17" RenderTransformOrigin="2.975,1.647" Margin="723,36,0,0"/>
-            <Label Content="IES建筑节能模型" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="133" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-            <Label Content="设备优化控制模型" HorizontalAlignment="Left" Margin="677,10,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="2.217,0.423"/>
-            <Grid HorizontalAlignment="Left" x:Name="model" Height="237" Margin="0,60,0,0" VerticalAlignment="Top" Width="588"/>
-            <DockPanel HorizontalAlignment="Left" Height="136" LastChildFill="False" Margin="633,60,0,0" VerticalAlignment="Top" Width="304">
-                <DockPanel Height="136" LastChildFill="False" VerticalAlignment="Top" Width="156">
-                    <StackPanel Height="136" VerticalAlignment="Top" Width="49">
-                        <Image Height="92">
-                            <Image.Source>
-                                <BitmapImage UriSource="Resources/Images/light.png"/>
-                            </Image.Source>
-                        </Image>
-                        <Label Content="灯" HorizontalAlignment="Center" Height="29" Margin="14,0,13,0"/>
-                    </StackPanel>
-                    <StackPanel Height="71" VerticalAlignment="Top" Width="107" Margin="0,30,0,0">
-                        <Label Content="状态：" Name="lightState" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Label Content="亮度：" Name="lightBrightness" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </DockPanel>
-                <StackPanel Height="136" VerticalAlignment="Top" Width="148">
-                    <DockPanel Height="49" LastChildFill="False">
-                        <Image Height="49" VerticalAlignment="Top" Width="100">
-                            <Image.Source>
-                                <BitmapImage UriSource="/Resources/Images/airConditioning.png"/>
-                            </Image.Source>
-                        </Image>
-                        <Label Content="空调" Height="49" VerticalAlignment="Top"/>
-                    </DockPanel>
-                    <Label Content="温度：" Name="conTemperature" HorizontalAlignment="Center"/>
-                    <Label Content="风速：" Name="conWindSpeed" HorizontalAlignment="Center"/>
+            <DockPanel HorizontalAlignment="Left" Height="124" LastChildFill="False" Margin="954,552,0,0" VerticalAlignment="Top" Width="242">
+                <StackPanel Height="114" VerticalAlignment="Top" Width="45">
+                    <Image Height="79">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/Images/airConditioning.png"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Content="空调"/>
+                </StackPanel>
+                <StackPanel Height="114" VerticalAlignment="Top" Width="45">
+                    <Image Height="79">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/Images/heatSink.png"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Content="散热片"/>
+                </StackPanel>
+                <StackPanel Height="114" VerticalAlignment="Top" Width="45">
+                    <Label Content="优化控制" FontSize="9"/>
+                    <Image Height="54">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/Images/tv.png"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Content="电视"/>
+                </StackPanel>
+                <StackPanel Height="114" VerticalAlignment="Top" Width="45">
+                    <Image Height="79">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/Images/airCleaner.png"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Content="净化器"/>
+                </StackPanel>
+                <StackPanel Height="114" VerticalAlignment="Top" Width="45">
+                    <Image Height="79">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/Images/gasStove.png"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Content="燃气灶"/>
                 </StackPanel>
             </DockPanel>
+            <Grid HorizontalAlignment="Left" Height="330" Margin="144,171,0,0" VerticalAlignment="Top" Width="947">
+                <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.975,1.647" Margin="118,36,0,0"/>
+                <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="19"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="17" RenderTransformOrigin="2.975,1.647" Margin="723,36,0,0"/>
+                <Label Content="IES建筑节能模型" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="133" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                <Label Content="设备优化控制模型" HorizontalAlignment="Left" Margin="677,10,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" RenderTransformOrigin="2.217,0.423"/>
+                <Grid HorizontalAlignment="Left" x:Name="model" Height="237" Margin="0,60,0,0" VerticalAlignment="Top" Width="588"/>
+                <DockPanel HorizontalAlignment="Left" Height="136" LastChildFill="False" Margin="633,60,0,0" VerticalAlignment="Top" Width="304">
+                    <DockPanel Height="136" LastChildFill="False" VerticalAlignment="Top" Width="156">
+                        <StackPanel Height="136" VerticalAlignment="Top" Width="49">
+                            <Image Height="92">
+                                <Image.Source>
+                                    <BitmapImage UriSource="Resources/Images/light.png"/>
+                                </Image.Source>
+                            </Image>
+                            <Label Content="灯" HorizontalAlignment="Center" Height="29" Margin="14,0,13,0"/>
+                        </StackPanel>
+                        <StackPanel Height="71" VerticalAlignment="Top" Width="107" Margin="0,30,0,0">
+                            <Label Content="状态：" Name="lightState" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Content="亮度：" Name="lightBrightness" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <StackPanel Height="136" VerticalAlignment="Top" Width="148">
+                        <DockPanel Height="49" LastChildFill="False">
+                            <Image Height="49" VerticalAlignment="Top" Width="100">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Resources/Images/airConditioning.png"/>
+                                </Image.Source>
+                            </Image>
+                            <Label Content="空调" Height="49" VerticalAlignment="Top"/>
+                        </DockPanel>
+                        <Label Content="温度：" Name="conTemperature" HorizontalAlignment="Center"/>
+                        <Label Content="风速：" Name="conWindSpeed" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DockPanel>
+
+            </Grid>
+
+            <DockPanel Margin="575,120,119,371">
+                <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20"/>
+                <Label Content="天气信息"/>
+                <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="1.95,0.985"/>
+                <Label Content="能源价格"/>
+                <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20"/>
+                <Label Content="历史行为分析数据"/>
+            </DockPanel>
+            <Path Data="M81.5,127 L438,26" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="102" Margin="81.5,26,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="357.5" StrokeThickness="3" StrokeDashArray="2 1"/>
+            <Path Data="M108.5,245.5 L81,146" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="100.5" Margin="81,146,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="28.5" StrokeThickness="3" StrokeDashArray="2 1"/>
+            <ed:Callout AnchorPoint="-0.118,0.942" CalloutStyle="Oval" Content="Callout" FontSize="16" HorizontalAlignment="Left" Height="124" Margin="1087,26,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="109" Foreground="{x:Null}"/>
+            <DockPanel Margin="191,493,661,2">
+                <Label Content="用能负荷数据" Width="83" />
+                <ed:BlockArrow HorizontalAlignment="Left"  Orientation="Left" Width="47" RenderTransformOrigin="0.274,0.335" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,9,0,0" Height="25" VerticalAlignment="Top">
+                    <ed:BlockArrow.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-76.633"/>
+                            <TranslateTransform X="0.639" Y="9.622"/>
+                        </TransformGroup>
+                    </ed:BlockArrow.RenderTransform>
+                </ed:BlockArrow>
+            </DockPanel>
+            <DockPanel Margin="896,477,10,8">
+                <ed:BlockArrow HorizontalAlignment="Left" Height="21" Orientation="Left" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-1.667,3.221" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" DockPanel.Dock="Left" Margin="0,-4,0,0">
+                    <ed:BlockArrow.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="27.555"/>
+                            <TranslateTransform X="-19.331" Y="-40.871"/>
+                        </TransformGroup>
+                    </ed:BlockArrow.RenderTransform>
+                </ed:BlockArrow>
+                <ed:BlockArrow HorizontalAlignment="Left" Height="21"  Orientation="Right" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,11,0,0">
+                    <ed:BlockArrow.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="33.262"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ed:BlockArrow.RenderTransform>
+                </ed:BlockArrow>
+                <Label Content="负荷需求" FontSize="9" Width="55"/>
+            </DockPanel>
+            <Path Data="M129,404 L700,404 700,362 753,362 935,362"  HorizontalAlignment="Left" Height="41.5" Margin="352,524,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="807.5"/>
+            <Path Data="M754,402 L752.5,362.5"  HorizontalAlignment="Left" Height="40.5" Margin="975.5,525,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="2.5"/>
+            <Path Data="M522,464" HorizontalAlignment="Left" Height="1" Margin="522,464,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1"/>
+            <Path Data="M804,364 L804.5,403.5"  HorizontalAlignment="Left" Height="40.5" Margin="1028,525,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1.5"/>
+            <Path Data="M844,371 L844,389.5"  HorizontalAlignment="Left" Height="25.5" Margin="1071.5,534.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
+            <Path Data="M131,429 L710,429 710,371 932,371"  HorizontalAlignment="Left" Height="60.5" Margin="354,532,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="802.5"/>
+            <Path Data="M890,372 L890,392.5"  HorizontalAlignment="Left" Height="21.5" Margin="1112.5,534.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
+            <Path Data="M129,454 L720,454 720,381 932.5,381 932.5,413.5" HorizontalAlignment="Left" Height="74.5" Margin="352,543,0,0" Stretch="Fill" Stroke="#FFE8CA0E" VerticalAlignment="Top" Width="806.5"/>
+            <Rectangle HorizontalAlignment="Left" Stroke="#FF5B9BD5" Height="139" Margin="934,225,0,0"  VerticalAlignment="Top" Width="147" RenderTransformOrigin="-1.456,0.326"/>
+            <Rectangle HorizontalAlignment="Left" Height="139" Margin="770,225,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="159"/>
+            <Rectangle HorizontalAlignment="Left" Height="182" Margin="760,206,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="354" StrokeThickness="1"/>
+            <Rectangle HorizontalAlignment="Left" Height="325" Margin="110,176,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="1077" StrokeThickness="1"/>
+            <Rectangle HorizontalAlignment="Left" Height="168" Margin="928,501,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
+            <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
+            <Button Content="夏季典型" HorizontalAlignment="Left" Margin="352,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Name="btn_Winter" Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Content="秋季典型" HorizontalAlignment="Left" Margin="593,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" />
+            <Button Content="春季典型" HorizontalAlignment="Left" Margin="513,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" />
 
         </Grid>
-
-        <DockPanel Margin="575,120,119,371">
-            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20"/>
-            <Label Content="天气信息"/>
-            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20" RenderTransformOrigin="1.95,0.985"/>
-            <Label Content="能源价格"/>
-            <ed:BlockArrow Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="34"  Orientation="Down" Stroke="Black" VerticalAlignment="Top" Width="20"/>
-            <Label Content="历史行为分析数据"/>
-        </DockPanel>
-        <Path Data="M81.5,127 L438,26" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="102" Margin="81.5,26,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="357.5" StrokeThickness="3" StrokeDashArray="2 1"/>
-        <Path Data="M108.5,245.5 L81,146" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" HorizontalAlignment="Left" Height="100.5" Margin="81,146,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="28.5" StrokeThickness="3" StrokeDashArray="2 1"/>
-        <ed:Callout AnchorPoint="-0.118,0.942" CalloutStyle="Oval" Content="Callout" FontSize="16" HorizontalAlignment="Left" Height="124" Margin="1087,26,0,0" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="109" Foreground="{x:Null}"/>
-        <DockPanel Margin="191,493,661,2">
-            <Label Content="用能负荷数据" Width="83" />
-            <ed:BlockArrow HorizontalAlignment="Left"  Orientation="Left" Width="47" RenderTransformOrigin="0.274,0.335" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,9,0,0" Height="25" VerticalAlignment="Top">
-                <ed:BlockArrow.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-76.633"/>
-                        <TranslateTransform X="0.639" Y="9.622"/>
-                    </TransformGroup>
-                </ed:BlockArrow.RenderTransform>
-            </ed:BlockArrow>
-        </DockPanel>
-        <DockPanel Margin="896,477,10,8">
-            <ed:BlockArrow HorizontalAlignment="Left" Height="21" Orientation="Left" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-1.667,3.221" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" DockPanel.Dock="Left" Margin="0,-4,0,0">
-                <ed:BlockArrow.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="27.555"/>
-                        <TranslateTransform X="-19.331" Y="-40.871"/>
-                    </TransformGroup>
-                </ed:BlockArrow.RenderTransform>
-            </ed:BlockArrow>
-            <ed:BlockArrow HorizontalAlignment="Left" Height="21"  Orientation="Right" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="#FF0A0A0A" Margin="0,11,0,0">
-                <ed:BlockArrow.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="33.262"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:BlockArrow.RenderTransform>
-            </ed:BlockArrow>
-            <Label Content="负荷需求" FontSize="9" Width="55"/>
-        </DockPanel>
-        <Path Data="M129,404 L700,404 700,362 753,362 935,362"  HorizontalAlignment="Left" Height="41.5" Margin="352,524,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="807.5"/>
-        <Path Data="M754,402 L752.5,362.5"  HorizontalAlignment="Left" Height="40.5" Margin="975.5,525,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="2.5"/>
-        <Path Data="M522,464" HorizontalAlignment="Left" Height="1" Margin="522,464,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1"/>
-        <Path Data="M804,364 L804.5,403.5"  HorizontalAlignment="Left" Height="40.5" Margin="1028,525,0,0" Stretch="Fill" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M844,371 L844,389.5"  HorizontalAlignment="Left" Height="25.5" Margin="1071.5,534.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M131,429 L710,429 710,371 932,371"  HorizontalAlignment="Left" Height="60.5" Margin="354,532,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="802.5"/>
-        <Path Data="M890,372 L890,392.5"  HorizontalAlignment="Left" Height="21.5" Margin="1112.5,534.5,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1.5"/>
-        <Path Data="M129,454 L720,454 720,381 932.5,381 932.5,413.5" HorizontalAlignment="Left" Height="74.5" Margin="352,543,0,0" Stretch="Fill" Stroke="#FFE8CA0E" VerticalAlignment="Top" Width="806.5"/>
-        <Rectangle HorizontalAlignment="Left" Stroke="#FF5B9BD5" Height="139" Margin="934,225,0,0"  VerticalAlignment="Top" Width="147" RenderTransformOrigin="-1.456,0.326"/>
-        <Rectangle HorizontalAlignment="Left" Height="139" Margin="770,225,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="159"/>
-        <Rectangle HorizontalAlignment="Left" Height="182" Margin="760,206,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="354" StrokeThickness="1"/>
-        <Rectangle HorizontalAlignment="Left" Height="325" Margin="110,176,0,0"  Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="1077" StrokeThickness="1"/>
-        <Rectangle HorizontalAlignment="Left" Height="168" Margin="928,501,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="323"/>
-        <Rectangle HorizontalAlignment="Left" Height="129" Margin="190,540,0,0" Stroke="#FF5B9BD5" VerticalAlignment="Top" Width="124"/>
-        <Button Content="夏季典型" HorizontalAlignment="Left" Margin="352,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Name="btn_Winter" Content="冬季典型" HorizontalAlignment="Left" Margin="433,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="秋季典型" HorizontalAlignment="Left" Margin="593,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" />
-        <Button Content="春季典型" HorizontalAlignment="Left" Margin="513,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" />
-
+        <Grid Grid.Row="1">
+            <Border CornerRadius="5" BorderThickness="1" BorderBrush="LightBlue" Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="控制口:"  Width="77" FontSize="14"/>
+                        <ComboBox Height="28" VerticalAlignment="Top" Margin="0,0,0,0" Width="82" Name="COMName" FontSize="14"/>
+                        <Button Height="28" VerticalAlignment="Top" Content="启动控制" Name="open" Margin="80,0,0,0" Width="75" Click="open_Click"  FontSize="14"/>
+                        <Button Height="28" VerticalAlignment="Top" Content="停止控制" Margin="40,0,0,0" Width="75" Name="stop" Click="stop_Click"  FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label Content="感应设备表计："></Label>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="20,0,0,0" Content="温度："/>
+                            <TextBlock Name="temtexblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="20,0,0,0" Content="湿度："/>
+                            <TextBlock Name="humtextblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="20,0,0,0" Content="光感："/>
+                            <TextBlock Name="lighttextblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="20,0,0,0" Content="烟感："/>
+                            <TextBlock Name="smoketextblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="20,0,0,0" Content="红外："/>
+                            <TextBlock Name="bodytextblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Visibility="Hidden">
+                            <Label Margin="20,0,0,0" Content="燃气表："/>
+                            <TextBlock Name="gastextblock" Text="" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

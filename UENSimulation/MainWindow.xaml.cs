@@ -93,7 +93,7 @@ namespace UENSimulation
 
         //所有的path name（不包括箭头，箭头name由此name得出
         string[] pstr = { "path_1", "path_2", "path_3", "path_4", "path_5", "path_6", "path_7", "path_9", "path_10",
-                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_18"};
+                            "path_11", "path_12", "path_13", "path_14", "path_15", "path_16", "path_18", "path_19"};
 
         //将path颜色恢复灰色
         private void RecoverPath()
@@ -283,7 +283,7 @@ namespace UENSimulation
         private String[,] _configstr = new String[,]{
                                    {"textblock_1","image_1,image_2", "path_3,path_4"},
                                     //显示文字，app直接发给网关或者app连接泛能云，通过云端发给网关
-                                   {"textblock_2","image_1,image_4,image_3,image_10", "path_2,path_5,path_6"},
+                                   {"textblock_2","image_1,image_4,image_3,image_10", "path_2,path_5,path_6,path_19"},
                                     //泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据
                                     {"textblock_3","image_4,image_9", ""},
                                     //根据载入数据，网关内部能源优化模块计算合适的控制策略

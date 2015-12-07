@@ -9,7 +9,7 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="548" Width="1358" VerticalAlignment="Top" Margin="0,100,0,0">
             <StackPanel.Background>
-                <ImageBrush ImageSource="Resources/Images/panelBack_Equipment.png" TileMode="Tile"/>
+                <ImageBrush ImageSource="Resources/Images/panelBack_Equipment2.png"/>
             </StackPanel.Background>
             <Label Content="设备参数配置" Width="230" Height="60" HorizontalAlignment="Left" FontSize="36" VerticalContentAlignment="Center" Margin="20,0"/>
             <Grid Width="1320" Height="240" >

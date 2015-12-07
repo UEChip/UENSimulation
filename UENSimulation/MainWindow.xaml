@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="模拟验证平台" Height="1080" Width="1920" Left="1366" Top="0" Closing="Window_Closing">
     <Grid Name="zgrid">
-        <Image Name="xxx" Margin="10,10,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="#FFB9C9E4">
+        <Image Name="xxx" Margin="-170,-158,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="#FFB9C9E4">
             <Image.Source>
                 <BitmapImage UriSource="/Resources/Images/background2.png"/>
             </Image.Source>
@@ -15,21 +15,21 @@
                 </Image.Source>
             </Image>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,10,0,0">
-                <Button Name="ztdy" Width="150" Height="35" Content="整体调用流程展示" Click="ztdy_Click"/>
-                <Button Name="qydy" Width="150" Height="35" Content="手动控制调用流程展示" Click="qydy_Click" Margin="0,5,0,0"/>
-                <Button Name="dxrdy" Width="150" Height="35" Content="家庭24时调用展示" Click="dxrdy_Click" Margin="0,5,0,0"/>
-                <Button Name="cjdy" Width="150" Height="35" Content="当前场景(居家)调用展示" Click="cjdy_Click" Margin="0,5,0,0" Visibility="Collapsed"/>
-                <Button Name="qndy" Width="150" Height="35" Content="全年能效数据调用展示" Click="qndy_Click" Margin="0,5,0,0"/>
+                <Button Name="ztdy" Width="150" Height="35" Content="整体调用流程展示" Click="ztdy_Click" FontFamily="NSimSun"/>
+                <Button Name="qydy" Width="150" Height="35" Content="手动控制调用流程展示" Click="qydy_Click" Margin="0,5,0,0" FontFamily="NSimSun"/>
+                <Button Name="dxrdy" Width="150" Height="35" Content="家庭24时调用展示" Click="dxrdy_Click" Margin="0,5,0,0" FontFamily="NSimSun"/>
+                <Button Name="cjdy" Width="150" Height="35" Content="当前场景(居家)调用展示" Click="cjdy_Click" Margin="0,5,0,0" Visibility="Collapsed" FontFamily="NSimSun"/>
+                <Button Name="qndy" Width="150" Height="35" Content="全年能效数据调用展示" Click="qndy_Click" Margin="0,5,0,0"  FontFamily="NSimSun"/>
             </StackPanel>
             <Label Name="xzlabel" Content="当前选择展示类型：冬季典型日" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,20,0,0" FontSize="16" Foreground="Blue"/>
             <Border Margin="1467,50,0,0" Panel.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
                 <StackPanel Orientation="Vertical">
-                    <Label Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0"/>
+                    <Label Content="实时运行状态" Panel.ZIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="Transparent" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="68" Margin="90,0,0,0" FontFamily="NSimSun"/>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="410" Height="870">
                         <ScrollViewer.Content>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Name="textblock_1" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.135：客户端指令下发到泛能网关" Visibility="Collapsed"/>
-                                <TextBlock Name="textblock_2" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20" Text="12:00:01.136：泛能网关载入家庭环境信息、云服务数据和家庭内传感表计数据" Visibility="Collapsed"/>
+                                <TextBlock Name="textblock_2" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20" Text="12:00:01.136：泛能网关载入家庭环境信息、云服务数据、家庭内传感表计数据和运行模拟数据中的用能需求配置数据" Visibility="Collapsed"/>
                                 <TextBlock Name="textblock_3" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.138：根据载入数据，网关内部能源优化模块计算合适的控制策略" Visibility="Collapsed"/>
                                 <TextBlock Name="textblock_4" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.150：网关将各项优化指令下发到家庭各用能设备" Visibility="Collapsed"/>
                                 <TextBlock Name="textblock_5" HorizontalAlignment="Left" Width="400" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="20"  Text="12:00:01.160：用能设备状态改变，状态信息传递到泛能网关" Visibility="Collapsed"/>
@@ -86,12 +86,15 @@
                 </StackPanel>
             </Border>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,590,0,0" Height="372" Width="255" Panel.ZIndex="2">
-                <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4"/>
-                <Image Name="image_5" MouseDown="image_5_MouseDown"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3">
+                <Label Content="泛能机" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Panel.ZIndex="4" FontFamily="NSimSun" Margin="0,20,0,0"/>
+                <Grid MouseDown="image_5_MouseDown"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Panel.ZIndex="3" Cursor="Hand">
+                    <Image Name="image_5"  MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnjkzq.png"/>
                     </Image.Source>
                 </Image>
+                    <TextBlock Text="泛能机控制器" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap" Width="70" Margin="10,0,0,0"/>
+                </Grid>
                 <Image Name="image_6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="image_6_MouseLeftButtonDown" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave" Margin="0,40,0,37">
                     <Image.Source>
                         <BitmapImage UriSource="Resources/Images/fnj.png"/>
@@ -100,12 +103,15 @@
             </Grid>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="905,590,0,0" Panel.ZIndex="2">
                 <!--<Button HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="2" Content="手动控制" FontSize="22" Background="#FFF16300" BorderBrush="Red" Height="45" Width="100" Click="Button_Click" Margin="0,0,20,0"/>-->
-                <Image Height="45" MouseLeftButtonDown="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                <Grid Height="45" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Cursor="Hand"  MouseLeftButtonDown="Button_Click" >
+                    <Image MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
-                        <BitmapImage UriSource="/Resources/Images/sdkz.png"/>
+                        <BitmapImage UriSource="/Resources/Images/yhmnsj2.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="用能设备" FontSize="18" HorizontalAlignment="Center" Margin="0,-20,0,0"/>
+                    <Label Content="手动控制" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+                <Label Content="用能设备" FontSize="18" HorizontalAlignment="Center" Margin="0,-20,0,0" FontFamily="NSimSun"/>
                 <Grid  Height="342">
                     <Image Name="image_7" Panel.ZIndex="0">
                         <Image.Source>
@@ -120,14 +126,14 @@
                         </Image>
                         <Label Margin="0,-5,0,0" Content="生活热水" FontSize="6" Height="20" HorizontalAlignment="Center"/>
                     </StackPanel>
-                    <Label Content="卫生间" FontSize="12" HorizontalAlignment="Left" Margin="262,235,0,0" VerticalAlignment="Top" Height="27" FontWeight="Bold"/>
-                    <Label Content="儿童房" FontSize="12" HorizontalAlignment="Left" Margin="360,178,0,0" VerticalAlignment="Top" Height="27" FontWeight="Bold"/>
-                    <Label Content="阳台" FontSize="12" HorizontalAlignment="Left" Margin="489,177,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
-                    <Label Content="主卧" FontSize="12" HorizontalAlignment="Left" Margin="340,59,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
-                    <Label Content="客厅" FontSize="12" HorizontalAlignment="Left" Margin="195,10,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
-                    <Label Content="书房" FontSize="12" HorizontalAlignment="Left" Margin="63,63,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
-                    <Label Content="厨房" FontSize="12" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
-                    <Label Content="餐厅" FontSize="12" HorizontalAlignment="Left" Margin="111,185,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold"/>
+                    <Label Content="卫生间" FontSize="12" HorizontalAlignment="Left" Margin="262,235,0,0" VerticalAlignment="Top" Height="27" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="儿童房" FontSize="12" HorizontalAlignment="Left" Margin="360,178,0,0" VerticalAlignment="Top" Height="27" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="阳台" FontSize="12" HorizontalAlignment="Left" Margin="489,177,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="主卧" FontSize="12" HorizontalAlignment="Left" Margin="340,59,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="客厅" FontSize="12" HorizontalAlignment="Left" Margin="195,10,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="书房" FontSize="12" HorizontalAlignment="Left" Margin="63,63,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="厨房" FontSize="12" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
+                    <Label Content="餐厅" FontSize="12" HorizontalAlignment="Left" Margin="111,185,0,0" VerticalAlignment="Top" Height="27" Width="40" FontWeight="Bold" FontFamily="NSimSun"/>
                     <StackPanel Panel.ZIndex="1" Margin="495,223,0,0" Height="52" Width="38" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <Grid Height="32" Width="38" HorizontalAlignment="Center">
                             <Image>
@@ -427,7 +433,7 @@
                         <BitmapImage UriSource="/Resources/Images/cloud.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="18"/>
+                <Label Content="泛能云服务" HorizontalAlignment="Center" FontSize="18" FontFamily="NSimSun"/>
             </StackPanel>
             <StackPanel  Height="168" Margin="1176,394.5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Panel.ZIndex="2">
                 <Image Name="image_2" Height="100">
@@ -435,7 +441,7 @@
                         <BitmapImage UriSource="/Resources/Images/app.jpg"/>
                     </Image.Source>
                 </Image>
-                <Label Content="客户交互APP" FontSize="18" HorizontalAlignment="Center"/>
+                <Label Content="客户交互APP" FontSize="18" HorizontalAlignment="Center" FontFamily="NSimSun"/>
             </StackPanel>
             <StackPanel  Height="206" Margin="891,349,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Panel.ZIndex="2" Name="gateway" MouseDown="gateway_MouseDown">
                 <Label Content="泛能网关" HorizontalAlignment="Center" FontSize="18"/>
@@ -458,32 +464,42 @@
                     </Image>
                 </StackPanel>
             </StackPanel>
-            <StackPanel  Height="118" Margin="720,477,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Panel.ZIndex="2">
+            <StackPanel  Height="118" Margin="720,497,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Panel.ZIndex="2">
                 <Image Name="image_3" Height="76">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/Images/meter.png"/>
                     </Image.Source>
                 </Image>
-                <Label Content="传感表计" FontSize="18" HorizontalAlignment="Center"/>
+                <Label Content="传感表计" FontSize="18" HorizontalAlignment="Center" FontFamily="NSimSun"/>
             </StackPanel>
-            <Image Name="image_10" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="598,79,0,0"  MouseLeftButtonDown="familyButton_Click" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+            <Grid Height="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,185,0,0" MouseLeftButtonDown="familyButton_Click" Cursor="Hand" >
+                <Image Name="image_10" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                 <Image.Source>
-                    <BitmapImage UriSource="Resources/Images/jthjxx.png"/>
+                    <BitmapImage UriSource="Resources/Images/yhmnsj2.png"/>
                 </Image.Source>
             </Image>
-            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,79,0,0" Panel.ZIndex="2">
-                <Image Name="image_11" Height="50" MouseLeftButtonDown="Button_Click_2" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                <Label Content="家庭环境信息" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            </Grid>
+			<Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="460,345,0,0" Panel.ZIndex="2" CornerRadius="2" BorderBrush="#FF8ACDFF" BorderThickness="2">
+            <StackPanel>
+                <Grid Height="45" MouseLeftButtonDown="Button_Click_2" Cursor="Hand" >
+                    <Image Name="image_11" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
-                        <BitmapImage UriSource="Resources/Images/sbcs.png"/>
+                        <BitmapImage UriSource="Resources/Images/yhmnsj2.png"/>
                     </Image.Source>
                 </Image>
-                <Image Name="image_12" Height="50" MouseLeftButtonDown="Button_Click_3" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
+                <Label Content="设备参数" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+                <Grid Height="45" Margin="0,2,0,0" MouseLeftButtonDown="Button_Click_3" Cursor="Hand" >
+                    <Image Name="image_12" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave">
                     <Image.Source>
-                        <BitmapImage UriSource="Resources/Images/yhmnsj.png"/>
+                        <BitmapImage UriSource="Resources/Images/yhmnsj2.png"/>
                     </Image.Source>
                 </Image>
+                    <Label Content="运行模拟数据" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
             </StackPanel>
-
+			</Border>
             <StackPanel Margin="1090,154,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
                 <!--<Button Content="场景选择" FontSize="22" Background="#FFF1226D" BorderBrush="Red" Height="45" Click="Button_Click_1">
                 </Button>-->
@@ -494,25 +510,26 @@
                 </Image>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="650,695,0,0">
-                <Label Name="needE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="needH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="needHW" Content="生活热水:0 W" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center"/>
+                <Label Name="needE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="needH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="needHW" Content="生活热水:0 W" Margin="0,40,0,0" FontSize="24" HorizontalAlignment="Center" FontFamily="NSimSun"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,645,0,0">
-                <Label Name="outE" Content="余电:0 kW"  Width="250" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outH" Content="余热:0 kW" Width="250" HorizontalContentAlignment="Center" Margin="0,27,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outsideE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="outsideH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,30,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
-                <Label Name="gas" Content="燃气:0 m³/h"  Width="250" HorizontalContentAlignment="Center"  Margin="0,25,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave"/>
+                <Label Name="outE" Content="余电:0 kW"  Width="250" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"  FontSize="24" MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="outH" Content="余热:0 kW" Width="250" HorizontalContentAlignment="Center" Margin="0,35,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="outsideE" Content="电:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,33,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="outsideH" Content="热:0 kW"  Width="250" HorizontalContentAlignment="Center"  Margin="0,33,0,0" FontSize="24" HorizontalAlignment="Center"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
+                <Label Name="gas" Content="燃气:0 m³/h"  Width="250" HorizontalContentAlignment="Center"  Margin="0,28,0,0" HorizontalAlignment="Center" FontSize="24"  MouseEnter="Chart_LabelMouseEnter" MouseLeave="Chart_LabelMouseLeave" FontFamily="NSimSun"/>
             </StackPanel>
             <Canvas>
-                <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 200,0  l 0,250" Canvas.Left="751" Canvas.Top="101"/>
-                <Path Name="path_1" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 300,180 l 0,350  l 240,0 l 0,50"/>
+                <Path Name="path_2" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 0,0  l 163,0  l 0,140" Canvas.Left="788" Canvas.Top="201"/>
+                <Path Name="path_1" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M540,440 L540,567"/>
+				 <Path Name="path_19" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M618,416 L905,416"/>
                 <Path Name="pathj_2" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="943" Canvas.Top="336"/>
                 <StackPanel Height="103" Canvas.Left="707" Canvas.Top="898" Width="228"/>
             </Canvas>
             <Canvas>
-                <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 140,0" Canvas.Left="769" Canvas.Top="473"  />
+                <Path Name="path_6" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l 0,-50 l 140,0" Canvas.Left="769" Canvas.Top="493"  />
             </Canvas>
             <Canvas>
                 <Path Name="path_7" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m0,0 l0,55 l-320,0" Canvas.Left="915" Canvas.Top="552"/>
@@ -533,10 +550,10 @@
                 <Path Name="path_4" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="m 160,100 l100,0 l0,-70" Height="261.75" Stretch="Fill" Canvas.Top="32.25" Width="37" Canvas.Left="224"/>
                 <Path Name="pathj_4" Data="M590,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="204" Canvas.Top="283.75"/>
             </Canvas>
-            <Path Name="path_5" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M0,400 0,200  250,200  250,0 " Height="161" Width="268.5" Margin="980,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
+            <Path Name="path_5" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" Data="M0,400 0,200  250,200  250,0 " Height="170" Width="268.5" Margin="982,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
             <Path Name="pathj_1" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="532,567,0,0"/>
             <Path Name="pathj_5" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="976,336,0,0"/>
-            <Path Name="pathj_6" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,415,0,0"/>
+            <Path Name="pathj_6" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="895,435,0,0"/>
             <Path Name="pathj_9" Data="M460,226 L470,254 480,226 470,235 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1243,598,0,0"/>
             <!--<Path Name="pathj_8" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1030,548,0,0"/>-->
             <Path Name="pathj_3" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1055,415,0,0"/>
@@ -545,14 +562,15 @@
             <Path Name="pathj_12" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF0DA4DC"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,816,0,0"/>
             <Path Name="pathj_13" Data="M600,510 L632,520 600,530 610,520 z" Fill="Red"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,884,0,0"/>
             <Path Name="pathj_14" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FFFDC91A"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,950,0,0"/>
-            <Path Name="pathj_15" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
+            <Path Name="pathj_15" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF0DA4DC"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,725,0,0"/>
             <Path Name="pathj_16" Data="M600,510 L632,520 600,530 610,520 z" Fill="Red"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="889,798,0,0"/>
             <Path Name="pathj_17" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FFFDC91A"  Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,875,0,0"/>
             <Path Data="M956,628 L953,548.5" Fill="Blue" HorizontalAlignment="Left" Height="79.5" Margin="953,548.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="3"/>
             <Path Name="path_18" Data="M955,600 L955,485" Stroke="#FF2E75B6" StrokeThickness="2.5" StrokeDashArray="3,1" HorizontalAlignment="Left" Fill="Blue" Stretch="Fill" Height="100" Margin="949,556.5,0,0" VerticalAlignment="Top" Width="8.5"/>
             <Path Name="pathj_18" Data="M590,470 L600,442 610,470 600,464 z" Fill="#FF2E75B6" Height="15" Stretch="Fill" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="942,547.5,0,0"/>
-            <Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
-            <Border  HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="86" Margin="412,925,0,0" Background="#FFB9C9E4">
+            <Path Name="pathj_19" Data="M600,510 L632,520 600,530 610,520 z" Fill="#FF2E75B6" Height="15" Width="15" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="903,409,0,0"/>
+			<Path Name="pathj_7" Data="M592,450 L564,460 592,470 586,460 z" Height="15" Width="15" Stretch="Fill" Fill="#FF2E75B6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="586,600,0,0"/>
+            <Border  HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="86" Margin="412,925,0,0" BorderBrush="#FFFBE9DB" BorderThickness="2" CornerRadius="5" Background="#FFFBEBDF" AllowDrop="True" >
                 <Grid HorizontalAlignment="Left" Height="86" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -585,7 +603,7 @@
             </Border>
         </Grid>
         <StackPanel HorizontalAlignment="Left" Height="71" Margin="0,10,0,0" VerticalAlignment="Top" Width="1768">
-            <Label Content="泛能芯家庭能源管理模拟验证平台" Height="71" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36"/>
+            <Label Content="泛能芯家庭能源管理模拟验证平台" Height="71" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" FontFamily="NSimSun"/>
         </StackPanel>
 
     </Grid>
