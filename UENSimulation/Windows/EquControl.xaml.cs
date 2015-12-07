@@ -80,7 +80,9 @@ namespace UENSimulation.Windows
 
             if (_manualControl != null)
             {
-                _manualControl();
+                Thread dataCalculation = new Thread(new ThreadStart(_manualControl));
+                dataCalculation.Start();
+                //_manualControl();
             }
         }
 
