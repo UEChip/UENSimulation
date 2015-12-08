@@ -74,7 +74,7 @@ namespace UENSimulation
 
         private void image_5_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Port port = new Port();
+            Port port = new Port(gear_UE.Content.ToString(),gasboiler_Gear.Content.ToString());
             port.ShowDialog();
         }
         #endregion
@@ -107,10 +107,14 @@ namespace UENSimulation
                 {
                     p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
                     pj.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
-                }else if(str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16")|| str.Equals("path_17")){
+                }
+                else if (str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16") || str.Equals("path_17"))
+                {
                     p.Stroke = new SolidColorBrush(Colors.Red);
                     pj.Fill = new SolidColorBrush(Colors.Red);
-                }else if(str.Equals("path_14")){
+                }
+                else if (str.Equals("path_14"))
+                {
                     p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
                     pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFDC91A"));
                 }
@@ -934,10 +938,14 @@ namespace UENSimulation
 
             this.Dispatcher.Invoke(new Action(() =>
             {
+                //Com控制用 斯特林机、补燃锅炉档位
+                gear_UE.Content = output_Ctrlopt[12].ToString();
+                gasboiler_Gear.Content = output_Ctrlopt[13].ToString();
+
                 String axisLabel = num_h + "时";
                 //额外的电和热
-                outsideE.Content = "电： " + output_Ctrlopt[10].ToString() + " kW";
-                outsideH.Content = "热： " + output_Ctrlopt[11].ToString() + " kW";
+                outsideE.Content = "电： " + Convert.ToDouble(output_Ctrlopt[10]).ToString("0.00") + " kW";
+                outsideH.Content = "热： " + Convert.ToDouble(output_Ctrlopt[11]).ToString("0.00") + " kW";
 
                 //燃气
                 gas.Content = "天然气： " + (output_UEMachine[2] + output_GasBoiler[1]).ToString() + " m³/h";

@@ -509,6 +509,15 @@ namespace UENSimulation.Windows
             led3.Tag = led3.GetUpState();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (port != null && port.IsOpen == true)
+            {
+                _keepReading = false;
+                port.Close();
+            }
+        }
+
         #region com口获取灯状态并控制
         //打开串口
         private void open_Click(object sender, RoutedEventArgs e)
@@ -646,5 +655,9 @@ namespace UENSimulation.Windows
 
         }
         #endregion
+
+
+
+
     }
 }

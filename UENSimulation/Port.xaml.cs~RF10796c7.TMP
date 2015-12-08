@@ -53,8 +53,6 @@ namespace UENSimulation
         public SerialPort port;
         private void Button_Click(object sender, RoutedEventArgs e)//按钮打开事件
         {
-            try
-            { 
             open.IsEnabled = false;
             stop.IsEnabled = true;
             control.IsEnabled = true;
@@ -62,7 +60,7 @@ namespace UENSimulation
             port.BaudRate = 115200;
             port.PortName = COMName.Text;
             port.DataBits = 8;
-                         
+            try {              
             port.Open();
             port.DiscardInBuffer();
             port.DiscardOutBuffer();
@@ -181,44 +179,37 @@ namespace UENSimulation
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Dispatcher.Invoke((Action)delegate
-           {
-               try
-               {
-                   first = Convert.ToInt32(levelS.Text);
-                   last = Convert.ToInt32(levelG.Text);
-                   if (first != 0 || first != 1 || first != 2 || first != 3)
-                       first = 0;
-                   if (last != 0 || last != 1 || last != 2 || last != 3)
-                       last = 0;
-               }
-               catch
-               {
-                   MessageBox.Show("请输入数字0-3");
-                   first = 0;
-                   last = 0;
-               }
-               try
-               {
-                   string str = "$" + first + last + "#";
-                   byte[] sendByte = Encoding.ASCII.GetBytes(str);
-                   port.Write(sendByte, 0, sendByte.Length);
-               }
-               catch (Exception ex)
-               {
-                   MessageBox.Show(ex.ToString());
-               }
-           });
+            try
+            {
+                first = Convert.ToInt32(levelS.Text);
+                last = Convert.ToInt32(levelG.Text);
+                if (first != 0 || first != 1 || first != 2 || first != 3)
+                    first = 0;
+                if (last != 0 || last != 1 || last != 2 || last != 3)
+                    last = 0;
+            }
+            catch
+            {
+                MessageBox.Show("请输入数字0-3");
+                first = 0;
+                last = 0;
+            }
+            try
+            {
+                string str = "$" + first + last + "#";
+                byte[] sendByte = Encoding.ASCII.GetBytes(str);
+                port.Write(sendByte, 0, sendByte.Length);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
-            if (port.IsOpen)
-            {
-                _keepReading = false;
-                port.Close();
-            }
+            _keepReading = false;
+            port.Close();
         }
     }
 }
