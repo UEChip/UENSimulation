@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.IO.Ports;
-using System.Threading; 
+using System.Threading;
 
 
 namespace UENSimulation
@@ -49,28 +49,28 @@ namespace UENSimulation
             levelS.Text = str1;
             levelG.Text = str2;
         }
-        
+
         public SerialPort port;
         private void Button_Click(object sender, RoutedEventArgs e)//按钮打开事件
         {
             try
-            { 
-            open.IsEnabled = false;
-            stop.IsEnabled = true;
-            control.IsEnabled = true;
-            port = new SerialPort();
-            port.BaudRate = 115200;
-            port.PortName = COMName.Text;
-            port.DataBits = 8;
-                         
-            port.Open();
-            port.DiscardInBuffer();
-            port.DiscardOutBuffer();
-            MessageBox.Show("串口打开成功", "系统提示");
+            {
+                open.IsEnabled = false;
+                stop.IsEnabled = true;
+                control.IsEnabled = true;
+                port = new SerialPort();
+                port.BaudRate = 115200;
+                port.PortName = COMName.Text;
+                port.DataBits = 8;
+
+                port.Open();
+                port.DiscardInBuffer();
+                port.DiscardOutBuffer();
+                MessageBox.Show("串口打开成功", "系统提示");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("串口打开失败"+ex, "系统提示");
+                MessageBox.Show("串口打开失败" + ex, "系统提示");
                 return;
             }
             _keepReading = true;
@@ -78,13 +78,13 @@ namespace UENSimulation
             _readThread.Start();
         }
 
-       private Thread _readThread;
-       private bool _keepReading;
-        public int first=0;
-        public int last=0;
+        private Thread _readThread;
+        private bool _keepReading;
+        public int first = 0;
+        public int last = 0;
         private void ReadPort()//接收数据
         {
-              
+
             while (_keepReading)
             {
                 if (port.IsOpen)
@@ -93,7 +93,7 @@ namespace UENSimulation
                     byte[] readBuffer = new byte[port.ReadBufferSize];
                     try
                     {
-                        
+
                         int count = port.Read(readBuffer, 0, port.ReadBufferSize);
                         String SerialIn = System.Text.Encoding.ASCII.GetString(readBuffer, 0, count);
                         if (count != 0)
@@ -103,7 +103,7 @@ namespace UENSimulation
 
 
                     }
-                    catch { }            
+                    catch { }
                 }
                 else
                 {
@@ -111,7 +111,7 @@ namespace UENSimulation
                     Thread.Sleep(waitTime);
                 }
             }
-            
+
         }
         private string sendStr;
         private void SendPort()//解析显示数据
@@ -135,7 +135,7 @@ namespace UENSimulation
                 t6.Text = arr[5] + "%";
                 t7.Text = arr[6] + "%";
                 t8.Text = arr[7] + "%";
-                t9.Text = arr[8] + "%";                
+                t9.Text = arr[8] + "%";
             }
             catch { }
         }
@@ -144,14 +144,14 @@ namespace UENSimulation
             //处理数据。。。。额
             Dispatcher.Invoke((Action)delegate
             {
-                
+
                 sendStr = sRecv;
                 string[] str = sendStr.Split('&');
-                int length =str.Length;
-                for(int i = 0;i<length;i++)
+                int length = str.Length;
+                for (int i = 0; i < length; i++)
                 {
-                    if(str[i].Contains(' ')&&str[i].IndexOf('@')==0)
-                    sendStr =str[i];
+                    if (str[i].Contains(' ') && str[i].IndexOf('@') == 0)
+                        sendStr = str[i];
                 }
                 sendStr = sendStr.TrimStart('@');
                 sendStr = sendStr.TrimEnd('&');
@@ -187,9 +187,9 @@ namespace UENSimulation
                {
                    first = Convert.ToInt32(levelS.Text);
                    last = Convert.ToInt32(levelG.Text);
-                   if (first != 0 || first != 1 || first != 2 || first != 3)
+                   if (first != 0 && first != 1 && first != 2 && first != 3)
                        first = 0;
-                   if (last != 0 || last != 1 || last != 2 || last != 3)
+                   if (last != 0 && last != 1 && last != 2 && last != 3)
                        last = 0;
                }
                catch
@@ -213,8 +213,7 @@ namespace UENSimulation
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
-            if (port.IsOpen)
+            if (port != null && port.IsOpen)
             {
                 _keepReading = false;
                 port.Close();
