@@ -136,7 +136,7 @@ namespace UENSimulation {
         #line hidden
         
         
-        #line 39 "..\..\Port.xaml"
+        #line 41 "..\..\Port.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox levelS;
         
@@ -144,7 +144,7 @@ namespace UENSimulation {
         #line hidden
         
         
-        #line 41 "..\..\Port.xaml"
+        #line 43 "..\..\Port.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox levelG;
         
@@ -152,7 +152,7 @@ namespace UENSimulation {
         #line hidden
         
         
-        #line 42 "..\..\Port.xaml"
+        #line 44 "..\..\Port.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button control;
         
@@ -254,7 +254,7 @@ namespace UENSimulation {
             case 16:
             this.control = ((System.Windows.Controls.Button)(target));
             
-            #line 42 "..\..\Port.xaml"
+            #line 44 "..\..\Port.xaml"
             this.control.Click += new System.Windows.RoutedEventHandler(this.Button_Click_1);
             
             #line default

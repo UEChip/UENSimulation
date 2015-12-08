@@ -35,10 +35,14 @@
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t9"/>
             </DockPanel>
         </StackPanel>
-        <Label Content="斯特林机档位选择" HorizontalAlignment="Left" Margin="0,188,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="levelS" Height="23" Margin="105,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"/>
-        <Label Content="补燃锅炉档位选择" HorizontalAlignment="Left" Margin="171,188,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="levelG" Height="23" Margin="277,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="-0.344,0.435"/>
-        <Button Content="控制" Name="control" HorizontalAlignment="Left" Margin="355,188,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Border Margin="0,193,0,0">
+            <DockPanel Margin="0,10">
+                <Label Content="斯特林机档位选择" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                <TextBox HorizontalAlignment="Left" Name="levelS" Height="20"  TextWrapping="Wrap" VerticalAlignment="Center" Width="61"/>
+                <Label Content="补燃锅炉档位选择" HorizontalAlignment="Left" Margin="30,0,0,0"  VerticalAlignment="Center"/>
+                <TextBox HorizontalAlignment="Left" Name="levelG" Height="20" TextWrapping="Wrap" VerticalAlignment="Center" Width="61" RenderTransformOrigin="-0.344,0.435"/>
+                <Button Content="控制" Name="control" Margin="30,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Click="Button_Click_1" RenderTransformOrigin="0.36,0.409"/>
+            </DockPanel>
+        </Border>
     </Grid>
 </Window>
