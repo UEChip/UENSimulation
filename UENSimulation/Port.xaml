@@ -1,38 +1,44 @@
 ﻿<Window x:Class="UENSimulation.Port"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Port" Height="330.462" Width="684.154" Left="1366" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Height="102" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="657" Name="boxData"/>
+        Title="Port" Height="273.462" Width="527.438" Left="1366" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid Margin="0,0,0,-2">
         <ComboBox HorizontalAlignment="Left" Margin="105,38,0,0" VerticalAlignment="Top" Width="82" Name="COMName" RenderTransformOrigin="1.007,0.64"/>
         <Label Content="串口名" HorizontalAlignment="Left" Margin="23,38,0,0" VerticalAlignment="Top" Width="77"/>
         <Button Content="打开串口" Name="open" HorizontalAlignment="Left" Margin="204,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="停止" HorizontalAlignment="Left" Margin="284,40,0,0" VerticalAlignment="Top" Width="75" Name="stop" Click="stop_Click"/>
-        <StackPanel HorizontalAlignment="Left" Height="121" Margin="10,172,0,0" VerticalAlignment="Top" Width="674">
+        <StackPanel HorizontalAlignment="Left" Height="121" Margin="0,67,0,0" VerticalAlignment="Top" Width="512">
             <DockPanel Height="36" LastChildFill="False">
                 <Label Content="斯机1档电效率" Height="30" VerticalAlignment="Center" />
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t1"/>
-                <Label Content="斯机2档电效率" Height="30" VerticalAlignment="Center" />
-                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t2"/>
-                <Label Content="斯机3档电效率" Height="30" VerticalAlignment="Center" />
-                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t3"/>
                 <Label Content="斯机1档热效率" Height="30" VerticalAlignment="Center" />
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t4"/>
+                <Label Content="锅炉1档热效率" Height="30" VerticalAlignment="Center" />
+                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t7"/>
+                
             </DockPanel>
             <DockPanel Height="36" LastChildFill="False">
+                <Label Content="斯机2档电效率" Height="30" VerticalAlignment="Center"/>
+                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t2"/>
                 <Label Content="斯机2档热效率" Height="30" VerticalAlignment="Center"/>
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t5"/>
-                <Label Content="斯机3档热效率" Height="30" VerticalAlignment="Center"/>
-                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t6"/>
-                <Label Content="锅炉1档热效率" Height="30" VerticalAlignment="Center"/>
-                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t7"/>
                 <Label Content="锅炉2档热效率" Height="30" VerticalAlignment="Center"/>
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t8"/>
+                
             </DockPanel>
             <DockPanel Height="36" LastChildFill="False">
+                <Label Content="斯机3档电效率" Height="30" VerticalAlignment="Center"/>
+                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t3"/>
+                <Label Content="斯机3档热效率" Height="30" VerticalAlignment="Center" />
+                <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t6"/>
                 <Label Content="锅炉3档热效率" Height="30" VerticalAlignment="Center"/>
                 <TextBox Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="75" Name="t9"/>
             </DockPanel>
         </StackPanel>
+        <Label Content="斯特林机档位选择" HorizontalAlignment="Left" Margin="0,188,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="levelS" Height="23" Margin="105,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"/>
+        <Label Content="补燃锅炉档位选择" HorizontalAlignment="Left" Margin="171,188,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="levelG" Height="23" Margin="277,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="-0.344,0.435"/>
+        <Button Content="控制" Name="control" HorizontalAlignment="Left" Margin="355,188,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
     </Grid>
 </Window>

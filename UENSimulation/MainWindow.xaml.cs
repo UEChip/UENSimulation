@@ -74,7 +74,7 @@ namespace UENSimulation
 
         private void image_5_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Port port = new Port();
+            Port port = new Port(gear_UE.Content.ToString(),gasboiler_Gear.Content.ToString());
             port.ShowDialog();
         }
         #endregion
