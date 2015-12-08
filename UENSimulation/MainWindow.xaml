@@ -598,8 +598,8 @@
                         <Label Name="Provide_E" Grid.Row="0" Grid.Column="1" Content="0 kWh" FontSize="14"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="产热量："  FontSize="14" HorizontalAlignment="Right" Margin="20,0,0,0"/>
                         <Label Name="Provide_H" Grid.Row="1" Grid.Column="1" Content="0 kWh" FontSize="14"/>
-                        <Label Name="gear_UE" Content="XX" Margin="10,0,0,0"/>
-                        <Label Name="gasboiler_Gear" Content="XX" Margin="10,0,0,0"/>
+                        <Label Name="gear_UE" Content="XX" Margin="10,0,0,0" Visibility="Hidden"/>
+                        <Label Name="gasboiler_Gear" Content="XX" Margin="10,0,0,0" Visibility="Hidden"/>
                     </StackPanel>
                 </Grid>
             </Border>
