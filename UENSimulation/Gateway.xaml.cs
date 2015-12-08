@@ -540,7 +540,7 @@ namespace UENSimulation
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (port.IsOpen == true)
+            if (port != null && port.IsOpen == true)
             {
                 _keepReading = false;
                 port.Close();
