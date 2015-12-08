@@ -537,5 +537,14 @@ namespace UENSimulation
             });
         }
         #endregion
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (port.IsOpen == true)
+            {
+                _keepReading = false;
+                port.Close();
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.IO.Ports;
-using System.Threading; 
+using System.Threading;
 
 
 namespace UENSimulation
@@ -34,7 +34,7 @@ namespace UENSimulation
             stop.IsEnabled = false;
             open.IsEnabled = true;
         }
-        
+
         public SerialPort port;
         private void Button_Click(object sender, RoutedEventArgs e)//按钮打开事件
         {
@@ -44,15 +44,16 @@ namespace UENSimulation
             port.BaudRate = 115200;
             port.PortName = COMName.Text;
             port.DataBits = 8;
-            try {              
-            port.Open();
-            port.DiscardInBuffer();
-            port.DiscardOutBuffer();
-            MessageBox.Show("串口打开成功", "系统提示");
+            try
+            {
+                port.Open();
+                port.DiscardInBuffer();
+                port.DiscardOutBuffer();
+                MessageBox.Show("串口打开成功", "系统提示");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("串口打开失败"+ex, "系统提示");
+                MessageBox.Show("串口打开失败" + ex, "系统提示");
                 return;
             }
             _keepReading = true;
@@ -60,13 +61,13 @@ namespace UENSimulation
             _readThread.Start();
         }
 
-       private Thread _readThread;
-       private bool _keepReading;
-        public int first=0;
-        public int last=0;
+        private Thread _readThread;
+        private bool _keepReading;
+        public int first = 0;
+        public int last = 0;
         private void ReadPort()//接收数据
         {
-              
+
             while (_keepReading)
             {
                 if (port.IsOpen)
@@ -75,7 +76,7 @@ namespace UENSimulation
                     byte[] readBuffer = new byte[port.ReadBufferSize];
                     try
                     {
-                        
+
                         int count = port.Read(readBuffer, 0, port.ReadBufferSize);
                         String SerialIn = System.Text.Encoding.ASCII.GetString(readBuffer, 0, count);
                         if (count != 0)
@@ -87,11 +88,11 @@ namespace UENSimulation
                     }
                     catch { }
                     Random r = new Random();
-                    last = r.Next(0,3);
+                    last = r.Next(0, 3);
                     first = r.Next(0, 3);
 
-                    if(first>3) first=0;
-                    if(last>3) last=0;
+                    if (first > 3) first = 0;
+                    if (last > 3) last = 0;
                 }
                 else
                 {
@@ -99,7 +100,7 @@ namespace UENSimulation
                     Thread.Sleep(waitTime);
                 }
             }
-            
+
         }
         private string sendStr;
         private void SendPort()//发送指令，解析显示数据
@@ -108,7 +109,7 @@ namespace UENSimulation
             {
                 sendStr = sendStr.Replace("  ", " ");
                 string[] arr = sendStr.Split(' ');
-                sendStr = "$"+first+last+"#";
+                sendStr = "$" + first + last + "#";
                 byte[] sendByte = Encoding.ASCII.GetBytes(sendStr);
                 port.Write(sendByte, 0, sendByte.Length);
                 double[] dataUE = new double[arr.Length];
@@ -126,7 +127,7 @@ namespace UENSimulation
                 t6.Text = arr[5] + "%";
                 t7.Text = arr[6] + "%";
                 t8.Text = arr[7] + "%";
-                t9.Text = arr[8] + "%";                
+                t9.Text = arr[8] + "%";
             }
             catch { }
         }
@@ -135,7 +136,7 @@ namespace UENSimulation
             //处理数据。。。。额
             Dispatcher.Invoke((Action)delegate
             {
-                
+
                 sendStr = sRecv;
                 boxData.AppendText(sendStr);
                 SendPort();
@@ -159,6 +160,15 @@ namespace UENSimulation
             port.Close();
             stop.IsEnabled = false;
             open.IsEnabled = true;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (port != null && port.IsOpen == true)
+            {
+                _keepReading = false;
+                port.Close();
+            }
         }
     }
 }
