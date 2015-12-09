@@ -86,6 +86,7 @@ namespace UENSimulation.Windows
             }
         }
 
+        //获取所有设备状态
         private List<string>[] equipmentState()
         {
             List<string>[] arrList = new List<string>[2];

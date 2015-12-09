@@ -114,6 +114,39 @@ namespace UENSimulation.Utility
             simulatedData.Price_G = Convert.ToDouble(dataRead[17]);
         }
 
+        //写入模拟数据，更新储电 储热 泛能机和补燃锅炉档位
+        public void dataWriteToSimulatedData(ArrayList ctrlopt_Output, string dataFilePath)
+        {
+            string[] dataWrite = new string[18];
+
+            dataWrite[0] = ctrlopt_Output[3].ToString();
+            dataWrite[1] = ctrlopt_Output[5].ToString();
+            dataWrite[2] = ctrlopt_Output[4].ToString();
+
+            dataWrite[3] = ctrlopt_Output[0].ToString();
+            dataWrite[4] = simulatedData.Duration_EA.ToString();
+            dataWrite[5] = simulatedData.Speed_EA.ToString();
+            dataWrite[6] = ctrlopt_Output[1].ToString();
+
+            dataWrite[7] = ctrlopt_Output[13].ToString();
+            dataWrite[8] = simulatedData.Duration_Boiler.ToString();
+
+            dataWrite[9] = simulatedData.Envrmtdata_lout_Heat.ToString();
+            dataWrite[10] = simulatedData.Duration_Heat.ToString();
+
+            dataWrite[11] = simulatedData.Envrmtdata_lout_Electricity.ToString();
+            dataWrite[12] = simulatedData.Duration_Electricity.ToString();
+
+            dataWrite[13] = ctrlopt_Output[12].ToString();
+            dataWrite[14] = simulatedData.Duration_UE.ToString();
+
+            dataWrite[15] = simulatedData.Price_E.ToString();
+            dataWrite[16] = simulatedData.Price_H.ToString();
+            dataWrite[17] = simulatedData.Price_G.ToString();
+
+            txt_Handle.dataWrite(dataFilePath, dataWrite);
+        }
+
         //读取能源需求
         public void dataReadFromEnergyNeed(string dataFilePath_EnergyNeed, string dataFilePath_Mode)
         {
@@ -127,9 +160,9 @@ namespace UENSimulation.Utility
         }
 
         //泛能机
-        public double[] ueMachine()
+        public double[] ueMachine(MWStructArray product)
         {
-            MWStructArray product = ctrlopt_Struct();
+            //MWStructArray product = ctrlopt_Struct();
 
             MWStructArray[] data_ueMachine_pack = ueMachine_pack();
             MWStructArray variableInStruct = (MWStructArray)data_ueMachine_pack[0].GetField("uemachine");
@@ -258,9 +291,9 @@ namespace UENSimulation.Utility
         }
 
         //补燃锅炉
-        public double[] gasBoiler()
+        public double[] gasBoiler(MWStructArray product)
         {
-            MWStructArray product = ctrlopt_Struct();
+            //MWStructArray product = ctrlopt_Struct();
 
             MWStructArray[] data_gasBoiler_pack = gasBoiler_pack();
             MWStructArray variableInStruct = (MWStructArray)data_gasBoiler_pack[0].GetField("gasboiler");
@@ -297,9 +330,9 @@ namespace UENSimulation.Utility
         }
 
         //设备效率
-        public double[] etacal()
+        public double[] etacal(MWStructArray product)
         {
-            MWStructArray product = ctrlopt_Struct();
+            //MWStructArray product = ctrlopt_Struct();
 
             //能源需求参数
             string[] need = new string[3];
@@ -442,9 +475,9 @@ namespace UENSimulation.Utility
         }
 
         //优化函数
-        public ArrayList ctrlopt_Array()
+        public ArrayList ctrlopt_Array(MWStructArray dataOutStruct)
         {
-            MWStructArray dataOutStruct = ctrlopt_Struct();
+            //MWStructArray dataOutStruct = ctrlopt_Struct();
 
             //输出结构体的内层结构体
             MWStructArray savee = (MWStructArray)dataOutStruct.GetField("savee");

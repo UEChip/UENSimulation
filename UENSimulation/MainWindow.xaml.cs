@@ -20,6 +20,7 @@ using UENSimulation.Windows;
 using UENSimulation.Utility;
 using UENSimulation.UserControls;
 using Visifire.Charts;
+using MathWorks.MATLAB.NET.Arrays;
 
 namespace UENSimulation
 {
@@ -74,7 +75,7 @@ namespace UENSimulation
 
         private void image_5_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Port port = new Port(gear_UE.Content.ToString(),gasboiler_Gear.Content.ToString());
+            Port port = new Port(gear_UE.Content.ToString(), gasboiler_Gear.Content.ToString());
             port.ShowDialog();
         }
         #endregion
@@ -480,7 +481,7 @@ namespace UENSimulation
                    txthandle.dataWrite(filePath_EnergyNeed, zstr);
                    dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
                    dataCalculationdx.Start();
-                       num_h += 1;
+                   num_h += 1;
                }
                else
                {
@@ -911,7 +912,7 @@ namespace UENSimulation
                 this.zgrid.Children.Remove(cl_ye);
                 cl_ye = null;
             }
-            
+
         }
         #endregion
         #endregion
@@ -959,37 +960,43 @@ namespace UENSimulation
 
             EnergyCalculation energyCalculation = new EnergyCalculation(filePath_EquipmentParameter, filePath_SimulatedData, filePath_EnergyNeed, filePath_Mode);
 
+            //此处光伏、光热、储热、储电数据均来自优化函数，无需调用单个函数
             //光伏
-            double output_PT;
-            output_PT = energyCalculation.pt();
+            //double output_PT;
+            //output_PT = energyCalculation.pt();
 
             //光热
-            double output_PV;
-            output_PV = energyCalculation.pv();
+            //double output_PV;
+            //output_PV = energyCalculation.pv();
 
             //储热
-            double[] output_SaveH = new double[2];
-            output_SaveH = energyCalculation.saveH();
+            //double[] output_SaveH = new double[2];
+            //output_SaveH = energyCalculation.saveH();
 
             //储电
-            double output_SaveE;
-            output_SaveE = energyCalculation.saveE();
+            //double output_SaveE;
+            //output_SaveE = energyCalculation.saveE();
+
+            MWStructArray product = energyCalculation.ctrlopt_Struct();
 
             //泛能机
             double[] output_UEMachine = new double[3];
-            output_UEMachine = energyCalculation.ueMachine();
+            output_UEMachine = energyCalculation.ueMachine(product);
 
             //补燃锅炉
             double[] output_GasBoiler = new double[2];
-            output_GasBoiler = energyCalculation.gasBoiler();
+            output_GasBoiler = energyCalculation.gasBoiler(product);
 
             //优化
             ArrayList output_Ctrlopt = new ArrayList();
-            output_Ctrlopt = energyCalculation.ctrlopt_Array();
+            output_Ctrlopt = energyCalculation.ctrlopt_Array(product);
 
             //设备效率
             double[] outPut_Etacal = new double[3];
-            outPut_Etacal = energyCalculation.etacal();
+            outPut_Etacal = energyCalculation.etacal(product);
+
+            //写入模拟数据文件
+            //energyCalculation.dataWriteToSimulatedData(output_Ctrlopt, filePath_SimulatedData);
 
             this.Dispatcher.Invoke(new Action(() =>
             {

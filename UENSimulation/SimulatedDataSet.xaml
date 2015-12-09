@@ -58,10 +58,10 @@
 
                 <ComboBox Grid.Row="1" Grid.Column="0" Name="charge_HA" Width="60" Height="30" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,15,0">
                     <ComboBoxItem>
-                        <TextBlock>- 1</TextBlock>
+                        <TextBlock>-1</TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <TextBlock>+1</TextBlock>
+                        <TextBlock>1</TextBlock>
                     </ComboBoxItem>
                 </ComboBox>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="0" Name="h_HA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5,15,0" DecimalPlaces="2"/>
@@ -69,10 +69,10 @@
 
                 <ComboBox Grid.Row="1" Grid.Column="1" Name="charge_EA" Width="60" Height="30" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,15,0">
                     <ComboBoxItem>
-                        <TextBlock>- 1</TextBlock>
+                        <TextBlock>-1</TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <TextBlock>+1</TextBlock>
+                        <TextBlock>1</TextBlock>
                     </ComboBoxItem>
                 </ComboBox>
                 <talex:NumericUpDown Grid.Row="2" Grid.Column="1" Name="duration_EA" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" DecimalPlaces="2"/>

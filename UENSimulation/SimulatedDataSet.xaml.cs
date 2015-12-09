@@ -53,7 +53,9 @@ namespace UENSimulation
             string[] dataRead = txt_Handle.dataRead(dataFilePath);
 
             charge_HA.Text = dataRead[0];
-            h_HA.Value = Convert.ToDecimal(dataRead[1]);
+
+            double h_HA_Double = Convert.ToDouble(dataRead[1]);
+            h_HA.Value = Convert.ToDecimal(System.Math.Abs(h_HA_Double));
             savedH_HA.Value = Convert.ToDecimal(dataRead[2]);
 
             charge_EA.Text = dataRead[3];
