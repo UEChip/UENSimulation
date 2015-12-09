@@ -605,7 +605,7 @@
             </Border>
         </Grid>
         <StackPanel HorizontalAlignment="Left" Height="71" Margin="0,10,0,0" VerticalAlignment="Top" Width="1768">
-            <Label Content="泛能芯家庭能源管理模拟验证平台" Height="71" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" FontFamily="NSimSun"/>
+            <Label Content="家庭泛能网模拟测试平台" Height="71" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" FontFamily="NSimSun"/>
         </StackPanel>
 
     </Grid>
