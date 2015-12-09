@@ -409,6 +409,9 @@ namespace UENSimulation
             SelectedPath();
             TextCollapsed();
             SetConfigstr(_configstr3);
+            num_h = 0;
+            num_hc = 0;
+            RemoveChart();
             IntialChart();
             StartMoveDX();
         }
@@ -445,8 +448,8 @@ namespace UENSimulation
             InvokeAl(null, null);
             timer = new System.Timers.Timer(mstime);
             timer2 = new System.Timers.Timer(mstime);
-            timer.Elapsed += new ElapsedEventHandler(InvokeAl);
-            timer2.Elapsed += new ElapsedEventHandler(MoveTeam);
+            timer.Elapsed += new ElapsedEventHandler(MoveTeam);
+            timer2.Elapsed += new ElapsedEventHandler(InvokeAl);
             timer.Start();
             timer2.Start();
         }
@@ -477,7 +480,7 @@ namespace UENSimulation
                    txthandle.dataWrite(filePath_EnergyNeed, zstr);
                    dataCalculationdx = new Thread(new ThreadStart(dataFromEnergyCalculation));
                    dataCalculationdx.Start();
-                   num_h += 1;
+                       num_h += 1;
                }
                else
                {
@@ -845,7 +848,7 @@ namespace UENSimulation
             this.zgrid.Children.Add(cl_ph);
             //输出热水
             DataPoints_PHW = new DataPointCollection();
-            cl_phw = new ChartLineUC(DataPoints_PHW, "输出热水(W)", "输出热数据");
+            cl_phw = new ChartLineUC(DataPoints_PHW, "输出热水(W)", "输出热水数据");
             cl_phw.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_phw);
 
@@ -858,6 +861,57 @@ namespace UENSimulation
             cl_fnwg = new ChartLineUC(ListDataPoints, zstr, "能耗需求数据");
             cl_fnwg.Visibility = System.Windows.Visibility.Hidden;
             this.zgrid.Children.Add(cl_fnwg);
+        }
+
+        //清除grid内的chart，恢复初始状态
+        private void RemoveChart()
+        {
+            if (cl_fnwg != null)
+            {
+                this.zgrid.Children.Remove(cl_fnwg);
+                cl_fnwg = null;
+            }
+            if (cl_phw != null)
+            {
+                this.zgrid.Children.Remove(cl_phw);
+                cl_phw = null;
+            }
+            if (cl_ph != null)
+            {
+                this.zgrid.Children.Remove(cl_ph);
+                cl_ph = null;
+            }
+            if (cl_pe != null)
+            {
+                this.zgrid.Children.Remove(cl_pe);
+                cl_pe = null;
+            }
+            if (cl_sg != null)
+            {
+                this.zgrid.Children.Remove(cl_sg);
+                cl_sg = null;
+            }
+            if (cl_sh != null)
+            {
+                this.zgrid.Children.Remove(cl_sh);
+                cl_sh = null;
+            }
+            if (cl_se != null)
+            {
+                this.zgrid.Children.Remove(cl_se);
+                cl_se = null;
+            }
+            if (cl_yh != null)
+            {
+                this.zgrid.Children.Remove(cl_yh);
+                cl_yh = null;
+            }
+            if (cl_ye != null)
+            {
+                this.zgrid.Children.Remove(cl_ye);
+                cl_ye = null;
+            }
+            
         }
         #endregion
         #endregion
@@ -894,6 +948,7 @@ namespace UENSimulation
             us.Show();
         }
 
+        int num_hc = 0;
         //主页面计算泛能机相关的输入输出数据
         private void dataFromEnergyCalculation()
         {
@@ -942,7 +997,6 @@ namespace UENSimulation
                 gear_UE.Content = output_Ctrlopt[12].ToString();
                 gasboiler_Gear.Content = output_Ctrlopt[13].ToString();
 
-                String axisLabel = num_h + "时";
                 //额外的电和热
                 outsideE.Content = "电： " + Convert.ToDouble(output_Ctrlopt[10]).ToString("0.00") + " kW";
                 outsideH.Content = "热： " + Convert.ToDouble(output_Ctrlopt[11]).ToString("0.00") + " kW";
@@ -962,6 +1016,7 @@ namespace UENSimulation
                 efficiency_E_gasboiler.Content = (outPut_Etacal[2] * 100).ToString("0.00") + "%";
                 if (bflag)
                 {
+                    String axisLabel = num_hc + "时";
                     DataPoints_SE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[10].ToString()) });
                     DataPoints_SH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse(output_Ctrlopt[11].ToString()) });
                     DataPoints_SG.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = double.Parse((output_UEMachine[2] + output_GasBoiler[1]).ToString()) });
@@ -970,6 +1025,7 @@ namespace UENSimulation
                     DataPoints_PHW.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = energyCalculation.EnergyNeed.HotWater_Need });
                     DataPoints_YE.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
                     DataPoints_YH.Add(new DataPoint() { AxisXLabel = axisLabel, YValue = 0 });
+                    num_hc += 1;
                 }
 
                 string str1 = outsideE.Content.ToString().TrimStart('电').TrimStart('：').TrimEnd('W').TrimEnd('k').Trim();
