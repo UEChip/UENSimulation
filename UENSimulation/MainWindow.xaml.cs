@@ -106,7 +106,7 @@ namespace UENSimulation
                 if (str.Equals("path_10") || str.Equals("path_12") || str.Equals("path_15"))
                 {
                     p.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
-                    pj.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
+                    pj.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0DA4DC"));
                 }
                 else if (str.Equals("path_11") || str.Equals("path_13") || str.Equals("path_16") || str.Equals("path_17"))
                 {
