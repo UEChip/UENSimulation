@@ -420,14 +420,39 @@ namespace UENSimulation.Utility
             needStruct.SetField(need[2], energyNeed.Mode);
 
             //能源价格参数
+            double price_E = 0.55;
+            double price_H = 0.16;
+            double price_G = 0.24;
+
+            double mode = energyNeed.Mode;
+
+            if (mode == 1)
+            {
+                price_E = 0.55;
+                price_H = 0.16;
+                price_G = 2.24;
+            }
+            else if (mode == 2)
+            {
+                price_E = 1;
+                price_H = 0.28;
+                price_G = 9.78;
+            }
+            else if (mode == 4)
+            {
+                price_E = 0.1384;
+                price_H = 0.0398;
+                price_G = 0.8218;
+            }
+
             string[] price = new string[3];
             price[0] = "E";
             price[1] = "H";
             price[2] = "G";
             MWStructArray priceStruct = new MWStructArray(1, 1, price);
-            priceStruct.SetField(price[0], simulatedData.Price_E);
-            priceStruct.SetField(price[1], simulatedData.Price_H);
-            priceStruct.SetField(price[2], simulatedData.Price_G);
+            priceStruct.SetField(price[0], price_E);
+            priceStruct.SetField(price[1], price_H);
+            priceStruct.SetField(price[2], price_G);
 
             //参数封装格式定义
             MWStructArray[] data_pv_pack = pv_pack();

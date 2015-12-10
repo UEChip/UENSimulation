@@ -561,8 +561,8 @@ namespace UENSimulation
             EquControl ec = new EquControl();
             ec._btClick += new BTClick(btClick);
             ec._manualControl += new ManualControl(dataFromEnergyCalculation);
-            Thread dataCalculation = new Thread(new ThreadStart(ec._manualControl));
-            dataCalculation.Start();
+            //Thread dataCalculation = new Thread(new ThreadStart(ec._manualControl));
+            //dataCalculation.Start();
             ec.Show();
         }
 

@@ -93,20 +93,32 @@
             </Grid>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Width="1358" Height="265" VerticalAlignment="Top" Margin="0,410,0,0">
-            <Border Width="1200" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,0,0,0">
-                <StackPanel Width="1200" Height="60">
+            <Border Width="1350" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFFFF2CC" Margin="0,0,0,0">
+                <StackPanel Width="1350" Height="60">
                     <Grid>
                         <Label Width="240" Height="60" Content="能源价格配置：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="30" Margin="10,0,0,10"/>
                         <Label Width="60" Height="60" Content="电：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="250,0,0,10"/>
-                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="400,0,0,10"/>
-                        <Label Width="60" Height="60" Content="热：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="600,0,0,10"/>
-                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="750,0,0,10"/>
-                        <Label Width="60" Height="60" Content="气：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="950,0,0,10"/>
-                        <Label Width="80" Height="60" Content="元/m³" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="1100,0,0,10"/>
+                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="360,0,0,10"/>
+                        <Label Width="60" Height="60" Content="热：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="500,0,0,10"/>
+                        <Label Width="100" Height="60" Content="元/kWh" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="610,0,0,10"/>
+                        <Label Width="60" Height="60" Content="气：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="750,0,0,10"/>
+                        <Label Width="80" Height="60" Content="元/m³" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="860,0,0,10"/>
+                        <Label Width="80" Height="60" Content="模式：" VerticalAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontSize="25" Margin="1000,0,0,10"/>
 
-                        <talex:NumericUpDown Name="price_E" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="330,0,0,0" DecimalPlaces="2"/>
-                        <talex:NumericUpDown Name="price_H" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="680,0,0,0" DecimalPlaces="2"/>
-                        <talex:NumericUpDown Name="price_G" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1030,0,0,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_E" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="300,0,0,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_H" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="550,0,0,0" DecimalPlaces="2"/>
+                        <talex:NumericUpDown Name="price_G" Width="60" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="800,0,0,0" DecimalPlaces="2"/>
+                        <ComboBox Name="Mode" Width="200" Height="30" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1100,-10,0,0">
+                            <ComboBoxItem>
+                                <TextBlock>经济</TextBlock>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock>节能</TextBlock>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock>经济+节能</TextBlock>
+                            </ComboBoxItem>
+                        </ComboBox>
                     </Grid>
                 </StackPanel>
             </Border>

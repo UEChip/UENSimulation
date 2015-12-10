@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\obj\Debug\
+E:\Work\Projects\UENSimulation\UENSimulation\obj\Debug\
 UENSimulation
 none
 false
 DEBUG;TRACE
-C:\Users\tanjidong\Documents\GitHub\UENSimulation\UENSimulation\App.xaml
+E:\Work\Projects\UENSimulation\UENSimulation\App.xaml
 20787305379
 
-40-693345449
-20-1796815632
+40-878927760
+20976157261
 CloudService.xaml;EquipmentParameterSet.xaml;FamilyInformation.xaml;Gateway.xaml;MainWindow.xaml;Port.xaml;SimulatedDataSet.xaml;UEMSystem.xaml;UserControls\ChartLineUC.xaml;UserControls\ChartLineYearUC.xaml;UserControls\LeftRightUC.xaml;UserControls\MyCheckUC.xaml;UserControls\OptionSelectUC.xaml;UserControls\SceneUC.xaml;UserControls\SetValueUC.xaml;UserControls\SwitchUC.xaml;Windows\EquControl.xaml;Windows\SceneConfig.xaml;Windows\SceneSet.xaml;Windows\YearDayShow.xaml;
 
 False
