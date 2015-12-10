@@ -1,7 +1,7 @@
 ﻿<Window x:Class="UENSimulation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="模拟验证平台" Height="1080" Width="1920" Left="1366" Top="0" Closing="Window_Closing">
+        Title="家庭泛能网算法测试平台" Height="1080" Width="1920" Left="1366" Top="0" Closing="Window_Closing">
     <Grid Name="zgrid">
         <Image Name="xxx" Margin="-170,-158,0,0" Panel.ZIndex="0" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="#FFB9C9E4">
             <Image.Source>
