@@ -428,9 +428,9 @@ namespace UENSimulation.Utility
 
             if (mode == 1)
             {
-                price_E = 0.55;
-                price_H = 0.16;
-                price_G = 2.24;
+                price_E = simulatedData.Price_E;
+                price_H = simulatedData.Price_H;
+                price_G = simulatedData.Price_G;
             }
             else if (mode == 2)
             {
